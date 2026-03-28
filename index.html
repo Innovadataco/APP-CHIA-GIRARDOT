@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITS · Corredor Chía–Girardot · Sistema Interactivo</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070b10;--panel:#0d1420;--panel2:#121c2e;--panel3:#172035;
+  --border:#1c2d45;--border2:#243a5e;
+  --accent:#f06a25;--accent2:#fbbf24;--blue:#3b8beb;--green:#22c55e;
+  --purple:#a855f7;--red:#ef4444;--teal:#14b8a6;
+  --text:#dde6f2;--muted:#5a7a9a;--muted2:#8fa3bb;
+  --nav:240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;display:flex;min-height:100vh;overflow-x:hidden}
+
+/* ── NAV ── */
+.nav{width:var(--nav);min-width:var(--nav);background:var(--panel);border-right:1px solid var(--border);
+  position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:200;overflow-y:auto}
+.nav::-webkit-scrollbar{width:3px}.nav::-webkit-scrollbar-thumb{background:var(--border2)}
+.nav-logo{padding:20px 18px 16px;border-bottom:1px solid var(--border)}
+.nl-badge{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;display:block}
+.nl-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;line-height:1.2;color:var(--text)}
+.nl-title span{color:var(--accent)}
+.nl-meta{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:5px;line-height:1.7}
+.nav-grp{padding:8px 0}
+.nav-grp-title{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;padding:5px 18px 3px}
+.nav-item{display:flex;align-items:center;gap:8px;padding:7px 18px;font-size:12px;font-weight:500;
+  color:var(--muted2);cursor:pointer;transition:all .15s;border-left:2px solid transparent;user-select:none}
+.nav-item:hover{color:var(--text);background:rgba(240,106,37,.06);border-left-color:var(--accent)}
+.nav-item.active{color:var(--accent);background:rgba(240,106,37,.12);border-left-color:var(--accent)}
+.nav-item .ni{font-size:13px;min-width:16px}
+.nav-item .n-badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:8px;
+  background:var(--panel2);border:1px solid var(--border);padding:1px 5px;border-radius:2px;color:var(--muted)}
+.nav-item.active .n-badge{background:rgba(240,106,37,.2);border-color:var(--accent);color:var(--accent)}
+.nav-eov-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;padding:4px 12px 8px}
+.nav-eov-btn{background:var(--panel2);border:1px solid var(--border);padding:5px 4px;text-align:center;
+  cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2)}
+.nav-eov-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(240,106,37,.08)}
+.nav-eov-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.nav-bottom{margin-top:auto;padding:12px 18px;border-top:1px solid var(--border);
+  font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);line-height:1.8}
+
+/* ── MAIN ── */
+.main{margin-left:var(--nav);flex:1;min-height:100vh}
+.section{display:none;animation:fin .3s ease}
+.section.active{display:block}
+@keyframes fin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── PAGE HEADER ── */
+.ph{background:var(--panel);border-bottom:1px solid var(--border);padding:22px 40px 18px;position:sticky;top:0;z-index:100}
+.ph-ey{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:5px}
+.ph h2{font-family:'Syne',sans-serif;font-size:24px;font-weight:800}
+.ph-sub{font-size:11px;color:var(--muted2);margin-top:3px}
+
+/* ── CONTENT ── */
+.cnt{padding:28px 40px}
+
+/* ── KPI STRIP ── */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);margin-bottom:24px}
+.kpi-box{background:var(--panel);padding:18px 16px}
+.kv{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;line-height:1;color:var(--text)}
+.kv span{color:var(--accent);font-size:18px}
+.kl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:5px}
+
+/* ── EOV CARD GRID ── */
+.eov-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.eov-card{background:var(--panel);border:1px solid var(--border);padding:14px 12px;cursor:pointer;
+  transition:all .2s;position:relative;border-top:3px solid var(--border)}
+.eov-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.eov-card.tp{border-top-color:var(--accent)}
+.eov-card.tc{border-top-color:var(--green)}
+.eov-card.tf{border-top-color:var(--purple)}
+.eov-card .ec-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);margin-bottom:6px;letter-spacing:1px}
+.eov-card .ec-ico{font-size:22px;margin-bottom:7px;display:block}
+.eov-card h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;line-height:1.25;margin-bottom:6px}
+.eov-card .ec-tag{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 6px;border-radius:2px;font-weight:600}
+.eov-card .ec-tag.tp{background:rgba(240,106,37,.15);color:var(--accent);border:1px solid rgba(240,106,37,.3)}
+.eov-card .ec-tag.tc{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.3)}
+.eov-card .ec-tag.tf{background:rgba(168,85,247,.1);color:var(--purple);border:1px solid rgba(168,85,247,.3)}
+
+/* ── EOV DETAIL ── */
+.eov-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.eov-info-card{background:var(--panel);border:1px solid var(--border);padding:20px}
+.eov-info-card h5{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:12px;
+  padding-bottom:8px;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.5px}
+.eov-kv{display:flex;gap:0;margin-bottom:6px;font-size:11.5px}
+.eov-kv .ek{color:var(--muted2);min-width:140px;font-weight:500;font-size:11px}
+.eov-kv .ev{color:var(--text);flex:1;line-height:1.45}
+
+/* flow levels */
+.flow-wrap{display:flex;flex-direction:column;gap:3px;margin-top:4px}
+.flow-level{display:flex;align-items:stretch;gap:0;overflow:hidden;border:1px solid var(--border)}
+.flow-lnum{width:44px;min-width:44px;display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff}
+.flow-lbody{flex:1;padding:10px 14px;background:var(--panel)}
+.flow-lbody .fl-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.flow-lbody .fl-val{font-size:11.5px;color:var(--text);line-height:1.4}
+.fl1 .flow-lnum{background:var(--accent)}.fl2 .flow-lnum{background:#d97706}.fl3 .flow-lnum{background:var(--blue)}
+.fl4 .flow-lnum{background:#7c3aed}.fl5 .flow-lnum{background:var(--green)}
+.flow-arr{text-align:center;color:var(--muted);font-size:12px;padding:1px 0}
+
+/* pills */
+.pill-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.pill{font-family:'JetBrains Mono',monospace;font-size:9px;padding:3px 8px;
+  background:var(--panel2);border:1px solid var(--border);color:var(--muted2);border-radius:2px}
+
+/* alert / kpi rows */
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}
+.mini-card{background:var(--panel2);border:1px solid var(--border);padding:10px;border-radius:2px}
+.mini-card .mc-lbl{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.mini-card .mc-val{font-size:11px;color:var(--text);line-height:1.4}
+.mini-card.alert-card{border-left:3px solid var(--red)}
+.mini-card.kpi-card{border-left:3px solid var(--green)}
+.mini-card.cont-card{border-left:3px solid var(--blue)}
+.mini-card.evol-card{border-left:3px solid var(--purple)}
+
+/* ── TABLE SECTION ── */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:3px;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+thead tr{background:var(--panel2)}
+th{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--muted2);padding:10px 14px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--border)}
+tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
+tbody tr:hover{background:rgba(240,106,37,.05)}
+tbody tr:last-child{border-bottom:none}
+td{padding:10px 14px;vertical-align:top;line-height:1.45}
+td.cod{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);white-space:nowrap;font-weight:600;width:80px}
+td.name{font-weight:600;color:var(--text);min-width:160px}
+td.desc{color:var(--muted2);font-size:11px;font-weight:300;max-width:400px}
+td.cap{color:var(--muted2);font-size:11px;font-weight:300;max-width:360px}
+
+/* tab buttons */
+.tabs{display:flex;gap:3px;margin-bottom:16px;flex-wrap:wrap}
+.tab-btn{background:var(--panel);border:1px solid var(--border);color:var(--muted2);
+  padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;
+  text-transform:uppercase;cursor:pointer;transition:all .15s;border-radius:2px}
+.tab-btn:hover{border-color:var(--border2);color:var(--text)}
+.tab-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* search */
+.search-row{display:flex;gap:8px;margin-bottom:14px;align-items:center}
+.s-inp{flex:1;background:var(--panel);border:1px solid var(--border);color:var(--text);
+  padding:9px 14px;font-family:'Inter',sans-serif;font-size:12px;outline:none;transition:border-color .15s;border-radius:2px}
+.s-inp:focus{border-color:var(--accent)}
+.s-inp::placeholder{color:var(--muted)}
+.s-count{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap}
+
+/* ── HERO HOME ── */
+.hero-home{background:linear-gradient(135deg,#070b10,#0f1a2e 60%,#081525);
+  padding:40px 40px 48px;position:relative;overflow:hidden}
+.hero-home::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(240,106,37,.1),transparent 70%);pointer-events:none}
+.hero-home::after{content:'ITS';position:absolute;right:-30px;bottom:-40px;
+  font-family:'Syne',sans-serif;font-size:240px;font-weight:800;color:rgba(255,255,255,.025);line-height:1;pointer-events:none}
+.h-ey{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;
+  font-size:9px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+.h-ey::before{content:'';display:block;width:20px;height:1px;background:var(--accent)}
+.home-h1{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;line-height:.95;margin-bottom:8px}
+.home-h1 em{font-style:normal;color:var(--accent)}
+.home-sub{font-size:12px;color:var(--muted2);max-width:500px;line-height:1.7;margin-bottom:36px;font-weight:300}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.q-card{background:var(--panel);border:1px solid var(--border);padding:18px;cursor:pointer;
+  transition:all .2s;position:relative;overflow:hidden}
+.q-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .2s}
+.q-card:hover::before{transform:scaleX(1)}
+.q-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.q-ico{font-size:24px;margin-bottom:8px;display:block}
+.q-card h3{font-family:'Syne',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:4px}
+.q-card p{font-size:11px;color:var(--muted2);line-height:1.5;font-weight:300}
+.q-arr{position:absolute;bottom:14px;right:14px;color:var(--muted);font-size:14px;transition:all .15s}
+.q-card:hover .q-arr{color:var(--accent);transform:translateX(3px)}
+
+/* section row */
+.row-div{display:flex;align-items:center;gap:12px;margin:22px 0 14px}
+.row-div h3{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;white-space:nowrap;text-transform:uppercase;letter-spacing:.5px}
+.row-div::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* back button */
+.back-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;
+  background:var(--panel);border:1px solid var(--border);color:var(--muted2);
+  font-family:'JetBrains Mono',monospace;font-size:10px;cursor:pointer;
+  transition:all .15s;margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
+.back-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* badge chips */
+.ch{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 7px;
+  border-radius:2px;font-weight:600;display:inline-block;margin:2px}
+.ch-p{background:rgba(240,106,37,.15);color:var(--accent);border:1px solid rgba(240,106,37,.3)}
+.ch-c{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.3)}
+.ch-f{background:rgba(168,85,247,.1);color:var(--purple);border:1px solid rgba(168,85,247,.3)}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<nav class="nav">
+  <div class="nav-logo">
+    <span class="nl-badge">ITS · Corredor Vial · 5G</span>
+    <div class="nl-title">Chía <span>—</span> Girardot</div>
+    <div class="nl-meta">Entregable #1 · V00 · Mar 2026<br>ICCU / IFC · FC0CMG</div>
+  </div>
+
+  <div class="nav-grp">
+    <div class="nav-grp-title">Inicio</div>
+    <div class="nav-item active" onclick="go('home')"><span class="ni">🏠</span>Panel Principal</div>
+  </div>
+
+  <div class="nav-grp">
+    <div class="nav-grp-title">Escenarios EOV</div>
+    <div class="nav-item" onclick="go('eov-list')"><span class="ni">🎯</span>Vista General <span class="n-badge">15</span></div>
+    <div class="nav-eov-grid" id="nav-eov-grid"></div>
+  </div>
+
+  <div class="nav-grp">
+    <div class="nav-grp-title">Matriz ITS</div>
+    <div class="nav-item" onclick="go('mat-dom')"><span class="ni">🏗️</span>Dominios ITS <span class="n-badge">6</span></div>
+    <div class="nav-item" onclick="go('mat-as')"><span class="ni">🔲</span>Áreas de Servicio <span class="n-badge">12</span></div>
+    <div class="nav-item" onclick="go('mat-se')"><span class="ni">⚙️</span>Servicios Estratégicos <span class="n-badge">11</span></div>
+    <div class="nav-item" onclick="go('mat-sub')"><span class="ni">🖥️</span>Subsistemas <span class="n-badge">12</span></div>
+    <div class="nav-item" onclick="go('mat-fn')"><span class="ni">🔧</span>Funciones Técnicas <span class="n-badge">122+</span></div>
+    <div class="nav-item" onclick="go('mat-cc')"><span class="ni">📡</span>Componentes de Campo <span class="n-badge">42+</span></div>
+  </div>
+
+  <div class="nav-bottom">
+    Cliente: IFC · Supervisor: ICCU<br>
+    Ref: FC0CMG · Res. 28675/2022<br>
+    Concesión 5G · Brownfield 306 km
+  </div>
+</nav>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<main class="main">
+
+<!-- ── HOME ── -->
+<div id="sec-home" class="section active">
+  <div class="hero-home">
+    <div class="h-ey">Entregable #1 · Estructuración Técnica ITS · Concesión 5G · Marzo 2026</div>
+    <h1 class="home-h1">Sistemas <em>Inteligentes</em><br>de Transporte<br><em>Chía — Girardot</em></h1>
+    <p class="home-sub">306 km de infraestructura crítica · 40,000 veh/día · Corredor Brownfield de Quinta Generación<br>Supervisión ICCU · Estándares ANI · ISO 14813 · ARC-IT · PMITS Res. 28675/2022</p>
+    <div class="kpi-strip" style="margin-bottom:28px">
+      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="306">0</span><span>km</span></div><div class="kl">Extensión total corredor</div></div>
+      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="15">0</span></div><div class="kl">Escenarios EOV</div></div>
+      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="42">0</span><span>+</span></div><div class="kl">Componentes de campo</div></div>
+      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="122">0</span><span>+</span></div><div class="kl">Funciones técnicas ITS</div></div>
+    </div>
+    <div class="quick-grid">
+      <div class="q-card" onclick="go('eov-list')"><span class="q-ico">🎯</span><h3>15 Escenarios EOV</h3><p>Detalle completo de cada Escenario Operativo de Validación con flujo, KPIs, alertas y evolución tecnológica.</p><span class="q-arr">→</span></div>
+      <div class="q-card" onclick="go('mat-cc')"><span class="q-ico">📡</span><h3>Componentes de Campo</h3><p>42+ dispositivos ITS: CCTV, WIM, ALPR, RSU, VMS, ESS, ETC, SPD y más con capacidades operativas.</p><span class="q-arr">→</span></div>
+      <div class="q-card" onclick="go('mat-fn')"><span class="q-ico">🔧</span><h3>Funciones Técnicas</h3><p>Catálogo completo de 122+ funciones técnicas del PMITS con descripciones oficiales Res. 28675/2022.</p><span class="q-arr">→</span></div>
+      <div class="q-card" onclick="go('mat-dom')"><span class="q-ico">🏗️</span><h3>Dominios ITS</h3><p>6 dominios funcionales y 12 áreas de servicio que estructuran la arquitectura del corredor.</p><span class="q-arr">→</span></div>
+      <div class="q-card" onclick="go('mat-sub')"><span class="q-ico">🖥️</span><h3>Subsistemas ITS</h3><p>TMS, TIS, EMS, VMS, EFC, AMS, CVO, TES, ESS-M, ESB, BIM-DT, NMS.</p><span class="q-arr">→</span></div>
+      <div class="q-card" onclick="go('mat-se')"><span class="q-ico">⚙️</span><h3>Servicios Estratégicos</h3><p>11 servicios estratégicos: 6 prioritarios PMITS + 5 complementarios ISO 14813.</p><span class="q-arr">→</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── EOV LIST ── -->
+<div id="sec-eov-list" class="section">
+  <div class="ph"><div class="ph-ey">ConOps · Metodología en V · Res. 28675/2022</div>
+    <h2>15 Escenarios Operativos de Validación (EOV)</h2>
+    <div class="ph-sub">Haz clic en cualquier EOV para ver el detalle completo extraído del archivo EVO_TOTAL.xlsx</div>
+  </div>
+  <div class="cnt">
+    <div class="kpi-strip">
+      <div class="kpi-box"><div class="kv">9</div><div class="kl">Prioritarios PMITS</div></div>
+      <div class="kpi-box"><div class="kv" style="color:var(--green)">3</div><div class="kl">Complementarios</div></div>
+      <div class="kpi-box"><div class="kv" style="color:var(--purple)">3</div><div class="kl">Futuros</div></div>
+      <div class="kpi-box"><div class="kv">5</div><div class="kl">KPIs por EOV</div></div>
+    </div>
+    <div class="eov-cards" id="eov-cards-home"></div>
+  </div>
+</div>
+
+<!-- ── EOV DETAIL ── -->
+<div id="sec-eov-detail" class="section">
+  <div class="ph" id="eov-detail-ph">
+    <div class="ph-ey">Escenario Operativo de Validación</div>
+    <h2 id="eov-d-title">–</h2>
+    <div class="ph-sub" id="eov-d-sub">–</div>
+  </div>
+  <div class="cnt" id="eov-d-body"></div>
+</div>
+
+<!-- ── MATRIZ: DOMINIOS ── -->
+<div id="sec-mat-dom" class="section">
+  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura</div><h2>Dominios ITS</h2></div>
+  <div class="cnt">
+    <div class="search-row"><input class="s-inp" placeholder="Buscar dominio..." oninput="filterTable('dom-tbl',this.value)"><span class="s-count" id="dom-cnt"></span></div>
+    <div class="tbl-wrap"><table id="dom-tbl">
+      <thead><tr><th>Código</th><th>Dominio ITS</th><th>Descripción del Ámbito</th></tr></thead>
+      <tbody id="dom-body"></tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ── MATRIZ: ÁREAS SERVICIO ── -->
+<div id="sec-mat-as" class="section">
+  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura</div><h2>Áreas de Servicio (AS)</h2></div>
+  <div class="cnt">
+    <div class="search-row"><input class="s-inp" placeholder="Buscar área..." oninput="filterTable('as-tbl',this.value)"><span class="s-count" id="as-cnt"></span></div>
+    <div class="tbl-wrap"><table id="as-tbl">
+      <thead><tr><th>Código</th><th>Área de Servicio</th><th>Descripción</th></tr></thead>
+      <tbody id="as-body"></tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ── MATRIZ: SERVICIOS ESTRATÉGICOS ── -->
+<div id="sec-mat-se" class="section">
+  <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo</div><h2>Servicios Estratégicos ITS</h2></div>
+  <div class="cnt">
+    <div class="tabs" id="se-tabs">
+      <button class="tab-btn active" onclick="filterSE('all',this)">Todos</button>
+      <button class="tab-btn" onclick="filterSE('PMITS',this)">Prioritarios PMITS</button>
+      <button class="tab-btn" onclick="filterSE('ISO',this)">Complementarios ISO</button>
+    </div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar servicio..." oninput="filterTable('se-tbl',this.value)"><span class="s-count" id="se-cnt"></span></div>
+    <div class="tbl-wrap"><table id="se-tbl">
+      <thead><tr><th>Código</th><th>Servicio Estratégico ITS</th><th>Categoría</th></tr></thead>
+      <tbody id="se-body"></tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ── MATRIZ: SUBSISTEMAS ── -->
+<div id="sec-mat-sub" class="section">
+  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura Lógica</div><h2>Subsistemas ITS</h2></div>
+  <div class="cnt">
+    <div class="search-row"><input class="s-inp" placeholder="Buscar subsistema..." oninput="filterTable('sub-tbl',this.value)"><span class="s-count" id="sub-cnt"></span></div>
+    <div class="tbl-wrap"><table id="sub-tbl">
+      <thead><tr><th>Código</th><th>Sigla</th><th>Subsistema ITS</th><th>Función</th><th>Descripción Técnica</th></tr></thead>
+      <tbody id="sub-body"></tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ── MATRIZ: FUNCIONES ── -->
+<div id="sec-mat-fn" class="section">
+  <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo Funcional · PMITS Res. 28675/2022</div><h2>Funciones Técnicas ITS</h2></div>
+  <div class="cnt">
+    <div class="search-row"><input class="s-inp" placeholder="Buscar función..." oninput="filterTable('fn-tbl',this.value)"><span class="s-count" id="fn-cnt"></span></div>
+    <div class="tbl-wrap"><table id="fn-tbl">
+      <thead><tr><th>Código</th><th>Nombre de Función</th><th>Descripción</th></tr></thead>
+      <tbody id="fn-body"></tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ── MATRIZ: COMPONENTES ── -->
+<div id="sec-mat-cc" class="section">
+  <div class="ph"><div class="ph-ey">Matriz ITS · Capa Física · Componentes de Campo</div><h2>Componentes de Campo ITS</h2></div>
+  <div class="cnt">
+    <div class="search-row"><input class="s-inp" placeholder="Buscar componente..." oninput="filterTable('cc-tbl',this.value)"><span class="s-count" id="cc-cnt"></span></div>
+    <div class="tbl-wrap"><table id="cc-tbl">
+      <thead><tr><th>Código</th><th>Sigla</th><th>Componente de Campo</th><th>Capacidad Operativa Generada</th></tr></thead>
+      <tbody id="cc-body"></tbody>
+    </table></div>
+  </div>
+</div>
+
+</main>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   DATA — from EVO_TOTAL.xlsx and Matriz_ITS.xlsx
+══════════════════════════════════════════════════════ */
+
+const EOV = [
+  {id:'EOV-01',ico:'🛡️',type:'p',name:'Gestión de la Vida y Seguridad Vial',
+   ctx:'Monitoreo cinemático activo para prevenir fatalidades en tramos críticos.',mot:'Visión Cero fallecidos.',
+   que:'Ecosistema de vigilancia conductual con radares doppler.',para:'Inducir autorregulación de velocidad.',
+   donde:'Arteriales y Colectoras.',cuando:'24/7/365',just:'Supera la capacidad de vigilancia física policial.',
+   desp:'Radares SPD y cámaras ALPR.',beneficio:'Salvamento de vidas.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-02 Gestión de Emergencias',area:'AS-01 Gestión de Incidentes y Eventos',
+   sub:'SUB-04 VMS (Video Management System) - Gestión de Video',
+   se:'SE-ITS-4 Servicio de gestión de siniestros viales inesperados',
+   fn:'F-117 Retroalimentación Pedagógica de Velocidad / F-118 Gestión de Velocidad Media por Tramo',
+   cc:'CC-13 SPD (Radar Pedagógico) / CC-12 ALPR / LPR (Reconocimiento de Placas)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-13 SPD (Radar Pedagógico) y CC-12 ALPR / LPR',e4:'SUB-04 VMS (Video Management System) - Gestión de Video',
+   e3:'F-117 Retroalimentación Pedagógica de Velocidad',e2:'CCO',e1:'PESV',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN (Nodos de Gemelo Digital)',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-02',ico:'🚦',type:'p',name:'Gestión de Tráfico y Movilidad',
+   ctx:'Gestión de demanda en nodos logísticos.',mot:'Reducción de tiempos de viaje.',
+   que:'Orquestación de flujos con red neuronal de sensores.',para:'Monitorear LOS y desplegar estrategias.',
+   donde:'Nodos estratégicos.',cuando:'Permanente',just:'Gestión científica del tráfico.',
+   desp:'VDS y DMS.',beneficio:'Competitividad logística.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-01 Gestión de Tráfico',area:'AS-03 Operación de Tráfico y Movilidad',
+   sub:'SUB-01 TMS (Traffic Management System) - Gestión de Tráfico',
+   se:'SE-ITS-1 Servicio de suministro de información de tráfico',
+   fn:'F-01 Gestión de datos adicionales / F-02 Gestión de datos de tráfico integrado',
+   cc:'CC-05 VDS / TDS (Contadores de Tráfico) / CC-03 DMS / VMS (Mensajería Variable)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-05 VDS / TDS (Contadores de Tráfico)',e4:'SUB-01 TMS (Traffic Management System)',
+   e3:'F-02 Gestión de datos de tráfico integrado',e2:'CC-03 DMS / VMS (Mensajería Variable)',e1:'Eficiencia Vial',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-03',ico:'⚖️',type:'p',name:'Gestión de Carga y Pesaje (WIM)',
+   ctx:'Protección estructural contra sobrepesos dinámicos.',mot:'Preservar activos de alta inversión.',
+   que:'Pesaje dinámico sin interrupción de flujo.',para:'Identificar infractores y mantenimiento predictivo.',
+   donde:'Ingresos al corredor.',cuando:'24/7/365',just:'Prevención de daño prematuro del pavimento.',
+   desp:'CC-07 WIM.',beneficio:'Longevidad de la vía.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-01 Gestión de Tráfico',area:'AS-01 Gestión de Incidentes y Eventos',
+   sub:'SUB-01 TMS (Traffic Management System) - Gestión de Tráfico',
+   se:'SE-ITS-1 Servicio de suministro de información de tráfico',
+   fn:'F-47 Suministro de información para conductores / F-02 Gestión de datos de tráfico integrado',
+   cc:'CC-07 WIM (Pesaje Dinámico) / CC-12 ALPR / LPR (Reconocimiento de Placas)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-07 WIM (Pesaje Dinámico)',e4:'SUB-01 TMS (Traffic Management System)',
+   e3:'F-47 Suministro de información para conductores',e2:'CCO',e1:'Sostenibilidad de Activos',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-04',ico:'🌧️',type:'p',name:'Gestión de Resiliencia Climática',
+   ctx:'Operación ante niebla y lluvia intensa.',mot:'Garantizar autogestión ante riesgo ambiental.',
+   que:'Red IoT ambiental integrada.',para:'Cierres preventivos por riesgo hídrico.',
+   donde:'Zonas de montaña.',cuando:'Permanente',just:'Mitiga riesgo de incidentes masivos.',
+   desp:'ESS y WLS.',beneficio:'Conectividad segura bajo clima extremo.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-02 Gestión de Emergencias',area:'AS-01 Gestión de Incidentes y Eventos',
+   sub:'SUB-12 NMS (Network Management System) - Gestión de Red y Ciber',
+   se:'SE-ITS-4 Servicio de gestión de siniestros viales inesperados',
+   fn:'F-84 Filmación de vehículos que pasan / F-85 Comunicación con la estación',
+   cc:'CC-06 ESS / RWIS (Sensores Ambientales) / CC-10 WLS (Monitoreo Hídrico)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-06 ESS / RWIS (Sensores Ambientales)',e4:'SUB-12 NMS (Network Management System)',
+   e3:'F-84 Filmación de vehículos que pasan',e2:'CC-03 DMS / VMS (Mensajería Variable)',e1:'Resiliencia de Infraestructura',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-05',ico:'💳',type:'p',name:'Gestión de Peajes y Recaudo (ETC)',
+   ctx:'Flujo libre (Free Flow) interoperable.',mot:'Eliminar fricción en el cobro.',
+   que:'RFID e identificación visual.',para:'Procesamiento en milisegundos.',
+   donde:'Plazas de peaje.',cuando:'24/7/365',just:'Maximizar capacidad de paso.',
+   desp:'CC-11 ETC.',beneficio:'Fluidez total nacional.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-05 Recaudo y Pagos',area:'AS-04 Recaudo y Gestión de Peajes',
+   sub:'SUB-05 EFC (Electronic Fee Collection) - Recaudo Electrónico',
+   se:'SE-ITS-2 Pago electrónico vehicular de la tasa de peajes',
+   fn:'F-49 Producción y búsqueda de registros / F-50 Informe situación de eventos',
+   cc:'CC-11 AVI / ETC (Peajes Electrónicos) / CC-12 ALPR / LPR (Reconocimiento de Placas)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-11 AVI / ETC (Peajes Electrónicos)',e4:'SUB-01 TMS (Traffic Management System)',
+   e3:'F-049 Registros de operaciones integradas',e2:'CCO',e1:'Transparencia de Recaudo',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-06',ico:'🔒',type:'p',name:'Soberanía del Dato y Ciberseguridad',
+   ctx:'Blindaje digital de la infraestructura crítica.',mot:'Prevención de sabotajes y protección de datos.',
+   que:'Defensa Zero Trust.',para:'Mitigar ataques DDoS e intrusiones.',
+   donde:'Nodos de red.',cuando:'Permanente',just:'Seguridad de la información nacional.',
+   desp:'CC-21 CSG.',beneficio:'Infraestructura resiliente.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-04 Seguridad y Cumplimiento',area:'AS-12 Soberanía Digital',
+   sub:'SUB-06 AMS (Asset Management System) - Gestión de Infraestructura',
+   se:'SE-ITS-1 Servicio de suministro de información de tráfico',
+   fn:'F-120 Monitoreo de Redes / F-121 Orquestación de Integración de Datos (ESB)',
+   cc:'CC-21 CSG / IoT (Ciberseguridad e IoT) / CC-23 FOC (Conectividad de Fibra)',
+   std:'ISO/IEC 27001 / IEC 62443 / NIST CSF',cyber:'CC-21 CSG / IoT',
+   e5:'CC-21 CSG / IoT (Ciberseguridad e IoT)',e4:'SUB-06 AMS (Asset Management System)',
+   e3:'F-121 Orquestación de Integración de Datos (ESB)',e2:'CCO',e1:'Soberanía Digital',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-07',ico:'🔧',type:'p',name:'Gestión de Mantenimiento e Infraestructura',
+   ctx:'Salud estructural de puentes y túneles.',mot:'Mantenimiento predictivo basado en condición.',
+   que:'Telemetría SHM de alta resolución.',para:'Detectar fatiga estructural.',
+   donde:'Estructuras críticas.',cuando:'Permanente',just:'Protege inversión multimillonaria.',
+   desp:'Sensores de deformación.',beneficio:'Seguridad para viajeros.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-06 Gestión de Infraestructura',area:'AS-11 Infraestructura y Activos',
+   sub:'SUB-10 ESB (Enterprise Service Bus) - Bus de Integración',
+   se:'SE-ITS-9 Gestión de emergencias y desastres',
+   fn:'F-120 Monitoreo de Redes / F-122 Representación Visual en Gemelo Digital',
+   cc:'CC-08 GMS-I (Inclinometría Geotécnica) / CC-40 D-TWN (Nodos de Gemelo Digital)',
+   std:'ISO 55001 / ISO 19650 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-08 GMS-I (Inclinometría Geotécnica)',e4:'SUB-10 ESB (Enterprise Service Bus)',
+   e3:'F-122 Representación Visual en Gemelo Digital',e2:'CCO',e1:'Gestión de Activos',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-08',ico:'📡',type:'p',name:'Gestión de Continuidad y Resiliencia de Red',
+   ctx:'Comunicaciones indestructibles ante fallas físicas.',mot:'Evitar ceguera operativa.',
+   que:'Red redundante con respaldo satelital.',para:'Garantizar disponibilidad de servicios críticos.',
+   donde:'Troncal CCO.',cuando:'Permanente',just:'Soporte de todos los servicios PMITS.',
+   desp:'CC-23 y CC-42.',beneficio:'Resiliencia operacional total.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-04 Seguridad y Cumplimiento',area:'AS-12 Continuidad Operativa',
+   sub:'SUB-06 AMS (Asset Management System) - Gestión de Infraestructura',
+   se:'SE-ITS-1 Servicio de suministro de información de tráfico',
+   fn:'F-120 Monitoreo de Redes / F-121 Orquestación de Integración de Datos (ESB)',
+   cc:'CC-23 FOC (Conectividad de Fibra) / CC-42 SAT-B (Respaldo Satelital)',
+   std:'IEC 62443 / NIST CSF / ISO/IEC 27001',cyber:'CC-21 CSG / IoT',
+   e5:'CC-23 FOC (Conectividad de Fibra)',e4:'SUB-06 AMS (Asset Management System)',
+   e3:'F-121 Orquestación de Integración de Datos (ESB)',e2:'CCO',e1:'Conectividad Nacional',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-09',ico:'📷',type:'p',name:'Gestión de Fiscalización y Control',
+   ctx:'Apoyo tecnológico a policía vial (SOAT, Tecno).',mot:'Reducir impunidad vial.',
+   que:'Identificación masiva ALPR.',para:'Alertas sobre vehículos con pendientes legales.',
+   donde:'Entradas/Salidas del corredor.',cuando:'24/7/365',just:'Control inteligente basado en evidencia.',
+   desp:'CC-12 ALPR.',beneficio:'Seguridad ciudadana.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-05 Recaudo y Pagos',area:'AS-05 Seguridad Vial y Cumplimiento',
+   sub:'SUB-04 VMS (Video Management System) - Gestión de Video',
+   se:'SE-ITS-4 Servicio de gestión de siniestros viales inesperados',
+   fn:'F-042 Visualización "siniestros viales" / F-118 Gestión de Velocidad Media por Tramo',
+   cc:'CC-12 ALPR / LPR (Reconocimiento de Placas) / CC-01 CCTV (Vigilancia por Video)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-12 ALPR / LPR (Reconocimiento de Placas)',e4:'SUB-04 VMS (Video Management System)',
+   e3:'F-042 Visualización siniestros viales',e2:'CCO',e1:'Legalidad Vial',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-10',ico:'⚡',type:'c',name:'Gestión de Electromovilidad (EVCS)',
+   ctx:'Infraestructura para movilidad de cero emisiones.',mot:'Incentivar vehículos eléctricos.',
+   que:'Cargadores rápidos monitoreados.',para:'Eliminar ansiedad de rango.',
+   donde:'Áreas de Servicio.',cuando:'24/7/365',just:'Metas de descarbonización nacional.',
+   desp:'CC-16 EVCS.',beneficio:'Transporte sostenible.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-01 Gestión de Tráfico',area:'AS-05 Seguridad Vial y Cumplimiento',
+   sub:'SUB-03 EMS (Emergency Management System) - Gestión de Emergencias',
+   se:'SE-ITS-3 Servicio de suministro de información de transporte público',
+   fn:'F-120 Monitoreo de Redes / F-121 Orquestación de Integración de Datos (ESB)',
+   cc:'CC-16 EVCS (Electrolineras) / CC-39 MSG (Micro-Red Inteligente)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-16 EVCS (Electrolineras)',e4:'SUB-03 EMS (Emergency Management System)',
+   e3:'F-121 Orquestación de Integración de Datos (ESB)',e2:'Canales Digitales',e1:'Sostenibilidad Ambiental',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-11',ico:'💡',type:'c',name:'Telegestión y Eficiencia Energética',
+   ctx:'Gestión remota de iluminación dinámica.',mot:'Reducción de huella de carbono.',
+   que:'Nodos de telegestión inteligente.',para:'Optimizar consumo eléctrico.',
+   donde:'Túneles y Peajes.',cuando:'Gestión nocturna',just:'Sostenibilidad operativa.',
+   desp:'CC-29 SLP.',beneficio:'Ahorro energético nacional.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-06 Gestión de Infraestructura',area:'AS-11 Infraestructura y Activos',
+   sub:'SUB-10 ESB (Enterprise Service Bus) - Bus de Integración',
+   se:'SE-ITS-9 Gestión de emergencias y desastres',
+   fn:'F-120 Monitoreo de Redes / F-121 Orquestación de Integración de Datos (ESB)',
+   cc:'CC-29 SLP (Iluminación Solar) / CC-20 VIS / LGS (Gestión de Iluminación)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-29 SLP (Iluminación Solar)',e4:'SUB-10 ESB (Enterprise Service Bus)',
+   e3:'F-121 Orquestación de Integración de Datos (ESB)',e2:'CCO',e1:'Eco-Eficiencia',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-12',ico:'📶',type:'f',name:'Gestión de Conectividad V2X / I2V',
+   ctx:'Comunicación infraestructura-vehículo.',mot:'Conducción cooperativa segura.',
+   que:'Unidades de carretera RSU.',para:'Alertas directas a cabina del conductor.',
+   donde:'Zonas críticas del corredor.',cuando:'Permanente',just:'Elimina error humano de percepción.',
+   desp:'CC-26 RSU.',beneficio:'Reducción de colisiones.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-01 Gestión de Tráfico',area:'AS-03 Operación de Tráfico y Movilidad',
+   sub:'SUB-01 TMS (Traffic Management System) - Gestión de Tráfico',
+   se:'SE-ITS-1 Servicio de suministro de información de tráfico',
+   fn:'F-121 Orquestación de Integración de Datos (ESB) / F-02 Gestión de datos de tráfico integrado',
+   cc:'CC-26 RSU (Comunicación V2X) / CC-25 SME (Gestión de Medios Sociales)',
+   std:'IEEE 802.11p / C-V2X / ETSI ITS-G5',cyber:'CC-21 CSG / IoT',
+   e5:'CC-26 RSU (Comunicación V2X)',e4:'SUB-01 TMS (Traffic Management System)',
+   e3:'F-121 Orquestación de Integración de Datos (ESB)',e2:'Entorno Vehicular',e1:'Vanguardia Tecnológica',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-13',ico:'🤖',type:'f',name:'Gestión de Vehículos Autónomos',
+   ctx:'Soporte para autonomía Nivel 5.',mot:'Truck Platooning eficiente.',
+   que:'Mapas HD dinámicos.',para:'Coordinación de maniobras autónomas.',
+   donde:'Corredores exclusivos.',cuando:'Experimental/Asistida',just:'Optimiza espacio vial.',
+   desp:'CC-37 WDA.',beneficio:'Productividad logística.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-01 Gestión de Tráfico',area:'AS-01 Gestión de Incidentes y Eventos',
+   sub:'SUB-01 TMS (Traffic Management System) - Gestión de Tráfico',
+   se:'SE-ITS-1 Servicio de suministro de información de tráfico',
+   fn:'F-121 Orquestación de Integración de Datos (ESB) / F-122 Representación Visual en Gemelo Digital',
+   cc:'CC-26 RSU (Comunicación V2X) / CC-37 WDA (Detección de Fauna)',
+   std:'SAE J3016 / IEEE 802.11p / C-V2X',cyber:'CC-21 CSG / IoT',
+   e5:'CC-37 WDA (Detección de Fauna)',e4:'SUB-01 TMS (Traffic Management System)',
+   e3:'F-122 Representación Visual en Gemelo Digital',e2:'CCO',e1:'Movilidad del Futuro',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-14',ico:'📊',type:'c',name:'Economía del Dato y Monetización',
+   ctx:'Transformación de Big Data en activos.',mot:'Monetización de información refinada.',
+   que:'Data as a Service (DaaS).',para:'Proveer predicciones a terceros.',
+   donde:'Plataformas digitales.',cuando:'Real-time',just:'Sostenibilidad financiera adicional.',
+   desp:'CC-40 Gemelo Digital.',beneficio:'Fomento innovación nacional.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-04 Seguridad y Cumplimiento',area:'AS-12 Economía Digital',
+   sub:'SUB-06 AMS (Asset Management System) - Gestión de Infraestructura',
+   se:'SE-ITS-1 Servicio de suministro de información de tráfico',
+   fn:'F-121 Orquestación de Integración de Datos (ESB) / F-122 Representación Visual en Gemelo Digital',
+   cc:'CC-40 D-TWN (Nodos de Gemelo Digital) / CC-21 CSG / IoT (Ciberseguridad e IoT)',
+   std:'ISO 14813 / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-40 D-TWN (Nodos de Gemelo Digital)',e4:'SUB-06 AMS (Asset Management System)',
+   e3:'F-121 Orquestación de Integración de Datos (ESB)',e2:'Portales API',e1:'Sostenibilidad Financiera',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+  {id:'EOV-15',ico:'🌿',type:'f',name:'Autopista Net Zero y Sostenibilidad',
+   ctx:'Operación carbono neutral integrada.',mot:'Acción climática sector transporte.',
+   que:'Gestión ambiental Net Zero.',para:'Cuantificar ahorro de emisiones.',
+   donde:'Todo el corredor.',cuando:'Permanente',just:'Compromiso Acuerdo de París.',
+   desp:'CC-31 AQM.',beneficio:'Infraestructura Verde.',actores:'ANI, MT, DITRA, Concesión',
+   dominio:'DOM-06 Gestión de Infraestructura',area:'AS-11 Sostenibilidad Ambiental',
+   sub:'SUB-10 ESB (Enterprise Service Bus) - Bus de Integración',
+   se:'SE-ITS-9 Gestión de emergencias y desastres',
+   fn:'F-120 Monitoreo de Redes / F-084 Datos de condición ambiental',
+   cc:'CC-31 AQM (Calidad del Aire) / CC-39 MSG (Micro-Red Inteligente)',
+   std:'ISO 14064 / GHG Protocol / ARC-IT',cyber:'CC-21 CSG / IoT',
+   e5:'CC-31 AQM (Calidad del Aire)',e4:'SUB-10 ESB (Enterprise Service Bus)',
+   e3:'F-084 Datos de condición ambiental',e2:'Dashboard Ambiental',e1:'Meta Net Zero',
+   reflejo:'Monitoreo Real-Time',conciencia:'CC-40 D-TWN',estadio:'Gestión Proactiva',
+   alertas:['Alerta Nivel 1 (Meta: <30s)','Falla de componente (Meta: <1h)','Ciberataque (Meta: 0)','Desviación umbral','Error lógico'],
+   contingencia:['Energía: UPS / Solar','Fibra: Satelital','Vandalismo: Drones','Redundancia Lógica','Protocolo Manual'],
+   criterios:['Uptime >99.5%','Precisión >95%','Integración 100%','Latencia <500ms','QA Técnico 100%'],
+   evol:['IA Predictiva','Conectividad V2X','Gemelo Digital 3D','Autonomía Total','Blockchain Transaccional'],
+   kpis:['KPI Disponibilidad >99%','KPI Eficiencia >15%','KPI Calidad Dato >98%','KPI Seguridad 0 fallas','KPI Respuesta <1 min']},
+];
+
+const DOM=[
+  {cod:'DOM-01',name:'Gestión de Tráfico',desc:'Planificación, control y optimización del flujo vehicular y la capacidad vial.'},
+  {cod:'DOM-02',name:'Gestión de Emergencias',desc:'Coordinación de respuestas ante incidentes, siniestros y desastres en el corredor.'},
+  {cod:'DOM-03',name:'Información al Viajero',desc:'Suministro de datos para la toma de decisiones antes y durante el viaje.'},
+  {cod:'DOM-04',name:'Seguridad y Cumplimiento',desc:'Vigilancia normativa, control de infracciones y protección de la vida.'},
+  {cod:'DOM-05',name:'Recaudo y Pagos',desc:'Gestión de transacciones financieras por el uso de la infraestructura.'},
+  {cod:'DOM-06',name:'Gestión de Infraestructura',desc:'Monitoreo de la salud de activos físicos y condiciones ambientales.'},
+];
+const AS=[
+  {cod:'AS-01',name:'Gestión de Incidentes y Eventos',desc:'Capacidades de detección automática, validación y respuesta coordinada ante anomalías en la vía (accidentes, vehículos detenidos, obstáculos). Objetivo: minimizar el tiempo de despeje y prevenir siniestros secundarios.'},
+  {cod:'AS-02',name:'Información al Viajero',desc:'Difusión de datos dinámicos y alertas en tiempo real a través de canales directos (PMV) e indirectos (App, Web, APIs). Facilita la toma de decisiones informada del usuario durante su trayecto.'},
+  {cod:'AS-03',name:'Operación de Tráfico y Movilidad',desc:'Monitoreo constante del flujo vehicular, conteo, clasificación y medición de velocidades. Optimiza la capacidad operativa de la infraestructura y gestiona los niveles de servicio del corredor.'},
+  {cod:'AS-04',name:'Recaudo y Gestión de Peajes',desc:'Procesamiento de transacciones financieras manuales y electrónicas (Telepeaje). Gestiona la interoperabilidad, el paso por carriles y la auditoría de tráfico en estaciones de recaudo.'},
+  {cod:'AS-05',name:'Seguridad Vial y Cumplimiento',desc:'Control normativo y sancionatorio. Incluye foto-detección de infracciones (velocidad, giros) y pesaje dinámico (WIM) para proteger la integridad del pavimento y la seguridad de los usuarios.'},
+  {cod:'AS-06',name:'Mantenimiento y Clima',desc:'Monitoreo de variables meteorológicas adversas (niebla, lluvia, vientos) y salud de activos físicos. Permite gestión proactiva de la infraestructura basada en condiciones ambientales reales.'},
+  {cod:'AS-07',name:'Transporte Público',desc:'Gestión de operaciones de transporte masivo, puntualidad y coordinación intermodal.'},
+  {cod:'AS-08',name:'Carga y Logística',desc:'Administración de vehículos de carga, control de pesos y gestión de flotas comerciales.'},
+  {cod:'AS-09',name:'Fiscalización Vial',desc:'Control de infracciones, verificación documental (SOAT, tecno-mecánica) y cumplimiento de restricciones vehiculares.'},
+  {cod:'AS-10',name:'Gestión Multimodal',desc:'Integración de información de múltiples modos de transporte para planificación óptima de viaje.'},
+  {cod:'AS-11',name:'Infraestructura y Activos',desc:'Monitoreo de la salud estructural de puentes, túneles, taludes y pavimentos. Soporte al mantenimiento predictivo con telemetría SHM.'},
+  {cod:'AS-12',name:'Soberanía Digital y Continuidad',desc:'Gestión de ciberseguridad, continuidad operativa y gobernanza del dato como activo del Estado.'},
+];
+const SE=[
+  {cod:'SE-ITS-1',name:'Servicio de suministro de información de tráfico',cat:'Servicio ITS Prioritario (PMITS)'},
+  {cod:'SE-ITS-2',name:'Servicio de pago electrónico vehicular de la tasa de peajes',cat:'Servicio ITS Prioritario (PMITS)'},
+  {cod:'SE-ITS-3',name:'Servicio de suministro de información de transporte público',cat:'Servicio ITS Prioritario (PMITS)'},
+  {cod:'SE-ITS-4',name:'Servicio de gestión de siniestros viales inesperados',cat:'Servicio ITS Prioritario (PMITS)'},
+  {cod:'SE-ITS-5',name:'Servicio de control de infracción de exceso de velocidad',cat:'Servicio ITS Prioritario (PMITS)'},
+  {cod:'SE-ITS-6',name:'Servicio de apoyo a la administración de vehículos de carga',cat:'Servicio ITS Prioritario (PMITS)'},
+  {cod:'SE-ITS-7',name:'Monitoreo ambiental y meteorológico',cat:'Complementario ISO 14813'},
+  {cod:'SE-ITS-8',name:'Gestión de mantenimiento de la infraestructura',cat:'Complementario ISO 14813'},
+  {cod:'SE-ITS-9',name:'Gestión de emergencias y desastres',cat:'Complementario ISO 14813'},
+  {cod:'SE-ITS-10',name:'Gestión de la demanda de transporte',cat:'Complementario ISO 14813'},
+  {cod:'SE-ITS-11',name:'Información de viaje multimodal',cat:'Complementario ISO 14813'},
+];
+const SUB=[
+  {cod:'SUB-01',sigla:'TMS',name:'Traffic Management System',fn:'Gestión de Tráfico',desc:'Plataforma central para el monitoreo de flujos, niveles de servicio (LOS) y ejecución de planes de tráfico dinámicos.'},
+  {cod:'SUB-02',sigla:'TIS',name:'Traveler Information System',fn:'Suministro de Información',desc:'Difusión de contenidos hacia PMV y canales digitales con soporte multimodal (Peatones/Ciclistas).'},
+  {cod:'SUB-03',sigla:'EMS',name:'Emergency Management System',fn:'Gestión de Emergencias',desc:'Módulo de gestión de incidentes (IMS) que automatiza protocolos de respuesta y coordina el despacho de auxilio.'},
+  {cod:'SUB-04',sigla:'VMS',name:'Video Management System',fn:'Gestión de Video',desc:'Administración de flujos de video, grabación, procesamiento de analítica DAI y visualización en Video Wall.'},
+  {cod:'SUB-05',sigla:'EFC',name:'Electronic Fee Collection',fn:'Recaudo Electrónico',desc:'Back-office encargado del peaje interoperable (IPyG), validación de TAGs y gestión de transacciones.'},
+  {cod:'SUB-06',sigla:'AMS',name:'Asset Management System',fn:'Gestión de Infraestructura',desc:'Control de actuadores y telemetría de salud de taludes, puentes y pavimentos. Soporte a mantenimiento predictivo.'},
+  {cod:'SUB-07',sigla:'CVO',name:'Commercial Vehicle Operations',fn:'Gestión de Carga',desc:'Gestión de operaciones de vehículos comerciales, permisos de carga y control de flotas.'},
+  {cod:'SUB-08',sigla:'TES',name:'Traffic Enforcement System',fn:'Cumplimiento y Seguridad',desc:'Sistema de foto-detección de infracciones, control de velocidad y gestión de comparendos electrónicos.'},
+  {cod:'SUB-09',sigla:'ESS-M',name:'Environmental Sensor Management',fn:'Gestión Ambiental',desc:'Gestión de sensores de condiciones ambientales: temperatura, visibilidad, precipitación y vientos.'},
+  {cod:'SUB-10',sigla:'ESB',name:'Enterprise Service Bus',fn:'Bus de Integración (SB)',desc:'Middleware de integración que orquesta el flujo de datos entre todos los subsistemas del CCO y plataformas externas.'},
+  {cod:'SUB-11',sigla:'BIM-DT',name:'Digital Twin Framework',fn:'Gemelo Digital (DT)',desc:'Plataforma BIM/GIS para la creación y gestión del Gemelo Digital del corredor. Simulaciones predictivas.'},
+  {cod:'SUB-12',sigla:'NMS',name:'Network Management System',fn:'Gestión de Red y Ciber',desc:'Monitoreo y gestión de la infraestructura de red, telecomunicaciones y ciberseguridad del ecosistema ITS.'},
+];
+const FN=[
+  ['F-01','Gestión de datos adicionales','Recopila, actualiza y almacena información adicional, como información local, información relacionada con la vida, etc.'],
+  ['F-02','Gestión de datos de tráfico integrado','La información del tráfico por carretera y la información del transporte público se gestionan de manera integrada.'],
+  ['F-03','Gestión de datos de la red vial','El diseño geométrico de las carreteras y los datos de las instalaciones se actualizan y gestionan.'],
+  ['F-04','Detección de vehículos','Se detecta el estado de los vehículos.'],
+  ['F-05','Procesamiento de datos de detección de vehículos','Los datos recopilados de los detectores individuales se procesan, agregan y convierten a los datos de la sección de la carretera.'],
+  ['F-06','Gestión de datos de identificación de vehículos','Se identifican los vehículos de la sonda y se gestiona la información.'],
+  ['F-07','Reconocimiento de la ubicación de vehículos','Se recopilan datos para el reconocimiento de la ubicación del vehículo.'],
+  ['F-08','Procesamiento de datos de ubicación de los vehículos','Los datos de ubicación del vehículo se procesan y agregan como datos de operación del vehículo.'],
+  ['F-09','Recepción de informes de estado del tráfico','Los operadores de los centros de control ingresan información al recibir informes de estado del tráfico.'],
+  ['F-10','Filmación de video','La situación de campo se filma utilizando CCTV.'],
+  ['F-11','Recopilación y análisis de datos de tráfico','Los datos de varias fuentes se recopilan y analizan exhaustivamente.'],
+  ['F-12','Producción de información de flujo de tráfico','La información de tráfico se produce de acuerdo con las estrategias de provisión de información.'],
+  ['F-13','Monitoreo de las condiciones del tráfico','El operador monitorea las condiciones del flujo de tráfico utilizando videos e información de flujo de tráfico.'],
+  ['F-14','Visualización de información de flujo de tráfico','La información del flujo de tráfico y los datos de video se muestran en los medios de suministro de información.'],
+  ['F-15','Interfaz de viajero','Las consultas y preguntas son ingresadas por los viajeros y se muestra la información solicitada.'],
+  ['F-16','Organización de planes de viaje','La información para decisiones relacionadas con la hora de salida, medios de transporte, viaje y rutas se produce.'],
+  ['F-17','Cálculo de ruta óptima para viajeros','Se calcula la ruta óptima desde el punto de partida del viajero hasta el destino.'],
+  ['F-18','Suministro de información para viajeros','Se integran datos adicionales y datos de tráfico para proporcionar la información solicitada por los viajeros.'],
+  ['F-19','Suministro de información para conductores','Se integran datos adicionales y datos de tráfico para proporcionar la información a los conductores.'],
+  ['F-20','Reconocimiento de dispositivo de control en el vehículo','Mediante este dispositivo, se reconoce la ubicación actual del vehículo.'],
+  ['F-21','Interfaz de controlador','Herramienta para que los conductores realicen consultas y desplieguen información solicitada.'],
+  ['F-22','Cálculo de ruta óptima para conductores','Ruta óptima desde la ubicación actual del conductor hasta el destino.'],
+  ['F-23','Detección de vehículos que pasan (peaje)','El centro detecta los "siniestros" mediante CCTV.'],
+  ['F-24','Reconocimiento de vehículos','Cualquier "siniestro" reportado o detectado por el centro es confirmado por el operador.'],
+  ['F-25','Detección de identificación del dispositivo terminal','El centro genera información relacionada con "siniestros" confirmados.'],
+  ['F-26','Clasificación del tipo de vehículo','El operador controla el progreso del "siniestro" mediante CCTV.'],
+  ['F-27','Gestión de ingreso de información del vehículo','Las contramedidas o el nivel de respuesta se determinan.'],
+  ['F-28','Filmación de vehículos que pasan (peaje)','El nivel de respuesta se determina en función de la contra estrategia establecida.'],
+  ['F-29','Comunicación con la estación','Los datos procesados se almacenan, gestionan y utilizan.'],
+  ['F-30','Peaje','Los datos recopilados se procesan y analizan para generar datos necesarios.'],
+  ['F-31','Visualización del resultado del procesamiento','Los registros de operación de cada autobús se recopilan y procesan.'],
+  ['F-32','Gestión de datos de peaje','La información de tráfico y los datos de ubicación de vehículos se recopilan y gestionan.'],
+  ['F-33','Búsqueda de vehículos','Se monitorea la información de ubicación del vehículo.'],
+  ['F-34','Notificación de peaje impago','Se detecta la violación de la operación del vehículo.'],
+  ['F-35','Manejo de datos (peaje)','Los accidentes de tránsito se detectan.'],
+  ['F-36','Gestión del sistema','Se despachan los vehículos.'],
+  ['F-37','Recolección de información de operaciones del vehículo (TP)','Las rutas de autobuses se gestionan.'],
+  ['F-38','Recolección de información del evento','Se suministra información del autobús.'],
+  ['F-39','Recolección de información de ubicación del vehículo','Los datos se manejan.'],
+  ['F-40','Transmisión de información','Los datos de apoyo administrativo se generan.'],
+  ['F-41','Visualización de información de operación','Otras funciones gerenciales.'],
+  ['F-42','Visualización de siniestros viales','Los datos de la colección de información se recopilan.'],
+  ['F-43','Visualización de información de operación en violación de la ley','La información se visualiza.'],
+  ['F-44','Recepción de información','La información se recibe.'],
+  ['F-45','Recolección de información','La información se recopila.'],
+  ['F-46','Monitoreo de la información de ubicación del vehículo','Se monitorea la ubicación del vehículo.'],
+  ['F-47','Detección de operación de violación','Se detecta la operación de violación.'],
+  ['F-48','Detección de accidentes de tránsito','Los accidentes de tránsito se detectan.'],
+  ['F-49','Distribución de vehículos','Los vehículos se despachan.'],
+  ['F-50','Gestión de rutas de autobuses','Las rutas de autobuses se gestionan.'],
+  ['F-51','Suministro de información del autobús','Se suministra información del autobús.'],
+  ['F-52','Manejo de datos (TP)','Los datos se manejan.'],
+  ['F-53','Generación de datos para soporte administrativo','Los datos de apoyo administrativo se generan.'],
+  ['F-54','Otras funciones gerenciales (TP)','Otras funciones gerenciales de transporte público.'],
+  ['F-55','Recolección de información de operación del vehículo','La información de operación de los vehículos se recopila.'],
+  ['F-56','Recolección de información del evento (TP-2)','Los eventos de transporte público se recopilan.'],
+  ['F-57','Recolección de información de ubicación del vehículo (TP-2)','La ubicación de los vehículos de transporte público se recopila.'],
+  ['F-58','Transmisión de información (TP-2)','La información se transmite al sistema central.'],
+  ['F-59','Visualización de información de operación (TP-2)','La información de operación se visualiza.'],
+  ['F-60','Visualización de accidentes de tránsito','Los accidentes de tránsito se visualizan.'],
+  ['F-77','Entrada de fase de semáforo por plan','Los planes de semaforización se ingresan al sistema.'],
+  ['F-78','Modificación del plan de semaforización','Los planes de semaforización se modifican dinámicamente.'],
+  ['F-79','Configuración de grupos de intersección','Los grupos de intersección se configuran según la demanda.'],
+  ['F-80','Gestión del estado operativo del semáforo','El estado operativo de los semáforos se gestiona.'],
+  ['F-84','Filmación de vehículos que pasan','Los vehículos que pasan son filmados para análisis.'],
+  ['F-85','Comunicación con la estación','Se mantiene comunicación entre el sistema de campo y la estación central.'],
+  ['F-105','Recepción del informe del accidente de tránsito','Se reciben los informes de accidentes de tránsito.'],
+  ['F-106','Detección de accidentes de tránsito','Los accidentes se detectan automáticamente (DAI).'],
+  ['F-107','Confirmación de accidentes de tránsito','Los accidentes son confirmados por el operador o por el sistema.'],
+  ['F-108','Generación de información sobre accidentes de tránsito','La información sobre los accidentes se genera.'],
+  ['F-109','Monitoreo del progreso del accidente de tránsito','El progreso del accidente se monitorea.'],
+  ['F-110','Determinación de contramedidas','Las contramedidas operativas se determinan.'],
+  ['F-111','Gestión del flujo de tráfico','El flujo de tráfico se gestiona.'],
+  ['F-112','Manejo de accidentes de tránsito','Los accidentes se manejan.'],
+  ['F-113','Cooperación con agencia relacionada','Se coopera con las agencias de emergencia.'],
+  ['F-114','Confirmación al cierre del caso accidente de tránsito','El caso del accidente se cierra formalmente.'],
+  ['F-115','Producción de informes sobre accidentes de tránsito','Los informes de accidentes se producen.'],
+  ['F-117','Retroalimentación Pedagógica de Velocidad','El radar pedagógico retroalimenta al conductor sobre su velocidad en tiempo real.'],
+  ['F-118','Gestión de Velocidad Media por Tramo','La velocidad media por tramo se gestiona para garantizar la seguridad vial.'],
+  ['F-119','Fiscalización Automática de Infracciones','Las infracciones de tránsito son detectadas y procesadas automáticamente.'],
+  ['F-120','Monitoreo de Redes de Servicios e Interferencias','Las redes de servicios y las interferencias se monitoran continuamente.'],
+  ['F-121','Orquestación de Integración de Datos (ESB)','El bus de integración orquesta el flujo de datos entre todos los subsistemas.'],
+  ['F-122','Representación Visual en Gemelo Digital','Los datos del corredor se representan visualmente en el Gemelo Digital (BIM/DT).'],
+];
+const CC=[
+  ['CC-01','CCTV','Vigilancia por Video','Supervisión Visual Continua: Capacidad de observar y verificar el estado real de la infraestructura en tiempo real.'],
+  ['CC-02','AID','Detección de Incidentes','Identificación Proactiva de Peligros: Capacidad de alertar automáticamente sobre eventos disruptivos sin depender del ojo humano.'],
+  ['CC-03','DMS / VMS','Mensajería Variable','Difusión Masiva de Información: Capacidad de comunicar mensajes estratégicos y alertas directamente al conductor en vía.'],
+  ['CC-04','ECS / SOS','Llamada de Emergencia','Auxilio Inmediato al Usuario: Capacidad de establecer un canal de voz crítico para asistencia en situaciones de crisis.'],
+  ['CC-05','VDS / TDS','Contadores de Tráfico','Caracterización Dinámica del Flujo: Capacidad de cuantificar y clasificar el volumen vehicular para decisiones operativas.'],
+  ['CC-06','ESS / RWIS','Sensores Ambientales','Monitoreo de Condiciones Climáticas: Capacidad de medir variables del entorno que afectan la seguridad y la visibilidad.'],
+  ['CC-07','WIM','Pesaje Dinámico','Control de Carga en Movimiento: Capacidad de monitorear pesos vehiculares por eje sin interrumpir la fluidez del tránsito.'],
+  ['CC-08','GMS-I','Inclinometría Geotécnica','Vigilancia de Estabilidad de Suelos: Capacidad de detectar movimientos en taludes para prevenir obstrucciones por deslizamientos.'],
+  ['CC-09','SMS / SBT','Monitoreo de Estructuras','Evaluación de Salud Estructural: Capacidad de monitorear tensiones en cables (Torones) y fatiga en puentes y obras de arte.'],
+  ['CC-10','WLS','Monitoreo Hídrico','Detección de Riesgo Hidrológico: Capacidad de alertar sobre niveles críticos de agua en calzada y cauces de Ríos.'],
+  ['CC-11','AVI / ETC','Peajes Electrónicos','Automatización de Transacciones: Capacidad de procesar cobros de tasa de uso sin detener el movimiento vehicular.'],
+  ['CC-12','ALPR / LPR','Reconocimiento de Placas','Identificación Vehicular Automática: Capacidad de reconocer placas para gestión de seguridad, multas y trazabilidad.'],
+  ['CC-13','SPD','Radar Pedagógico','Gestión del Comportamiento Vial: Capacidad de inducir hábitos de velocidad segura mediante interacción visual en tiempo real.'],
+  ['CC-14','VSL','Velocidad Variable','Control Dinámico de Límites: Capacidad de ajustar la velocidad permitida según las condiciones de seguridad o congestión.'],
+  ['CC-15','TCS','Control de Túneles','Gestión de Entornos Confinados: Capacidad de operar sistemas de Ventilación e iluminación en infraestructuras cerradas.'],
+  ['CC-16','EVCS','Electrolineras','Soporte a la Movilidad Sostenible: Capacidad de proveer infraestructura de carga para la transición a vehículos eléctricos.'],
+  ['CC-17','PAS','Megafonía Inteligente','Notificación Audible de Alcance: Capacidad de emitir instrucciones de voz masivas en puntos críticos o zonas de alta concentración.'],
+  ['CC-18','BCS / VRU','Contador de Ciclistas','Cuantificación de Movilidad Alternativa: Capacidad de medir y proteger el flujo de usuarios no motorizados (ciclistas/peatones).'],
+  ['CC-19','UAS / UAV','Drones de Inspección','Reconocimiento Aéreo Remoto: Capacidad de inspeccionar activos y eventos en puntos de difícil acceso o alta peligrosidad.'],
+  ['CC-20','VIS / LGS','Gestión de Iluminación','Control Adaptativo de Visibilidad: Capacidad de ajustar la intensidad lumínica según la luz natural y la opacidad del aire.'],
+  ['CC-21','CSG / IoT','Ciberseguridad e IoT','Protección de la Integridad Digital: Capacidad de blindar los datos y gestionar dispositivos inteligentes de forma segura.'],
+  ['CC-22','PSV','Seguridad Ciudadana','Protección Civil Integrada: Capacidad de enlazar sistemas de video y pánico con entes de seguridad pública y policía.'],
+  ['CC-23','FOC','Conectividad de Fibra','Transporte de Datos de Alta Fidelidad: Capacidad de garantizar la comunicación fluida y robusta (incluye fibra de emergencia).'],
+  ['CC-24','RCS','Comunicación Radial','Respaldo de Enlace Operativo: Capacidad de mantener comunicación con equipos de campo ante fallas de la red digital.'],
+  ['CC-25','SME','Gestión de Medios Sociales','Omnicanalidad Digital: Capacidad de integrar Redes Sociales y analítica web como sensores y canales de respuesta al usuario.'],
+  ['CC-26','RSU','Comunicación V2X','Conectividad con Vehículos Inteligentes: Capacidad de intercambiar datos técnicos con la nueva generación de vehículos conectados.'],
+  ['CC-27','AVL / OBU','Control de Flota','Gestión Logística de Auxilio: Capacidad de rastrear y despachar eficientemente recursos de Ambulancia y Grúa.'],
+  ['CC-28','PGS','Gestión de Parqueaderos','Optimización de Zonas de Servicio: Capacidad de guiar al usuario hacia plazas disponibles en estacionamientos y áreas de descanso.'],
+  ['CC-29','SLP','Iluminación Solar','Autonomía Energética Sostenible: Capacidad de proveer alumbrado en vía mediante Paneles Solares y fuentes renovables.'],
+  ['CC-30','LHD','Detección de Incendio','Identificación Térmica Lineal: Capacidad de detectar fuego de forma inmediata a lo largo de infraestructuras críticas y túneles.'],
+  ['CC-31','AQM','Calidad del Aire','Monitoreo Ambiental Estratégico: Capacidad de medir índices de contaminación para soporte a políticas de movilidad sostenible.'],
+  ['CC-37','WDA','Detección de Fauna','Protección Ecológica y Seguridad: Capacidad de detectar animales en la calzada para evitar colisiones en zonas ecológicas.'],
+  ['CC-39','MSG','Micro-Red Inteligente','Gestión Energética Distribuida: Capacidad de balancear la carga eléctrica y gestionar generación renovable in-situ.'],
+  ['CC-40','D-TWN','Nodos de Gemelo Digital','Visualización Digital del Corredor: Capacidad de representar en tiempo real el estado integral de la infraestructura en 3D.'],
+  ['CC-42','SAT-B','Respaldo Satelital','Continuidad de Misión Crítica: Capacidad de garantizar comunicaciones esenciales ante falla total de la red terrestre.'],
+];
+
+/* ══════════════════════════════════════════════════════
+   RENDER
+══════════════════════════════════════════════════════ */
+
+// Nav EOV buttons
+const navEovGrid = document.getElementById('nav-eov-grid');
+EOV.forEach(e=>{
+  const b=document.createElement('div');
+  b.className='nav-eov-btn';b.id='nav-'+e.id;
+  b.textContent=e.id.replace('EOV-','');
+  b.onclick=()=>showEOV(e.id);
+  navEovGrid.appendChild(b);
+});
+
+// EOV cards in list view
+const eovCards=document.getElementById('eov-cards-home');
+EOV.forEach(e=>{
+  const tc=e.type;
+  const d=document.createElement('div');
+  d.className=`eov-card ${tc==='p'?'tp':tc==='c'?'tc':'tf'}`;
+  d.onclick=()=>showEOV(e.id);
+  d.innerHTML=`<div class="ec-num">${e.id}</div>
+    <span class="ec-ico">${e.ico}</span>
+    <h4>${e.name}</h4>
+    <span class="ec-tag ${tc==='p'?'tp':tc==='c'?'tc':'tf'}">${tc==='p'?'Prioritario':tc==='c'?'Complementario':'Futuro'}</span>`;
+  eovCards.appendChild(d);
+});
+
+// EOV detail renderer
+function showEOV(id){
+  const e=EOV.find(x=>x.id===id);
+  if(!e)return;
+  const typeLabel=e.type==='p'?'Prioritario':e.type==='c'?'Complementario':'Futuro';
+  const tclr=e.type==='p'?'var(--accent)':e.type==='c'?'var(--green)':'var(--purple)';
+  document.getElementById('eov-d-title').innerHTML=`${e.ico} ${e.id} · ${e.name}`;
+  document.getElementById('eov-d-sub').innerHTML=`<span style="color:${tclr}">${typeLabel}</span> · ${e.ctx}`;
+
+  const mkRow=(k,v)=>`<div class="eov-kv"><span class="ek">${k}</span><span class="ev">${v}</span></div>`;
+  const mkMini=(items,cls)=>items.map((it,i)=>`<div class="mini-card ${cls}"><div class="mc-lbl">${String(i+1).padStart(2,'0')}</div><div class="mc-val">${it}</div></div>`).join('');
+
+  const body=`
+  <div onclick="go('eov-list')" class="back-btn">← Volver a EOV</div>
+  <div class="eov-detail-grid">
+    <div>
+      <div class="eov-info-card">
+        <h5>📋 Información General</h5>
+        ${mkRow('Contexto',e.ctx)}${mkRow('Motivación',e.mot)}${mkRow('¿Qué es?',e.que)}
+        ${mkRow('¿Para qué sirve?',e.para)}${mkRow('¿Dónde ocurre?',e.donde)}${mkRow('¿Cuándo ocurre?',e.cuando)}
+        ${mkRow('Justificación Operativa',e.just)}${mkRow('Despliegue',e.desp)}
+        ${mkRow('Beneficio Social',e.beneficio)}${mkRow('Actores',e.actores)}
+      </div>
+      <div class="eov-info-card" style="margin-top:12px">
+        <h5>🗺️ Mapping de Arquitectura</h5>
+        ${mkRow('Dominio ITS',e.dominio)}${mkRow('Área de Servicio',e.area)}
+        ${mkRow('Subsistema',e.sub)}${mkRow('Servicio Estratégico',e.se)}
+        ${mkRow('Función Técnica ITS',e.fn)}${mkRow('Componentes de Campo',e.cc)}
+        ${mkRow('Estándares',e.std)}${mkRow('Ciberseguridad',e.cyber)}
+      </div>
+      <div class="eov-info-card" style="margin-top:12px">
+        <h5>💬 Interacción Transaccional</h5>
+        ${mkRow('Reflejo (CCO)',e.reflejo)}${mkRow('Conciencia (BIM)',e.conciencia)}
+        ${mkRow('Estadio de Operación',e.estadio)}
+      </div>
+    </div>
+    <div>
+      <div class="eov-info-card">
+        <h5>🔄 Flujo Sistemático — Ejecución por Niveles</h5>
+        <div class="flow-wrap">
+          <div class="flow-level fl1"><div class="flow-lnum">1</div><div class="flow-lbody"><div class="fl-label">E.1 — Estratégico</div><div class="fl-val">${e.e1}</div></div></div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-level fl2"><div class="flow-lnum">2</div><div class="flow-lbody"><div class="fl-label">E.2 — Operacional</div><div class="fl-val">${e.e2}</div></div></div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-level fl3"><div class="flow-lnum">3</div><div class="flow-lbody"><div class="fl-label">E.3 — Lógico</div><div class="fl-val">${e.e3}</div></div></div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-level fl4"><div class="flow-lnum">4</div><div class="flow-lbody"><div class="fl-label">E.4 — Sistémico</div><div class="fl-val">${e.e4}</div></div></div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-level fl5"><div class="flow-lnum">5</div><div class="flow-lbody"><div class="fl-label">E.5 — Físico (Campo)</div><div class="fl-val">${e.e5}</div></div></div>
+        </div>
+      </div>
+      <div class="eov-info-card" style="margin-top:12px">
+        <h5>🚨 Alertas del Sistema</h5>
+        <div class="mini-grid">${mkMini(e.alertas,'alert-card')}</div>
+      </div>
+      <div class="eov-info-card" style="margin-top:12px">
+        <h5>🛡️ Plan de Contingencia</h5>
+        <div class="mini-grid">${mkMini(e.contingencia,'cont-card')}</div>
+      </div>
+      <div class="eov-info-card" style="margin-top:12px">
+        <h5>✅ Criterios de Aceptación</h5>
+        <div class="mini-grid">${mkMini(e.criterios,'kpi-card')}</div>
+      </div>
+      <div class="eov-info-card" style="margin-top:12px">
+        <h5>🚀 Evolución Tecnológica — Proyección 30 años</h5>
+        <div class="mini-grid">${mkMini(e.evol,'evol-card')}</div>
+      </div>
+      <div class="eov-info-card" style="margin-top:12px">
+        <h5>📈 Indicadores de Desempeño (KPI)</h5>
+        <div class="mini-grid">${mkMini(e.kpis,'kpi-card')}</div>
+      </div>
+    </div>
+  </div>`;
+
+  document.getElementById('eov-d-body').innerHTML=body;
+  document.querySelectorAll('.nav-eov-btn').forEach(b=>b.classList.remove('active'));
+  const nb=document.getElementById('nav-'+id);if(nb)nb.classList.add('active');
+  go('eov-detail');
+}
+
+// Build Matriz tables
+function buildTable(bodyId,data,cols,cntId){
+  const tbody=document.getElementById(bodyId);
+  tbody.innerHTML='';
+  data.forEach(row=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=cols.map((c,i)=>`<td class="${c}">${row[i]||''}</td>`).join('');
+    tbody.appendChild(tr);
+  });
+  if(cntId)document.getElementById(cntId).textContent=`${data.length} registros`;
+}
+
+buildTable('dom-body',DOM.map(r=>[r.cod,r.name,r.desc]),['cod','name','desc'],'dom-cnt');
+buildTable('as-body',AS.map(r=>[r.cod,r.name,r.desc]),['cod','name','desc'],'as-cnt');
+buildTable('se-body',SE.map(r=>[r.cod,r.name,r.cat]),['cod','name','desc'],'se-cnt');
+buildTable('sub-body',SUB.map(r=>[r.cod,r.sigla,r.name,r.fn,r.desc]),['cod','name','name','desc','cap'],'sub-cnt');
+buildTable('fn-body',FN.map(r=>[r[0],r[1],r[2]]),['cod','name','desc'],'fn-cnt');
+buildTable('cc-body',CC.map(r=>[r[0],r[1],r[2],r[3]]),['cod','name','name','cap'],'cc-cnt');
+
+// Filter tables
+function filterTable(tblId,q){
+  const lq=q.toLowerCase();
+  let vis=0;
+  document.querySelectorAll('#'+tblId+' tbody tr').forEach(tr=>{
+    const m=tr.textContent.toLowerCase().includes(lq);
+    tr.style.display=m?'':'none';
+    if(m)vis++;
+  });
+  const id=tblId.split('-')[0]+'-cnt';
+  const el=document.getElementById(id);if(el)el.textContent=vis+' registros';
+}
+
+// Filter SE by type
+function filterSE(type,btn){
+  document.querySelectorAll('#se-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  let vis=0;
+  document.querySelectorAll('#se-tbl tbody tr').forEach(tr=>{
+    const cat=tr.cells[2]?.textContent||'';
+    const m=type==='all'||(type==='PMITS'&&cat.includes('PMITS'))||(type==='ISO'&&cat.includes('ISO'));
+    tr.style.display=m?'':'none';
+    if(m)vis++;
+  });
+  document.getElementById('se-cnt').textContent=vis+' registros';
+}
+
+// Navigate
+function go(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sec-'+id)?.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  if(id==='home') document.querySelector('.nav-item')?.classList.add('active');
+  const secMap={'eov-list':'eov-list','mat-dom':'mat-dom','mat-as':'mat-as','mat-se':'mat-se','mat-sub':'mat-sub','mat-fn':'mat-fn','mat-cc':'mat-cc'};
+  if(secMap[id]){
+    document.querySelectorAll('.nav-item').forEach(n=>{
+      if(n.getAttribute('onclick')?.includes("'"+id+"'"))n.classList.add('active');
+    });
+  }
+  window.scrollTo(0,0);
+  if(id==='home')animCnt();
+}
+
+// Count up
+function animCnt(){
+  document.querySelectorAll('.cnt-up').forEach(el=>{
+    const t=parseInt(el.dataset.t);let s=0;const st=40;
+    const ti=setInterval(()=>{s++;el.textContent=Math.round(t*(s/st));if(s>=st){el.textContent=t;clearInterval(ti);}},1000/st);
+  });
+}
+setTimeout(animCnt,300);
+</script>
+</body>
+</html>
