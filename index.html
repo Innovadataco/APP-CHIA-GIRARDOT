@@ -374,9 +374,13 @@ body{
 
 <!-- ── EOV LIST ── -->
 <div id="sec-eov-list" class="section">
-  <div class="ph"><div class="ph-ey">ConOps · Metodología en V · Res. 28675/2022</div>
-    <h2>15 Escenarios Operativos de Validación (EOV)</h2>
-    <div class="ph-sub">Haz clic en cualquier EOV para ver el detalle completo extraído del archivo EVO_TOTAL.xlsx</div>
+  <div class="ph">
+    <div class="ph-left">
+      <div class="ph-ey">ConOps · Metodología en V · Res. 28675/2022</div>
+      <h2>15 Escenarios Operativos de Validación</h2>
+      <div class="ph-sub">Clic en cualquier EOV para explorar flujo, KPIs, alertas y arquitectura técnica completa.</div>
+    </div>
+    <button onclick="window.print()" style="font-family:'JetBrains Mono',monospace;font-size:9px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;border-radius:6px;letter-spacing:1px;text-transform:uppercase;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">⬇ Exportar PDF</button>
   </div>
   <div class="cnt">
     <div class="kpi-strip">
@@ -385,6 +389,12 @@ body{
       <div class="kpi-box"><div class="kv" style="color:var(--purple)">3</div><div class="kl">Futuros</div></div>
       <div class="kpi-box"><div class="kv">5</div><div class="kl">KPIs por EOV</div></div>
     </div>
+    <div class="tabs" id="eov-type-tabs">
+      <button class="tab-btn active" onclick="filterEOV('all',this)">Todos (15)</button>
+      <button class="tab-btn" onclick="filterEOV('p',this)">🔶 Prioritarios PMITS (9)</button>
+      <button class="tab-btn" onclick="filterEOV('c',this)">🟢 Complementarios (3)</button>
+      <button class="tab-btn" onclick="filterEOV('f',this)">🟣 Futuros (3)</button>
+    </div>
     <div class="eov-cards" id="eov-cards-home"></div>
   </div>
 </div>
@@ -392,18 +402,24 @@ body{
 <!-- ── EOV DETAIL ── -->
 <div id="sec-eov-detail" class="section">
   <div class="ph" id="eov-detail-ph">
-    <div class="ph-ey">Escenario Operativo de Validación</div>
-    <h2 id="eov-d-title">–</h2>
-    <div class="ph-sub" id="eov-d-sub">–</div>
+    <div class="ph-left">
+      <div class="ph-ey">Escenario Operativo de Validación · APP Chía-Girardot</div>
+      <h2 id="eov-d-title">–</h2>
+      <div class="ph-sub" id="eov-d-sub">–</div>
+    </div>
+    <button onclick="window.print()" style="font-family:'JetBrains Mono',monospace;font-size:9px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;border-radius:6px;letter-spacing:1px;text-transform:uppercase;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">⬇ Exportar PDF</button>
   </div>
   <div class="cnt" id="eov-d-body"></div>
 </div>
 
 <!-- ── MATRIZ: DOMINIOS ── -->
 <div id="sec-mat-dom" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura</div><h2>Dominios ITS</h2></div>
+  <div class="ph">
+    <div class="ph-left"><div class="ph-ey">Matriz ITS · Arquitectura Funcional</div><h2>Dominios ITS</h2><div class="ph-sub">6 dominios que estructuran el perímetro funcional del sistema ITS del corredor.</div></div>
+    <button onclick="window.print()" style="font-family:'JetBrains Mono',monospace;font-size:9px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;border-radius:6px;letter-spacing:1px;text-transform:uppercase;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">⬇ PDF</button>
+  </div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar dominio..." oninput="filterTable('dom-tbl',this.value)"><span class="s-count" id="dom-cnt"></span></div>
+    <div class="search-row"><input class="s-inp" id="dom-search" placeholder="Buscar por código, nombre o descripción..." oninput="filterTable('dom-tbl',this.value)"><span class="s-count" id="dom-cnt"></span></div>
     <div class="tbl-wrap"><table id="dom-tbl">
       <thead><tr><th>Código</th><th>Dominio ITS</th><th>Descripción del Ámbito</th></tr></thead>
       <tbody id="dom-body"></tbody>
@@ -413,9 +429,12 @@ body{
 
 <!-- ── MATRIZ: ÁREAS SERVICIO ── -->
 <div id="sec-mat-as" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura</div><h2>Áreas de Servicio (AS)</h2></div>
+  <div class="ph">
+    <div class="ph-left"><div class="ph-ey">Matriz ITS · Arquitectura de Servicio</div><h2>Áreas de Servicio (AS)</h2><div class="ph-sub">12 áreas que agrupan las capacidades operativas del corredor bajo estándar ISO 14813.</div></div>
+    <button onclick="window.print()" style="font-family:'JetBrains Mono',monospace;font-size:9px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;border-radius:6px;letter-spacing:1px;text-transform:uppercase;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">⬇ PDF</button>
+  </div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar área..." oninput="filterTable('as-tbl',this.value)"><span class="s-count" id="as-cnt"></span></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar área de servicio..." oninput="filterTable('as-tbl',this.value)"><span class="s-count" id="as-cnt"></span></div>
     <div class="tbl-wrap"><table id="as-tbl">
       <thead><tr><th>Código</th><th>Área de Servicio</th><th>Descripción</th></tr></thead>
       <tbody id="as-body"></tbody>
@@ -425,14 +444,17 @@ body{
 
 <!-- ── MATRIZ: SERVICIOS ESTRATÉGICOS ── -->
 <div id="sec-mat-se" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo</div><h2>Servicios Estratégicos ITS</h2></div>
+  <div class="ph">
+    <div class="ph-left"><div class="ph-ey">Matriz ITS · Servicios PMITS + ISO 14813</div><h2>Servicios Estratégicos ITS</h2><div class="ph-sub">11 servicios: 6 prioritarios Res. 28675/2022 + 5 complementarios ISO 14813.</div></div>
+    <button onclick="window.print()" style="font-family:'JetBrains Mono',monospace;font-size:9px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;border-radius:6px;letter-spacing:1px;text-transform:uppercase;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">⬇ PDF</button>
+  </div>
   <div class="cnt">
     <div class="tabs" id="se-tabs">
-      <button class="tab-btn active" onclick="filterSE('all',this)">Todos</button>
-      <button class="tab-btn" onclick="filterSE('PMITS',this)">Prioritarios PMITS</button>
-      <button class="tab-btn" onclick="filterSE('ISO',this)">Complementarios ISO</button>
+      <button class="tab-btn active" onclick="filterSE('all',this)">Todos (11)</button>
+      <button class="tab-btn" onclick="filterSE('PMITS',this)">🔶 Prioritarios PMITS (6)</button>
+      <button class="tab-btn" onclick="filterSE('ISO',this)">🔵 Complementarios ISO (5)</button>
     </div>
-    <div class="search-row"><input class="s-inp" placeholder="Buscar servicio..." oninput="filterTable('se-tbl',this.value)"><span class="s-count" id="se-cnt"></span></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar servicio estratégico..." oninput="filterTable('se-tbl',this.value)"><span class="s-count" id="se-cnt"></span></div>
     <div class="tbl-wrap"><table id="se-tbl">
       <thead><tr><th>Código</th><th>Servicio Estratégico ITS</th><th>Categoría</th></tr></thead>
       <tbody id="se-body"></tbody>
@@ -442,9 +464,12 @@ body{
 
 <!-- ── MATRIZ: SUBSISTEMAS ── -->
 <div id="sec-mat-sub" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura Lógica</div><h2>Subsistemas ITS</h2></div>
+  <div class="ph">
+    <div class="ph-left"><div class="ph-ey">Matriz ITS · Arquitectura Lógica de Plataformas</div><h2>Subsistemas ITS</h2><div class="ph-sub">12 plataformas de software que orquestan el Centro de Control Operacional (CCO).</div></div>
+    <button onclick="window.print()" style="font-family:'JetBrains Mono',monospace;font-size:9px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;border-radius:6px;letter-spacing:1px;text-transform:uppercase;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">⬇ PDF</button>
+  </div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar subsistema..." oninput="filterTable('sub-tbl',this.value)"><span class="s-count" id="sub-cnt"></span></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar subsistema o sigla..." oninput="filterTable('sub-tbl',this.value)"><span class="s-count" id="sub-cnt"></span></div>
     <div class="tbl-wrap"><table id="sub-tbl">
       <thead><tr><th>Código</th><th>Sigla</th><th>Subsistema ITS</th><th>Función</th><th>Descripción Técnica</th></tr></thead>
       <tbody id="sub-body"></tbody>
@@ -454,9 +479,12 @@ body{
 
 <!-- ── MATRIZ: FUNCIONES ── -->
 <div id="sec-mat-fn" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo Funcional · PMITS Res. 28675/2022</div><h2>Funciones Técnicas ITS</h2></div>
+  <div class="ph">
+    <div class="ph-left"><div class="ph-ey">Catálogo Funcional · PMITS · Res. 28675/2022</div><h2>Funciones Técnicas ITS</h2><div class="ph-sub">122+ funciones técnicas oficiales del Plan Maestro ITS de Colombia.</div></div>
+    <button onclick="window.print()" style="font-family:'JetBrains Mono',monospace;font-size:9px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;border-radius:6px;letter-spacing:1px;text-transform:uppercase;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">⬇ PDF</button>
+  </div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar función..." oninput="filterTable('fn-tbl',this.value)"><span class="s-count" id="fn-cnt"></span></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar función por código o descripción..." oninput="filterTable('fn-tbl',this.value)"><span class="s-count" id="fn-cnt"></span></div>
     <div class="tbl-wrap"><table id="fn-tbl">
       <thead><tr><th>Código</th><th>Nombre de Función</th><th>Descripción</th></tr></thead>
       <tbody id="fn-body"></tbody>
@@ -466,9 +494,12 @@ body{
 
 <!-- ── MATRIZ: COMPONENTES ── -->
 <div id="sec-mat-cc" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Capa Física · Componentes de Campo</div><h2>Componentes de Campo ITS</h2></div>
+  <div class="ph">
+    <div class="ph-left"><div class="ph-ey">Matriz ITS · Capa Física · Dispositivos de Campo</div><h2>Componentes de Campo ITS</h2><div class="ph-sub">42+ dispositivos que forman la capa sensorial y de actuación del corredor 5G.</div></div>
+    <button onclick="window.print()" style="font-family:'JetBrains Mono',monospace;font-size:9px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;border-radius:6px;letter-spacing:1px;text-transform:uppercase;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted2)'">⬇ PDF</button>
+  </div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar componente..." oninput="filterTable('cc-tbl',this.value)"><span class="s-count" id="cc-cnt"></span></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar componente, sigla o capacidad..." oninput="filterTable('cc-tbl',this.value)"><span class="s-count" id="cc-cnt"></span></div>
     <div class="tbl-wrap"><table id="cc-tbl">
       <thead><tr><th>Código</th><th>Sigla</th><th>Componente de Campo</th><th>Capacidad Operativa Generada</th></tr></thead>
       <tbody id="cc-body"></tbody>
@@ -963,6 +994,7 @@ EOV.forEach(e=>{
   const tc=e.type;
   const d=document.createElement('div');
   d.className=`eov-card ${tc==='p'?'tp':tc==='c'?'tc':'tf'}`;
+  d.dataset.type=tc;
   d.onclick=()=>showEOV(e.id);
   d.innerHTML=`<div class="ec-num">${e.id}</div>
     <span class="ec-ico">${e.ico}</span>
@@ -1070,17 +1102,19 @@ buildTable('sub-body',SUB.map(r=>[r.cod,r.sigla,r.name,r.fn,r.desc]),['cod','nam
 buildTable('fn-body',FN.map(r=>[r[0],r[1],r[2]]),['cod','name','desc'],'fn-cnt');
 buildTable('cc-body',CC.map(r=>[r[0],r[1],r[2],r[3]]),['cod','name','name','cap'],'cc-cnt');
 
-// Filter tables
+// Filter tables — multi-keyword support
 function filterTable(tblId,q){
-  const lq=q.toLowerCase();
+  const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
   let vis=0;
   document.querySelectorAll('#'+tblId+' tbody tr').forEach(tr=>{
-    const m=tr.textContent.toLowerCase().includes(lq);
+    const txt = tr.textContent.toLowerCase();
+    const m = terms.length===0 || terms.every(t=>txt.includes(t));
     tr.style.display=m?'':'none';
     if(m)vis++;
   });
-  const id=tblId.split('-')[0]+'-cnt';
-  const el=document.getElementById(id);if(el)el.textContent=vis+' registros';
+  const pfx=tblId.split('-')[0];
+  const el=document.getElementById(pfx+'-cnt');
+  if(el)el.textContent=vis+' registros';
 }
 
 // Filter SE by type
@@ -1095,6 +1129,17 @@ function filterSE(type,btn){
     if(m)vis++;
   });
   document.getElementById('se-cnt').textContent=vis+' registros';
+}
+
+// Filter EOV cards by type
+function filterEOV(type,btn){
+  document.querySelectorAll('#eov-type-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#eov-cards-home .eov-card').forEach(card=>{
+    const show = type==='all' || card.dataset.type===type;
+    card.style.display=show?'':'none';
+    card.style.animation=show?'fin .3s ease':'none';
+  });
 }
 
 // Navigate
