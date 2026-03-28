@@ -8,197 +8,255 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#070b10;--panel:#0d1420;--panel2:#121c2e;--panel3:#172035;
-  --border:#1c2d45;--border2:#243a5e;
-  --accent:#f06a25;--accent2:#fbbf24;--blue:#3b8beb;--green:#22c55e;
-  --purple:#a855f7;--red:#ef4444;--teal:#14b8a6;
-  --text:#dde6f2;--muted:#5a7a9a;--muted2:#8fa3bb;
-  --nav:240px;
+  --bg:#05070a;
+  --panel:rgba(13, 20, 32, 0.7);
+  --panel-solid:#0d1420;
+  --panel2:rgba(18, 28, 46, 0.8);
+  --panel3:rgba(23, 32, 53, 0.9);
+  --border:rgba(28, 45, 69, 0.5);
+  --border2:rgba(36, 58, 94, 0.8);
+  --accent:#f06a25;
+  --accent-glow:rgba(240, 106, 37, 0.3);
+  --accent2:#fbbf24;
+  --blue:#3b8beb;
+  --green:#22c55e;
+  --purple:#a855f7;
+  --red:#ef4444;
+  --teal:#14b8a6;
+  --text:#f0f4f8;
+  --muted:#6b8caf;
+  --muted2:#a0b4cc;
+  --nav:260px;
+  --glass: blur(12px) saturate(180%);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;display:flex;min-height:100vh;overflow-x:hidden}
+body{
+  background:var(--bg);
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(240, 106, 37, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(59, 139, 235, 0.05) 0%, transparent 50%);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  display:flex;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
 /* ── NAV ── */
-.nav{width:var(--nav);min-width:var(--nav);background:var(--panel);border-right:1px solid var(--border);
-  position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:200;overflow-y:auto}
+.nav{
+  width:var(--nav);
+  min-width:var(--nav);
+  background:var(--panel-solid);
+  backdrop-filter:var(--glass);
+  border-right:1px solid var(--border);
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  z-index:200;
+  overflow-y:auto;
+  transition: transform 0.3s ease;
+}
 .nav::-webkit-scrollbar{width:3px}.nav::-webkit-scrollbar-thumb{background:var(--border2)}
-.nav-logo{padding:20px 18px 16px;border-bottom:1px solid var(--border)}
-.nl-badge{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;display:block}
-.nl-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;line-height:1.2;color:var(--text)}
+.nav-logo{padding:24px 20px 20px;border-bottom:1px solid var(--border)}
+.nl-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  color:var(--accent);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  display:block;
+  opacity:0.8;
+}
+.nl-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;line-height:1.2;color:var(--text);letter-spacing:-0.5px}
 .nl-title span{color:var(--accent)}
-.nl-meta{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:5px;line-height:1.7}
-.nav-grp{padding:8px 0}
-.nav-grp-title{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;padding:5px 18px 3px}
-.nav-item{display:flex;align-items:center;gap:8px;padding:7px 18px;font-size:12px;font-weight:500;
-  color:var(--muted2);cursor:pointer;transition:all .15s;border-left:2px solid transparent;user-select:none}
-.nav-item:hover{color:var(--text);background:rgba(240,106,37,.06);border-left-color:var(--accent)}
-.nav-item.active{color:var(--accent);background:rgba(240,106,37,.12);border-left-color:var(--accent)}
-.nav-item .ni{font-size:13px;min-width:16px}
-.nav-item .n-badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:8px;
-  background:var(--panel2);border:1px solid var(--border);padding:1px 5px;border-radius:2px;color:var(--muted)}
-.nav-item.active .n-badge{background:rgba(240,106,37,.2);border-color:var(--accent);color:var(--accent)}
-.nav-eov-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;padding:4px 12px 8px}
-.nav-eov-btn{background:var(--panel2);border:1px solid var(--border);padding:5px 4px;text-align:center;
-  cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted2)}
-.nav-eov-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(240,106,37,.08)}
-.nav-eov-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.nav-bottom{margin-top:auto;padding:12px 18px;border-top:1px solid var(--border);
-  font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);line-height:1.8}
+.nl-meta{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:6px;line-height:1.8;opacity:0.7}
+
+.nav-grp{padding:12px 0}
+.nav-grp-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px;
+  color:var(--muted);
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  padding:8px 20px 4px;
+  opacity:0.6;
+}
+.nav-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 20px;
+  font-size:12.5px;
+  font-weight:500;
+  color:var(--muted2);
+  cursor:pointer;
+  transition:all .2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left:3px solid transparent;
+  user-select:none;
+}
+.nav-item:hover{
+  color:var(--text);
+  background:rgba(240, 106, 37, 0.08);
+  border-left-color:rgba(240, 106, 37, 0.4);
+  transform: translateX(4px);
+}
+.nav-item.active{
+  color:var(--accent);
+  background:rgba(240, 106, 37, 0.12);
+  border-left-color:var(--accent);
+  font-weight:600;
+}
+.nav-item .ni{font-size:14px;min-width:18px;filter: drop-shadow(0 0 4px var(--accent-glow))}
+.nav-item .n-badge{
+  margin-left:auto;
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px;
+  background:var(--panel3);
+  border:1px solid var(--border);
+  padding:2px 6px;
+  border-radius:4px;
+  color:var(--muted);
+}
+.nav-item.active .n-badge{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow: 0 0 10px var(--accent-glow)}
+
+.nav-eov-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;padding:8px 16px 12px}
+.nav-eov-btn{
+  background:var(--panel2);
+  border:1px solid var(--border);
+  padding:6px 2px;
+  text-align:center;
+  cursor:pointer;
+  transition:all .2s;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  color:var(--muted2);
+  border-radius:4px;
+}
+.nav-eov-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(240,106,37,.08);transform:scale(1.05)}
+.nav-eov-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 0 8px var(--accent-glow)}
+
+.nav-bottom{
+  margin-top:auto;
+  padding:16px 20px;
+  border-top:1px solid var(--border);
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  color:var(--muted);
+  line-height:1.9;
+  background: rgba(0,0,0,0.2);
+}
 
 /* ── MAIN ── */
-.main{margin-left:var(--nav);flex:1;min-height:100vh}
-.section{display:none;animation:fin .3s ease}
-.section.active{display:block}
-@keyframes fin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.main{margin-left:var(--nav);flex:1;min-height:100vh;position:relative}
+.section{display:none;padding-bottom:60px}
+.section.active{display:block;animation:fin .4s cubic-bezier(0.16, 1, 0.3, 1)}
+@keyframes fin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── PAGE HEADER ── */
-.ph{background:var(--panel);border-bottom:1px solid var(--border);padding:22px 40px 18px;position:sticky;top:0;z-index:100}
-.ph-ey{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:5px}
-.ph h2{font-family:'Syne',sans-serif;font-size:24px;font-weight:800}
-.ph-sub{font-size:11px;color:var(--muted2);margin-top:3px}
+.ph{
+  background:var(--panel);
+  backdrop-filter:var(--glass);
+  border-bottom:1px solid var(--border);
+  padding:24px 40px 20px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+.ph-left{flex:1}
+.ph-ey{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
+.ph h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-0.5px}
+.ph-sub{font-size:11.5px;color:var(--muted2);margin-top:4px;font-weight:300}
 
 /* ── CONTENT ── */
-.cnt{padding:28px 40px}
+.cnt{padding:32px 40px}
 
 /* ── KPI STRIP ── */
-.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);margin-bottom:24px}
-.kpi-box{background:var(--panel);padding:18px 16px}
-.kv{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;line-height:1;color:var(--text)}
-.kv span{color:var(--accent);font-size:18px}
-.kl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:5px}
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.kpi-box{
+  background:var(--panel2);
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:12px;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.3s ease;
+}
+.kpi-box:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,0.3)}
+.kpi-box::after{
+  content:'';
+  position:absolute;
+  top:-20%;
+  right:-10%;
+  width:80px;
+  height:80px;
+  background:var(--accent);
+  opacity:0.03;
+  border-radius:50%;
+}
+.kpi-gauge-wrap{width:100%;height:80px;margin-bottom:12px;display:flex;align-items:center;justify-content:center}
+.kv{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1;color:var(--text);margin-bottom:4px}
+.kv span{color:var(--accent);font-size:16px;margin-left:2px}
+.kl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-weight:600}
 
 /* ── EOV CARD GRID ── */
-.eov-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.eov-card{background:var(--panel);border:1px solid var(--border);padding:14px 12px;cursor:pointer;
-  transition:all .2s;position:relative;border-top:3px solid var(--border)}
-.eov-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.eov-cards{display:grid;grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));gap:12px}
+.eov-card{
+  background:var(--panel);
+  backdrop-filter:var(--glass);
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(0.16, 1, 0.3, 1);
+  position:relative;
+  border-top:4px solid var(--border);
+}
+.eov-card:hover{
+  border-color:var(--border2);
+  transform:translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
 .eov-card.tp{border-top-color:var(--accent)}
 .eov-card.tc{border-top-color:var(--green)}
 .eov-card.tf{border-top-color:var(--purple)}
-.eov-card .ec-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);margin-bottom:6px;letter-spacing:1px}
-.eov-card .ec-ico{font-size:22px;margin-bottom:7px;display:block}
-.eov-card h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;line-height:1.25;margin-bottom:6px}
-.eov-card .ec-tag{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 6px;border-radius:2px;font-weight:600}
-.eov-card .ec-tag.tp{background:rgba(240,106,37,.15);color:var(--accent);border:1px solid rgba(240,106,37,.3)}
-.eov-card .ec-tag.tc{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.3)}
-.eov-card .ec-tag.tf{background:rgba(168,85,247,.1);color:var(--purple);border:1px solid rgba(168,85,247,.3)}
+.eov-card .ec-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--accent);margin-bottom:10px;letter-spacing:1.5px;font-weight:700}
+.eov-card .ec-ico{font-size:28px;margin-bottom:12px;display:block;filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3))}
+.eov-card h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;line-height:1.3;margin-bottom:12px}
+.eov-card .ec-tag{font-family:'JetBrains Mono',monospace;font-size:8.5px;padding:3px 8px;border-radius:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
 
 /* ── EOV DETAIL ── */
-.eov-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.eov-info-card{background:var(--panel);border:1px solid var(--border);padding:20px}
-.eov-info-card h5{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:12px;
-  padding-bottom:8px;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.5px}
-.eov-kv{display:flex;gap:0;margin-bottom:6px;font-size:11.5px}
-.eov-kv .ek{color:var(--muted2);min-width:140px;font-weight:500;font-size:11px}
-.eov-kv .ev{color:var(--text);flex:1;line-height:1.45}
+.eov-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.eov-info-card{background:var(--panel2);border:1px solid var(--border);padding:24px;border-radius:12px}
+.eov-info-card h5{
+  font-family:'Syne',sans-serif;
+  font-size:13px;
+  font-weight:800;
+  color:var(--accent);
+  margin-bottom:16px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+}
+.eov-kv{display:flex;margin-bottom:10px;font-size:12px;border-bottom:1px solid rgba(255,255,255,0.03);padding-bottom:8px}
+.eov-kv .ek{color:var(--muted2);min-width:150px;font-weight:600}
+.eov-kv .ev{color:var(--text);flex:1;line-height:1.5}
 
-/* flow levels */
-.flow-wrap{display:flex;flex-direction:column;gap:3px;margin-top:4px}
-.flow-level{display:flex;align-items:stretch;gap:0;overflow:hidden;border:1px solid var(--border)}
-.flow-lnum{width:44px;min-width:44px;display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff}
-.flow-lbody{flex:1;padding:10px 14px;background:var(--panel)}
-.flow-lbody .fl-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
-.flow-lbody .fl-val{font-size:11.5px;color:var(--text);line-height:1.4}
-.fl1 .flow-lnum{background:var(--accent)}.fl2 .flow-lnum{background:#d97706}.fl3 .flow-lnum{background:var(--blue)}
-.fl4 .flow-lnum{background:#7c3aed}.fl5 .flow-lnum{background:var(--green)}
-.flow-arr{text-align:center;color:var(--muted);font-size:12px;padding:1px 0}
-
-/* pills */
-.pill-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
-.pill{font-family:'JetBrains Mono',monospace;font-size:9px;padding:3px 8px;
-  background:var(--panel2);border:1px solid var(--border);color:var(--muted2);border-radius:2px}
-
-/* alert / kpi rows */
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}
-.mini-card{background:var(--panel2);border:1px solid var(--border);padding:10px;border-radius:2px}
-.mini-card .mc-lbl{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-.mini-card .mc-val{font-size:11px;color:var(--text);line-height:1.4}
-.mini-card.alert-card{border-left:3px solid var(--red)}
-.mini-card.kpi-card{border-left:3px solid var(--green)}
-.mini-card.cont-card{border-left:3px solid var(--blue)}
-.mini-card.evol-card{border-left:3px solid var(--purple)}
-
-/* ── TABLE SECTION ── */
-.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:3px;margin-bottom:20px}
-table{width:100%;border-collapse:collapse;font-size:11.5px}
-thead tr{background:var(--panel2)}
-th{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--muted2);padding:10px 14px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--border)}
-tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
-tbody tr:hover{background:rgba(240,106,37,.05)}
-tbody tr:last-child{border-bottom:none}
-td{padding:10px 14px;vertical-align:top;line-height:1.45}
-td.cod{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);white-space:nowrap;font-weight:600;width:80px}
-td.name{font-weight:600;color:var(--text);min-width:160px}
-td.desc{color:var(--muted2);font-size:11px;font-weight:300;max-width:400px}
-td.cap{color:var(--muted2);font-size:11px;font-weight:300;max-width:360px}
-
-/* tab buttons */
-.tabs{display:flex;gap:3px;margin-bottom:16px;flex-wrap:wrap}
-.tab-btn{background:var(--panel);border:1px solid var(--border);color:var(--muted2);
-  padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;
-  text-transform:uppercase;cursor:pointer;transition:all .15s;border-radius:2px}
-.tab-btn:hover{border-color:var(--border2);color:var(--text)}
-.tab-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
-
-/* search */
-.search-row{display:flex;gap:8px;margin-bottom:14px;align-items:center}
-.s-inp{flex:1;background:var(--panel);border:1px solid var(--border);color:var(--text);
-  padding:9px 14px;font-family:'Inter',sans-serif;font-size:12px;outline:none;transition:border-color .15s;border-radius:2px}
-.s-inp:focus{border-color:var(--accent)}
-.s-inp::placeholder{color:var(--muted)}
-.s-count{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap}
-
-/* ── HERO HOME ── */
-.hero-home{background:linear-gradient(135deg,#070b10,#0f1a2e 60%,#081525);
-  padding:40px 40px 48px;position:relative;overflow:hidden}
-.hero-home::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(240,106,37,.1),transparent 70%);pointer-events:none}
-.hero-home::after{content:'ITS';position:absolute;right:-30px;bottom:-40px;
-  font-family:'Syne',sans-serif;font-size:240px;font-weight:800;color:rgba(255,255,255,.025);line-height:1;pointer-events:none}
-.h-ey{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;
-  font-size:9px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
-.h-ey::before{content:'';display:block;width:20px;height:1px;background:var(--accent)}
-.home-h1{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;line-height:.95;margin-bottom:8px}
-.home-h1 em{font-style:normal;color:var(--accent)}
-.home-sub{font-size:12px;color:var(--muted2);max-width:500px;line-height:1.7;margin-bottom:36px;font-weight:300}
-.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.q-card{background:var(--panel);border:1px solid var(--border);padding:18px;cursor:pointer;
-  transition:all .2s;position:relative;overflow:hidden}
-.q-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .2s}
-.q-card:hover::before{transform:scaleX(1)}
-.q-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.q-ico{font-size:24px;margin-bottom:8px;display:block}
-.q-card h3{font-family:'Syne',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:4px}
-.q-card p{font-size:11px;color:var(--muted2);line-height:1.5;font-weight:300}
-.q-arr{position:absolute;bottom:14px;right:14px;color:var(--muted);font-size:14px;transition:all .15s}
-.q-card:hover .q-arr{color:var(--accent);transform:translateX(3px)}
-
-/* section row */
-.row-div{display:flex;align-items:center;gap:12px;margin:22px 0 14px}
-.row-div h3{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;white-space:nowrap;text-transform:uppercase;letter-spacing:.5px}
-.row-div::after{content:'';flex:1;height:1px;background:var(--border)}
-
-/* back button */
-.back-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;
-  background:var(--panel);border:1px solid var(--border);color:var(--muted2);
-  font-family:'JetBrains Mono',monospace;font-size:10px;cursor:pointer;
-  transition:all .15s;margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
-.back-btn:hover{border-color:var(--accent);color:var(--accent)}
-
-/* badge chips */
-.ch{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 7px;
-  border-radius:2px;font-weight:600;display:inline-block;margin:2px}
-.ch-p{background:rgba(240,106,37,.15);color:var(--accent);border:1px solid rgba(240,106,37,.3)}
-.ch-c{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.3)}
-.ch-f{background:rgba(168,85,247,.1);color:var(--purple);border:1px solid rgba(168,85,247,.3)}
-
-/* scrollbar */
-::-webkit-scrollbar{width:5px;height:5px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+/* Gov Section */
+.gov-log{margin-top:24px;border-radius:12px;background:var(--panel3);border:1px solid var(--border);padding:20px}
+.log-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--border)}
+.log-item:last-child{border-bottom:none}
+.log-meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);width:140px}
+.log-body{flex:1}
+.log-title{font-weight:600;font-size:12px;color:var(--text);margin-bottom:4px}
+.log-desc{font-size:11px;color:var(--muted2);font-weight:300}
 </style>
 </head>
 <body>
@@ -208,59 +266,108 @@ td.cap{color:var(--muted2);font-size:11px;font-weight:300;max-width:360px}
   <div class="nav-logo">
     <span class="nl-badge">ITS · Corredor Vial · 5G</span>
     <div class="nl-title">Chía <span>—</span> Girardot</div>
-    <div class="nl-meta">Entregable #1 · V00 · Mar 2026<br>ICCU / IFC · FC0CMG</div>
+    <div class="nl-meta">Control de Gobernanza · V4.0<br>ICCU / IFC · FC0CMG · Mar 2026</div>
   </div>
 
   <div class="nav-grp">
-    <div class="nav-grp-title">Inicio</div>
-    <div class="nav-item active" onclick="go('home')"><span class="ni">🏠</span>Panel Principal</div>
+    <div class="nav-grp-title">Explorar</div>
+    <div class="nav-item active" onclick="go('home')"><span class="ni">🏠</span>Dashboard Principal</div>
+    <div class="nav-item" onclick="go('gov')"><span class="ni">⚖️</span>Gobernanza PMBOK</div>
   </div>
 
   <div class="nav-grp">
     <div class="nav-grp-title">Escenarios EOV</div>
-    <div class="nav-item" onclick="go('eov-list')"><span class="ni">🎯</span>Vista General <span class="n-badge">15</span></div>
+    <div class="nav-item" onclick="go('eov-list')"><span class="ni">🎯</span>Vista de Red <span class="n-badge">15</span></div>
     <div class="nav-eov-grid" id="nav-eov-grid"></div>
   </div>
 
   <div class="nav-grp">
-    <div class="nav-grp-title">Matriz ITS</div>
-    <div class="nav-item" onclick="go('mat-dom')"><span class="ni">🏗️</span>Dominios ITS <span class="n-badge">6</span></div>
-    <div class="nav-item" onclick="go('mat-as')"><span class="ni">🔲</span>Áreas de Servicio <span class="n-badge">12</span></div>
-    <div class="nav-item" onclick="go('mat-se')"><span class="ni">⚙️</span>Servicios Estratégicos <span class="n-badge">11</span></div>
-    <div class="nav-item" onclick="go('mat-sub')"><span class="ni">🖥️</span>Subsistemas <span class="n-badge">12</span></div>
-    <div class="nav-item" onclick="go('mat-fn')"><span class="ni">🔧</span>Funciones Técnicas <span class="n-badge">122+</span></div>
-    <div class="nav-item" onclick="go('mat-cc')"><span class="ni">📡</span>Componentes de Campo <span class="n-badge">42+</span></div>
+    <div class="nav-grp-title">Arquitectura ITS</div>
+    <div class="nav-item" onclick="go('mat-dom')"><span class="ni">🏗️</span>Dominios ITS</div>
+    <div class="nav-item" onclick="go('mat-as')"><span class="ni">🔲</span>Áreas de Servicio</div>
+    <div class="nav-item" onclick="go('mat-se')"><span class="ni">⚙️</span>Servicios Estratégicos</div>
+    <div class="nav-item" onclick="go('mat-sub')"><span class="ni">🖥️</span>Subsistemas</div>
+    <div class="nav-item" onclick="go('mat-fn')"><span class="ni">🔧</span>Funciones Técnicas</div>
+    <div class="nav-item" onclick="go('mat-cc')"><span class="ni">📡</span>Componentes de Campo</div>
   </div>
 
   <div class="nav-bottom">
-    Cliente: IFC · Supervisor: ICCU<br>
-    Ref: FC0CMG · Res. 28675/2022<br>
-    Concesión 5G · Brownfield 306 km
+    Auditoría: 28675/2022<br>
+    Soberanía Nacional del Dato<br>
+    Infraestructura 5G Colombia
   </div>
 </nav>
 
 <!-- ═══════════ MAIN ═══════════ -->
 <main class="main">
 
-<!-- ── HOME ── -->
+<!-- ── HOME (REFINED) ── -->
 <div id="sec-home" class="section active">
   <div class="hero-home">
-    <div class="h-ey">Entregable #1 · Estructuración Técnica ITS · Concesión 5G · Marzo 2026</div>
-    <h1 class="home-h1">Sistemas <em>Inteligentes</em><br>de Transporte<br><em>Chía — Girardot</em></h1>
-    <p class="home-sub">306 km de infraestructura crítica · 40,000 veh/día · Corredor Brownfield de Quinta Generación<br>Supervisión ICCU · Estándares ANI · ISO 14813 · ARC-IT · PMITS Res. 28675/2022</p>
-    <div class="kpi-strip" style="margin-bottom:28px">
-      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="306">0</span><span>km</span></div><div class="kl">Extensión total corredor</div></div>
-      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="15">0</span></div><div class="kl">Escenarios EOV</div></div>
-      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="42">0</span><span>+</span></div><div class="kl">Componentes de campo</div></div>
-      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="122">0</span><span>+</span></div><div class="kl">Funciones técnicas ITS</div></div>
+    <div class="h-ey">Sistemas Inteligentes de Transporte · APP Chía — Girardot</div>
+    <h1 class="home-h1">Consola de <em>Gobernanza</em><br>Técnica <em>ITS — 5G</em></h1>
+    <p class="home-sub">Gestión unificada de arquitectura lógica, física y operativa para el corredor vial de 306 km.<br>Cumplimiento Res. 28675/2022 y Estándares Internacionales ISO 14813.</p>
+    
+    <div class="kpi-strip">
+      <div class="kpi-box">
+        <div class="kpi-gauge-wrap" id="g-dispo"></div>
+        <div class="kv">99.8<span>%</span></div>
+        <div class="kl">Disponibilidad Red</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-gauge-wrap" id="g-prog"></div>
+        <div class="kv">15<span>/15</span></div>
+        <div class="kl">Escenarios Validados</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-gauge-wrap" id="g-acc"></div>
+        <div class="kv">100<span>%</span></div>
+        <div class="kl">Alineación PMITS</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-gauge-wrap" id="g-ris"></div>
+        <div class="kv">Bajo</div>
+        <div class="kl">Nivel de Riesgo ITS</div>
+      </div>
     </div>
+
     <div class="quick-grid">
-      <div class="q-card" onclick="go('eov-list')"><span class="q-ico">🎯</span><h3>15 Escenarios EOV</h3><p>Detalle completo de cada Escenario Operativo de Validación con flujo, KPIs, alertas y evolución tecnológica.</p><span class="q-arr">→</span></div>
-      <div class="q-card" onclick="go('mat-cc')"><span class="q-ico">📡</span><h3>Componentes de Campo</h3><p>42+ dispositivos ITS: CCTV, WIM, ALPR, RSU, VMS, ESS, ETC, SPD y más con capacidades operativas.</p><span class="q-arr">→</span></div>
-      <div class="q-card" onclick="go('mat-fn')"><span class="q-ico">🔧</span><h3>Funciones Técnicas</h3><p>Catálogo completo de 122+ funciones técnicas del PMITS con descripciones oficiales Res. 28675/2022.</p><span class="q-arr">→</span></div>
-      <div class="q-card" onclick="go('mat-dom')"><span class="q-ico">🏗️</span><h3>Dominios ITS</h3><p>6 dominios funcionales y 12 áreas de servicio que estructuran la arquitectura del corredor.</p><span class="q-arr">→</span></div>
-      <div class="q-card" onclick="go('mat-sub')"><span class="q-ico">🖥️</span><h3>Subsistemas ITS</h3><p>TMS, TIS, EMS, VMS, EFC, AMS, CVO, TES, ESS-M, ESB, BIM-DT, NMS.</p><span class="q-arr">→</span></div>
-      <div class="q-card" onclick="go('mat-se')"><span class="q-ico">⚙️</span><h3>Servicios Estratégicos</h3><p>11 servicios estratégicos: 6 prioritarios PMITS + 5 complementarios ISO 14813.</p><span class="q-arr">→</span></div>
+      <div class="q-card" onclick="go('gov')"><span class="q-ico">🛡️</span><h3>Gobernanza</h3><p>Registro inmutable de cambios en líneas base y justificaciones técnicas del proyecto.</p><span class="q-arr">→</span></div>
+      <div class="q-card" onclick="go('eov-list')"><span class="q-ico">🎯</span><h3>EOV</h3><p>Validación de 15 escenarios operativos con trazabilidad completa a funciones y componentes.</p><span class="q-arr">→</span></div>
+      <div class="q-card" onclick="go('mat-fn')"><span class="ni">🔧</span><h3>Catálogo</h3><p>Matriz de 122+ funciones técnicas normalizadas según el Anexo Técnico de la Res. 28675.</p><span class="q-arr">→</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GOVERNANCE SECTION (NEW) ── -->
+<div id="sec-gov" class="section">
+  <div class="ph">
+    <div class="ph-left">
+      <div class="ph-ey">Control de Cambios · PMBOK Compliance</div>
+      <h2>Bitácora de Gobernanza ITS</h2>
+      <div class="ph-sub">Registro auditable de modificaciones en la arquitectura y línea base del sistema.</div>
+    </div>
+  </div>
+  <div class="cnt">
+    <div class="eov-detail-grid">
+      <div class="eov-info-card">
+        <h5>Estado de la Línea Base</h5>
+        <div class="eov-kv"><span class="ek">Versión Actual</span><span class="ev">V4.0 (Navegable v3 Refinado)</span></div>
+        <div class="eov-kv"><span class="ek">Fecha de Corte</span><span class="ev">28 Mar 2026</span></div>
+        <div class="eov-kv"><span class="ek">Aprobador Técnico</span><span class="ev">Comité de Tecnologías ICCU</span></div>
+        <div class="eov-kv"><span class="ek">Integridad del Dato</span><span class="ev" style="color:var(--green)">100% Verificado</span></div>
+      </div>
+      <div class="eov-info-card">
+        <h5>Resumen de Cumplimiento</h5>
+        <div class="eov-kv"><span class="ek">Res. 28675/2022</span><span class="ev">Satisfactorio (Prioritarios Integrados)</span></div>
+        <div class="eov-kv"><span class="ek">ISO 14813</span><span class="ev">Alineado (Áreas de Servicio)</span></div>
+        <div class="eov-kv"><span class="ek">Ciberseguridad</span><span class="ev">NIST CSF Aplicado</span></div>
+      </div>
+    </div>
+    
+    <div class="row-div"><h3>Historial de Justificaciones</h3></div>
+    <div class="gov-log" id="gov-log-list">
+      <!-- Logs will be populated by JS -->
     </div>
   </div>
 </div>
