@@ -301,7 +301,8 @@ body{
 <body>
 
 <!-- ═══════════ SIDEBAR ═══════════ -->
-<nav class="nav">
+<nav class="nav" id="sidebar">
+  <div class="fold-btn" onclick="toggleSidebar()">←</div>
   <div class="nav-logo">
     <span class="nl-badge">ITS · Corredor Vial · 5G</span>
     <div class="nl-title">Chía <span>—</span> Girardot</div>
@@ -338,7 +339,7 @@ body{
 </nav>
 
 <!-- ═══════════ MAIN ═══════════ -->
-<main class="main">
+<main class="main" id="main-content">
 
 <!-- ── HOME (REFINED) ── -->
 <div id="sec-home" class="section active">
@@ -506,7 +507,40 @@ body{
       </div>
     </div>
     
-    <div class="row-div"><h3>Historial de Justificaciones</h3></div>
+    <div class="row-div">
+      <h3>Historial de Justificaciones</h3>
+      <button class="btn-p" style="padding:6px 14px;font-size:10px;margin-left:auto" onclick="toggleGovForm()">+ Nueva Justificación</button>
+    </div>
+
+    <!-- MOCK GOV FORM -->
+    <div class="gov-form-wrap" id="gov-form">
+      <h4 style="font-family:'Syne',sans-serif;margin-bottom:16px;font-size:14px">Nueva Solicitud de Cambio (Simulation)</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div class="g-field">
+          <label class="g-label">Tipo de Cambio / Registro</label>
+          <select class="g-select" id="g-type">
+            <option value="BASELINE">BASELINE (Línea Base)</option>
+            <option value="ARQUITECTURA">ARQUITECTURA (Lógica/Física)</option>
+            <option value="COMMIT">COMMIT (Código/Despliegue)</option>
+            <option value="APROBACIÓN">APROBACIÓN (Comité)</option>
+            <option value="CONTRATO">CONTRATO (Cláusulas)</option>
+          </select>
+        </div>
+        <div class="g-field">
+          <label class="g-label">Título del Registro</label>
+          <input type="text" class="g-input" id="g-title" placeholder="Ej: Actualización de ALPR a V2.0">
+        </div>
+      </div>
+      <div class="g-field">
+        <label class="g-label">Justificación Técnica / Descripción</label>
+        <textarea class="g-area" id="g-desc" placeholder="Describa el cambio y el impacto en la operación..."></textarea>
+      </div>
+      <div class="g-btns">
+        <button class="btn-p" onclick="addGovEntry()">Guardar en Bitácora</button>
+        <button class="btn-s" onclick="toggleGovForm()">Cancelar</button>
+      </div>
+    </div>
+    
     <div class="gov-log" id="gov-log-list">
       <!-- Logs will be populated by JS -->
     </div>
@@ -1225,6 +1259,8 @@ function showEOV(id){
 }
 
 // Build Matriz tables
+const TABLE_ORIG_HTML = {}; // For highlight reset
+
 function buildTable(bodyId,data,cols,cntId){
   const tbody=document.getElementById(bodyId);
   tbody.innerHTML='';
@@ -1233,6 +1269,7 @@ function buildTable(bodyId,data,cols,cntId){
     tr.innerHTML=cols.map((c,i)=>`<td class="${c}">${row[i]||''}</td>`).join('');
     tbody.appendChild(tr);
   });
+  TABLE_ORIG_HTML[bodyId] = tbody.innerHTML; // Cache for reset
   if(cntId)document.getElementById(cntId).textContent=`${data.length} registros`;
 }
 
@@ -1243,19 +1280,39 @@ buildTable('sub-body',SUB.map(r=>[r.cod,r.sigla,r.name,r.fn,r.desc]),['cod','nam
 buildTable('fn-body',FN.map(r=>[r[0],r[1],r[2]]),['cod','name','desc'],'fn-cnt');
 buildTable('cc-body',CC.map(r=>[r[0],r[1],r[2],r[3]]),['cod','name','name','cap'],'cc-cnt');
 
-// Filter tables — multi-keyword support
+// Filter tables — multi-keyword support + Highlight
 function filterTable(tblId,q){
+  const tbody = document.querySelector('#'+tblId+' tbody');
   const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+  
+  // Reset HTML to previous full state before re-filtering (to clear marks)
+  if(terms.length === 0) tbody.innerHTML = TABLE_ORIG_HTML[tbody.id];
+
   let vis=0;
-  document.querySelectorAll('#'+tblId+' tbody tr').forEach(tr=>{
-    const txt = tr.textContent.toLowerCase();
+  tbody.querySelectorAll('tr').forEach(tr=>{
+    const txt = tr.innerText.toLowerCase();
     const m = terms.length===0 || terms.every(t=>txt.includes(t));
     tr.style.display=m?'':'none';
-    if(m)vis++;
+    if(m) {
+      vis++;
+      if(terms.length > 0) highlightRow(tr, terms);
+    }
   });
+  
   const pfx=tblId.split('-')[0];
   const el=document.getElementById(pfx+'-cnt');
   if(el)el.textContent=vis+' registros';
+}
+
+function highlightRow(tr, terms){
+  tr.querySelectorAll('td').forEach(td=>{
+    let html = td.innerText;
+    terms.forEach(t=>{
+      const reg = new RegExp(`(${t})`, 'gi');
+      html = html.replace(reg, '<mark>$1</mark>');
+    });
+    td.innerHTML = html;
+  });
 }
 
 // Filter SE by type
@@ -1381,15 +1438,44 @@ setTimeout(()=>{
   renderGauges();
   renderEOVChart();
   renderArchCoverage();
+  initLiveGauges();
 }, 500);
 
+// ── LIVE GAUGE SIMULATION ──
+function initLiveGauges(){
+  setInterval(()=>{
+    if(document.getElementById('sec-home').classList.contains('active')){
+      const d = 99.7 + Math.random()*0.2;
+      const r = 19.8 + Math.random()*0.4;
+      const arcD=document.getElementById('arc-dispo');
+      const txtD=document.getElementById('txt-dispo');
+      if(arcD) arcD.style.strokeDasharray = `${314.16 * (d/100)} 314.16`;
+      if(txtD) txtD.textContent = d.toFixed(1);
+      
+      const arcR=document.getElementById('arc-ris');
+      const txtR=document.getElementById('txt-ris'); // Wait, check if txt-ris exists (the UI said "BAJO")
+      if(arcR) arcR.style.strokeDasharray = `${314.16 * (r/100)} 314.16`;
+    }
+  }, 4000);
+}
+
+// ── SIDEBAR TOGGLE ──
+function toggleSidebar(){
+  const s = document.getElementById('sidebar');
+  const m = document.getElementById('main-content');
+  const b = document.querySelector('.fold-btn');
+  s.classList.toggle('collapsed');
+  m.classList.toggle('expanded');
+  b.textContent = s.classList.contains('collapsed') ? '→' : '←';
+}
+
 // ── Governance Audit Log ──
-const GOV_LOGS = [
-  {date:'28 Mar 2026',type:'BASELINE',title:'Publicación V4.0 — Sistema Navegable ITS',desc:'Refinamiento visual con glassmorphism, nueva sección de Gobernanza PMBOK y sidebar mejorado. Commit: dabebbd.'},
-  {date:'28 Mar 2026',type:'COMMIT',title:'Subida inicial V1.0 — ITS_Navegable_v3.html',desc:'Entregable #1 publicado en repositorio GitHub: Innovadataco/APP-CHIA-GIRARDOT. Commit: 4bd8c5c.'},
-  {date:'Mar 2026',type:'APROBACIÓN',title:'Validación técnica de 15 Escenarios EOV',desc:'Todos los escenarios operativos de validación aprobados por el Comité Técnico ICCU/IFC bajo Res. 28675/2022.'},
-  {date:'Mar 2026',type:'ARQUITECTURA',title:'Definición de Matriz ITS — 6 Dominios, 12 AS, 122+ FN',desc:'Arquitectura lógica y física del corredor Chía-Girardot formalizada según estándares ISO 14813 y ARC-IT.'},
-  {date:'Mar 2026',type:'CONTRATO',title:'Referencia: FC0CMG — Concesión 5G Brownfield 306 km',desc:'Activación del entregable de estructuración técnica ITS bajo supervisión ICCU. Cliente: IFC / Banco Mundial.'},
+let GOV_LOGS = JSON.parse(localStorage.getItem('gov_logs')) || [
+  {date:'28 Mar 2026',type:'BASELINE',title:'Publicación V5.0 — Dashboard Corredor Vial',desc:'Refinamiento estético, filtros de EOV, búsqueda multi-palabra y exportación PDF.'},
+  {date:'28 Mar 2026',type:'BASELINE',title:'Publicación V4.0 — Sistema Navegable ITS',desc:'Refinamiento visual con glassmorphism, nueva sección de Gobernanza PMBOK y sidebar mejorado.'},
+  {date:'28 Mar 2026',type:'COMMIT',title:'Subida inicial V1.0 — ITS_Navegable_v3.html',desc:'Entregable #1 publicado en repositorio GitHub: Innovadataco/APP-CHIA-GIRARDOT.'},
+  {date:'Mar 2026',type:'APROBACIÓN',title:'Validación técnica de 15 Escenarios EOV',desc:'Escenarios operativos aprobados por el Comité Técnico ICCU/IFC.'},
+  {date:'Mar 2026',type:'ARQUITECTURA',title:'Definición de Matriz ITS — 6 Dominios, 12 AS, 122+ FN',desc:'Arquitectura lógica y física formalizada según ISO 14813.'},
 ];
 
 const typeColor = {
@@ -1399,6 +1485,32 @@ const typeColor = {
   'ARQUITECTURA':'var(--purple)',
   'CONTRATO':'var(--teal)',
 };
+
+function toggleGovForm(){
+  document.getElementById('gov-form').classList.toggle('active');
+}
+
+function addGovEntry(){
+  const t = document.getElementById('g-type').value;
+  const title = document.getElementById('g-title').value;
+  const desc = document.getElementById('g-desc').value;
+  if(!title || !desc) return alert('Por favor complete todos los campos');
+  
+  const newEntry = {
+    date: new Date().toLocaleDateString('es-ES', {day:'2-digit', month:'short', year:'numeric'}),
+    type: t,
+    title: title,
+    desc: desc
+  };
+  
+  GOV_LOGS.unshift(newEntry);
+  localStorage.setItem('gov_logs', JSON.stringify(GOV_LOGS));
+  renderGovLog();
+  toggleGovForm();
+  // Clear fields
+  document.getElementById('g-title').value='';
+  document.getElementById('g-desc').value='';
+}
 
 function renderGovLog(){
   const container = document.getElementById('gov-log-list');
