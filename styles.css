@@ -312,61 +312,69 @@ td.cod{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent2
   transition:all .15s;margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
 .back-btn:hover{border-color:var(--accent);color:var(--accent)}
 
-/* ── DIGITAL COMMAND CENTER (PREMIUM EOV) ── */
-.premium-container{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:32px;padding-bottom:100px}
-.premium-card{background:rgba(15,23,42,0.4);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);
-    border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden;
-    transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5)}
-.premium-card:hover{border-color:var(--border2);transform:scale(1.005)}
-.premium-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg, transparent, var(--border2), transparent)}
+/* ── ARCHITECT COCKPIT V3 ── */
+.cockpit-layout { display: flex; height: calc(100vh - 40px); background: #0a0f18; margin: -20px; color: #fff; overflow: hidden; }
+.cockpit-nav { width: 330px; border-right: 1px solid rgba(255,255,255,0.06); background: #0f172a; overflow-y: auto; display: flex; flex-direction: column; }
+.cn-header { padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.cn-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; }
+.cn-list { flex: 1; padding: 12px; }
+.cn-item { display: flex; align-items: flex-start; gap: 14px; padding: 15px; border-radius: 12px; cursor: pointer; transition: all 0.25s; border: 1px solid transparent; margin-bottom: 4px; }
+.cn-item:hover { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.06); }
+.cn-item.active { background: rgba(240, 106, 37, 0.1); border-color: var(--accent); }
+.cn-ico { font-size: 22px; opacity: 0.8; }
+.cn-body { flex: 1; min-width: 0; }
+.cn-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); font-weight: 700; margin-bottom: 2px; }
+.cn-name { font-size: 12.5px; font-weight: 600; line-height: 1.3; color: #cbd5e1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.section-ribbon{display:flex;align-items:center;gap:15px;margin-bottom:24px}
-.ribbon-num{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--accent);opacity:0.6;letter-spacing:1px}
-.ribbon-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);flex:1}
-.ribbon-line{flex:1;height:1px;background:linear-gradient(90deg, var(--border), transparent)}
+.cockpit-stage { flex: 1; overflow-y: auto; padding: 40px; display: flex; flex-direction: column; gap: 40px; background: 
+  radial-gradient(circle at 0% 0%, rgba(59,130,246,0.05), transparent 30%),
+  radial-gradient(circle at 100% 100%, rgba(240,106,37,0.05), transparent 40%); }
 
-.detail-row{display:grid;grid-template-columns:200px 1fr;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.03);align-items:start;gap:15px}
-.detail-row:last-child{border-bottom:none}
-.detail-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;padding-top:2px}
-.detail-value{font-size:13px;line-height:1.6;color:var(--text);font-weight:400}
-.detail-value b{color:var(--accent2)}
+/* Cockpit HUD Header */
+.hud-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 30px; }
+.hud-l { flex: 1; }
+.hud-ey { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 3px; color: var(--accent); margin-bottom: 12px; display: block; opacity: 0.8; }
+.hud-h1 { font-family: 'Syne', sans-serif; font-size: 42px; font-weight: 800; line-height: 1.1; color: #fff; margin: 0; }
+.hud-r { display: flex; gap: 20px; }
+.hud-kpi { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 14px; min-width: 130px; }
+.hud-kv { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; color: #fff; }
+.hud-kl { font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; color: var(--muted); letter-spacing: 1px; }
 
-/* ── EOV CONTROL CENTER (TABS & TIMELINE) ── */
-.eov-board { display: grid; grid-template-columns: 240px 1fr; gap: 30px; margin-top: 20px; min-height: 500px; }
-.eov-side { display: flex; flex-direction: column; gap: 8px; }
-.eov-tab-link { background: var(--panel2); border: 1px solid var(--border); padding: 16px 20px; border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px; color: var(--muted); }
-.eov-tab-link:hover { background: rgba(255,255,255,0.05); color: var(--text); border-color: var(--border2); }
-.eov-tab-link.active { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 10px 20px -10px rgba(240, 106, 37, 0.4); }
-.eov-tab-link .ti { font-size: 18px; }
-.eov-tab-link .tl { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; }
+/* Blueprint Design */
+.blueprint-panel { background: rgba(15,23,42,0.6); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 40px; }
+.blueprint-flow { display: flex; justify-content: space-between; position: relative; gap: 15px; margin-top: 20px; }
+.blueprint-node { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 2; }
+.bp-icon { width: 50px; height: 50px; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; transition: 0.3s; box-shadow: 0 0 20px rgba(0,0,0,0.4); margin-bottom: 12px; }
+.blueprint-node:hover .bp-icon { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 0 30px rgba(240, 106, 37, 0.2); }
+.bp-line { position: absolute; top: 25px; left: 50px; right: -50px; height: 1px; background: linear-gradient(90deg, var(--accent), transparent); z-index: 1; opacity: 0.3; }
+.blueprint-node:last-child .bp-line { display: none; }
+.bp-info { max-width: 140px; }
+.bp-lbl { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 1px; }
+.bp-val { font-size: 12px; font-weight: 400; color: #94a3b8; line-height: 1.5; font-style: normal !important; }
 
-.eov-main { background: rgba(15,23,42,0.3); border: 1px solid var(--border); border-radius: 20px; padding: 32px; min-height: 100%; position: relative; }
-.eov-pane { display: none; animation: paneIn 0.4s ease-out; }
-.eov-pane.active { display: block; }
-@keyframes paneIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* Dashboard detail rows - Blueprint style */
+.bp-meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 40px; }
+.bp-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 24px; border-radius: 18px; transition: 0.3s; }
+.bp-card:hover { border-color: rgba(255,255,255,0.1); }
+.bp-card h4 { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.bp-card p { font-size: 13.5px; line-height: 1.6; color: #94a3b8; }
 
-/* Horizontal Flux (ARC-IT) */
-.h-flow-wrap { display: flex; justify-content: space-between; align-items: stretch; margin: 40px 0; position: relative; gap: 10px; }
-.h-flow-wrap::before { content: ''; position: absolute; top: 18px; left: 0; width: 100%; height: 1px; background: var(--border2); z-index: 1; }
-.hf-node { flex: 1; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; cursor: default; }
-.hf-num { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s; }
-.hf-node:hover .hf-num { transform: scale(1.1); }
-.hf-info { display: flex; flex-direction: column; gap: 4px; }
-.hf-lbl { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-.hf-val { font-size: 11px; color: var(--text); line-height: 1.4; font-weight: 500; font-style: normal !important; }
+/* Control & Validation panels */
+.cockpit-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.cf-card { border-radius: 20px; padding: 30px; background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.06); }
 
-/* Grid Layout for details */
-.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-@media (max-width: 1100px) {
-  .eov-board { grid-template-columns: 1fr; }
-  .eov-side { flex-direction: row; overflow-x: auto; padding-bottom: 10px; }
-  .eov-tab-link { flex-shrink: 0; padding: 12px 16px; }
-  .h-flow-wrap { flex-direction: column; gap: 25px; margin: 20px 0; }
-  .h-flow-wrap::before { display: none; }
-  .hf-node { flex-direction: row; text-align: left; background: var(--panel2); padding: 12px; border-radius: 10px; border: 1px solid var(--border); }
-  .detail-grid { grid-template-columns: 1fr; }
+@media (max-width: 1300px) {
+  .cockpit-layout { flex-direction: column; height: auto; margin:0; }
+  .cockpit-nav { width: 100%; height: auto; max-height: 200px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .cn-list { display: flex; overflow-x: auto; padding: 12px; }
+  .cn-item { flex-shrink: 0; width: 240px; margin-bottom: 0; margin-right: 12px; }
+  .bp-meta-grid { grid-template-columns: 1fr; }
+  .blueprint-flow { flex-direction: column; gap: 40px; }
+  .bp-line { width: 1px; height: 40px; top: 50px; left: 25px; right: auto; background: linear-gradient(180deg, var(--accent), transparent); }
 }
+
+@keyframes hudIn { 0% { opacity:0; transform:translateY(-20px); filter:blur(10px); } 100% { opacity:1; transform:translateY(0); filter:blur(0); } }
+.stage-anim { animation: hudIn 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 
 /* ── MODERN DATA CARDS (MATRICES) ── */
 .matrix-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; width: 100%; margin-top: 10px; }

@@ -161,7 +161,31 @@ async function initialRender() {
    CORE FUNCTIONS
    ══════════════════════════════════════════════════════ */
 
-// EOV detail renderer
+// ARCHITECT COCKPIT V3 - Side Navigation Generator
+async function renderEOVQuickNav(activeId) {
+    const eovs = await itsDb.getAll('eov');
+    const navList = document.getElementById('eov-quicknav');
+    if (!navList) return;
+
+    navList.innerHTML = `
+        <div class="cn-header">
+            <div class="cn-title">Quick Navigation</div>
+        </div>
+        <div class="cn-list">
+            ${eovs.map(e => `
+                <div class="cn-item ${e.id === activeId ? 'active' : ''}" onclick="showEOV('${e.id}')">
+                    <div class="cn-ico">${e.ico}</div>
+                    <div class="cn-body">
+                        <div class="cn-id">${e.id}</div>
+                        <div class="cn-name">${e.name}</div>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+// EOV detail renderer (COCKPIT V3)
 async function showEOV(id) {
     let rawEov = await itsDb.get('eov', id);
     if (!rawEov) return;
@@ -169,150 +193,127 @@ async function showEOV(id) {
     const e = await itsDb.queryRelationships(rawEov);
     const typeLabel = e.type === 'p' ? 'Prioritario' : e.type === 'c' ? 'Complementario' : 'Futuro';
     const tclr = e.type === 'p' ? 'var(--accent)' : e.type === 'c' ? 'var(--green)' : 'var(--purple)';
-    
-    document.getElementById('eov-d-title').innerHTML = `${e.ico} ${e.id} · ${e.name}`;
-    document.getElementById('eov-d-sub').innerHTML = `<span style="color:${tclr}; font-weight:700">${typeLabel}</span> · ${e.ctx || 'Escenario Operativo'}`;
 
-    const mkRow = (k, v) => `<div class="detail-row"><div class="detail-label">${k}</div><div class="detail-value">${(v && v !== 'N/A') ? v.toString().replace(/\n/g, '<br>') : `<span style="color:var(--red); font-style:italic; opacity:0.7">[PENDIENTE VALIDACIÓN]</span>`}</div></div>`;
-    const mkRibbon = (num, title) => `<div class="section-ribbon"><div class="ribbon-num">${num}</div><div class="ribbon-title">${title}</div><div class="ribbon-line"></div></div>`;
-    const mkMini = (arr, cls) => Array.isArray(arr) && arr.length ? arr.map(x => `<div class="mini-card ${cls}">${x.replace(/\n/g, '<br>')}</div>`).join('') : `<div style="color:var(--red); font-size:10px; font-style:italic; padding:10px; border:1px dashed var(--red); border-radius:6px">[PENDIENTE VALIDACIÓN]</div>`;
+    // Update QuickNav
+    await renderEOVQuickNav(id);
+
     const mkCheck = (arr) => Array.isArray(arr) ? arr.map(x => `<div class="val-check"><i>✓</i><div class="val-txt">${x}</div></div>`).join('') : '';
+    const mkMini = (arr, cls) => Array.isArray(arr) && arr.length ? arr.map(x => `<div class="mini-card ${cls}">${x.replace(/\n/g, '<br>')}</div>`).join('') : '<div class="no-data">[PENDIENTE]</div>';
     const esc = (s) => (s || '').toString().replace(/'/g, "\\'").replace(/\n/g, ' ');
 
-    window.switchEOVTab = (tabId, btn) => {
-        document.querySelectorAll('.eov-pane').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.eov-tab-link').forEach(b => b.classList.remove('active'));
-        document.getElementById('pane-' + tabId).classList.add('active');
-        btn.classList.add('active');
-    };
-
-    const renderHierarchy6 = (e) => {
-        const levels = [
-            { l: 'Dominio ITS', v: e._dominio, s: 'mat-dom', r: e.dominio },
-            { l: 'Area de Servicio ITS', v: e._area, s: 'mat-as', r: e.area },
-            { l: 'Subsistema ITS', v: e._sub, s: 'mat-sub', r: e.sub },
-            { l: 'Servicio Estratégico ITS', v: e._se, s: 'mat-se', r: e.se },
-            { l: 'Funciones Tecnica ITS', v: e._fn, s: 'mat-fn', r: e.fn },
-            { l: 'Componentes de campo  ITS', v: e._cc, s: 'mat-cc', r: e.cc }
-        ];
-        return `<div class="ladder-wrap">
-            ${levels.map((lvl, index) => `
-                <div class="ladder-step" ${lvl.v && lvl.s && !String(lvl.v).includes('[PENDIENTE') ? `onclick="goFilter('${lvl.s}','${lvl.s.split('-')[1] + '-tbl'}','${esc(lvl.r)}'); event.stopPropagation()"` : ''}>
-                    <div class="ladder-num">${index + 1}</div>
-                    <div class="ladder-body">
-                        <div class="ladder-label">${lvl.l}</div>
-                        <div class="ladder-val" style="${(!lvl.v || lvl.v === 'N/A' || lvl.v === '') ? 'color:var(--red); font-style:italic; opacity:0.7' : ''}">
-                            ${(lvl.v && lvl.v !== 'N/A' && lvl.v !== '') ? lvl.v : '[PENDIENTE VALIDACIÓN]'}
-                        </div>
-                    </div>
-                </div>
-            `).join('')}
-        </div>`;
-    };
-
-    const bodyHtml = `
-    <div onclick="go('eov-list')" class="back-btn">← Volver al Listado</div>
-    
-    <div class="premium-container">
-        <div class="premium-card" style="border-left: 6px solid ${tclr}; padding: 30px;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                    <span class="nl-badge" style="margin-bottom: 10px; display: block;">Escenario Operativo de Validación</span>
-                    <h2 style="font-family: 'Syne',sans-serif; font-size: 32px; margin: 0;">${e.id} · ${e.name}</h2>
-                </div>
-                <div style="font-size: 50px;">${e.ico}</div>
+    const cockpitHtml = `
+    <div class="stage-anim">
+        <!-- ── BLUEPRINT HEADER (HUD) ── -->
+        <header class="hud-header">
+            <div class="hud-l">
+                 <span class="hud-ey">SCENARIO_VALIDATION_MODULE // V1.0.5</span>
+                 <h1 class="hud-h1">${e.id}: ${e.name}</h1>
+                 <div style="margin-top:10px; display:flex; gap:10px;">
+                    <span class="card-code">${typeLabel}</span>
+                    <span class="card-code" style="background:rgba(255,255,255,0.05); color:#94a3b8; border-color:rgba(255,255,255,0.1)">Estandar ARC-IT</span>
+                 </div>
             </div>
-        </div>
+            <div class="hud-r">
+                <div class="hud-kpi">
+                    <span class="hud-kv">${e.km || '306'} km</span>
+                    <span class="hud-kl">Cobertura Vial</span>
+                </div>
+                <div class="hud-kpi">
+                    <span class="hud-kv">100%</span>
+                    <span class="hud-kl">Fidelidad Datos</span>
+                </div>
+                <div onclick="go('eov-list')" class="back-btn" style="margin:0; height:fit-content; align-self:center;">✕ Cerrar Cockpit</div>
+            </div>
+        </header>
 
-        <div class="eov-board">
-            <!-- SIDEBAR TABS -->
-            <div class="eov-side">
-                <div class="eov-tab-link active" onclick="switchEOVTab('gen', this)">
-                    <span class="ti">📋</span><span class="tl">Resumen General</span>
+        <!-- ── LAYER 01: BLUEPRINT META ── -->
+        <section class="bp-meta-grid">
+            <div class="bp-card">
+                <h4>Contexto Operativo</h4>
+                <p>${e.ctx || 'Sin descripción de contexto registrada.'}</p>
+            </div>
+            <div class="bp-card">
+                <h4>Justificación Técnica</h4>
+                <p>${e.just || 'Sin justificación técnica disponible.'}</p>
+            </div>
+            <div class="bp-card">
+                <h4>Estrategia Despliegue</h4>
+                <p>${e.desp || 'Definición de despliegue en proceso.'}</p>
+            </div>
+        </section>
+
+        <!-- ── LAYER 02: ARCHITECTURE CONNECT ── -->
+        <section class="blueprint-panel">
+            <div class="cn-title" style="margin-bottom:30px; opacity:0.6">Arquitectura Sistemática (Modelo de Capas ARC-IT)</div>
+            <div class="blueprint-flow">
+                <div class="blueprint-node">
+                    <div class="bp-icon">🏛️</div>
+                    <div class="bp-info">
+                        <div class="bp-lbl">E1: Estratégico</div>
+                        <div class="bp-val">${e.e1 || '...'}</div>
+                    </div>
+                    <div class="bp-line"></div>
                 </div>
-                <div class="eov-tab-link" onclick="switchEOVTab('arch', this)">
-                    <span class="ti">🏗️</span><span class="tl">Arquitectura</span>
+                <div class="blueprint-node">
+                    <div class="bp-icon">📄</div>
+                    <div class="bp-info">
+                        <div class="bp-lbl">E2: Operacional</div>
+                        <div class="bp-val">${e.e2 || '...'}</div>
+                    </div>
+                    <div class="bp-line"></div>
                 </div>
-                <div class="eov-tab-link" onclick="switchEOVTab('flow', this)">
-                    <span class="ti">⚡</span><span class="tl">Flujo ARC-IT</span>
+                <div class="blueprint-node">
+                    <div class="bp-icon">🖥️</div>
+                    <div class="bp-info">
+                        <div class="bp-lbl">E3: Lógico</div>
+                        <div class="bp-val">${e.e3 || '...'}</div>
+                    </div>
+                    <div class="bp-line"></div>
                 </div>
-                <div class="eov-tab-link" onclick="switchEOVTab('ctrl', this)">
-                    <span class="ti">🛡️</span><span class="tl">Control & Seguridad</span>
+                <div class="blueprint-node">
+                    <div class="bp-icon">⚙️</div>
+                    <div class="bp-info">
+                        <div class="bp-lbl">E4: Sistémico</div>
+                        <div class="bp-val">${e.e4 || '...'}</div>
+                    </div>
+                    <div class="bp-line"></div>
+                </div>
+                <div class="blueprint-node">
+                    <div class="bp-icon">📡</div>
+                    <div class="bp-info">
+                        <div class="bp-lbl">E5: Físico</div>
+                        <div class="bp-val">${e.e5 || '...'}</div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- MAIN PANE -->
-            <div class="eov-main glass">
-                
-                <!-- PANE: GENERAL -->
-                <div id="pane-gen" class="eov-pane active">
-                    ${mkRibbon('01', 'Definición Operativa')}
-                    <div class="detail-grid" style="margin-bottom:30px">
-                        <div>${mkRow('Contexto', e.ctx)}${mkRow('Motivación', e.mot)}${mkRow('Justificación', e.just)}</div>
-                        <div>${mkRow('Qué es', e.que)}${mkRow('Para qué sirve', e.para)}${mkRow('Despliegue', e.desp)}</div>
+        <!-- ── LAYER 03: CONTROL & VALIDATION ── -->
+        <section class="cockpit-footer">
+            <div class="cf-card">
+                <div class="cn-title" style="margin-bottom:20px; opacity:0.6">Seguridad y Continuidad</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                    <div>
+                        <div class="bp-lbl">Alertas de Sistema</div>
+                        <div class="mini-grid">${mkMini(e.alertas, 'alert-card')}</div>
                     </div>
-                    ${mkRibbon('04', 'Estado Transaccional')}
-                    <div class="detail-grid">
-                        <div>${mkRow('Reflejo (Centro)', e.reflejo)}${mkRow('Conciencia (Digital Twin)', e.conciencia)}</div>
-                        <div>${mkRow('Estadio Operación', e.estadio)}${mkRow('Canales Digitales', e.canales)}</div>
+                    <div>
+                        <div class="bp-lbl">Protocolo Contingencia</div>
+                        <div class="mini-grid">${mkMini(e.contingencia, 'cont-card')}</div>
                     </div>
                 </div>
-
-                <!-- PANE: ARCHITECTURE -->
-                <div id="pane-arch" class="eov-pane">
-                    ${mkRibbon('02', 'Jerarquía Sistemática')}
-                    <div style="margin-bottom:24px">${renderHierarchy6(e)}</div>
-                    <div class="detail-grid">
-                        <div>${mkRow('Estándares', e.std)}</div>
-                        <div>${mkRow('Marco Normativo', e.marco)}</div>
-                    </div>
-                </div>
-
-                <!-- PANE: ARC-IT FLOW -->
-                <div id="pane-flow" class="eov-pane">
-                    ${mkRibbon('03', 'Flujo de Operación (ARC-IT)')}
-                    <div class="h-flow-wrap">
-                        <div class="hf-node"><div class="hf-num fl1">1</div><div class="hf-info"><div class="hf-lbl">Estratégico</div><div class="hf-val">${e.e1 || '...'}</div></div></div>
-                        <div class="hf-node"><div class="hf-num fl2">2</div><div class="hf-info"><div class="hf-lbl">Operacional</div><div class="hf-val">${e.e2 || '...'}</div></div></div>
-                        <div class="hf-node"><div class="hf-num fl3">3</div><div class="hf-info"><div class="hf-lbl">Lógico</div><div class="hf-val">${e.e3 || '...'}</div></div></div>
-                        <div class="hf-node"><div class="hf-num fl4">4</div><div class="hf-info"><div class="hf-lbl">Sistémico</div><div class="hf-val">${e.e4 || '...'}</div></div></div>
-                        <div class="hf-node"><div class="hf-num fl5">5</div><div class="hf-info"><div class="hf-lbl">Físico</div><div class="hf-val">${e.e5 || '...'}</div></div></div>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.03); padding:20px; border-radius:12px; margin-top:20px;">
-                        <p style="font-size:12px; color:var(--muted); line-height:1.6">Este flujo representa el camino desde la necesidad estratégica hasta el despliegue físico de los componentes, garantizando la trazabilidad total del servicio ITS.</p>
-                    </div>
-                </div>
-
-                <!-- PANE: CONTROL -->
-                <div id="pane-ctrl" class="eov-pane">
-                    <div class="detail-grid">
-                        <div>
-                            ${mkRibbon('05', 'Alertas de Validación')}
-                            <div class="mini-grid" style="margin-bottom:20px">${mkMini(e.alertas, 'alert-card')}</div>
-                            ${mkRibbon('07', 'Contingencia')}
-                            <div class="mini-grid">${mkMini(e.contingencia, 'cont-card')}</div>
-                        </div>
-                        <div>
-                            ${mkRibbon('08', 'Criterios de Aceptación')}
-                            <div class="v-checks" style="margin-bottom:20px">${mkCheck(e.criterios)}</div>
-                            ${mkRibbon('09', 'Evolución Tecnológica')}
-                            <div class="mini-grid">${mkMini(e.evolucion, 'evol-card')}</div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
+            <div class="cf-card">
+                 <div class="cn-title" style="margin-bottom:20px; opacity:0.6">Criterios de Aceptación</div>
+                 <div class="v-checks">${mkCheck(e.criterios)}</div>
+            </div>
+        </section>
     </div>
     `;
 
-    document.getElementById('eov-d-body').innerHTML = bodyHtml;
+    document.getElementById('eov-d-body').innerHTML = cockpitHtml;
     
-    // Auto-select first tab on mobile/desktop
-    const firstTab = document.querySelector('.eov-tab-link');
-    if (firstTab) firstTab.classList.add('active');
-
-    // UI transitions
+    // UI Transitions
     document.querySelectorAll('.nav-eov-btn').forEach(b => b.classList.remove('active'));
     const nb = document.getElementById('nav-' + id);
     if (nb) nb.classList.add('active');
