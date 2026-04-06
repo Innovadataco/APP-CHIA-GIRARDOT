@@ -1,0 +1,1627 @@
+{
+  "no": [
+    {
+      "cod": "1.0",
+      "name": "Supervisi\u00f3n de la Estabilidad e Integridad Estructural",
+      "desc": "Se identifica la necesidad de monitorear de forma constante las condiciones f\u00edsicas de los activos de infraestructura y las variaciones geomec\u00e1nicas del terreno. Esta condici\u00f3n permite al sistema detectar tempranamente inestabilidades que podr\u00edan comprometer la seguridad o la continuidad del tr\u00e1nsito."
+    },
+    {
+      "cod": "2.0",
+      "name": "Gesti\u00f3n de la Resiliencia H\u00eddrica y Control de Niveles Cr\u00edticos",
+      "desc": "Es imperativo gestionar la problem\u00e1tica de las interferencias h\u00eddricas en sectores vulnerables. El sistema debe ser capaz de identificar niveles fre\u00e1ticos cr\u00edticos y activar, de manera automatizada y remota, los mecanismos de evacuaci\u00f3n de fluidos necesarios para asegurar el drenaje de la calzada."
+    },
+    {
+      "cod": "3.0",
+      "name": "Regulaci\u00f3n Conductual y Mitigaci\u00f3n de Riesgos Operativos",
+      "desc": "Para garantizar una correcta operaci\u00f3n, el servicio ITS debe abordar la problem\u00e1tica del incumplimiento de los par\u00e1metros de velocidad. Se requiere una arquitectura que permita la retroalimentaci\u00f3n din\u00e1mica al usuario para inducir comportamientos de conducci\u00f3n seguros con funciones de mensajer\u00eda pedag\u00f3gica."
+    },
+    {
+      "cod": "4.0",
+      "name": "Protecci\u00f3n y Gesti\u00f3n de la Coexistencia Multimodal",
+      "desc": "El despliegue del servicio debe garantizar la seguridad en zonas de interfaz urbana donde interact\u00faan diferentes modos de transporte. La necesidad operacional se centra en la detecci\u00f3n y se\u00f1alizaci\u00f3n prioritaria de usuarios no motorizados, integrando la visibilidad de estos flujos en los Servicios Estrat\u00e9gicos de monitoreo del centro."
+    },
+    {
+      "cod": "5.0",
+      "name": "Continuidad Operativa ante Interferencias de Servicios Externos",
+      "desc": "Se requiere supervisar la disponibilidad y el estado de las redes de servicios p\u00fablicos e infraestructura de soporte vinculadas al corredor. El objetivo es identificar fallas externas que puedan impactar la prestaci\u00f3n del servicio vial, asegurando que la arquitectura mantenga la interoperabilidad con los actores estrat\u00e9gicos del entorno."
+    },
+    {
+      "cod": "6.0",
+      "name": "Detecci\u00f3n Proactiva y Gesti\u00f3n Integral de Anomal\u00edas",
+      "desc": "La operaci\u00f3n demanda la identificaci\u00f3n autom\u00e1tica y en tiempo real de eventos que afecten el flujo vehicular, como objetos ca\u00eddos o veh\u00edculos detenidos."
+    },
+    {
+      "cod": "7.0",
+      "name": "Integridad y Sincronizaci\u00f3n Transaccional de la Informaci\u00f3n",
+      "desc": "Existe la necesidad estrat\u00e9gica de garantizar que los flujos de datos fluyan sin interrupciones entre todas las capas de la arquitectura. Se debe asegurar la trazabilidad de cada evento, eliminando silos de informaci\u00f3n mediante una orquestaci\u00f3n robusta que garantice la fidelidad de los datos operativos."
+    },
+    {
+      "cod": "8.0",
+      "name": "Conciencia Situacional Avanzada y Modelado de la Operaci\u00f3n",
+      "desc": "Para una gesti\u00f3n de vanguardia, se requiere una representaci\u00f3n digital de alta fidelidad que integre la din\u00e1mica de la v\u00eda. Esta necesidad permite visualizar escenarios actuales y predictivos sobre el Gemelo Digital, facilitando una respuesta coordinada ante incidentes complejos."
+    },
+    {
+      "cod": "9.0",
+      "name": "Mantenimiento de la Disponibilidad y Salud de Activos",
+      "desc": "El sistema debe contar con capacidades de autodiagn\u00f3stico para monitorear el estado operativo de sus propios componentes. La necesidad operacional es garantizar la permanencia del servicio ITS, programando intervenciones preventivas antes de que se afecte la capacidad de supervisi\u00f3n del corredor."
+    },
+    {
+      "cod": "10.0",
+      "name": "Optimizaci\u00f3n de la Comunicaci\u00f3n y Difusi\u00f3n Din\u00e1mica",
+      "desc": "Se identifica la necesidad de mantener al usuario informado sobre el estado del corredor y condiciones meteorol\u00f3gicas. Esto mejora la previsibilidad del tr\u00e1nsito y la satisfacci\u00f3n del viajero, cerrando el ciclo de gesti\u00f3n entre la infraestructura y el ciudadano."
+    }
+  ],
+  "dom": [
+    {
+      "cod": "DOM-01",
+      "name": "Gesti\u00f3n de Tr\u00e1fico",
+      "desc": "Planificaci\u00f3n, control y optimizaci\u00f3n del flujo vehicular y la capacidad vial."
+    },
+    {
+      "cod": "DOM-02",
+      "name": "Gesti\u00f3n de Emergencias",
+      "desc": "Coordinaci\u00f3n de respuestas ante incidentes, siniestros y desastres en el corredor."
+    },
+    {
+      "cod": "DOM-03",
+      "name": "Informaci\u00f3n al Viajero",
+      "desc": "Suministro de datos para la toma de decisiones antes y durante el viaje."
+    },
+    {
+      "cod": "DOM-04",
+      "name": "Seguridad y Cumplimiento",
+      "desc": "Vigilancia normativa, control de infracciones y protecci\u00f3n de la vida."
+    },
+    {
+      "cod": "DOM-05",
+      "name": "Recaudo y Pagos",
+      "desc": "Gesti\u00f3n de transacciones financieras por el uso de la infraestructura."
+    },
+    {
+      "cod": "DOM-06",
+      "name": "Gesti\u00f3n de Infraestructura",
+      "desc": "Monitoreo de la salud de activos f\u00edsicos y condiciones ambientales."
+    }
+  ],
+  "as": [
+    {
+      "cod": "AS-01",
+      "name": "Gesti\u00f3n de incidentes y seguridad vial",
+      "desc": "Orquesta la detecci\u00f3n autom\u00e1tica de incidentes (DAI) y la respuesta coordinada ante eventos disruptivos. Su funci\u00f3n es minimizar los tiempos de atenci\u00f3n mediante el despacho de servicios de auxilio y la implementaci\u00f3n de protocolos de protecci\u00f3n activa que mitiguen el riesgo de colisiones secundarias, garantizando la preservaci\u00f3n de la vida en el corredor."
+    },
+    {
+      "cod": "AS-02",
+      "name": "Gesti\u00f3n de servicios de informaci\u00f3n",
+      "desc": "Administra el ciclo de vida del dato estrat\u00e9gico, desde su procesamiento en el CCO hasta su difusi\u00f3n omnicanal. Habilita modelos de Data as a Service (DaaS) y proporciona a los usuarios informaci\u00f3n en tiempo real sobre tiempos de viaje y estados de la v\u00eda, facilitando la toma de decisiones informadas antes y durante el trayecto."
+    },
+    {
+      "cod": "AS-03",
+      "name": "Gesti\u00f3n de la operaci\u00f3n y el tr\u00e1fico",
+      "desc": "Ejecuta el control din\u00e1mico de flujos vehiculares para optimizar los Niveles de Servicio (LOS). Integra la anal\u00edtica de velocidades, conteo de tr\u00e1fico y gesti\u00f3n de carriles para prevenir la saturaci\u00f3n en nodos cr\u00edticos, asegurando una movilidad fluida y eficiente mediante la se\u00f1alizaci\u00f3n variable y la gesti\u00f3n t\u00e1ctica de la demanda."
+    },
+    {
+      "cod": "AS-04",
+      "name": "Servicios de transporte p\u00fablico y multimodal",
+      "desc": "Facilita la integraci\u00f3n tecnol\u00f3gica con sistemas de transporte masivo e interurbano que operan en el corredor. Gestiona la informaci\u00f3n de rutas, paraderos inteligentes y la sincronizaci\u00f3n con nodos de transferencia modal, promoviendo el uso del transporte p\u00fablico y mejorando la conectividad regional para el pasajero."
+    },
+    {
+      "cod": "AS-05",
+      "name": "Gesti\u00f3n de la demanda y electromovilidad",
+      "desc": "Administra la infraestructura de soporte para la transici\u00f3n energ\u00e9tica, incluyendo estaciones de carga r\u00e1pida (EVCS). Implementa estrategias de gesti\u00f3n de demanda basadas en la priorizaci\u00f3n de veh\u00edculos de bajas emisiones y el monitoreo de la disponibilidad energ\u00e9tica del corredor para incentivar una movilidad sostenible."
+    },
+    {
+      "cod": "AS-06",
+      "name": "Gesti\u00f3n de carga y veh\u00edculos comerciales",
+      "desc": "Especializada en el monitoreo cinem\u00e1tico y volum\u00e9trico del transporte pesado. Integra sistemas de pesaje din\u00e1mico (WIM) para proteger la integridad estructural de pavimentos y puentes, optimizando la log\u00edstica nacional mediante la trazabilidad de veh\u00edculos comerciales y la prevenci\u00f3n de sobrecargas."
+    },
+    {
+      "cod": "AS-07",
+      "name": "Servicios de recaudo y pago de transporte",
+      "desc": "Gestiona el ecosistema de cobro electr\u00f3nico de peajes (ETC) bajo est\u00e1ndares de interoperabilidad nacional. Asegura la integridad transaccional de las cuentas de usuario, la validaci\u00f3n de TAGs en tiempo real y la compensaci\u00f3n financiera entre operadores, garantizando un flujo continuo y auditable de los ingresos de la concesi\u00f3n."
+    },
+    {
+      "cod": "AS-08",
+      "name": "Gesti\u00f3n de la movilidad personal",
+      "desc": "Enfocada en la protecci\u00f3n de los Usuarios Vulnerables de la V\u00eda (VRU). Implementa sensores de detecci\u00f3n de peatones y ciclistas en zonas de interfaz urbana y tramos de alta criticidad, activando alertas preventivas para evitar siniestros en puntos de interacci\u00f3n entre el tr\u00e1fico motorizado y la micromovilidad."
+    },
+    {
+      "cod": "AS-09",
+      "name": "Gesti\u00f3n de seguridad ciudadana y fiscalizaci\u00f3n",
+      "desc": "Provee soporte tecnol\u00f3gico a las autoridades para la vigilancia y el cumplimiento de la ley penal y de tr\u00e1nsito. Utiliza anal\u00edtica ALPR para la detecci\u00f3n de veh\u00edculos con requerimientos judiciales, SOAT vencido o revisi\u00f3n t\u00e9cnico-mec\u00e1nica caducada, fortaleciendo la seguridad p\u00fablica y el ordenamiento del corredor."
+    },
+    {
+      "cod": "AS-10",
+      "name": "Gesti\u00f3n de SIG y clima",
+      "desc": "Integra sensores de telemetr\u00eda ambiental (ESS) y sistemas de informaci\u00f3n geogr\u00e1fica para la gesti\u00f3n proactiva de riesgos meteorol\u00f3gicos. Monitorea variables como visibilidad, lluvia y viento para activar planes de resiliencia clim\u00e1tica, informando geoespacialmente sobre condiciones adversas que afecten la seguridad operativa."
+    },
+    {
+      "cod": "AS-11",
+      "name": "Gesti\u00f3n de eficiencia y servicios de soporte",
+      "desc": "Administra la operatividad de los activos f\u00edsicos mediante la telegesti\u00f3n de iluminaci\u00f3n, eficiencia energ\u00e9tica y monitoreo de salud estructural (SHM). Utiliza algoritmos predictivos para programar mantenimientos preventivos, asegurando que los sistemas de soporte vital de la v\u00eda funcionen con la m\u00e1xima disponibilidad."
+    },
+    {
+      "cod": "AS-12",
+      "name": "Gesti\u00f3n de infraestructura y comunicaciones",
+      "desc": "Constituye la capa de transporte y blindaje digital del proyecto. Administra la red de fibra \u00f3ptica, los centros de datos y los protocolos de ciberseguridad industrial bajo modelos Zero Trust, garantizando la soberan\u00eda del dato, la baja latencia en la transmisi\u00f3n y la protecci\u00f3n de la infraestructura cr\u00edtica nacional."
+    }
+  ],
+  "se": [
+    {
+      "cod": "SE-ITS-1",
+      "name": "Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "cat": "Servicio ITS Prioritario (PMITS)"
+    },
+    {
+      "cod": "SE-ITS-2",
+      "name": "Servicio de pago electr\u00f3nico vehicular de la tasa de peajes",
+      "cat": "Servicio ITS Prioritario (PMITS)"
+    },
+    {
+      "cod": "SE-ITS-3",
+      "name": "Servicio de suministro de informaci\u00f3n de transporte p\u00fablico",
+      "cat": "Servicio ITS Prioritario (PMITS)"
+    },
+    {
+      "cod": "SE-ITS-4",
+      "name": "Servicio de gesti\u00f3n de siniestros viales inesperados",
+      "cat": "Servicio ITS Prioritario (PMITS)"
+    },
+    {
+      "cod": "SE-ITS-5",
+      "name": "Servicio de control de infracci\u00f3n de exceso de velocidad",
+      "cat": "Servicio ITS Prioritario (PMITS)"
+    },
+    {
+      "cod": "SE-ITS-6",
+      "name": "Servicio de apoyo a la administraci\u00f3n de veh\u00edculos de carga",
+      "cat": "Servicio ITS Prioritario (PMITS)"
+    },
+    {
+      "cod": "SE-ITS-7",
+      "name": "Monitoreo ambiental y meteorol\u00f3gico",
+      "cat": "Servicio ITS Prioritario (PMITS)"
+    },
+    {
+      "cod": "SE-ITS-8",
+      "name": "Gesti\u00f3n de mantenimiento de la infraestructura",
+      "cat": "Complementario ISO 14813"
+    },
+    {
+      "cod": "SE-ITS-9",
+      "name": "Gesti\u00f3n de emergencias y desastres",
+      "cat": "Complementario ISO 14813"
+    },
+    {
+      "cod": "SE-ITS-10",
+      "name": "Gesti\u00f3n de la demanda de transporte",
+      "cat": "Complementario ISO 14813"
+    },
+    {
+      "cod": "SE-ITS-11",
+      "name": "Informaci\u00f3n de viaje multimodal",
+      "cat": "Complementario ISO 14813"
+    }
+  ],
+  "sub": [
+    {
+      "cod": "SUB-01",
+      "sigla": "TMS (Traffic Management System)",
+      "name": "Gesti\u00f3n de Tr\u00e1fico",
+      "desc": "Plataforma central para el monitoreo de flujos, niveles de servicio (LOS) y ejecuci\u00f3n de planes de tr\u00e1fico din\u00e1micos."
+    },
+    {
+      "cod": "SUB-02",
+      "sigla": "TIS (Traveler Information System)",
+      "name": "Suministro de Informaci\u00f3n",
+      "desc": "Difusi\u00f3n de contenidos hacia PMV y canales digitales con soporte multimodal (Peatones/Ciclistas)."
+    },
+    {
+      "cod": "SUB-03",
+      "sigla": "EMS (Emergency Management System)",
+      "name": "Gesti\u00f3n de Emergencias",
+      "desc": "M\u00f3dulo de gesti\u00f3n de incidentes (IMS) que automatiza protocolos de respuesta y coordina el despacho de auxilio."
+    },
+    {
+      "cod": "SUB-04",
+      "sigla": "VMS (Video Management System)",
+      "name": "Gesti\u00f3n de Video",
+      "desc": "Administraci\u00f3n de flujos de video, grabaci\u00f3n, procesamiento de anal\u00edtica DAI y visualizaci\u00f3n en Video Wall."
+    },
+    {
+      "cod": "SUB-05",
+      "sigla": "EFC (Electronic Fee Collection)",
+      "name": "Recaudo Electr\u00f3nico",
+      "desc": "Back-office encargado del peaje interoperable (IPyG), validaci\u00f3n de TAGs y gesti\u00f3n de transacciones."
+    },
+    {
+      "cod": "SUB-06",
+      "sigla": "AMS (Asset Management System)",
+      "name": "Gesti\u00f3n de Infraestructura",
+      "desc": "(Geotecnia/Urbanismo): Control de actuadores (bombas) y telemetr\u00eda de salud de taludes, puentes y pavimentos."
+    },
+    {
+      "cod": "SUB-07",
+      "sigla": "CVO (Commercial Vehicle Operations)",
+      "name": "Gesti\u00f3n de Carga",
+      "desc": "Sistema de control de pesos y dimensiones que orquesta WIM, B\u00e1sculas Est\u00e1ticas y Preselecci\u00f3n."
+    },
+    {
+      "cod": "SUB-08",
+      "sigla": "TES (Traffic Enforcement System)",
+      "name": "Cumplimiento y Seguridad",
+      "desc": "(Seguridad Vial): Gesti\u00f3n de radares pedag\u00f3gicos, control de velocidad por tramos y recolecci\u00f3n de evidencia."
+    },
+    {
+      "cod": "SUB-09",
+      "sigla": "ESS-M (Environmental Sensor Management)",
+      "name": "Gesti\u00f3n Ambiental",
+      "desc": "Procesamiento de clima, visibilidad, calidad del aire y niveles de inundaci\u00f3n (Humedales Funza)."
+    },
+    {
+      "cod": "SUB-10",
+      "sigla": "ESB (Enterprise Service Bus)",
+      "name": "Bus de Integraci\u00f3n (SB)",
+      "desc": "(Sist. Nervioso): Middleware de interoperabilidad que garantiza el flujo de datos entre todos los subsistemas."
+    },
+    {
+      "cod": "SUB-11",
+      "sigla": "BIM-DT (Digital Twin Framework)",
+      "name": "Gemelo Digital (DT)",
+      "desc": "(Conciencia): Visualizaci\u00f3n 3D (LOD 500) para an\u00e1lisis predictivo y gesti\u00f3n estrat\u00e9gica de la operaci\u00f3n."
+    },
+    {
+      "cod": "SUB-12",
+      "sigla": "NMS (Network Management System)",
+      "name": "Gesti\u00f3n de Red y Ciber",
+      "desc": "Supervisi\u00f3n de la salud de la fibra \u00f3ptica, nodos industriales y protocolos de seguridad inform\u00e1tica."
+    }
+  ],
+  "fn": [
+    {
+      "id": "F-01",
+      "name": "Gesti\u00f3n de datos adicionales",
+      "desc": "Recopila, actualiza y almacena informaci\u00f3n adicional, como informaci\u00f3n local, informaci\u00f3n relacionada con la vida, etc."
+    },
+    {
+      "id": "F-02",
+      "name": "Gesti\u00f3n de datos de tr\u00e1fico integrado",
+      "desc": "La informaci\u00f3n del tr\u00e1fico por carretera y la informaci\u00f3n del transporte p\u00fablico se gestionan de manera integrada."
+    },
+    {
+      "id": "F-03",
+      "name": "Gesti\u00f3n de datos de la red vial.",
+      "desc": "El dise\u00f1o geom\u00e9trico de las carreteras y los datos de las instalaciones se actualizan y gestionan."
+    },
+    {
+      "id": "F-04",
+      "name": "Detecci\u00f3n de veh\u00edculos",
+      "desc": "Se detecta el estado de los veh\u00edculos."
+    },
+    {
+      "id": "F-05",
+      "name": "Procesamiento de datos de detecci\u00f3n de veh\u00edculos",
+      "desc": "Los datos recopilados de los detectores individuales se procesan, agregan y convierten a los datos de la secci\u00f3n de la carretera."
+    },
+    {
+      "id": "F-06",
+      "name": "Gesti\u00f3n de datos de identificaci\u00f3n de veh\u00edculos",
+      "desc": "Se identifican los veh\u00edculos de la sonda y se gestiona la informaci\u00f3n."
+    },
+    {
+      "id": "F-07",
+      "name": "Reconocimiento de la ubicaci\u00f3n de veh\u00edculos",
+      "desc": "Se recopilan datos para el reconocimiento de la ubicaci\u00f3n del veh\u00edculo."
+    },
+    {
+      "id": "F-08",
+      "name": "Procesamiento de datos de ubicaci\u00f3n de los veh\u00edculos",
+      "desc": "Los datos de ubicaci\u00f3n del veh\u00edculo se procesan y agregan como datos de operaci\u00f3n del veh\u00edculo."
+    },
+    {
+      "id": "F-09",
+      "name": "Recepci\u00f3n de informes de estado del tr\u00e1fico",
+      "desc": "Los operadores de los centros de control ingresan informaci\u00f3n al recibir informes de estado del tr\u00e1fico."
+    },
+    {
+      "id": "F-10",
+      "name": "Filmaci\u00f3n de video",
+      "desc": "La situaci\u00f3n de campo se filma utilizando CCTV."
+    },
+    {
+      "id": "F-11",
+      "name": "Recopilaci\u00f3n y an\u00e1lisis de datos de tr\u00e1fico",
+      "desc": "Los datos de varias fuentes se recopilan y analizan exhaustivamente. Determinaci\u00f3n del estado del flujo de tr\u00e1fico, producci\u00f3n del tiempo de viaje de la secci\u00f3n, etc."
+    },
+    {
+      "id": "F-12",
+      "name": "Producci\u00f3n de informaci\u00f3n de flujo de tr\u00e1fico",
+      "desc": "La informaci\u00f3n de tr\u00e1fico que se proporcionar\u00e1 a las agencias relevantes o se mostrar\u00e1 en VMS, sitios web, aplicaciones, etc. se produce de acuerdo con las estrategias de provisi\u00f3n de informaci\u00f3n."
+    },
+    {
+      "id": "F-13",
+      "name": "Monitoreo de las condiciones del tr\u00e1fico",
+      "desc": "El operador monitorea las condiciones del flujo de tr\u00e1fico utilizando videos e informaci\u00f3n de flujo de tr\u00e1fico."
+    },
+    {
+      "id": "F-14",
+      "name": "Visualizaci\u00f3n de informaci\u00f3n de flujo de tr\u00e1fico",
+      "desc": "La informaci\u00f3n del flujo de tr\u00e1fico y los datos de video se muestran en los medios de suministro de informaci\u00f3n."
+    },
+    {
+      "id": "F-15",
+      "name": "Interfaz de viajero",
+      "desc": "Las consultas y preguntas son ingresadas por los viajeros y se muestra la informaci\u00f3n solicitada por los viajeros."
+    },
+    {
+      "id": "F-16",
+      "name": "Organizaci\u00f3n de planes de viaje",
+      "desc": "La informaci\u00f3n para ayudar a los viajeros a tomar decisiones relacionadas con la hora de salida, los medios de transporte, el viaje y rutas alternas se produce en base a las solicitudes de los viajeros."
+    },
+    {
+      "id": "F-17",
+      "name": "C\u00e1lculo de ruta \u00f3ptima para viajeros",
+      "desc": "Se calcula la ruta \u00f3ptima desde el punto de partida del viajero hasta el destino."
+    },
+    {
+      "id": "F-18",
+      "name": "Suministro de informaci\u00f3n para viajeros",
+      "desc": "Se integran datos adicionales y datos de tr\u00e1fico para proporcionar la informaci\u00f3n solicitada por los viajeros."
+    },
+    {
+      "id": "F-19",
+      "name": "Suministro de informaci\u00f3n para conductores",
+      "desc": "Se integran datos adicionales y datos de tr\u00e1fico para proporcionar la informaci\u00f3n por los conductores."
+    },
+    {
+      "id": "F-20",
+      "name": "El reconocimiento de dispositivo de control en el veh\u00edculo",
+      "desc": "Mediante este dispositivo, se reconoce la ubicaci\u00f3n actual del veh\u00edculo."
+    },
+    {
+      "id": "F-21",
+      "name": "Interfaz de controlador",
+      "desc": "Herramienta a trav\u00e9s de la cual, las consultas y preguntas son ingresadas por los conductores y la informaci\u00f3n solicitada por ellos es desplegada."
+    },
+    {
+      "id": "F-22",
+      "name": "C\u00e1lculo de ruta \u00f3ptima para conductores",
+      "desc": "Ruta \u00f3ptima desde la ubicaci\u00f3n actual del conductor hasta el destino."
+    },
+    {
+      "id": "F-23",
+      "name": "Gesti\u00f3n de inventario de activos viales",
+      "desc": "El centro detecta los \u201csiniestros\u201d mediante CCTV"
+    },
+    {
+      "id": "F-24",
+      "name": "Monitoreo del estado de la infraestructura",
+      "desc": "Cualquier \u201csiniestro\u201d reportado o detectado por el centro es confirmado por el operador."
+    },
+    {
+      "id": "F-25",
+      "name": "Programaci\u00f3n de mantenimiento preventivo",
+      "desc": "El centro genera informaci\u00f3n (filmaciones y registro de \u201csiniestros\u201d) relacionada con \u201csiniestros\u201d confirmados."
+    },
+    {
+      "id": "F-26",
+      "name": "An\u00e1lisis de patrones de flujo y demanda",
+      "desc": "El operador controla el progreso del \u201csiniestro\u201d mediante CCTV."
+    },
+    {
+      "id": "F-27",
+      "name": "Implementaci\u00f3n de estrategias de control de demanda",
+      "desc": "Las contramedidas o el nivel de respuesta se determinan de acuerdo con la contra estrategia y el escenario establecido."
+    },
+    {
+      "id": "F-28",
+      "name": "Ejecuci\u00f3n de planes de desv\u00edo din\u00e1mico",
+      "desc": "El nivel de respuesta se determina en funci\u00f3n de la contra estrategia establecida y los mensajes de control se proporcionan a trav\u00e9s de los medios de informaci\u00f3n."
+    },
+    {
+      "id": "F-29",
+      "name": "Detecci\u00f3n de la velocidad de los veh\u00edculos que pasan",
+      "desc": "Los datos procesados se almacenan, gestionan y utilizan."
+    },
+    {
+      "id": "F-30",
+      "name": "Determinaci\u00f3n de violaci\u00f3n de l\u00edmite de velocidad",
+      "desc": "Los datos recopilados se procesan y analizan para generar los datos necesarios para la administraci\u00f3n de los autobuses."
+    },
+    {
+      "id": "F-31",
+      "name": "Funci\u00f3n de disparo (detector)",
+      "desc": "Gesti\u00f3n de nodo / sistema de enlace"
+    },
+    {
+      "id": "F-32",
+      "name": "Funci\u00f3n de captura de im\u00e1genes fijas",
+      "desc": "La informaci\u00f3n como el error, el estado operativo del BIT, etc. se recopila y transmite al centro."
+    },
+    {
+      "id": "F-33",
+      "name": "Funci\u00f3n de recorte de imagen fija",
+      "desc": "La informaci\u00f3n relacionada con la operaci\u00f3n recopilada se muestra en los medios de visualizaci\u00f3n en BIT."
+    },
+    {
+      "id": "F-34",
+      "name": "Reconocimiento del n\u00famero de placa",
+      "desc": "La informaci\u00f3n relacionada con la operaci\u00f3n procesada en el centro es recibida por BIT."
+    },
+    {
+      "id": "F-35",
+      "name": "Transmisi\u00f3n al centro",
+      "desc": "Conexi\u00f3n remota y funci\u00f3n de control para materializar lo que necesita el centro en funci\u00f3n de la informaci\u00f3n de estado operativo BIT transmitida al centro."
+    },
+    {
+      "id": "F-36",
+      "name": "B\u00fasqueda del historial del veh\u00edculo",
+      "desc": "La longitud del ciclo semaf\u00f3rico, la longitud de la fase de las diferentes direcciones, la longitud de divisi\u00f3n y el enclavamiento se ingresan en funci\u00f3n del plan de tiempo de la se\u00f1al de sem\u00e1foro."
+    },
+    {
+      "id": "F-37",
+      "name": "C\u00e1lculo de la sanci\u00f3n",
+      "desc": "Mediante esta funcionalidad, la fase de la se\u00f1al tr\u00e1fico de entrada para diferentes planes puede modificarse."
+    },
+    {
+      "id": "F-38",
+      "name": "Procesamiento de datos",
+      "desc": "Los grupos de intersecci\u00f3n se gestionan para aplicar el plan de fase semaf\u00f3rica y el enclavamiento."
+    },
+    {
+      "id": "F-39",
+      "name": "Emisi\u00f3n de aviso",
+      "desc": "Se gestiona el historial de estado operativo del controlador y el detector."
+    },
+    {
+      "id": "F-40",
+      "name": "Notificaci\u00f3n de veh\u00edculo con alguna alerta",
+      "desc": "Se transmiten los planes de fase para descargar al controlador."
+    },
+    {
+      "id": "F-41",
+      "name": "Gesti\u00f3n de datos recopilados",
+      "desc": "Se reciben los registros de operaci\u00f3n generados por el controlador y los resultados de la inspecci\u00f3n del controlador."
+    },
+    {
+      "id": "F-42",
+      "name": "Monitoreo de la condici\u00f3n del controlador",
+      "desc": "Se gestionan los registros de operaci\u00f3n de se\u00f1al de sem\u00e1foro recopilados del controlador."
+    },
+    {
+      "id": "F-43",
+      "name": "Ajuste de umbral",
+      "desc": "El monitoreo se realiza para ver si los grupos de intersecci\u00f3n est\u00e1n realmente enclavados de acuerdo con el registro de operaci\u00f3n de la se\u00f1al recopilada y el tiempo de sincronizaci\u00f3n."
+    },
+    {
+      "id": "F-44",
+      "name": "Gesti\u00f3n integrada de datos de tr\u00e1fico",
+      "desc": "El centro, que cumple con la condici\u00f3n, activa las se\u00f1ales e implementa m\u00f3dulos de acuerdo con el tiempo de la se\u00f1al descargada."
+    },
+    {
+      "id": "F-45",
+      "name": "Gesti\u00f3n de datos adicionales",
+      "desc": "Cuando se necesita control especial o control manual, el personal operativo en el campo puede ajustar las se\u00f1ales de sem\u00e1foro."
+    },
+    {
+      "id": "F-46",
+      "name": "Interfaz de controlador",
+      "desc": "El control de actuaci\u00f3n de la fase se determina en funci\u00f3n de la informaci\u00f3n recopilada por el detector."
+    },
+    {
+      "id": "F-47",
+      "name": "Suministro de informaci\u00f3n para conductores",
+      "desc": "Cuando se cumple la condici\u00f3n de control de actuaci\u00f3n, la fase del flujo de movimiento se termina antes de tiempo o se omite."
+    },
+    {
+      "id": "F-48",
+      "name": "B\u00fasqueda y recolecci\u00f3n relacionada con la operaci\u00f3n del estacionamiento combinado del centro de transporte",
+      "desc": "El control de actuaci\u00f3n finaliza cuando existe una condici\u00f3n para dicha finalizaci\u00f3n."
+    },
+    {
+      "id": "F-49",
+      "name": "Producci\u00f3n y b\u00fasqueda de registros de operaciones integradas",
+      "desc": "Se producen resultados de control de actuaci\u00f3n."
+    },
+    {
+      "id": "F-50",
+      "name": "Informe de la situaci\u00f3n de los eventos en el centro de transporte combinado",
+      "desc": "Cuando no es posible comunicarse con el centro, las se\u00f1ales se operan seg\u00fan un plan de tiempo de se\u00f1al preestablecido."
+    },
+    {
+      "id": "F-51",
+      "name": "Comprobaci\u00f3n del requisito de la fecha de entrada de la puerta",
+      "desc": "Se genera el estado detallado de cada operaci\u00f3n de se\u00f1al (incluido el control de actuaci\u00f3n)."
+    },
+    {
+      "id": "F-52",
+      "name": "Establecimiento de un plan de viaje",
+      "desc": "Los datos de actuaci\u00f3n de la se\u00f1al de tr\u00e1fico se transmiten realmente a unidades de se\u00f1al de tr\u00e1fico individuales."
+    },
+    {
+      "id": "F-53",
+      "name": "C\u00e1lculo de ruta \u00f3ptima",
+      "desc": "Cuando el controlador funciona mal, todas las se\u00f1ales parpadear\u00e1n."
+    },
+    {
+      "id": "F-54",
+      "name": "Suministro de informaci\u00f3n para conductores",
+      "desc": "El plan de tiempo necesario se puede ingresar en el campo en caso de falla de comunicaci\u00f3n."
+    },
+    {
+      "id": "F-55",
+      "name": "Identificaci\u00f3n de la ubicaci\u00f3n del veh\u00edculo",
+      "desc": "Se establece el tiempo de referencia."
+    },
+    {
+      "id": "F-56",
+      "name": "Transmisi\u00f3n de informaci\u00f3n del veh\u00edculo",
+      "desc": "El controlador inspecciona internamente los problemas de los componentes."
+    },
+    {
+      "id": "F-57",
+      "name": "Recolecci\u00f3n de informaci\u00f3n del veh\u00edculo",
+      "desc": "Se recibe el plan de tiempo de se\u00f1al establecido por el centro."
+    },
+    {
+      "id": "F-58",
+      "name": "Seguimiento de la ubicaci\u00f3n del veh\u00edculo",
+      "desc": "Los resultados de la inspecci\u00f3n del controlador se transmiten al centro."
+    },
+    {
+      "id": "F-59",
+      "name": "Recolecci\u00f3n de datos meteorol\u00f3gicos",
+      "desc": "Los resultados de control de actuaci\u00f3n informados (resultados de visualizaci\u00f3n de fase de se\u00f1al) se transmiten al centro."
+    },
+    {
+      "id": "F-60",
+      "name": "Procesamiento de datos meteorol\u00f3gicos",
+      "desc": "Los registros de operaci\u00f3n de la se\u00f1al generada se transmiten al centro."
+    },
+    {
+      "id": "F-61",
+      "name": "Monitoreo de condiciones ambientales",
+      "desc": "Se recogen los pasos de veh\u00edculos en la carretera con detector."
+    },
+    {
+      "id": "F-62",
+      "name": "Difusi\u00f3n de informaci\u00f3n meteorol\u00f3gica y ambiental",
+      "desc": "La informaci\u00f3n recopilada del veh\u00edculo se transmite al controlador."
+    },
+    {
+      "id": "F-63",
+      "name": "Suministro de informaci\u00f3n de conexi\u00f3n multimodal",
+      "desc": "El tiempo de se\u00f1al del controlador se muestra realmente en las unidades de se\u00f1al de tr\u00e1fico."
+    },
+    {
+      "id": "F-64",
+      "name": "Interfaz de planificaci\u00f3n de viaje y transferencia",
+      "desc": "Se reciben informes de \u201csiniestros\u201d de comunicadores SOS instalados en la ruta, tel\u00e9fonos de emergencia, patrulleros, informantes, empresas privadas (Wave), etc."
+    },
+    {
+      "id": "F-65",
+      "name": "Recepci\u00f3n del informe del accidente de tr\u00e1nsito",
+      "desc": "Visualizaci\u00f3n de la informaci\u00f3n generada por el centro relacionada con la informaci\u00f3n de operaci\u00f3n, como el intervalo entre el veh\u00edculo y los veh\u00edculos adyacentes y las horas totales de operaci\u00f3n, etc."
+    },
+    {
+      "id": "F-66",
+      "name": "Detecci\u00f3n de accidentes de tr\u00e1nsito",
+      "desc": "Visualizaci\u00f3n de informaci\u00f3n de \"siniestros\" alrededor del veh\u00edculo recopilada por centro."
+    },
+    {
+      "id": "F-67",
+      "name": "Confirmaci\u00f3n de accidentes de tr\u00e1nsito",
+      "desc": "Si se identifica cualquier operaci\u00f3n en violaci\u00f3n de la ley usando la informaci\u00f3n del evento transmitido a la central del veh\u00edculo, la informaci\u00f3n de alerta aparece en el conductor \" dispositivo terminal."
+    },
+    {
+      "id": "F-68",
+      "name": "Generaci\u00f3n de informaci\u00f3n sobre accidentes de tr\u00e1nsito",
+      "desc": "Se recibe diversa informaci\u00f3n procesada por el centro y mostrada en los dispositivos terminales de los conductores (informaci\u00f3n de operaci\u00f3n, informaci\u00f3n de \"siniestros\", informaci\u00f3n de operaci\u00f3n de violaci\u00f3n, etc.)."
+    },
+    {
+      "id": "F-69",
+      "name": "Monitoreo del progreso del accidente de tr\u00e1nsito",
+      "desc": "Se recopila la informaci\u00f3n de ubicaci\u00f3n del veh\u00edculo, la informaci\u00f3n del evento, la informaci\u00f3n de operaci\u00f3n del veh\u00edculo, etc. proporcionada por los veh\u00edculos."
+    },
+    {
+      "id": "F-70",
+      "name": "Determinaci\u00f3n de contramedidas",
+      "desc": "Las ubicaciones de todos los veh\u00edculos se identifican utilizando la informaci\u00f3n de operaci\u00f3n recopilada de los veh\u00edculos."
+    },
+    {
+      "id": "F-71",
+      "name": "Gesti\u00f3n del flujo de tr\u00e1fico",
+      "desc": "Cualquier veh\u00edculo que opere en violaci\u00f3n de la ley se detecta en funci\u00f3n de la informaci\u00f3n de operaci\u00f3n recopilada del veh\u00edculo."
+    },
+    {
+      "id": "F-72",
+      "name": "Manejo de accidentes de tr\u00e1nsito",
+      "desc": "El \"siniestro\" de cualquier veh\u00edculo se detecta en funci\u00f3n de la informaci\u00f3n del evento recopilada del veh\u00edculo."
+    },
+    {
+      "id": "F-73",
+      "name": "Cooperaci\u00f3n con agencia relacionada",
+      "desc": "Los veh\u00edculos se despachan seg\u00fan sea necesario analizando la informaci\u00f3n relacionada con la operaci\u00f3n recopilada."
+    },
+    {
+      "id": "F-74",
+      "name": "Confirmaci\u00f3n al cierre del caso accidente de tr\u00e1nsito",
+      "desc": "Cuando se cambian las rutas del autob\u00fas, la informaci\u00f3n de la ruta se actualiza."
+    },
+    {
+      "id": "F-75",
+      "name": "Producci\u00f3n de informes sobre accidentes de tr\u00e1nsito",
+      "desc": "La informaci\u00f3n procesada, como la ubicaci\u00f3n del autob\u00fas en tiempo real, el tiempo estimado de llegada, los veh\u00edculos detectados mientras operan en violaci\u00f3n de la ley, la respuesta a \"siniestros\", etc., se proporciona a los autobuses, el tablero de situaci\u00f3n y el BIT."
+    },
+    {
+      "id": "F-76",
+      "name": "Coordinaci\u00f3n interinstitucional de emergencias",
+      "desc": "Se despacha personal para el manejo de \u201csiniestros\u201d."
+    },
+    {
+      "id": "F-77",
+      "name": "Gesti\u00f3n de planes de contingencia",
+      "desc": "La informaci\u00f3n relacionada con el \u201csiniestro\u201d se proporciona a la agencia relacionada. La solicitud de manejo (cooperaci\u00f3n) se env\u00eda a la agencia relacionada."
+    },
+    {
+      "id": "F-78",
+      "name": "Difusi\u00f3n de alertas de emergencia y protecci\u00f3n civil",
+      "desc": "El operador confirma la finalizaci\u00f3n del manejo del \u201csiniestro\u201d utilizando CCTV."
+    },
+    {
+      "id": "F-79",
+      "name": "Detecci\u00f3n de veh\u00edculos que pasan",
+      "desc": "Los sistemas de campo transmiten la informaci\u00f3n de los veh\u00edculos que pasan por la estaci\u00f3n."
+    },
+    {
+      "id": "F-80",
+      "name": "Reconocimiento de veh\u00edculos",
+      "desc": "Cuando el veh\u00edculo se acerca, la estaci\u00f3n comienza la comunicaci\u00f3n usando la etiqueta RFID. Despu\u00e9s de la transmisi\u00f3n de la informaci\u00f3n de identificaci\u00f3n, el estado (normal / anormal) del veh\u00edculo se identifica localmente en la plaza de peaje. Normal: el saldo de peaje se verifica en la estaci\u00f3n o banco. Anormal: el paso del veh\u00edculo se bloquea con una barrera."
+    },
+    {
+      "id": "F-81",
+      "name": "Detecci\u00f3n de identificaci\u00f3n del dispositivo terminal",
+      "desc": "Los veh\u00edculos sin dispositivo (TAG RFID) se detectan en funci\u00f3n de la informaci\u00f3n de paso del veh\u00edculo y la informaci\u00f3n del dispositivo del veh\u00edculo."
+    },
+    {
+      "id": "F-82",
+      "name": "Clasificaci\u00f3n del tipo de veh\u00edculo",
+      "desc": "Se clasifican los tipos de veh\u00edculos que ingresan al carril de peaje."
+    },
+    {
+      "id": "F-83",
+      "name": "Gesti\u00f3n de ingreso de informaci\u00f3n del veh\u00edculo",
+      "desc": "La informaci\u00f3n de los veh\u00edculos que ingresan se almacena y administra."
+    },
+    {
+      "id": "F-84",
+      "name": "Filmaci\u00f3n de veh\u00edculos que pasan",
+      "desc": "Cuando se detecta un veh\u00edculo que pasa, se filma su imagen fija."
+    },
+    {
+      "id": "F-85",
+      "name": "Comunicaci\u00f3n con la estaci\u00f3n",
+      "desc": "Toda la informaci\u00f3n recopilada en el campo (informaci\u00f3n recopilada de dispositivos terminales, informaci\u00f3n de paso de veh\u00edculos (detector), informaci\u00f3n de im\u00e1genes fijas de veh\u00edculos que pasan, informaci\u00f3n de procesamiento de peajes) se transmite a la estaci\u00f3n."
+    },
+    {
+      "id": "F-86",
+      "name": "Peaje",
+      "desc": "Si se determina que existe suficiente saldo, basado en la tarifa aplicable al peaje, entonces se cobra el valor normalmente sin enviar una consulta al intermediario. Dos grandes comportamientos se pueden dar: Normal: la estaci\u00f3n completa el cobro del peaje del veh\u00edculo, la informaci\u00f3n de procesamiento del cobro del peaje se transmite al intermediario, la informaci\u00f3n del cobro del peaje se transmite al sistema integrado de peajes (SIGT), y posteriormente una vez el intermediario actualiza su sistema, la estaci\u00f3n actualiza la informaci\u00f3n del saldo. Anormal: la estaci\u00f3n identifica y transmite la informaci\u00f3n del saldo al intermediario para verificar si se puede cobrar el peaje, el banco verifica la informaci\u00f3n del saldo e informa si hay saldo suficiente, la estaci\u00f3n recolecta el peaje y actualiza la informaci\u00f3n del saldo."
+    },
+    {
+      "id": "F-87",
+      "name": "Visualizaci\u00f3n del resultado del procesamiento",
+      "desc": "El resultado del cobro de peaje se muestra en el sistema de campo (normal, anormal)."
+    },
+    {
+      "id": "F-88",
+      "name": "Gesti\u00f3n de datos de peaje",
+      "desc": "Gesti\u00f3n de datos normales (informaci\u00f3n de imposici\u00f3n y recopilaci\u00f3n procesada normalmente) y gesti\u00f3n de datos anormales (informaci\u00f3n de peajes no cobrados)."
+    },
+    {
+      "id": "F-89",
+      "name": "B\u00fasqueda de veh\u00edculos",
+      "desc": "Se busca a la persona propietaria del veh\u00edculo que tenga una alerta comparando la base de datos de registro del veh\u00edculo y el n\u00famero de placa del veh\u00edculo."
+    },
+    {
+      "id": "F-90",
+      "name": "Notificaci\u00f3n de peaje impago",
+      "desc": "Se emite a la persona propietaria del veh\u00edculo una notificaci\u00f3n de peaje impago, incluida la identificaci\u00f3n de la estaci\u00f3n, la fecha y la hora del peaje, el n\u00famero del veh\u00edculo, el motivo del incumplimiento, el peaje pagadero, etc."
+    },
+    {
+      "id": "F-91",
+      "name": "Manejo de datos",
+      "desc": "Se gestionan los datos del historial de cobro de peajes."
+    },
+    {
+      "id": "F-92",
+      "name": "Gesti\u00f3n del sistema",
+      "desc": "Se gestiona la informaci\u00f3n de estado de los sistemas recopilados en el sitio."
+    },
+    {
+      "id": "F-93",
+      "name": "Recolecci\u00f3n de informaci\u00f3n de operaci\u00f3n del veh\u00edculo",
+      "desc": "Se recopila informaci\u00f3n como conducir con las puertas abiertas, el estado anormal del veh\u00edculo, etc. (basado los sensores)."
+    },
+    {
+      "id": "F-94",
+      "name": "Recolecci\u00f3n de informaci\u00f3n del evento",
+      "desc": "Se recopila informaci\u00f3n de los eventos que tienen lugar dentro de los veh\u00edculos (basado en el informe de los conductores)."
+    },
+    {
+      "id": "F-95",
+      "name": "Recolecci\u00f3n de informaci\u00f3n de ubicaci\u00f3n del veh\u00edculo",
+      "desc": "Se recopilan la identificaci\u00f3n del bus, la ubicaci\u00f3n del bus (GPS), el tiempo de transmisi\u00f3n, etc."
+    },
+    {
+      "id": "F-96",
+      "name": "Transmisi\u00f3n de informaci\u00f3n",
+      "desc": "La informaci\u00f3n recopilada de los veh\u00edculos, como la informaci\u00f3n de operaci\u00f3n del veh\u00edculo, la informaci\u00f3n del evento, la informaci\u00f3n de ubicaci\u00f3n del veh\u00edculo, etc., se transmite al centro."
+    },
+    {
+      "id": "F-97",
+      "name": "Visualizaci\u00f3n de informaci\u00f3n de operaci\u00f3n",
+      "desc": "Visualizaci\u00f3n de la informaci\u00f3n generada por el centro relacionada con la informaci\u00f3n de operaci\u00f3n, como el intervalo entre el veh\u00edculo y los veh\u00edculos adyacentes y las horas totales de operaci\u00f3n, etc."
+    },
+    {
+      "id": "F-98",
+      "name": "Visualizaci\u00f3n de accidentes de tr\u00e1nsito",
+      "desc": "Visualizaci\u00f3n de informaci\u00f3n de accidentes de tr\u00e1nsito alrededor del veh\u00edculo recopilada por centro."
+    },
+    {
+      "id": "F-99",
+      "name": "Visualizaci\u00f3n de informaci\u00f3n de operaci\u00f3n de violaci\u00f3n",
+      "desc": "Utilizando la informaci\u00f3n del evento transmitida al centro de control del veh\u00edculo, si se identifica cualquier operaci\u00f3n en violaci\u00f3n de la ley, la informaci\u00f3n de advertencia se muestra en el dispositivo terminal del conductor."
+    },
+    {
+      "id": "F-100",
+      "name": "Recepci\u00f3n de informaci\u00f3n",
+      "desc": "Se recibe la informaci\u00f3n procesada por el centro y mostrada en los dispositivos terminales de los conductores (informaci\u00f3n de operaci\u00f3n, informaci\u00f3n de accidentes, informaci\u00f3n de operaci\u00f3n de violaci\u00f3n, etc.)."
+    },
+    {
+      "id": "F-101",
+      "name": "Colecci\u00f3n de informaci\u00f3n",
+      "desc": "Se recopila la informaci\u00f3n de ubicaci\u00f3n del veh\u00edculo, informaci\u00f3n de eventos, informaci\u00f3n de operaci\u00f3n del veh\u00edculo, etc. proporcionada por los veh\u00edculos."
+    },
+    {
+      "id": "F-102",
+      "name": "Monitoreo de la informaci\u00f3n de ubicaci\u00f3n del veh\u00edculo",
+      "desc": "Las ubicaciones de todos los veh\u00edculos se identifican utilizando la informaci\u00f3n de operaci\u00f3n recopilada de los veh\u00edculos."
+    },
+    {
+      "id": "F-103",
+      "name": "Detecci\u00f3n de operaci\u00f3n de violaci\u00f3n",
+      "desc": "Cualquier veh\u00edculo que opere en violaci\u00f3n de la ley se detecta con base en la informaci\u00f3n de operaci\u00f3n recopilada del veh\u00edculo."
+    },
+    {
+      "id": "F-104",
+      "name": "Detecci\u00f3n de accidentes de tr\u00e1nsito",
+      "desc": "El \"siniestro\" en cualquier veh\u00edculo se detecta, en funci\u00f3n de la informaci\u00f3n del evento recopilada del veh\u00edculo."
+    },
+    {
+      "id": "F-105",
+      "name": "Despacho de veh\u00edculos",
+      "desc": "En funci\u00f3n de la informaci\u00f3n relacionada con la operaci\u00f3n recopilada, los veh\u00edculos se despachan seg\u00fan sea necesario."
+    },
+    {
+      "id": "F-106",
+      "name": "Gesti\u00f3n de rutas de autobuses",
+      "desc": "Cuando se cambian las rutas del autob\u00fas, la informaci\u00f3n de la ruta se actualiza."
+    },
+    {
+      "id": "F-107",
+      "name": "Suministro de informaci\u00f3n del autob\u00fas",
+      "desc": "La informaci\u00f3n procesada, como la informaci\u00f3n de ubicaci\u00f3n del autob\u00fas en tiempo real, la informaci\u00f3n estimada de llegada, la informaci\u00f3n de los veh\u00edculos detectados mientras se opera en violaci\u00f3n de la ley, la informaci\u00f3n de respuesta a \"siniestros\", etc., se proporciona a los autobuses, el tablero de situaci\u00f3n y el BIT."
+    },
+    {
+      "id": "F-108",
+      "name": "Manejo de datos",
+      "desc": "Los datos procesados se almacenan, gestionan y utilizan."
+    },
+    {
+      "id": "F-109",
+      "name": "Generaci\u00f3n de datos para soporte administrativo",
+      "desc": "Los datos recopilados se procesan y analizan para generar los datos necesarios para la administraci\u00f3n de los autobuses."
+    },
+    {
+      "id": "F-110",
+      "name": "Autodiagn\u00f3stico de red",
+      "desc": "Gesti\u00f3n del sistema nodo / enlace."
+    },
+    {
+      "id": "F-111",
+      "name": "Colecci\u00f3n de informaci\u00f3n",
+      "desc": "Se recopila informaci\u00f3n como: conducir con las puertas abiertas, el estado anormal del veh\u00edculo, etc. (basado en los sensores instalados)"
+    },
+    {
+      "id": "F-112",
+      "name": "Visualizaci\u00f3n de informaci\u00f3n",
+      "desc": "Se recopila informaci\u00f3n de los eventos que tienen lugar dentro del veh\u00edculo (basado en el informe del conductor)"
+    },
+    {
+      "id": "F-113",
+      "name": "Recepci\u00f3n de informaci\u00f3n",
+      "desc": "Se recopila la identificaci\u00f3n del bus, la ubicaci\u00f3n del bus (GPS), el tiempo de transmisi\u00f3n, etc."
+    },
+    {
+      "id": "F-114",
+      "name": "Funci\u00f3n de control remoto",
+      "desc": "La informaci\u00f3n recopilada de los veh\u00edculos, como la informaci\u00f3n de operaci\u00f3n del veh\u00edculo, la informaci\u00f3n del evento, la informaci\u00f3n de ubicaci\u00f3n del veh\u00edculo, etc., se transmite al centro."
+    },
+    {
+      "id": "F-115",
+      "name": "Monitoreo Geomec\u00e1nico y Salud Estructural",
+      "desc": "Captura y procesamiento de datos de instrumentaci\u00f3n geot\u00e9cnica (inclin\u00f3metros, celdas de carga) para alertas tempranas de estabilidad en taludes y estructuras."
+    },
+    {
+      "id": "F-116",
+      "name": "Control de Actuadores y Sistemas de Drenaje",
+      "desc": "Gesti\u00f3n y activaci\u00f3n remota/autom\u00e1tica de sistemas de bombeo basada en sensores de nivel cr\u00edtico y pluviosidad para mitigar inundaciones en calzada."
+    },
+    {
+      "id": "F-117",
+      "name": "Retroalimentaci\u00f3n Pedag\u00f3gica de Velocidad",
+      "desc": "Provisi\u00f3n de datos de velocidad en tiempo real a paneles informativos para inducir cambios conductuales y sensibilizaci\u00f3n en el usuario de la v\u00eda."
+    },
+    {
+      "id": "F-118",
+      "name": "Gesti\u00f3n de Velocidad Media por Tramo",
+      "desc": "C\u00e1lculo de velocidad promedio entre dos o m\u00e1s puntos de control para el monitoreo de la disciplina de tr\u00e1fico en segmentos cr\u00edticos del corredor."
+    },
+    {
+      "id": "F-119",
+      "name": "Gesti\u00f3n de Informaci\u00f3n para Usuarios Vulnerables",
+      "desc": "Detecci\u00f3n y se\u00f1alizaci\u00f3n prioritaria para peatones y ciclistas en zonas de interfaz urbana, cruces escolares y ciclorrutas integradas."
+    },
+    {
+      "id": "F-120",
+      "name": "Monitoreo de Redes de Servicios e Interferencias",
+      "desc": "Supervisi\u00f3n del estado operativo y disponibilidad de infraestructura de servicios p\u00fablicos (energ\u00eda, agua) vinculada al corredor vial y \u00e1reas urbanas."
+    },
+    {
+      "id": "F-121",
+      "name": "Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB)",
+      "desc": "Gesti\u00f3n del flujo de informaci\u00f3n transaccional entre subsistemas mediante un bus de servicios para asegurar la interoperabilidad y sincronizaci\u00f3n."
+    },
+    {
+      "id": "F-122",
+      "name": "Representaci\u00f3n Visual en Gemelo Digital",
+      "desc": "Modelado din\u00e1mico de eventos, activos y sensores en una plataforma geoespacial 3D (LOD 500) para an\u00e1lisis predictivo y toma de decisiones."
+    }
+  ],
+  "cc": [
+    {
+      "id": "CC-01",
+      "sigla": "CCTV",
+      "name": "Vigilancia por Video",
+      "cap": "Supervisi\u00f3n Visual Continua: Capacidad de observar y verificar el estado real de la infraestructura en tiempo real."
+    },
+    {
+      "id": "CC-02",
+      "sigla": "AID",
+      "name": "Detecci\u00f3n de Incidentes",
+      "cap": "Identificaci\u00f3n Proactiva de Peligros: Capacidad de alertar autom\u00e1ticamente sobre eventos disruptivos sin depender del ojo humano."
+    },
+    {
+      "id": "CC-03",
+      "sigla": "DMS / VMS",
+      "name": "Mensajer\u00eda Variable",
+      "cap": "Difusi\u00f3n Masiva de Informaci\u00f3n: Capacidad de comunicar mensajes estrat\u00e9gicos y alertas directamente al conductor en v\u00eda."
+    },
+    {
+      "id": "CC-04",
+      "sigla": "ECS / SOS",
+      "name": "Llamada de Emergencia",
+      "cap": "Auxilio Inmediato al Usuario: Capacidad de establecer un canal de voz cr\u00edtico para asistencia en situaciones de crisis."
+    },
+    {
+      "id": "CC-05",
+      "sigla": "VDS / TDS",
+      "name": "Contadores de Tr\u00e1fico",
+      "cap": "Caracterizaci\u00f3n Din\u00e1mica del Flujo: Capacidad de cuantificar y clasificar el volumen vehicular para decisiones operativas."
+    },
+    {
+      "id": "CC-06",
+      "sigla": "ESS / RWIS",
+      "name": "Sensores Ambientales",
+      "cap": "Monitoreo de Condiciones Clim\u00e1ticas: Capacidad de medir variables del entorno que afectan la seguridad y la visibilidad."
+    },
+    {
+      "id": "CC-07",
+      "sigla": "WIM",
+      "name": "Pesaje Din\u00e1mico",
+      "cap": "Control de Carga en Movimiento: Capacidad de monitorear pesos vehiculares por eje sin interrumpir la fluidez del tr\u00e1nsito."
+    },
+    {
+      "id": "CC-08",
+      "sigla": "GMS-I",
+      "name": "Inclinometr\u00eda Geot\u00e9cnica",
+      "cap": "Vigilancia de Estabilidad de Suelos: Capacidad de detectar movimientos en taludes para prevenir obstrucciones por deslizamientos."
+    },
+    {
+      "id": "CC-09",
+      "sigla": "SMS / SBT",
+      "name": "Monitoreo de Estructuras",
+      "cap": "Evaluaci\u00f3n de Salud Estructural: Capacidad de monitorear tensiones en cables (Torones) y fatiga en puentes y obras de arte."
+    },
+    {
+      "id": "CC-10",
+      "sigla": "WLS",
+      "name": "Monitoreo H\u00eddrico",
+      "cap": "Detecci\u00f3n de Riesgo Hidrol\u00f3gico: Capacidad de alertar sobre niveles cr\u00edticos de agua en calzada y cauces de R\u00edos."
+    },
+    {
+      "id": "CC-11",
+      "sigla": "AVI / ETC",
+      "name": "Peajes Electr\u00f3nicos",
+      "cap": "Automatizaci\u00f3n de Transacciones: Capacidad de procesar cobros de tasa de uso sin detener el movimiento vehicular."
+    },
+    {
+      "id": "CC-12",
+      "sigla": "ALPR / LPR",
+      "name": "Reconocimiento de Placas",
+      "cap": "Identificaci\u00f3n Vehicular Autom\u00e1tica: Capacidad de reconocer placas para gesti\u00f3n de seguridad, multas y trazabilidad."
+    },
+    {
+      "id": "CC-13",
+      "sigla": "SPD",
+      "name": "Radar Pedag\u00f3gico",
+      "cap": "Gesti\u00f3n del Comportamiento Vial: Capacidad de inducir h\u00e1bitos de velocidad segura mediante interacci\u00f3n visual en tiempo real."
+    },
+    {
+      "id": "CC-14",
+      "sigla": "VSL",
+      "name": "Velocidad Variable",
+      "cap": "Control Din\u00e1mico de L\u00edmites: Capacidad de ajustar la velocidad permitida seg\u00fan las condiciones de seguridad o congesti\u00f3n."
+    },
+    {
+      "id": "CC-15",
+      "sigla": "TCS",
+      "name": "Control de T\u00faneles",
+      "cap": "Gesti\u00f3n de Entornos Confinados: Capacidad de operar sistemas de Ventilaci\u00f3n e iluminaci\u00f3n en infraestructuras cerradas."
+    },
+    {
+      "id": "CC-16",
+      "sigla": "EVCS",
+      "name": "Electrolineras",
+      "cap": "Soporte a la Movilidad Sostenible: Capacidad de proveer infraestructura de carga para la transici\u00f3n a veh\u00edculos el\u00e9ctricos."
+    },
+    {
+      "id": "CC-17",
+      "sigla": "PAS",
+      "name": "Megafon\u00eda Inteligente",
+      "cap": "Notificaci\u00f3n Audible de Alcance: Capacidad de emitir instrucciones de voz masivas en puntos cr\u00edticos o zonas de alta concentraci\u00f3n."
+    },
+    {
+      "id": "CC-18",
+      "sigla": "BCS / VRU",
+      "name": "Contador de Ciclistas",
+      "cap": "Cuantificaci\u00f3n de Movilidad Alternativa: Capacidad de medir y proteger el flujo de usuarios no motorizados (ciclistas/peatones)."
+    },
+    {
+      "id": "CC-19",
+      "sigla": "UAS / UAV",
+      "name": "Drones de Inspecci\u00f3n",
+      "cap": "Reconocimiento A\u00e9reo Remoto: Capacidad de inspeccionar activos y eventos en puntos de dif\u00edcil acceso o alta peligrosidad."
+    },
+    {
+      "id": "CC-20",
+      "sigla": "VIS / LGS",
+      "name": "Gesti\u00f3n de Iluminaci\u00f3n",
+      "cap": "Control Adaptativo de Visibilidad: Capacidad de ajustar la intensidad lum\u00ednica seg\u00fan la luz natural y la opacidad del aire."
+    },
+    {
+      "id": "CC-21",
+      "sigla": "CSG / IoT",
+      "name": "Ciberseguridad e IoT",
+      "cap": "Protecci\u00f3n de la Integridad Digital: Capacidad de blindar los datos y gestionar dispositivos inteligentes de forma segura."
+    },
+    {
+      "id": "CC-22",
+      "sigla": "PSV",
+      "name": "Seguridad Ciudadana",
+      "cap": "Protecci\u00f3n Civil Integrada: Capacidad de enlazar sistemas de video y p\u00e1nico con entes de seguridad p\u00fablica y polic\u00eda."
+    },
+    {
+      "id": "CC-23",
+      "sigla": "FOC",
+      "name": "Conectividad de Fibra",
+      "cap": "Transporte de Datos de Alta Fidelidad: Capacidad de garantizar la comunicaci\u00f3n fluida y robusta (incluye fibra de emergencia)."
+    },
+    {
+      "id": "CC-24",
+      "sigla": "RCS",
+      "name": "Comunicaci\u00f3n Radial",
+      "cap": "Respaldo de Enlace Operativo: Capacidad de mantener comunicaci\u00f3n con equipos de campo ante fallas de la red digital."
+    },
+    {
+      "id": "CC-25",
+      "sigla": "SME",
+      "name": "Gesti\u00f3n de Medios Sociales",
+      "cap": "Omnicanalidad Digital: Capacidad de integrar Redes Sociales y anal\u00edtica web como sensores y canales de respuesta al usuario."
+    },
+    {
+      "id": "CC-26",
+      "sigla": "RSU",
+      "name": "Comunicaci\u00f3n V2X",
+      "cap": "Conectividad con Veh\u00edculos Inteligentes: Capacidad de intercambiar datos t\u00e9cnicos con la nueva generaci\u00f3n de veh\u00edculos conectados."
+    },
+    {
+      "id": "CC-27",
+      "sigla": "AVL / OBU",
+      "name": "Control de Flota",
+      "cap": "Gesti\u00f3n Log\u00edstica de Auxilio: Capacidad de rastrear y despachar eficientemente recursos de Ambulancia y Gr\u00faa."
+    },
+    {
+      "id": "CC-28",
+      "sigla": "PGS",
+      "name": "Gesti\u00f3n de Parqueaderos",
+      "cap": "Optimizaci\u00f3n de Zonas de Servicio: Capacidad de guiar al usuario hacia plazas disponibles en estacionamientos y \u00e1reas de descanso."
+    },
+    {
+      "id": "CC-29",
+      "sigla": "SLP",
+      "name": "Iluminaci\u00f3n Solar",
+      "cap": "Autonom\u00eda Energ\u00e9tica Sostenible: Capacidad de proveer alumbrado en v\u00eda mediante Paneles Solares y fuentes renovables."
+    },
+    {
+      "id": "CC-30",
+      "sigla": "LHD",
+      "name": "Detecci\u00f3n de Incendio",
+      "cap": "Identificaci\u00f3n T\u00e9rmica Lineal: Capacidad de detectar fuego de forma inmediata a lo largo de infraestructuras cr\u00edticas y t\u00faneles."
+    },
+    {
+      "id": "CC-31",
+      "sigla": "AQM",
+      "name": "Calidad del Aire",
+      "cap": "Vigilancia del Impacto Ambiental: Capacidad de medir la concentraci\u00f3n de gases y part\u00edculas derivados de la operaci\u00f3n vial."
+    },
+    {
+      "id": "CC-32",
+      "sigla": "WAR",
+      "name": "Sala de Crisis",
+      "cap": "Comando y Control de Alto Impacto: Capacidad de centralizar la gesti\u00f3n de datos e IoT ante eventos de gran escala o emergencias."
+    },
+    {
+      "id": "CC-33",
+      "sigla": "LCS / SIG",
+      "name": "Control de Carril",
+      "cap": "Gesti\u00f3n T\u00e1ctica de Calzada: Capacidad de habilitar, cerrar o revertir carriles mediante Sem\u00e1foros y se\u00f1alizaci\u00f3n din\u00e1mica."
+    },
+    {
+      "id": "CC-34",
+      "sigla": "PSS",
+      "name": "Postes y Estructuras",
+      "cap": "Sustentaci\u00f3n F\u00edsica del Equipamiento: Capacidad de soportar de forma segura y normalizada todo el hardware tecnol\u00f3gico en v\u00eda."
+    },
+    {
+      "id": "CC-35",
+      "sigla": "UPS / EPS",
+      "name": "Respaldo Energ\u00e9tico",
+      "cap": "Garant\u00eda de Continuidad Operativa: Capacidad de mantener el sistema encendido ante interrupciones del suministro el\u00e9ctrico p\u00fablico."
+    },
+    {
+      "id": "CC-36",
+      "sigla": "V2X-H",
+      "name": "Nodos de Enlace H\u00edbrido",
+      "cap": "Conectividad Vehicular Ubicua: Capacidad de asegurar el flujo de datos entre la v\u00eda y el veh\u00edculo incluso en zonas de sombra celular."
+    },
+    {
+      "id": "CC-37",
+      "sigla": "WDA",
+      "name": "Detecci\u00f3n de Fauna",
+      "cap": "Mitigaci\u00f3n de Riesgo Bi\u00f3tico: Capacidad de identificar el cruce de animales para prevenir siniestros y proteger la biodiversidad."
+    },
+    {
+      "id": "CC-38",
+      "sigla": "ADS",
+      "name": "Estaci\u00f3n de Drones",
+      "cap": "Supervisi\u00f3n Automatizada Programada: Capacidad de desplegar patrullajes a\u00e9reos aut\u00f3nomos para inspecci\u00f3n de activos cr\u00edticos."
+    },
+    {
+      "id": "CC-39",
+      "sigla": "MSG",
+      "name": "Micro-Red Inteligente",
+      "cap": "Resiliencia Energ\u00e9tica Local: Capacidad de gestionar generaci\u00f3n renovable propia para desvincular la operaci\u00f3n de la red nacional."
+    },
+    {
+      "id": "CC-40",
+      "sigla": "D-TWN",
+      "name": "Nodos de Gemelo Digital",
+      "cap": "Mantenimiento Predictivo Inmersivo: Capacidad de alimentar el modelo 3D con datos de sensores para anticipar fallas estructurales."
+    },
+    {
+      "id": "CC-41",
+      "sigla": "E-LOG",
+      "name": "Gesti\u00f3n de Carga Cr\u00edtica",
+      "cap": "Priorizaci\u00f3n de Log\u00edstica Estrat\u00e9gica: Capacidad de monitorear y dar paso preferente a suministros vitales (alimentos/medicina)."
+    },
+    {
+      "id": "CC-42",
+      "sigla": "SAT-B",
+      "name": "Respaldo Satelital",
+      "cap": "Inmunidad ante Desconexi\u00f3n Terrestre: Capacidad de mantener el 100% de la conectividad mediante sat\u00e9lites ante fallas de la fibra \u00f3ptica."
+    }
+  ],
+  "eov": [
+    {
+      "id": "EOV-01",
+      "ico": "\ud83d\udea8",
+      "type": "p",
+      "name": "Gesti\u00f3n de la Vida y Seguridad Vial",
+      "ctx": "Este escenario se despliega de manera estrat\u00e9gica en segmentos del corredor Ch\u00eda-Girardot identificados con una criticidad elevada en t\u00e9rminos de siniestralidad vial, tales como intersecciones complejas, traves\u00edas urbanas y zonas de proximidad escolar. El ecosistema ITS act\u00faa como una red de protecci\u00f3n activa que monitorea de forma ininterrumpida el comportamiento cinem\u00e1tico de los veh\u00edculos, detectando desviaciones peligrosas respecto a los l\u00edmites de velocidad y alertando de manera inmediata tanto al conductor como al centro de control para mitigar el riesgo de colisi\u00f3n y proteger la integridad f\u00edsica de los usuarios vulnerables, garantizando una infraestructura que perdona el error humano, incluyendo la detecci\u00f3n proactiva de usuarios vulnerables (peatones y ciclistas) en zonas de interfaz urbana para prevenir atropellamientos.",
+      "mot": "La motivaci\u00f3n fundamental radica en la transici\u00f3n definitiva hacia el paradigma de 'Visi\u00f3n Cero' fatalidades en el corredor. Se busca transformar la infraestructura pasiva en una plataforma proactiva que utilice la tecnolog\u00eda pedag\u00f3gica y la fiscalizaci\u00f3n t\u00e9cnica como herramientas de cambio conductual a largo plazo, reduciendo dr\u00e1sticamente la mortalidad vial y los costos sociales derivados de los siniestros de tr\u00e1nsito mediante la prevenci\u00f3n automatizada y la generaci\u00f3n de conciencia en el conductor.",
+      "que": "Se define como un ecosistema sist\u00e9mico de vigilancia conductual y protecci\u00f3n perimetral basado en la fusi\u00f3n de datos provenientes de radares de precisi\u00f3n doppler y anal\u00edtica de video avanzada, integrados bajo una arquitectura de respuesta r\u00e1pida coordinada desde el CCO que permite la intervenci\u00f3n psicol\u00f3gica en tiempo real sobre el usuario.",
+      "para": "Sirve para inducir la autorregulaci\u00f3n voluntaria de la velocidad en el conductor, detectar intrusiones de usuarios vulnerables en calzadas de alta velocidad y recolectar evidencia t\u00e9cnica de infracciones para el fortalecimiento de la disciplina de tr\u00e1fico, permitiendo un an\u00e1lisis forense de la seguridad vial para la mejora continua del corredor.",
+      "donde": "Se implementa sobre la infraestructura de v\u00eda Arterial principal y en los ramales de v\u00edas Colectoras con alta interacci\u00f3n peatonal, flujos urbanos convergentes y zonas de especial protecci\u00f3n.",
+      "cuando": "La operaci\u00f3n es de car\u00e1cter permanente y din\u00e1mico (24/7/365), con escalamiento de protocolos de alerta durante periodos de visibilidad reducida, lluvia o flujos masivos estacionales donde el riesgo de siniestralidad aumenta exponencialmente.",
+      "just": "La implementaci\u00f3n t\u00e9cnica se justifica al maximizar la eficiencia de la vigilancia operativa, permitiendo una cobertura geogr\u00e1fica extensa y una reacci\u00f3n en milisegundos que supera la capacidad de la presencia f\u00edsica policial, optimizando la gesti\u00f3n de recursos de emergencia y garantizando la soberan\u00eda de la seguridad vial.",
+      "desp": "Distribuci\u00f3n t\u00e1ctica de estaciones de control compuestas por radares pedag\u00f3gicos y c\u00e1maras de reconocimiento de placas, interconectadas mediante la red troncal de fibra \u00f3ptica de alta capacidad hacia el n\u00facleo de procesamiento del Centro de Control.",
+      "beneficio": "El impacto social directo es el salvamento de vidas humanas, la reducci\u00f3n de la discapacidad por accidentes de tr\u00e1nsito y el fomento de una cultura de respeto, consolidando un corredor seguro que potencia el desarrollo regional y nacional.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-02 Gesti\u00f3n de Emergencias",
+      "area": "AS-01 Gesti\u00f3n de incidentes",
+      "sub": "SUB-04 VMS (Video Management System) - Gesti\u00f3n de Video",
+      "se": "SE-ITS-4 Servicio de gesti\u00f3n de siniestros viales inesperados",
+      "fn": "F-117 Retroalimentaci\u00f3n Pedag\u00f3gica de Velocidad",
+      "cc": "CC-13 SPD (Radar Pedag\u00f3gico)",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n gestionada mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial.",
+      "e5": "Captura de variables f\u00edsicas de velocidad mediante el CC-13 SPD (Radar Pedag\u00f3gico) y registro visual del dominio vehicular con el CC-12 ALPR / LPR (Reconocimiento de Placas).",
+      "e4": "Orquestaci\u00f3n sist\u00e9mica en el SUB-04 VMS (Video Management System) - Gesti\u00f3n de Video, donde se realiza el filtrado de datos y validaci\u00f3n de umbrales de riesgo.",
+      "e3": "Ejecuci\u00f3n de la l\u00f3gica algor\u00edtmica de la funci\u00f3n F-117: Gesti\u00f3n de Advertencias y Alertas",
+      "e2": "Validaci\u00f3n operativa por parte del CCO y actualizaci\u00f3n de canales informativos digitales para advertir sobre zonas de control activo.",
+      "e1": "Cumplimiento del Plan Estrat\u00e9gico de Seguridad Vial (PESV) y las metas nacionales de reducci\u00f3n de fatalidades.",
+      "reflejo": "Representaci\u00f3n geoespacial de eventos de exceso de velocidad con visualizaci\u00f3n de placa y reincidencia en el Video Wall.",
+      "conciencia": "Actualizaci\u00f3n din\u00e1mica del Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital, permitiendo an\u00e1lisis forense de seguridad vial.",
+      "estadio": "Operaci\u00f3n Preventiva y Mitigaci\u00f3n de Siniestros."
+    },
+    {
+      "id": "EOV-02",
+      "ico": "\ud83d\udea5",
+      "type": "p",
+      "name": "Gesti\u00f3n de Tr\u00e1fico y Movilidad",
+      "ctx": "Escenario operado en los nodos de mayor convergencia vehicular y accesos log\u00edsticos del corredor Ch\u00eda-Girardot. Se aborda la gesti\u00f3n de la demanda en tiempo real para flujos mixtos, donde la sincronizaci\u00f3n de la infraestructura y el flujo vehicular es cr\u00edtica para evitar la saturaci\u00f3n y garantizar la continuidad operativa de la v\u00eda nacional, especialmente en cuellos de botella identificados.",
+      "mot": "La motivaci\u00f3n central es la optimizaci\u00f3n de la productividad del corredor mediante la reducci\u00f3n sist\u00e9mica de los tiempos de viaje y la mitigaci\u00f3n de las externalidades negativas de la congesti\u00f3n. Se busca ofrecer al usuario una experiencia de tr\u00e1nsito predecible y eficiente, minimizando los costos operativos del transporte y el impacto ambiental.",
+      "que": "Un sistema de orquestaci\u00f3n de flujos vehiculares basado en una red neuronal de sensores de detecci\u00f3n y clasificaci\u00f3n, integrados en una plataforma de gesti\u00f3n centralizada que permite la toma de decisiones t\u00e1cticas sobre la calzada mediante algoritmos de flujo vehicular.",
+      "para": "Sirve para monitorear los Niveles de Servicio (LOS) de manera continua, identificar cuellos de botella incipientes y desplegar estrategias de tr\u00e1fico din\u00e1micas (como control de carriles o desv\u00edos) antes de que se consolide la congesti\u00f3n est\u00e1tica.",
+      "donde": "A lo largo de la calzada Arterial principal y en las intersecciones con v\u00edas Colectoras de distribuci\u00f3n urbana y regional de alta demanda.",
+      "cuando": "Vigilancia permanente con activaci\u00f3n de protocolos reforzados durante picos de demanda estacional (Planes \u00c9xodo/Retorno) y ante incidentes que afecten la secci\u00f3n transversal de la v\u00eda.",
+      "just": "Se justifica por la necesidad de una gesti\u00f3n cient\u00edfica del tr\u00e1fico que reemplace la intuici\u00f3n operativa con datos precisos de volumen, velocidad y ocupaci\u00f3n, permitiendo una amortizaci\u00f3n eficiente de la capacidad de la infraestructura instalada.",
+      "desp": "Despliegue distribuido de sensores de conteo vehicular y paneles de mensajer\u00eda variable, vinculados a trav\u00e9s de redes de fibra \u00f3ptica redundantes al subsistema de gesti\u00f3n de tr\u00e1fico del CCO.",
+      "beneficio": "Mejora en la competitividad log\u00edstica del pa\u00eds, ahorro de tiempo productivo para los viajeros y una reducci\u00f3n significativa en el estr\u00e9s de conducci\u00f3n derivado de los atascos impredecibles.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
+      "area": "AS-03 Gesti\u00f3n de la operaci\u00f3n y el tr\u00e1fico.",
+      "sub": "SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "fn": "F-01: Gesti\u00f3n de Datos de Conteo y Clasificaci\u00f3n / F-10: Detecci\u00f3n de Niveles de Saturaci\u00f3n Vehicular.",
+      "cc": "CC-05 VDS / TDS (Contadores de Tr\u00e1fico) / CC-01 CCTV (Vigilancia por Video) / CC-03 DMS / VMS (Mensajer\u00eda Variable)",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n gestionada mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial.",
+      "e5": "Captura masiva de flujos y clasificaci\u00f3n vehicular mediante el CC-05 VDS / TDS (Contadores de Tr\u00e1fico) y monitoreo visual de fluidez con el CC-01 CCTV (Vigilancia por Video).",
+      "e4": "Procesamiento y agregaci\u00f3n de variables macrosc\u00f3picas de tr\u00e1fico en el SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico, calculando el estado del flujo por tramo.",
+      "e3": "Aplicaci\u00f3n de la l\u00f3gica de la funci\u00f3n F-02 Gesti\u00f3n de datos de tr\u00e1fico integrado para la integraci\u00f3n de datos y activaci\u00f3n de la F-10 Filmaci\u00f3n de video para detecci\u00f3n de saturaci\u00f3n.",
+      "e2": "Ejecuci\u00f3n de planes de informaci\u00f3n al viajero mediante los CC-03 DMS / VMS (Mensajer\u00eda Variable) y ajuste din\u00e1mico de velocidades si aplica.",
+      "e1": "Garant\u00eda de la Eficiencia Log\u00edstica y Movilidad Nacional, cumpliendo con los est\u00e1ndares de servicio del Proyecto Ch\u00eda-Girardot.",
+      "reflejo": "Representaci\u00f3n cartogr\u00e1fica de velocidades de flujo y ocupaci\u00f3n de calzada con sistema de semaforizaci\u00f3n de alertas.",
+      "conciencia": "Integraci\u00f3n con la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital para micro simulaci\u00f3n de tr\u00e1fico y an\u00e1lisis de impacto estructural por carga.",
+      "estadio": "Gesti\u00f3n de Capacidad y Optimizaci\u00f3n de Flujo."
+    },
+    {
+      "id": "EOV-03",
+      "ico": "\u2696\ufe0f",
+      "type": "p",
+      "name": "Gesti\u00f3n de Carga y Pesaje (WIM)",
+      "ctx": "Este escenario se enfoca en la protecci\u00f3n integral de la vida \u00fatil de la infraestructura vial, espec\u00edficamente pavimentos, puentes y t\u00faneles. Monitorea de forma din\u00e1mica el tr\u00e1nsito de veh\u00edculos de carga pesada, identificando sobrepesos por eje y dimensiones excesivas que puedan comprometer la estabilidad estructural del corredor.",
+      "mot": "Preservar el valor del activo vial de alta inversi\u00f3n y garantizar la sostenibilidad operativa de la concesi\u00f3n a largo plazo. Se busca mitigar el da\u00f1o acelerado de la calzada causado por el incumplimiento de l\u00edmites de carga, asegurando una infraestructura siempre apta.",
+      "que": "Un ecosistema de control de pesos y dimensiones en movimiento (Weigh-In-Motion) que integra sensores piezoel\u00e9ctricos de alta precisi\u00f3n con identificaci\u00f3n autom\u00e1tica de veh\u00edculos para un control no intrusivo.",
+      "para": "Sirve para realizar un control de carga sin detener el flujo log\u00edstico, recolectar anal\u00edtica de fatiga estructural y alertar a las patrullas sobre veh\u00edculos infractores que deben ser desviados para control f\u00edsico est\u00e1tico.",
+      "donde": "Ubicado estrat\u00e9gicamente en los accesos al corredor y en puntos previos a estructuras cr\u00edticas como puentes de grandes luces y t\u00faneles.",
+      "cuando": "Vigilancia transaccional continua (24/7), procesando cada veh\u00edculo de carga pesada que transita por el punto de control sin afectar su velocidad.",
+      "just": "La justificaci\u00f3n operativa reside en la prevenci\u00f3n de fallas estructurales catastr\u00f3ficas y en la equidad de la operaci\u00f3n log\u00edstica, asegurando que todos los transportadores cumplan con la normativa nacional.",
+      "desp": "Instalaci\u00f3n de b\u00e1sculas din\u00e1micas integradas en el pavimento y c\u00e1maras ALPR de alta velocidad conectadas al subsistema de tr\u00e1fico y carga del CCO.",
+      "beneficio": "Asegura la longevidad de la infraestructura vial para las futuras generaciones y reduce el riesgo de accidentes causados por volcamiento de veh\u00edculos sobrecargados.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
+      "area": "AS-06 Gesti\u00f3n de carga y veh\u00edculos comerciales",
+      "sub": "SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "fn": "F-47 Suministro de informaci\u00f3n para conductores / F-02 Gesti\u00f3n de datos de tr\u00e1fico integrado / F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB)",
+      "cc": "CC-07 WIM (Pesaje Din\u00e1mico) / CC-12 ALPR / LPR (Reconocimiento de Placas) / CC-03 DMS / VMS (Mensajer\u00eda Variable)",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n gestionada mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial.",
+      "e5": "Detecci\u00f3n de masa y pesos por eje mediante el CC-07 WIM (Pesaje Din\u00e1mico) y captura simult\u00e1nea de la placa vehicular con el CC-12 ALPR / LPR (Reconocimiento de Placas).",
+      "e4": "Validaci\u00f3n de la transacci\u00f3n de peso en el SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico, comparando los datos contra la base de datos de categor\u00edas vehiculares.",
+      "e3": "Activaci\u00f3n de la l\u00f3gica de la funci\u00f3n F-47: Control de Pesos y Dimensiones / F-121: Orquestaci\u00f3n de Integraci\u00f3n de Datos Log\u00edsticos.",
+      "e2": "Notificaci\u00f3n en tiempo real al conductor a trav\u00e9s del CC-03 DMS / VMS (Mensajer\u00eda Variable) indicando el ingreso obligatorio a la zona de pesaje est\u00e1tico.",
+      "e1": "Sostenibilidad de la Infraestructura y protecci\u00f3n del patrimonio p\u00fablico bajo el marco de la Resoluci\u00f3n 20223040028675.",
+      "reflejo": "Dashboard de control de carga con alertas de sobrepeso cr\u00edtico y registro fotogr\u00e1fico de infractores.",
+      "conciencia": "An\u00e1lisis de acumulaci\u00f3n de carga din\u00e1mica en el CC-40 mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital para planificaci\u00f3n de mantenimiento.",
+      "estadio": "Protecci\u00f3n de Activos y Control Log\u00edstico."
+    },
+    {
+      "id": "EOV-04",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Gesti\u00f3n de Resiliencia Clim\u00e1tica",
+      "ctx": "Gesti\u00f3n operativa en entornos de alta incertidumbre meteorol\u00f3gica, tales como niebla densa en tramos de monta\u00f1a o precipitaciones de alta intensidad que afectan la seguridad. El sistema activa una capa de 'visibilidad digital' que compensa las limitaciones sensoriales del conductor.",
+      "mot": "Garantizar la resiliencia de la autopista frente a los fen\u00f3menos del cambio clim\u00e1tico y eventos atmosf\u00e9ricos extremos. La motivaci\u00f3n principal es la prevenci\u00f3n de colisiones masivas por baja visibilidad y la mitigaci\u00f3n de interrupciones de v\u00eda.",
+      "que": "Una red de telemetr\u00eda ambiental IoT interconectada con los subsistemas de seguridad, capaz de ajustar la operaci\u00f3n de la v\u00eda de manera aut\u00f3noma seg\u00fan los niveles de riesgo h\u00eddrico y atmosf\u00e9rico.",
+      "para": "Sirve para detectar alertas tempranas de inundaci\u00f3n de cauces, niebla densa o vientos laterales fuertes, permitiendo cierres preventivos, ajustes de velocidad y advertencias precisas al viajero en tiempo real.",
+      "donde": "En puntos geogr\u00e1ficos vulnerables identificados, tales como puentes sobre r\u00edos de respuesta r\u00e1pida y tramos de monta\u00f1a con microclimas cerrados.",
+      "cuando": "Vigilancia pasiva permanente que transici\u00f3n a vigilancia activa cr\u00edtica durante eventos meteorol\u00f3gicos reportados por los sensores de campo.",
+      "just": "Se justifica al proveer una base de datos cient\u00edficos (pluviosidad, visibilidad, nivel de cauce) que elimina la subjetividad en la toma de decisiones de restricci\u00f3n de tr\u00e1nsito.",
+      "desp": "Distribuci\u00f3n de estaciones meteorol\u00f3gicas completas y sensores ultras\u00f3nicos de nivel de r\u00edo integrados a la plataforma de gesti\u00f3n de resiliencia del CCO.",
+      "beneficio": "Garantiza una conectividad nacional segura incluso bajo clima extremo, protegiendo la vida de las familias y la integridad de las mercanc\u00edas.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-02 Gesti\u00f3n de Emergencias",
+      "area": "AS-10 Gesti\u00f3n de SIG y clima",
+      "sub": "SUB-12 NMS (Network Management System) - Gesti\u00f3n de Red y Ciber",
+      "se": "SE-ITS-4 Servicio de gesti\u00f3n de siniestros viales inesperados",
+      "fn": "F-84 Filmaci\u00f3n de veh\u00edculos que pasan / F-85 Comunicaci\u00f3n con la estaci\u00f3n / F-116 Control de Actuadores y Sistemas de Drenaje",
+      "cc": "CC-06 ESS / RWIS (Sensores Ambientales) / CC-10 WLS (Monitoreo H\u00eddrico) / CC-03 DMS / VMS (Mensajer\u00eda Variable) y CC-18 (Detecci\u00f3n de mercanc\u00edas peligrosas).",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n gestionada mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial.",
+      "e5": "Monitoreo de par\u00e1metros atmosf\u00e9ricos con el CC-06 ESS / RWIS (Sensores Ambientales) y vigilancia de niveles de cauce mediante el CC-10 WLS (Monitoreo H\u00eddrico).",
+      "e4": "Integraci\u00f3n y an\u00e1lisis de criticidad clim\u00e1tica en el SUB-12 NMS (Network Management System) - Gesti\u00f3n de Red y Ciber, correlacionando los datos con la capacidad de drenaje.",
+      "e3": "Ejecuci\u00f3n de la funci\u00f3n F-84: Monitoreo de Condiciones Ambientales / F-85: Generaci\u00f3n de Alertas Meteorol\u00f3gicas",
+      "e2": "Publicaci\u00f3n de alertas de peligro ambiental en el CC-03 DMS / VMS (Mensajer\u00eda Variable) y ajuste de l\u00edmites de velocidad preventivos.",
+      "e1": "Blindaje y Resiliencia de la Infraestructura Cr\u00edtica Nacional frente a desastres naturales y variabilidad clim\u00e1tica.",
+      "reflejo": "Mapa de riesgos clim\u00e1ticos con isol\u00edneas de visibilidad y niveles de alerta h\u00eddrica en tiempo real.",
+      "conciencia": "Visualizaci\u00f3n de zonas de inundaci\u00f3n potencial en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Resiliencia y Gesti\u00f3n de Emergencias Ambientales."
+    },
+    {
+      "id": "EOV-05",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Gesti\u00f3n de Peajes y Recaudo (ETC)",
+      "ctx": "Este escenario se centra en la optimizaci\u00f3n transaccional y operativa de las plazas de peaje del corredor Ch\u00eda-Girardot mediante la implementaci\u00f3n de tecnolog\u00edas de flujo continuo. Se busca la eliminaci\u00f3n de barreras f\u00edsicas y la fricci\u00f3n en el cobro, permitiendo que los usuarios, especialmente el transporte de carga pesada y pasajeros, transiten sin interrupciones, garantizando una trazabilidad financiera absoluta y una integraci\u00f3n transparente con el sistema de compensaci\u00f3n nacional.",
+      "mot": "La motivaci\u00f3n principal es la modernizaci\u00f3n del recaudo vial para elevar la eficiencia del corredor hacia est\u00e1ndares internacionales de autopistas 'Free Flow'. Se pretende reducir dr\u00e1sticamente los tiempos de espera, el desgaste de frenos y el consumo de combustible en las plazas de peaje, mejorando la experiencia del usuario y asegurando la integridad de los ingresos de la concesi\u00f3n mediante auditor\u00edas automatizadas.",
+      "que": "Un ecosistema de recaudo electr\u00f3nico interoperable basado en tecnolog\u00eda de identificaci\u00f3n por radiofrecuencia (RFID) y validaci\u00f3n visual, integrado en una arquitectura de microservicios que procesa pagos en milisegundos sin detener el veh\u00edculo.",
+      "para": "Sirve para automatizar el cobro de peajes, gestionar la interoperabilidad con diferentes operadores de TAG, categorizar veh\u00edculos de forma din\u00e1mica y generar reportes financieros consolidados que alimenten la contabilidad estrat\u00e9gica del proyecto.",
+      "donde": "Se implementa en todas las plazas de peaje troncales y laterales del corredor Ch\u00eda-Girardot, con carriles dedicados o mixtos seg\u00fan la demanda del tramo.",
+      "cuando": "Operaci\u00f3n transaccional ininterrumpida (24/7/365), garantizando disponibilidad total incluso en periodos de m\u00e1xima demanda vehicular o contingencias de red.",
+      "just": "Se justifica por la necesidad de maximizar la capacidad de paso en los puntos de recaudo, donde tradicionalmente se generan los mayores retrasos log\u00edsticos. La digitalizaci\u00f3n del cobro asegura una operaci\u00f3n eficiente, segura y auditable por el ICCU y la Interventor\u00eda.",
+      "desp": "Instalaci\u00f3n de antenas lectoras de alta velocidad, c\u00e1maras de respaldo para OCR y sistemas de control de carril, todos centralizados en el subsistema de gesti\u00f3n de tr\u00e1fico del CCO.",
+      "beneficio": "Fluidez total en el transporte nacional, reducci\u00f3n de costos log\u00edsticos que impactan el precio final de productos y una mejora notable en la percepci\u00f3n de modernidad de la infraestructura vial colombiana.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
+      "area": "AS-07 Servicios de recaudo y pago de transporte.",
+      "sub": "SUB-01 TMS (Traffic Management System) (Gesti\u00f3n de Tr\u00e1fico)",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico, SE-ITS-2 Gesti\u00f3n de la Demanda de Transporte",
+      "fn": "F-49 Producci\u00f3n y b\u00fasqueda de registros de operaciones integradas / F-50 Informe de la situaci\u00f3n de los eventos en el centro de transporte combinado / F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB)",
+      "cc": "CC-11 AVI / ETC - Peajes Electr\u00f3nicos / CC-12 ALPR / LPR - Reconocimiento de Placas / CC-33 LCS / SIG - Control de Carril",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "e5": "Captura del identificador electr\u00f3nico mediante el CC-11 AVI / ETC - Peajes Electr\u00f3nicos y validaci\u00f3n de la placa vehicular a trav\u00e9s del CC-12 ALPR / LPR - Reconocimiento de Placas para respaldo transaccional.",
+      "e4": "Sincronizaci\u00f3n de la transacci\u00f3n en el SUB-01 TMS (Traffic Management System) (Gesti\u00f3n de Tr\u00e1fico) (TMS) con el bus de servicios F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para la comunicaci\u00f3n con la c\u00e1mara de compensaci\u00f3n nacional.",
+      "e3": "Ejecuci\u00f3n de la funci\u00f3n F-49 Gesti\u00f3n de Cuentas y Transacciones para la administraci\u00f3n de usuarios y la F-50 Intercambio de Datos de Interoperabilidad para garantizar la continuidad transaccional con otros operadores (Red REV/IP).",
+      "e2": "Confirmaci\u00f3n de paso exitoso mediante el sistema de control de carril CC-33 LCS / SIG - Control de Carril y actualizaci\u00f3n del registro financiero en la consola del CCO.",
+      "e1": "Optimizaci\u00f3n del recaudo nacional y mejora de la movilidad interurbana bajo el marco del PMITS.",
+      "reflejo": "Dashboard financiero de recaudo con alertas de transacciones fallidas o discrepancias de categor\u00eda.",
+      "conciencia": "Registro de eventos de paso en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Eficiencia Transaccional y Fluidez Operativa."
+    },
+    {
+      "id": "EOV-06",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Soberan\u00eda del Dato y Ciberseguridad",
+      "ctx": "Este escenario constituye el blindaje digital de toda la infraestructura ITS del corredor Ch\u00eda-Girardot. Dada la criticidad de los datos de tr\u00e1fico, seguridad vial y recaudo, se implementa una capa de defensa activa que protege la integridad, confidencialidad y disponibilidad de la informaci\u00f3n frente a amenazas cibern\u00e9ticas externas o internas, asegurando que la operaci\u00f3n de la v\u00eda nunca sea comprometida.",
+      "mot": "La motivaci\u00f3n es garantizar la soberan\u00eda tecnol\u00f3gica y la protecci\u00f3n de los datos del Estado y de los ciudadanos que circulan por el corredor. Se busca prevenir sabotajes en los sistemas de control de t\u00faneles, alteraciones en las bases de datos de peajes o interceptaci\u00f3n de im\u00e1genes de vigilancia, manteniendo la confianza institucional en el sistema.",
+      "que": "Un ecosistema de defensa digital basada en el modelo 'Zero Trust' que integra gateways de ciberseguridad industrial, encriptaci\u00f3n de grado militar y monitoreo de anomal\u00edas en el tr\u00e1fico de red de la fibra \u00f3ptica.",
+      "para": "Sirve para detectar intentos de intrusi\u00f3n, mitigar ataques de denegaci\u00f3n de servicio (DDoS), asegurar la autenticidad de las actualizaciones de software de campo y garantizar que solo el personal autorizado acceda a las funciones cr\u00edticas de control vial.",
+      "donde": "Se despliega de manera transversal en todos los nodos de red, desde los armarios de campo hasta el n\u00facleo del Centro de Control de Operaciones (CCO).",
+      "cuando": "Vigilancia digital proactiva y autom\u00e1tica las 24 horas del d\u00eda, con respuesta inmediata ante la detecci\u00f3n de comportamientos an\u00f3malos en la red.",
+      "just": "Se justifica por la clasificaci\u00f3n de los sistemas ITS como Infraestructura Cr\u00edtica Nacional. La interrupci\u00f3n de estos sistemas por un ciberataque tendr\u00eda consecuencias fatales para la seguridad vial y la estabilidad econ\u00f3mica del corredor log\u00edstico.",
+      "desp": "Instalaci\u00f3n de dispositivos de seguridad perimetral industrial en cada nodo y software de gesti\u00f3n de eventos e incidentes de seguridad (SIEM) en el CCO.",
+      "beneficio": "Protecci\u00f3n de la privacidad de los usuarios y garant\u00eda de una autopista resiliente que no puede ser apagada ni manipulada por agentes malintencionados.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-04 Seguridad y Cumplimiento",
+      "area": "AS-12 Gesti\u00f3n de infraestructura y comunicaciones.",
+      "sub": "SUB-06 AMS (Asset Management System) (Gesti\u00f3n de Infraestructura)",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "fn": "F-120 Monitoreo de Redes de Servicios e Interferencias / F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB)",
+      "cc": "CC-21 CSG / IoT - Ciberseguridad e IoT / CC-23 FOC - Conectividad de Fibra",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "e5": "Monitoreo de la integridad f\u00edsica de los equipos mediante el CC-21 CSG / IoT - Ciberseguridad e IoT y protecci\u00f3n del canal de datos troncal CC-23 FOC - Conectividad de Fibra.",
+      "e4": "Gesti\u00f3n de la seguridad de red en el SUB-06 AMS (Asset Management System) (Gesti\u00f3n de Infraestructura) (CSMS), supervisando el flujo de informaci\u00f3n de todos los activos conectados.",
+      "e3": "Aplicaci\u00f3n de la funci\u00f3n F-120: Monitoreo de Seguridad de Red / F-121: Gesti\u00f3n de Cifrado y Autenticaci\u00f3n.",
+      "e2": "Aislamiento preventivo de nodos comprometidos y generaci\u00f3n de alertas de seguridad en la consola de administraci\u00f3n de red del CCO.",
+      "e1": "Garant\u00eda de la Soberan\u00eda Digital y Seguridad Nacional en la infraestructura de transporte.",
+      "reflejo": "Visualizaci\u00f3n de la topolog\u00eda de red con indicadores de salud y mapas de calor de intentos de intrusi\u00f3n bloqueados.",
+      "conciencia": "Representaci\u00f3n del estado de seguridad de los activos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Resiliencia Digital y Defensa Activa."
+    },
+    {
+      "id": "EOV-07",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Gesti\u00f3n de Mantenimiento e Infraestructura",
+      "ctx": "Escenario enfocado en la salud estructural proactiva de los activos f\u00edsicos del corredor, tales como puentes, t\u00faneles y muros de contenci\u00f3n. Utiliza sens\u00f3rica avanzada para medir deformaciones, vibraciones y fatiga de materiales, permitiendo una gesti\u00f3n t\u00e9cnica que asegura la estabilidad de la infraestructura ante el tr\u00e1nsito pesado y eventos s\u00edsmicos.",
+      "mot": "Maximizar la vida \u00fatil de los activos y prevenir fallas estructurales catastr\u00f3ficas. La motivaci\u00f3n es pasar de un mantenimiento correctivo costoso a uno predictivo basado en la condici\u00f3n real del material, optimizando la inversi\u00f3n y garantizando la seguridad del usuario.",
+      "que": "Un sistema de monitoreo de salud estructural (SHM) basado en telemetr\u00eda de precisi\u00f3n, integrado con un modelo de informaci\u00f3n de construcci\u00f3n (BIM) para la gesti\u00f3n del ciclo de vida del activo.",
+      "para": "Sirve para detectar fisuras invisibles, p\u00e9rdida de tensi\u00f3n en torones, inclinaci\u00f3n de taludes y asentamientos en puentes, permitiendo programar intervenciones de ingenier\u00eda antes de que el da\u00f1o sea irreversible.",
+      "donde": "Se despliega en estructuras cr\u00edticas identificadas en el dise\u00f1o, puentes de grandes luces, t\u00faneles y zonas de alta inestabilidad geol\u00f3gica.",
+      "cuando": "Vigilancia pasiva permanente con reportes de diagn\u00f3stico peri\u00f3dicos y alertas inmediatas ante variaciones bruscas de carga o eventos s\u00edsmicos.",
+      "just": "Se justifica por la necesidad de proteger una inversi\u00f3n multimillonaria en infraestructura. Los datos cient\u00edficos recolectados eliminan la subjetividad de las inspecciones visuales y garantizan la continuidad operativa.",
+      "desp": "Distribuci\u00f3n de inclin\u00f3metros, sensores de deformaci\u00f3n y aceler\u00f3metros conectados a nodos de transmisi\u00f3n de datos inal\u00e1mbricos o por fibra \u00f3ptica.",
+      "beneficio": "Seguridad total para el viajero al transitar por estructuras certificadas digitalmente y reducci\u00f3n de cierres prolongados por emergencias geot\u00e9cnicas.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-06 Gesti\u00f3n de Infraestructura",
+      "area": "AS-11 Gesti\u00f3n de eficiencia y servicios de soporte.",
+      "sub": "SUB-10 ESB (Enterprise Service Bus) (Bus de Integraci\u00f3n (SB))",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "fn": "F-120 Monitoreo de Redes de Servicios e Interferencias / F-122 Representaci\u00f3n Visual en Gemelo Digital",
+      "cc": "CC-08 GMS-I - Inclinometr\u00eda Geot\u00e9cnica / CC-09 SMS / SBT - Monitoreo de Estructuras / CC-40 D-TWN - Nodos de Gemelo Digital",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "e5": "Captura de desplazamientos mediante el CC-08 GMS-I - Inclinometr\u00eda Geot\u00e9cnica y monitoreo de fatiga estructural con el CC-09 SMS / SBT - Monitoreo de Estructuras.",
+      "e4": "Integraci\u00f3n de la data t\u00e9cnica en el SUB-10 ESB (Enterprise Service Bus) (Bus de Integraci\u00f3n (SB)) (MMS) para an\u00e1lisis de tendencias y diagn\u00f3sticos de salud estructural.",
+      "e3": "Ejecuci\u00f3n de la funci\u00f3n F-120: Monitoreo de Redes de Servicios e Interferencias / F-122: Representaci\u00f3n de Salud Estructural en Modelo 3D.",
+      "e2": "Generaci\u00f3n de \u00f3rdenes de mantenimiento preventivo en el CCO basadas en las alertas de los sensores de campo.",
+      "e1": "Sostenibilidad de la Infraestructura y preservaci\u00f3n del valor del activo vial nacional.",
+      "reflejo": "Dashboard de salud estructural con indicadores tipo sem\u00e1foro (Verde, Amarillo, Rojo) por cada puente o t\u00fanel monitoreado.",
+      "conciencia": "Actualizaci\u00f3n del estado f\u00edsico de los componentes en el Gemelo Digital CC-40 D-TWN - Nodos de Gemelo Digital con precisi\u00f3n LOD 500.",
+      "estadio": "Mantenimiento Predictivo y Gesti\u00f3n de Activos."
+    },
+    {
+      "id": "EOV-08",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Gesti\u00f3n de Continuidad y Resiliencia de Red",
+      "ctx": "Este escenario garantiza que el 'sistema nervioso' del corredor Ch\u00eda-Girardot (su red de comunicaciones) sea indestructible. Ante cortes accidentales de fibra \u00f3ptica por obras o eventos naturales, el sistema activa rutas de respaldo autom\u00e1ticas para asegurar que las c\u00e1maras, radares y postes SOS sigan comunicados con el CCO.",
+      "mot": "La motivaci\u00f3n es la continuidad absoluta del servicio ITS. En una autopista inteligente, la p\u00e9rdida de conectividad es equivalente a la ceguera operativa. Se busca garantizar que la seguridad vial nunca dependa de un solo cable, manteniendo el control bajo cualquier circunstancia.",
+      "que": "Una arquitectura de red redundante y auto concurrente que integra fibra \u00f3ptica troncal con enlaces de respaldo inal\u00e1mbricos y satelitales, gestionada por protocolos de enrutamiento inteligente.",
+      "para": "Sirve para asegurar que las alertas de emergencia lleguen al CCO sin latencia, que el recaudo electr\u00f3nico no se detenga y que la supervisi\u00f3n visual sea constante, incluso durante fallas masivas de la infraestructura terrestre.",
+      "donde": "Se implementa en toda la longitud del corredor, con especial \u00e9nfasis en los nodos de agregaci\u00f3n y el enlace troncal hacia el CCO principal.",
+      "cuando": "Vigilancia de red 24/7 con protocolos de conmutaci\u00f3n en milisegundos que son imperceptibles para las aplicaciones finales.",
+      "just": "Se justifica por la criticidad de la operaci\u00f3n. La resiliencia de la red es el soporte de todos los dem\u00e1s servicios prioritarios (PMITS), por lo que su disponibilidad debe ser cercana al 100%.",
+      "desp": "Anillo de fibra \u00f3ptica redundante apoyado por estaciones de radiofrecuencia y terminales de backhaul satelital en puntos remotos.",
+      "beneficio": "Confianza total en que los servicios de auxilio y seguridad estar\u00e1n siempre disponibles para el usuario, sin importar los incidentes externos.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-04 Seguridad y Cumplimiento",
+      "area": "AS-12 Gesti\u00f3n de infraestructura y comunicaciones.",
+      "sub": "SUB-06 AMS (Asset Management System) (Gesti\u00f3n de Infraestructura)",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "fn": "F-120 Monitoreo de Redes de Servicios e Interferencias / F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB)",
+      "cc": "CC-23 FOC - Conectividad de Fibra / CC-42 SAT-B - Respaldo Satelital",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "e5": "Tr\u00e1fico de datos a trav\u00e9s de la infraestructura de CC-23 FOC - Conectividad de Fibra y activaci\u00f3n autom\u00e1tica del CC-42 SAT-B - Respaldo Satelital ante falla troncal.",
+      "e4": "Gesti\u00f3n de rutas de comunicaci\u00f3n en el SUB-06 AMS (Asset Management System) (Gesti\u00f3n de Infraestructura) (CSMS), priorizando paquetes de datos cr\u00edticos de seguridad.",
+      "e3": "Uso de la funci\u00f3n F-120: Gesti\u00f3n de Rutas Cr\u00edticas y Redundancia / F-121: Orquestaci\u00f3n de Failover Autom\u00e1tico.",
+      "e2": "Alerta de degradaci\u00f3n de red en el CCO y despacho inmediato de equipo de mantenimiento para reparaci\u00f3n f\u00edsica.",
+      "e1": "Resiliencia de la Infraestructura de Telecomunicaciones Estrat\u00e9gicas del sector transporte.",
+      "reflejo": "Mapa de conectividad en tiempo real con indicaci\u00f3n visual de rutas activas y estado de los enlaces satelitales.",
+      "conciencia": "Representaci\u00f3n del estado de conectividad de los nodos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Continuidad Operativa y Gesti\u00f3n de Red."
+    },
+    {
+      "id": "EOV-09",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Gesti\u00f3n de Fiscalizaci\u00f3n y Control",
+      "ctx": "Escenario dise\u00f1ado para el apoyo tecnol\u00f3gico a las autoridades de tr\u00e1nsito en el cumplimiento de la ley penal y administrativa vial. El sistema identifica autom\u00e1ticamente veh\u00edculos con \u00f3rdenes de captura, SOAT vencido, revisi\u00f3n tecnomec\u00e1nica pendiente o infracciones flagrantes, facilitando operativos de control eficientes.",
+      "mot": "Reducir la impunidad vial y mejorar la seguridad p\u00fablica. La motivaci\u00f3n es utilizar la tecnolog\u00eda ITS como un multiplicador de fuerza para la polic\u00eda, permitiendo que el control sea selectivo, inteligente y basado en evidencias digitales irrefutables.",
+      "que": "Un sistema de identificaci\u00f3n vehicular masiva basado en anal\u00edtica de video y reconocimiento de placas (ALPR), integrado con las bases de datos nacionales de tr\u00e1nsito y polic\u00eda.",
+      "para": "Sirve para alertar en tiempo real sobre el paso de veh\u00edculos hurtados o involucrados en delitos, fiscalizar el cumplimiento de normas t\u00e9cnicas y generar estad\u00edsticas de evasi\u00f3n para el dise\u00f1o de operativos t\u00e1cticos.",
+      "donde": "Se despliega en los puntos de entrada y salida del corredor, peajes y zonas de alta afluencia vehicular.",
+      "cuando": "Operaci\u00f3n de monitoreo autom\u00e1tico 24/7 con generaci\u00f3n de alertas en tiempo real al detectar coincidencias en la 'lista negra'.",
+      "just": "Se justifica por la necesidad de mejorar los est\u00e1ndares de legalidad en las v\u00edas nacionales. La fiscalizaci\u00f3n electr\u00f3nica permite un control equitativo y transparente sobre todos los usuarios del corredor.",
+      "desp": "C\u00e1maras OCR de alta definici\u00f3n y software de anal\u00edtica de video integrados con la red de comunicaciones segura del proyecto.",
+      "beneficio": "Mejora de la seguridad p\u00fablica, reducci\u00f3n del tr\u00e1nsito de veh\u00edculos no aptos que causan accidentes y fomento de la legalidad en el sector transporte.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-05 Recaudo y Pagos",
+      "area": "AS-09 Gesti\u00f3n de seguridad ciudadana y fiscalizaci\u00f3n.",
+      "sub": "SUB-09 (Gesti\u00f3n de cumplimiento de la ley).",
+      "se": "SE-ITS-4 Servicio de gesti\u00f3n de siniestros viales inesperados",
+      "fn": "F-42 Gesti\u00f3n de infracciones de tr\u00e1nsito / F-118 Anal\u00edtica de Identificaci\u00f3n Vehicular ALPR.",
+      "cc": "CC-12 ALPR / LPR - Reconocimiento de Placas / CC-01 CCTV - Vigilancia por Video",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "e5": "Captura del dominio vehicular mediante el CC-12 ALPR / LPR - Reconocimiento de Placas y validaci\u00f3n de contexto visual con el CC-01 CCTV - Vigilancia por Video.",
+      "e4": "Cruce de informaci\u00f3n en el SUB-04 VMS (Video Management System) (Gesti\u00f3n de Video) (EMS) con las bases de datos de autoridades externas.",
+      "e3": "F-42 Gesti\u00f3n de infracciones de tr\u00e1nsito / F-118 Anal\u00edtica de Identificaci\u00f3n Vehicular ALPR.",
+      "e2": "Notificaci\u00f3n inmediata a la patrulla de polic\u00eda m\u00e1s cercana v\u00eda radio y reflejo de la alerta en la consola del CCO.",
+      "e1": "Fortalecimiento del Control y Vigilancia de la Movilidad bajo el Plan Nacional de Seguridad Vial.",
+      "reflejo": "Consola de fiscalizaci\u00f3n con visualizaci\u00f3n de placa, motivo de la alerta y ubicaci\u00f3n del veh\u00edculo en el mapa.",
+      "conciencia": "Registro de paso de veh\u00edculos sancionados en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Control de Legalidad y Apoyo a Autoridades."
+    },
+    {
+      "id": "EOV-10",
+      "ico": "\u26a1",
+      "type": "c",
+      "name": "Gesti\u00f3n de Electromovilidad (EVCS)",
+      "ctx": "Este escenario prepara al corredor Ch\u00eda-Girardot para la transici\u00f3n energ\u00e9tica global. Provee la infraestructura de informaci\u00f3n y carga necesaria para el tr\u00e1nsito fluido de veh\u00edculos el\u00e9ctricos, integrando la disponibilidad de las estaciones de carga (electrolineras) con los sistemas de informaci\u00f3n al viajero y la gesti\u00f3n de la demanda energ\u00e9tica del corredor.",
+      "mot": "La motivaci\u00f3n es posicionar al proyecto como un l\u00edder en sostenibilidad ambiental y movilidad de cero emisiones. Se busca incentivar el uso de veh\u00edculos el\u00e9ctricos en rutas interurbanas al eliminar la 'ansiedad de rango' del usuario, asegurando que siempre haya un punto de carga disponible y funcional.",
+      "que": "Un ecosistema de estaciones de carga el\u00e9ctrica r\u00e1pida (EVCS) monitoreadas digitalmente, integradas en la plataforma ITS para la gesti\u00f3n de turnos, disponibilidad y consumo energ\u00e9tico.",
+      "para": "Sirve para informar al usuario sobre la ubicaci\u00f3n y estado de los cargadores, gestionar el cobro del servicio de energ\u00eda y monitorear la carga el\u00e9ctrica total del corredor para evitar picos de demanda no controlados.",
+      "donde": "Se despliega en las \u00c1reas de Servicio y puntos de descanso estrat\u00e9gicos a lo largo de la v\u00eda concesionada.",
+      "cuando": "Disponibilidad del servicio 24/7 con monitoreo preventivo para asegurar que los cargadores est\u00e9n siempre operativos.",
+      "just": "Se justifica por el compromiso nacional de reducci\u00f3n de gases de efecto invernadero y las leyes de incentivo a la movilidad el\u00e9ctrica. Una autopista de quinta generaci\u00f3n debe ser el soporte de los veh\u00edculos del futuro.",
+      "desp": "Instalaci\u00f3n de estaciones de carga r\u00e1pida conectadas a la micro-red energ\u00e9tica del proyecto y al sistema de gesti\u00f3n de servicios al usuario.",
+      "beneficio": "Reducci\u00f3n de la contaminaci\u00f3n auditiva y atmosf\u00e9rica, y fomento de un transporte nacional m\u00e1s limpio y econ\u00f3mico a largo plazo.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
+      "area": "AS-05 Gesti\u00f3n de la demanda y electromovilidad.",
+      "sub": "SUB-03 EMS (Emergency Management System) (Gesti\u00f3n de Emergencias)",
+      "se": "SE-ITS-3 Servicio de suministro de informaci\u00f3n de transporte p\u00fablico",
+      "fn": "F-120 Monitoreo de Redes de Servicios e Interferencias / F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB)",
+      "cc": "CC-16 EVCS - Electrolineras / CC-39 MSG - Micro-Red Inteligente",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "e5": "Suministro de energ\u00eda y monitoreo de carga mediante el CC-16 EVCS - Electrolineras apoyado por la micro-red energ\u00e9tica CC-39 MSG - Micro-Red Inteligente.",
+      "e4": "Gesti\u00f3n de la disponibilidad del servicio en el SUB-03 EMS (Emergency Management System) (Gesti\u00f3n de Emergencias) (ATMS), informando sobre cargadores libres u ocupados.",
+      "e3": "Uso de la funci\u00f3n F-120: Monitoreo de Redes de Servicio y Energ\u00eda / F-121: Orquestaci\u00f3n de Pagos Electr\u00f3nicos de Energ\u00eda.",
+      "e2": "Publicaci\u00f3n de disponibilidad de carga en los canales digitales CC-25 y App m\u00f3vil de la concesi\u00f3n.",
+      "e1": "Fomento a la Movilidad Sostenible y cumplimiento de metas de Descarbonizaci\u00f3n del transporte.",
+      "reflejo": "Dashboard de electromovilidad con estado de carga de veh\u00edculos en tr\u00e1nsito y disponibilidad de estaciones por tramo.",
+      "conciencia": "Visualizaci\u00f3n del consumo energ\u00e9tico de los activos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Sostenibilidad y Servicios de Nueva Generaci\u00f3n."
+    },
+    {
+      "id": "EOV-11",
+      "ico": "\ud83d\udca1",
+      "type": "c",
+      "name": "Telegesti\u00f3n y Eficiencia Energ\u00e9tica",
+      "ctx": "Este escenario se enfoca en la administraci\u00f3n inteligente y remota de los sistemas de soporte vital del corredor Ch\u00eda-Girardot, principalmente la iluminaci\u00f3n de t\u00faneles, peajes y pasos urbanos. Utiliza protocolos de telegesti\u00f3n para monitorear el consumo en tiempo real y ajustar la intensidad lum\u00ednica seg\u00fan las condiciones de tr\u00e1fico y visibilidad externa, garantizando que el consumo energ\u00e9tico sea \u00f3ptimo sin comprometer los est\u00e1ndares de seguridad vial nocturna o en condiciones de baja luminosidad.",
+      "mot": "La motivaci\u00f3n principal es la sostenibilidad operativa y la reducci\u00f3n dr\u00e1stica de la huella de carbono del proyecto. Se busca transformar la v\u00eda en una infraestructura energ\u00e9ticamente eficiente que se adapte a la demanda real del entorno, prolongando la vida \u00fatil de los equipos el\u00e9ctricos mediante ciclos de encendido inteligentes y reduciendo los costos de mantenimiento y facturaci\u00f3n de servicios p\u00fablicos mediante el monitoreo de anomal\u00edas el\u00e9ctricas.",
+      "que": "Un ecosistema de control remoto punto a punto basado en nodos de telegesti\u00f3n inteligente y sensores de capacitancia el\u00e9ctrica, integrados en una arquitectura de gesti\u00f3n centralizada que permite la supervisi\u00f3n del estado f\u00edsico y consumo de cada luminaria y activo el\u00e9ctrico del corredor.",
+      "para": "Sirve para automatizar el encendido y apagado de sistemas el\u00e9ctricos, detectar fallas de fase o robos de cableado de forma instant\u00e1nea, programar niveles de atenuaci\u00f3n (dimming) y generar reportes anal\u00edticos de ahorro energ\u00e9tico para la certificaci\u00f3n de sostenibilidad del proyecto.",
+      "donde": "Se implementa de manera masiva en los sistemas de iluminaci\u00f3n de t\u00faneles, plazas de peaje, \u00e1reas de servicio y tramos de iluminaci\u00f3n urbana en el corredor Ch\u00eda-Girardot.",
+      "cuando": "Vigilancia y gesti\u00f3n operativa 24/7, con ejecuci\u00f3n t\u00e1ctica de planes de ahorro durante periodos de bajo flujo vehicular y m\u00e1xima respuesta en emergencias que requieran iluminaci\u00f3n prioritaria.",
+      "just": "Se justifica por la necesidad de una gesti\u00f3n moderna y austera de los recursos naturales. La telegesti\u00f3n elimina la necesidad de patrullajes visuales para detectar luminarias apagadas y permite una respuesta inmediata ante fallas energ\u00e9ticas, garantizando la seguridad del usuario con el menor costo posible.",
+      "desp": "Instalaci\u00f3n de controladores de luminaria inteligentes y medidores de energ\u00eda bidireccionales conectados a la red de fibra \u00f3ptica troncal hacia el subsistema de mantenimiento del CCO.",
+      "beneficio": "Reducci\u00f3n del impacto lum\u00ednico ambiental, mayor seguridad en zonas de t\u00faneles y redistribuci\u00f3n eficiente de los recursos de la concesi\u00f3n hacia otros servicios al usuario.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-06 Gesti\u00f3n de Infraestructura",
+      "area": "AS-11 Gesti\u00f3n de eficiencia y servicios de soporte.",
+      "sub": "SUB-10 ESB (Enterprise Service Bus) - Bus de Integraci\u00f3n (SB)",
+      "se": "SE-ITS-9 Gesti\u00f3n de emergencias y desastres",
+      "fn": "F-120 Monitoreo de Redes de Servicios e Interferencias / F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB)",
+      "cc": "CC-29 SLP (Iluminaci\u00f3n Solar) / CC-20 VIS / LGS (Gesti\u00f3n de Iluminaci\u00f3n)",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "e5": "Monitoreo de consumo y estado f\u00edsico mediante el CC-29 SLP (Iluminaci\u00f3n Solar) y verificaci\u00f3n de visibilidad de calzada a trav\u00e9s del CC-20 VIS / LGS (Gesti\u00f3n de Iluminaci\u00f3n).",
+      "e4": "Gesti\u00f3n de la l\u00f3gica de ahorro energ\u00e9tico en el SUB-10 ESB (Enterprise Service Bus) - Bus de Integraci\u00f3n (SB) (MMS - Mantenimiento), procesando los datos de consumo punto a punto.",
+      "e3": "Ejecuci\u00f3n de la funci\u00f3n F-120: Control de Nodos El\u00e9ctricos / F-121: Orquestaci\u00f3n de Consumo Energ\u00e9tico.",
+      "e2": "Ajuste remoto de la intensidad lum\u00ednica desde el CCO y generaci\u00f3n de alertas por fallas de alimentaci\u00f3n o consumo excesivo.",
+      "e1": "Cumplimiento de las metas de Eficiencia Energ\u00e9tica y Sostenibilidad de la Infraestructura en el marco de la Resoluci\u00f3n 20223040028675.",
+      "reflejo": "Dashboard energ\u00e9tico con visualizaci\u00f3n del ahorro acumulado, estado de las luminarias y alertas de falla el\u00e9ctrica.",
+      "conciencia": "Visualizaci\u00f3n del estado operativo y consumo de cada nodo el\u00e9ctrico en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Gesti\u00f3n Eficiente de Servicios de Soporte."
+    },
+    {
+      "id": "EOV-12",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Gesti\u00f3n de Conectividad V2X / I2V",
+      "ctx": "Este escenario representa la frontera tecnol\u00f3gica del corredor, habilitando la comunicaci\u00f3n bidireccional entre la infraestructura (I) y el veh\u00edculo (V). El sistema transmite alertas cr\u00edticas directamente al habit\u00e1culo del veh\u00edculo (dashboard o dispositivos m\u00f3viles), superando la limitaci\u00f3n visual de la se\u00f1alizaci\u00f3n f\u00edsica y permitiendo una conciencia situacional extendida que previene colisiones antes de que el peligro sea visible para el conductor.",
+      "mot": "La motivaci\u00f3n es la creaci\u00f3n de un entorno de conducci\u00f3n cooperativa donde la informaci\u00f3n salva vidas. Se busca reducir el tiempo de reacci\u00f3n humana mediante alertas t\u00e1cticas de 'frenado de emergencia adelante', 'obst\u00e1culo oculto en curva' o 'aproximaci\u00f3n de ambulancia', integrando al veh\u00edculo como un sensor activo dentro de la red del corredor Ch\u00eda-Girardot.",
+      "que": "Un ecosistema de comunicaciones de corto alcance dedicado (DSRC) o celular (C-V2X) compuesto por unidades de carretera (RSU) que orquestan el intercambio de mensajes de seguridad est\u00e1ndar entre la v\u00eda y los usuarios conectados.",
+      "para": "Sirve para difundir alertas de seguridad vial personalizadas, informar sobre el estado del peaje antes de llegar al punto f\u00edsico, sugerir velocidades \u00f3ptimas para evitar paradas en sem\u00e1foros o zonas saturadas y habilitar la asistencia avanzada a la conducci\u00f3n en tiempo real, as\u00ed como priorizar el paso de veh\u00edculos de transporte p\u00fablico en nodos cr\u00edticos y proveer informaci\u00f3n de tiempos de arribo a centros de transferencia multimodal.",
+      "donde": "Se despliega en puntos ciegos, zonas de alta siniestralidad, t\u00faneles y aproximaciones a intersecciones estrat\u00e9gicas donde la informaci\u00f3n temprana es cr\u00edtica para la seguridad.",
+      "cuando": "Operaci\u00f3n continua de difusi\u00f3n de mensajes de seguridad con activaci\u00f3n de mensajes espec\u00edficos ante incidentes detectados por los sensores del corredor.",
+      "just": "Se justifica por la tendencia global de veh\u00edculos conectados. Una autopista de quinta generaci\u00f3n debe ser capaz de 'hablar' con los veh\u00edculos para eliminar los errores humanos de percepci\u00f3n, reduciendo la siniestralidad de forma exponencial mediante el uso de tecnolog\u00eda disruptiva.",
+      "desp": "Instalaci\u00f3n de unidades CC-26 en postes estrat\u00e9gicos, integradas con el subsistema de gesti\u00f3n de tr\u00e1fico y conectadas a la red de baja latencia del corredor.",
+      "beneficio": "Reducci\u00f3n dr\u00e1stica de colisiones por alcance, mayor agilidad en la respuesta a emergencias y preparaci\u00f3n del pa\u00eds para la llegada de tecnolog\u00edas de transporte inteligentes globales.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
+      "area": "AS-04 Servicios de transporte p\u00fablico y multimodal / AS-12 Gesti\u00f3n de infraestructura",
+      "sub": "SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "fn": "F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) / F-02 Gesti\u00f3n de datos de tr\u00e1fico integrado",
+      "cc": "CC-26 RSU (Comunicaci\u00f3n V2X) / CC-25 SME (Gesti\u00f3n de Medios Sociales)",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "e5": "Difusi\u00f3n de tramas de seguridad inal\u00e1mbricas mediante el CC-26 RSU (Comunicaci\u00f3n V2X) y comunicaci\u00f3n omnicanal a trav\u00e9s del CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "e4": "Orquestaci\u00f3n de mensajes de seguridad en el SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico (TMS), priorizando la difusi\u00f3n de alertas cr\u00edticas sobre la informaci\u00f3n general.",
+      "e3": "Uso de la funci\u00f3n F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para la orquestaci\u00f3n segura de datos externos y la F-02 Gesti\u00f3n de datos de tr\u00e1fico , Sincronizaci\u00f3n de datos con operadores de transporte masivo para la optimizaci\u00f3n de rutas y tiempos de viaje mediante tecnolog\u00eda V2I, Integrando datos de tr\u00e1fico en tiempo real.",
+      "e2": "Publicaci\u00f3n autom\u00e1tica de la alerta en el entorno del veh\u00edculo conectado y registro del evento de difusi\u00f3n en la consola de comunicaciones del CCO.",
+      "e1": "Liderazgo en Conectividad Vial y cumplimiento de los est\u00e1ndares de autopistas inteligentes de Clase Mundial.",
+      "reflejo": "Monitor de radiofrecuencia con estad\u00edsticas de veh\u00edculos conectados y mapa de difusi\u00f3n de alertas V2X activas.",
+      "conciencia": "Representaci\u00f3n del \u00e1rea de cobertura de los mensajes V2X en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Conducci\u00f3n Cooperativa y Conectada."
+    },
+    {
+      "id": "EOV-13",
+      "ico": "\ud83d\udea5",
+      "type": "p",
+      "name": "Gesti\u00f3n de Veh\u00edculos Aut\u00f3nomos",
+      "ctx": "Escenario de preparaci\u00f3n para la autonom\u00eda vehicular Nivel 4 y 5. Provee la infraestructura de datos y validaci\u00f3n necesaria para que veh\u00edculos sin conductor o con asistencia total operen de forma segura en el corredor Ch\u00eda-Girardot, garantizando que el sistema de la v\u00eda act\u00fae como un respaldo sensorial para los algoritmos de navegaci\u00f3n aut\u00f3noma.",
+      "mot": "La motivaci\u00f3n es garantizar que el corredor est\u00e9 t\u00e9cnica y legalmente listo para la llegada de flotas aut\u00f3nomas, especialmente en el transporte de carga pesada (Platooning). Se busca liderar la adopci\u00f3n de tecnolog\u00edas de transporte que eliminan el error humano, optimizando el espacio vial mediante una circulaci\u00f3n coordinada y precisa.",
+      "que": "Una capa de soporte de infraestructura para la conducci\u00f3n aut\u00f3noma que integra mapas de alta definici\u00f3n (HD Maps) din\u00e1micos, posicionamiento de precisi\u00f3n y validaci\u00f3n de trayectoria externa mediante los sensores de la v\u00eda.",
+      "para": "Sirve para validar el entorno operativo de los veh\u00edculos aut\u00f3nomos, proveerles datos sobre el estado de la calzada que sus propios sensores no pueden ver y coordinar maniobras colectivas para maximizar la capacidad de flujo del corredor.",
+      "donde": "Tramos rectos de alta visibilidad para pruebas iniciales y corredores exclusivos de carga (Truck Platooning) identificados en el plan maestro.",
+      "cuando": "Operaci\u00f3n experimental y asistida que evolucionar\u00e1 hacia una gesti\u00f3n de tr\u00e1fico aut\u00f3nomo masivo a medida que la flota nacional se renueve.",
+      "just": "Se justifica por la necesidad de competitividad log\u00edstica. El transporte aut\u00f3nomo reduce costos de operaci\u00f3n y fatiga, pero requiere una v\u00eda que sea capaz de certificar digitalmente el estado del entorno para que los seguros y las autoridades permitan su circulaci\u00f3n.",
+      "desp": "Uso intensivo de CC-26 para comunicaci\u00f3n de latencia cero y estaciones de asistencia digital CC-37",
+      "beneficio": "Reducci\u00f3n total de accidentes por fatiga o distracci\u00f3n, optimizaci\u00f3n del uso del suelo vial y modernizaci\u00f3n del sector transporte de carga en Colombia.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU),DITRA.",
+      "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
+      "area": "AS-03 Gesti\u00f3n de la operaci\u00f3n y el tr\u00e1fico.",
+      "sub": "SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "fn": "F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) / F-122 Representaci\u00f3n Visual en Gemelo Digital",
+      "cc": "CC-26 RSU (Comunicaci\u00f3n V2X) / CC-37 WDA (Detecci\u00f3n de Fauna)",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "e5": "Asistencia digital a la navegaci\u00f3n mediante el CC-37 WDA (Detecci\u00f3n de Fauna) y comunicaci\u00f3n de baja latencia con el veh\u00edculo a trav\u00e9s del CC-26 RSU (Comunicaci\u00f3n V2X).",
+      "e4": "Gesti\u00f3n del flujo aut\u00f3nomo en el SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico (TMS), supervisando que las trayectorias reportadas coincidan con la realidad f\u00edsica de la v\u00eda.",
+      "e3": "Uso de la funci\u00f3n F-121: Orquestaci\u00f3n de Datos de Posicionamiento / F-122: Representaci\u00f3n Visual en Gemelo Digital.",
+      "e2": "Monitoreo prioritario de convoyes aut\u00f3nomos desde el CCO con protocolos de intervenci\u00f3n remota ante anomal\u00edas del sistema.",
+      "e1": "Vanguardia en Tecnolog\u00eda de Transporte y cumplimiento de objetivos de innovaci\u00f3n de largo plazo (30 a\u00f1os).",
+      "reflejo": "Dashboard de veh\u00edculos aut\u00f3nomos con telemetr\u00eda compartida y visualizaci\u00f3n de trayectorias proyectadas.",
+      "conciencia": "Sincronizaci\u00f3n milim\u00e9trica del veh\u00edculo en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital (LOD 500).",
+      "estadio": "Automatizaci\u00f3n Total del Transporte."
+    },
+    {
+      "id": "EOV-14",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Econom\u00eda del Dato y Monetizaci\u00f3n",
+      "ctx": "Este escenario transforma la masiva cantidad de datos recolectados por los sistemas ITS en activos econ\u00f3micos estrat\u00e9gicos. Se gestiona la orquestaci\u00f3n de la informaci\u00f3n de tr\u00e1fico, meteorolog\u00eda y log\u00edstica para generar servicios de valor agregado para empresas de transporte, aseguradoras y desarrolladores de aplicaciones, creando una fuente de ingresos adicionales para la sostenibilidad del proyecto.",
+      "mot": "La motivaci\u00f3n es la autosuficiencia financiera y el fomento del ecosistema digital. Se busca que la data no sea solo un residuo operativo, sino un producto refinado que ayude a otras industrias a ser m\u00e1s eficientes, financiando con esto la actualizaci\u00f3n tecnol\u00f3gica constante del corredor sin depender \u00fanicamente de los peajes.",
+      "que": "Una plataforma de 'Data as a Service' (DaaS) basada en un bus de servicios empresarial (ESB) que anonimiza, procesa y expone APIs seguras para el consumo de informaci\u00f3n estrat\u00e9gica por parte de terceros autorizados.",
+      "para": "Sirve para vender predicciones de tr\u00e1fico de alta precisi\u00f3n, proveer reportes de seguridad vial a aseguradoras, alimentar aplicaciones de mapas globales con datos oficiales de la v\u00eda y generar anal\u00edtica de comportamiento de carga para la industria log\u00edstica.",
+      "donde": "Gesti\u00f3n centralizada en el centro de datos del CCO, con impacto en todo el entorno digital del corredor nacional.",
+      "cuando": "Operaci\u00f3n de procesamiento de datos en tiempo real con entregas anal\u00edticas peri\u00f3dicas de forma ininterrumpida.",
+      "just": "Se justifica por el valor intr\u00ednseco de la 'Big Data'. En la era digital, la informaci\u00f3n precisa sobre el movimiento de bienes y personas es el nuevo petr\u00f3leo, y el corredor Ch\u00eda-Girardot es el principal generador de esta data en la regi\u00f3n.",
+      "desp": "Infraestructura de servidor de alto rendimiento para el Gemelo Digital CC-40 y gateways de integraci\u00f3n segura CC-21",
+      "beneficio": "Fomento de la innovaci\u00f3n nacional, creaci\u00f3n de nuevos modelos de negocio basados en datos y reducci\u00f3n de la carga fiscal sobre el peaje mediante la diversificaci\u00f3n de ingresos.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-04 Seguridad y Cumplimiento",
+      "area": "AS-02 Gesti\u00f3n de servicios de informaci\u00f3n.",
+      "sub": "SUB-06 / SUB-11 Archivo de datos hist\u00f3ricos",
+      "se": "SE-ITS-1 Servicio de suministro de informaci\u00f3n de tr\u00e1fico",
+      "fn": "F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) / F-122 Representaci\u00f3n Visual en Gemelo Digital",
+      "cc": "CC-40 D-TWN (Nodos de Gemelo Digital) / CC-21 CSG / IoT (Ciberseguridad e IoT)",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "e5": "Captura integral de datos de campo y almacenamiento de alta fidelidad en el CC-40 D-TWN (Nodos de Gemelo Digital) (Gemelo Digital).",
+      "e4": "Gesti\u00f3n de la soberan\u00eda y acceso a los datos en el SUB-06 AMS (Asset Management System) - Gesti\u00f3n de Infraestructura (CSMS), garantizando la anonimizaci\u00f3n y protecci\u00f3n de privacidad.",
+      "e3": "Uso de la funci\u00f3n F-121: Bus de Servicios Empresarial (ESB) para APIs / F-122: Exportaci\u00f3n de Datos para Gemelo Digital.",
+      "e2": "Monitoreo de la salud transaccional de las APIs desde el CCO y gesti\u00f3n de contratos de servicios de informaci\u00f3n.",
+      "e1": "Desarrollo de la Econom\u00eda Digital y Sostenibilidad Financiera del proyecto a trav\u00e9s de la monetizaci\u00f3n de activos intangibles.",
+      "reflejo": "Monitor de consumo de datos por terceros y dashboard de ingresos generados por servicios de informaci\u00f3n digital.",
+      "conciencia": "Uso del CC-40 D-TWN (Nodos de Gemelo Digital) como la base de datos maestra para la exportaci\u00f3n de servicios de representaci\u00f3n visual F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Gobernanza de Datos y Monetizaci\u00f3n Estrat\u00e9gica."
+    },
+    {
+      "id": "EOV-15",
+      "ico": "\ud83d\ude80",
+      "type": "p",
+      "name": "Autopista Net Zero y Sostenibilidad",
+      "ctx": "Este escenario integra todas las capacidades ITS para lograr una operaci\u00f3n carbono neutral del corredor Ch\u00eda-Girardot. Monitorea la calidad del aire, optimiza los flujos para reducir el ralent\u00ed de los veh\u00edculos y gestiona la generaci\u00f3n de energ\u00eda renovable propia para alimentar los sistemas electr\u00f3nicos, convirtiendo la v\u00eda en un referente de sostenibilidad ambiental mundial.",
+      "mot": "La motivaci\u00f3n es liderar la acci\u00f3n clim\u00e1tica en el sector transporte de Colombia. Se busca que la v\u00eda sea el primer corredor log\u00edstico 'Net Zero', mitigando sus propias emisiones y las de sus usuarios mediante tecnolog\u00eda, garantizando la armon\u00eda entre la infraestructura pesada y el ecosistema natural de la sabana.",
+      "que": "Un sistema de gesti\u00f3n ambiental integrada que combina sensores de calidad del aire, micro-redes de generaci\u00f3n solar y algoritmos de optimizaci\u00f3n de tr\u00e1fico para la reducci\u00f3n activa de emisiones de gases de efecto invernadero.",
+      "para": "Sirve para cuantificar el ahorro de emisiones del proyecto, alertar sobre picos de contaminaci\u00f3n local, optimizar el uso de energ\u00eda renovable en la v\u00eda y certificar cr\u00e9ditos de carbono basados en la eficiencia operativa lograda por el ITS.",
+      "donde": "A lo largo de todo el corredor vial, con estaciones de monitoreo de aire en zonas de alta densidad vehicular y parques solares integrados en las \u00e1reas de servicio.",
+      "cuando": "Vigilancia ambiental y energ\u00e9tica continua (24/7), con reportes de sostenibilidad en tiempo real para auditor\u00edas gubernamentales y ambientales.",
+      "just": "Se justifica por los compromisos del Acuerdo de Par\u00eds y la Pol\u00edtica Nacional de Cambio Clim\u00e1tico. Una autopista inteligente no puede ignorar su impacto ambiental; debe usar su inteligencia para minimizarlo y regenerar el entorno.",
+      "desp": "Uso de CC-31 para monitoreo de aire y CC-39 para la gesti\u00f3n de la micro-red de energ\u00eda renovable propia.",
+      "beneficio": "Mejora de la calidad del aire para las comunidades vecinas, reducci\u00f3n de la dependencia de la red el\u00e9ctrica nacional y liderazgo en la transici\u00f3n hacia infraestructuras verdes.",
+      "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "dominio": "DOM-06 Gesti\u00f3n de Infraestructura",
+      "area": "AS-11 Gesti\u00f3n de eficiencia y servicios de soporte.",
+      "sub": "SUB-10 ESB (Enterprise Service Bus) - Bus de Integraci\u00f3n (SB)",
+      "se": "SE-ITS-9 Gesti\u00f3n de emergencias y desastres",
+      "fn": "F-120 Gesti\u00f3n de Micro-redes de Energ\u00eda / F-84 Monitoreo de condiciones ambientales y calidad del aire.",
+      "cc": "CC-31 AQM (Calidad del Aire) / CC-39 MSG (Micro-Red Inteligente)",
+      "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
+      "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "e5": "Monitoreo de emisiones mediante el CC-31 AQM (Calidad del Aire) y gesti\u00f3n de generaci\u00f3n energ\u00e9tica con la micro-red de CC-39 MSG (Micro-Red Inteligente).",
+      "e4": "Gesti\u00f3n de la sostenibilidad en el SUB-10 ESB (Enterprise Service Bus) - Bus de Integraci\u00f3n (SB) (MMS), correlacionando los flujos de tr\u00e1fico con los niveles de contaminaci\u00f3n detectados.",
+      "e3": "F-120 Gesti\u00f3n de Micro-redes de Energ\u00eda / F-84 Monitoreo de condiciones ambientales y calidad del aire.",
+      "e2": "Ajuste t\u00e1ctico de flujos para reducir la congesti\u00f3n (emisiones) y visualizaci\u00f3n del balance de carbono en la consola ambiental del CCO.",
+      "e1": "Cumplimiento del compromiso Autopista Net Zero y liderazgo en sostenibilidad de infraestructuras 5G.",
+      "reflejo": "Dashboard de balance de carbono en tiempo real y mapa de calidad del aire a lo largo del corredor log\u00edstico.",
+      "conciencia": "Representaci\u00f3n de los indicadores ambientales y energ\u00e9ticos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
+      "estadio": "Operaci\u00f3n Carbono Neutral y Sostenibilidad."
+    }
+  ]
+}
