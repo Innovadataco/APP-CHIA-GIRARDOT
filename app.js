@@ -166,24 +166,25 @@ async function showEOV(id) {
     let rawEov = await itsDb.get('eov', id);
     if (!rawEov) return;
     
-    // Enrich with database relationships
     const e = await itsDb.queryRelationships(rawEov);
-    
     const typeLabel = e.type === 'p' ? 'Prioritario' : e.type === 'c' ? 'Complementario' : 'Futuro';
     const tclr = e.type === 'p' ? 'var(--accent)' : e.type === 'c' ? 'var(--green)' : 'var(--purple)';
     
-    const titleEl = document.getElementById('eov-d-title');
-    const subEl = document.getElementById('eov-d-sub');
-    const bodyEl = document.getElementById('eov-d-body');
-    
-    if (titleEl) titleEl.innerHTML = `${e.ico} ${e.id} · ${e.name}`;
-    if (subEl) subEl.innerHTML = `<span style="color:${tclr}; font-weight:700">${typeLabel}</span> · ${e.ctx || 'Escenario Operativo'}`;
+    document.getElementById('eov-d-title').innerHTML = `${e.ico} ${e.id} · ${e.name}`;
+    document.getElementById('eov-d-sub').innerHTML = `<span style="color:${tclr}; font-weight:700">${typeLabel}</span> · ${e.ctx || 'Escenario Operativo'}`;
 
     const mkRow = (k, v) => `<div class="detail-row"><div class="detail-label">${k}</div><div class="detail-value">${(v && v !== 'N/A') ? v.toString().replace(/\n/g, '<br>') : `<span style="color:var(--red); font-style:italic; opacity:0.7">[PENDIENTE VALIDACIÓN]</span>`}</div></div>`;
     const mkRibbon = (num, title) => `<div class="section-ribbon"><div class="ribbon-num">${num}</div><div class="ribbon-title">${title}</div><div class="ribbon-line"></div></div>`;
     const mkMini = (arr, cls) => Array.isArray(arr) && arr.length ? arr.map(x => `<div class="mini-card ${cls}">${x.replace(/\n/g, '<br>')}</div>`).join('') : `<div style="color:var(--red); font-size:10px; font-style:italic; padding:10px; border:1px dashed var(--red); border-radius:6px">[PENDIENTE VALIDACIÓN]</div>`;
     const mkCheck = (arr) => Array.isArray(arr) ? arr.map(x => `<div class="val-check"><i>✓</i><div class="val-txt">${x}</div></div>`).join('') : '';
     const esc = (s) => (s || '').toString().replace(/'/g, "\\'").replace(/\n/g, ' ');
+
+    window.switchEOVTab = (tabId, btn) => {
+        document.querySelectorAll('.eov-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.eov-tab-link').forEach(b => b.classList.remove('active'));
+        document.getElementById('pane-' + tabId).classList.add('active');
+        btn.classList.add('active');
+    };
 
     const renderHierarchy6 = (e) => {
         const levels = [
@@ -213,124 +214,109 @@ async function showEOV(id) {
     <div onclick="go('eov-list')" class="back-btn">← Volver al Listado</div>
     
     <div class="premium-container">
-        <!-- ── HEADER ── -->
-        <div class="premium-card" style="border-left: 6px solid var(--accent); padding-bottom: 24px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div class="premium-card" style="border-left: 6px solid ${tclr}; padding: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                    <span class="nl-badge" style="margin-bottom: 15px; display: block;">Escenario Operativo de Validación</span>
-                    <h2 style="font-family: 'Syne',sans-serif; font-size: 38px; line-height: 1; margin: 0;">${e.id} <span style="color:var(--text); font-weight:400; font-size:24px; margin-left:14px;">${e.name}</span></h2>
+                    <span class="nl-badge" style="margin-bottom: 10px; display: block;">Escenario Operativo de Validación</span>
+                    <h2 style="font-family: 'Syne',sans-serif; font-size: 32px; margin: 0;">${e.id} · ${e.name}</h2>
                 </div>
-                <div style="font-size: 60px; line-height: 1;">${e.ico}</div>
+                <div style="font-size: 50px;">${e.ico}</div>
             </div>
         </div>
 
-        <!-- ── 01. DEFINICIÓN ── -->
-        <div class="premium-card">
-            ${mkRibbon('01', 'Definición y Enfoque Operativo')}
-            ${mkRow('Contexto', e.ctx)}
-            ${mkRow('Motivación', e.mot)}
-            ${mkRow('¿Qué es?', e.que)}
-            ${mkRow('¿Para qué sirve?', e.para)}
-            ${mkRow('¿En dónde ocurre?', e.donde)}
-            ${mkRow('¿Cuándo ocurre?', e.cuando)}
-            ${mkRow('Justificación Técnica', e.just)}
-            ${mkRow('Estrategia de Despliegue', e.desp)}
-            ${mkRow('Beneficio Social/Económico', e.beneficio)}
-            ${mkRow('Actores Implicados', e.actores)}
-            ${mkRow('Grupo de Interés Principal', e.grupo)}
-        </div>
-
-        <!-- ── 02. ARQUITECTURA ── -->
-        <div class="premium-card">
-            ${mkRibbon('02', 'Arquitectura ITS y Referencia')}
-            <div style="margin-bottom: 24px;">
-                ${renderHierarchy6(e)}
-            </div>
-            ${mkRow('Estándares y Protocolos', e.std)}
-            ${mkRow('Marco Normativo', e.marco)}
-            ${mkRow('Ciberseguridad del Nodo', e.cyber)}
-        </div>
-
-        <!-- ── 03. FLUJO E1-E5 ── -->
-        <div class="premium-card">
-            ${mkRibbon('03', 'Flujo Sistemático (Modelo ARC-IT)')}
-            <div class="flow-wrap" style="max-width: 800px; margin: 0 auto;">
-                <div class="flow-level fl1"><div class="flow-lnum">1</div><div class="flow-lbody"><div class="fl-label">Estratégico</div><div class="fl-val" style="${!e.e1 ? 'color:var(--red); font-style:italic' : ''}">${e.e1 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
-                <div class="flow-connector-v"></div>
-                <div class="flow-level fl2"><div class="flow-lnum">2</div><div class="flow-lbody"><div class="fl-label">Operacional</div><div class="fl-val" style="${!e.e2 ? 'color:var(--red); font-style:italic' : ''}">${e.e2 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
-                <div class="flow-connector-v"></div>
-                <div class="flow-level fl3"><div class="flow-lnum">3</div><div class="flow-lbody"><div class="fl-label">Lógico</div><div class="fl-val" style="${!e.e3 ? 'color:var(--red); font-style:italic' : ''}">${e.e3 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
-                <div class="flow-connector-v"></div>
-                <div class="flow-level fl4"><div class="flow-lnum">4</div><div class="flow-lbody"><div class="fl-label">Sistémico</div><div class="fl-val" style="${!e.e4 ? 'color:var(--red); font-style:italic' : ''}">${e.e4 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
-                <div class="flow-connector-v"></div>
-                <div class="flow-level fl5"><div class="flow-lnum">5</div><div class="flow-lbody"><div class="fl-label">Físico</div><div class="fl-val" style="${!e.e5 ? 'color:var(--red); font-style:italic' : ''}">${e.e5 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
-            </div>
-        </div>
-
-        <!-- ── 04. TRANSACCIONAL ── -->
-        <div class="premium-card">
-            ${mkRibbon('04', 'Interacción y Estado Transaccional')}
-            ${mkRow('Reflejo (Centro de Control)', e.reflejo)}
-            ${mkRow('Conciencia (BIM/Digital Twin)', e.conciencia)}
-            ${mkRow('Estadio de Operación', e.estadio)}
-        </div>
-
-        <!-- ── 05. ALERTAS ── -->
-        <div class="premium-card">
-            ${mkRibbon('05', 'Alertas de Validación del Sistema')}
-            <div class="mini-grid">
-                ${mkMini(e.alertas, 'alert-card')}
-            </div>
-        </div>
-
-        <!-- ── 06. USUARIO ── -->
-        <div class="premium-card">
-            ${mkRibbon('06', 'Información al Usuario y Difusión')}
-            ${mkRow('Protocolo de Publicación', e.publicacion)}
-            ${mkRow('Canales Digitales Habilitados', e.canales)}
-        </div>
-
-        <!-- ── 07. CONTINGENCIA ── -->
-        <div class="premium-card">
-            ${mkRibbon('07', 'Continuidad y Protocolos de Contingencia')}
-            <div class="mini-grid">
-                ${mkMini(e.contingencia, 'cont-card')}
-            </div>
-        </div>
-
-        <!-- ── 08. CRITERIOS ── -->
-        <div class="premium-card cyber-panel">
-            ${mkRibbon('08', 'Criterios de Aceptación de Referencia')}
-            <div style="margin-top:20px; display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div class="v-checks">${mkCheck(e.criterios)}</div>
-                <div style="background:rgba(255,255,255,0.03); padding:20px; border-radius:12px; border:1px solid var(--border)">
-                    <div class="perf-status" style="margin-bottom:10px">Certificación Técnica</div>
-                    <p style="font-size:12px; color:var(--muted); line-height:1.6">Este escenario cumple con los requisitos de interoperabilidad exigidos por la Res. 20223040028675 y el estándar ARC-IT.</p>
+        <div class="eov-board">
+            <!-- SIDEBAR TABS -->
+            <div class="eov-side">
+                <div class="eov-tab-link active" onclick="switchEOVTab('gen', this)">
+                    <span class="ti">📋</span><span class="tl">Resumen General</span>
+                </div>
+                <div class="eov-tab-link" onclick="switchEOVTab('arch', this)">
+                    <span class="ti">🏗️</span><span class="tl">Arquitectura</span>
+                </div>
+                <div class="eov-tab-link" onclick="switchEOVTab('flow', this)">
+                    <span class="ti">⚡</span><span class="tl">Flujo ARC-IT</span>
+                </div>
+                <div class="eov-tab-link" onclick="switchEOVTab('ctrl', this)">
+                    <span class="ti">🛡️</span><span class="tl">Control & Seguridad</span>
                 </div>
             </div>
-        </div>
 
-        <!-- ── 09. EVOLUCIÓN ── -->
-        <div class="premium-card">
-            ${mkRibbon('09', 'Future-Proof (Evolución Tecnológica)')}
-            <div class="mini-grid">
-                ${mkMini(e.evolucion, 'evol-card')}
+            <!-- MAIN PANE -->
+            <div class="eov-main glass">
+                
+                <!-- PANE: GENERAL -->
+                <div id="pane-gen" class="eov-pane active">
+                    ${mkRibbon('01', 'Definición Operativa')}
+                    <div class="detail-grid" style="margin-bottom:30px">
+                        <div>${mkRow('Contexto', e.ctx)}${mkRow('Motivación', e.mot)}${mkRow('Justificación', e.just)}</div>
+                        <div>${mkRow('Qué es', e.que)}${mkRow('Para qué sirve', e.para)}${mkRow('Despliegue', e.desp)}</div>
+                    </div>
+                    ${mkRibbon('04', 'Estado Transaccional')}
+                    <div class="detail-grid">
+                        <div>${mkRow('Reflejo (Centro)', e.reflejo)}${mkRow('Conciencia (Digital Twin)', e.conciencia)}</div>
+                        <div>${mkRow('Estadio Operación', e.estadio)}${mkRow('Canales Digitales', e.canales)}</div>
+                    </div>
+                </div>
+
+                <!-- PANE: ARCHITECTURE -->
+                <div id="pane-arch" class="eov-pane">
+                    ${mkRibbon('02', 'Jerarquía Sistemática')}
+                    <div style="margin-bottom:24px">${renderHierarchy6(e)}</div>
+                    <div class="detail-grid">
+                        <div>${mkRow('Estándares', e.std)}</div>
+                        <div>${mkRow('Marco Normativo', e.marco)}</div>
+                    </div>
+                </div>
+
+                <!-- PANE: ARC-IT FLOW -->
+                <div id="pane-flow" class="eov-pane">
+                    ${mkRibbon('03', 'Flujo de Operación (ARC-IT)')}
+                    <div class="h-flow-wrap">
+                        <div class="hf-node"><div class="hf-num fl1">1</div><div class="hf-info"><div class="hf-lbl">Estratégico</div><div class="hf-val">${e.e1 || '...'}</div></div></div>
+                        <div class="hf-node"><div class="hf-num fl2">2</div><div class="hf-info"><div class="hf-lbl">Operacional</div><div class="hf-val">${e.e2 || '...'}</div></div></div>
+                        <div class="hf-node"><div class="hf-num fl3">3</div><div class="hf-info"><div class="hf-lbl">Lógico</div><div class="hf-val">${e.e3 || '...'}</div></div></div>
+                        <div class="hf-node"><div class="hf-num fl4">4</div><div class="hf-info"><div class="hf-lbl">Sistémico</div><div class="hf-val">${e.e4 || '...'}</div></div></div>
+                        <div class="hf-node"><div class="hf-num fl5">5</div><div class="hf-info"><div class="hf-lbl">Físico</div><div class="hf-val">${e.e5 || '...'}</div></div></div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.03); padding:20px; border-radius:12px; margin-top:20px;">
+                        <p style="font-size:12px; color:var(--muted); line-height:1.6">Este flujo representa el camino desde la necesidad estratégica hasta el despliegue físico de los componentes, garantizando la trazabilidad total del servicio ITS.</p>
+                    </div>
+                </div>
+
+                <!-- PANE: CONTROL -->
+                <div id="pane-ctrl" class="eov-pane">
+                    <div class="detail-grid">
+                        <div>
+                            ${mkRibbon('05', 'Alertas de Validación')}
+                            <div class="mini-grid" style="margin-bottom:20px">${mkMini(e.alertas, 'alert-card')}</div>
+                            ${mkRibbon('07', 'Contingencia')}
+                            <div class="mini-grid">${mkMini(e.contingencia, 'cont-card')}</div>
+                        </div>
+                        <div>
+                            ${mkRibbon('08', 'Criterios de Aceptación')}
+                            <div class="v-checks" style="margin-bottom:20px">${mkCheck(e.criterios)}</div>
+                            ${mkRibbon('09', 'Evolución Tecnológica')}
+                            <div class="mini-grid">${mkMini(e.evolucion, 'evol-card')}</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
+    `;
 
-        <!-- ── 10. KPIs ── -->
-        <div class="premium-card">
-            ${mkRibbon('10', 'Indicadores Clave de Desempeño (KPIs)')}
-            <div class="mini-grid">
-                ${mkMini(e.kpis, 'kpi-card')}
-            </div>
-        </div>
-    </div>`;
+    document.getElementById('eov-d-body').innerHTML = bodyHtml;
+    
+    // Auto-select first tab on mobile/desktop
+    const firstTab = document.querySelector('.eov-tab-link');
+    if (firstTab) firstTab.classList.add('active');
 
-    if (bodyEl) bodyEl.innerHTML = bodyHtml;
+    // UI transitions
     document.querySelectorAll('.nav-eov-btn').forEach(b => b.classList.remove('active'));
     const nb = document.getElementById('nav-' + id);
     if (nb) nb.classList.add('active');
+    
     go('eov-detail');
 }
 

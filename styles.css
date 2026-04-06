@@ -325,11 +325,48 @@ td.cod{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent2
 .ribbon-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);flex:1}
 .ribbon-line{flex:1;height:1px;background:linear-gradient(90deg, var(--border), transparent)}
 
-.detail-row{display:grid;grid-template-columns:240px 1fr;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.03);align-items:start;gap:20px}
+.detail-row{display:grid;grid-template-columns:200px 1fr;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.03);align-items:start;gap:15px}
 .detail-row:last-child{border-bottom:none}
-.detail-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;padding-top:4px}
-.detail-value{font-size:14.5px;line-height:1.7;color:var(--text);font-weight:400}
+.detail-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;padding-top:2px}
+.detail-value{font-size:13px;line-height:1.6;color:var(--text);font-weight:400}
 .detail-value b{color:var(--accent2)}
+
+/* ── EOV CONTROL CENTER (TABS & TIMELINE) ── */
+.eov-board { display: grid; grid-template-columns: 240px 1fr; gap: 30px; margin-top: 20px; min-height: 500px; }
+.eov-side { display: flex; flex-direction: column; gap: 8px; }
+.eov-tab-link { background: var(--panel2); border: 1px solid var(--border); padding: 16px 20px; border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px; color: var(--muted); }
+.eov-tab-link:hover { background: rgba(255,255,255,0.05); color: var(--text); border-color: var(--border2); }
+.eov-tab-link.active { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 10px 20px -10px rgba(240, 106, 37, 0.4); }
+.eov-tab-link .ti { font-size: 18px; }
+.eov-tab-link .tl { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; }
+
+.eov-main { background: rgba(15,23,42,0.3); border: 1px solid var(--border); border-radius: 20px; padding: 32px; min-height: 100%; position: relative; }
+.eov-pane { display: none; animation: paneIn 0.4s ease-out; }
+.eov-pane.active { display: block; }
+@keyframes paneIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Horizontal Flux (ARC-IT) */
+.h-flow-wrap { display: flex; justify-content: space-between; align-items: stretch; margin: 40px 0; position: relative; gap: 10px; }
+.h-flow-wrap::before { content: ''; position: absolute; top: 18px; left: 0; width: 100%; height: 1px; background: var(--border2); z-index: 1; }
+.hf-node { flex: 1; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; cursor: default; }
+.hf-num { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s; }
+.hf-node:hover .hf-num { transform: scale(1.1); }
+.hf-info { display: flex; flex-direction: column; gap: 4px; }
+.hf-lbl { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.hf-val { font-size: 11px; color: var(--text); line-height: 1.4; font-weight: 500; font-style: normal !important; }
+
+/* Grid Layout for details */
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+@media (max-width: 1100px) {
+  .eov-board { grid-template-columns: 1fr; }
+  .eov-side { flex-direction: row; overflow-x: auto; padding-bottom: 10px; }
+  .eov-tab-link { flex-shrink: 0; padding: 12px 16px; }
+  .h-flow-wrap { flex-direction: column; gap: 25px; margin: 20px 0; }
+  .h-flow-wrap::before { display: none; }
+  .hf-node { flex-direction: row; text-align: left; background: var(--panel2); padding: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  .detail-grid { grid-template-columns: 1fr; }
+}
 
 /* ── MODERN DATA CARDS (MATRICES) ── */
 .matrix-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; width: 100%; margin-top: 10px; }
