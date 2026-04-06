@@ -105,17 +105,23 @@ async function initialRender() {
             let tag = type || 'DATO';
             
             if (type === 'SUB') {
-                title = row[2];
+                const sigla = row[1] || '';
+                title = `${row[2]} <span style="color:var(--accent2); font-size:12px; margin-left:6px">[${sigla}]</span>`;
                 desc = row[4];
-                tag = row[1]; // Sigla
+                tag = `Sigla: ${sigla}`;
             } else if (type === 'CC') {
+                const sigla = row[1] || '';
+                title = `${row[2]} <span style="color:var(--accent2); font-size:12px; margin-left:6px">[${sigla}]</span>`;
                 desc = row[3];
-                tag = row[1]; // Sigla
+                tag = `Sigla: ${sigla}`;
+            } else if (type === 'SE') {
+                const cat = row[2] || '';
+                tag = `Categoría: ${cat}`;
             }
 
             card.onclick = () => {
                 if (type === 'FN' || type === 'CC') {
-                    showReverseLookup(code, title, type);
+                    showReverseLookup(code, title.split('<')[0].trim(), type);
                 }
             };
 
@@ -126,9 +132,8 @@ async function initialRender() {
                 </div>
                 <div class="card-title">${title}</div>
                 <div class="card-desc">${desc}</div>
-                <div class="card-footer">
+                <div class="card-footer" style="justify-content: flex-start;">
                     <span class="card-tag">${tag}</span>
-                    <span class="card-btn">Ver Detalle <span style="font-size:12px">→</span></span>
                 </div>
             `;
             container.appendChild(card);
