@@ -28,6 +28,9 @@ async function initialRender() {
     const ccs = await itsDb.getAll('cc');
     const nos = await itsDb.getAll('no');
 
+    const naturalSort = (arr) => arr.sort((a, b) => String(a.cod || a.id || '').localeCompare(String(b.cod || b.id || ''), undefined, {numeric: true, sensitivity: 'base'}));
+    [eovs, doms, ass, ses, subs, fns, ccs, nos].forEach(naturalSort);
+
     // Update navigation badge for NO
     const badgeNo = document.getElementById('nav-no-badge');
     if (badgeNo) badgeNo.textContent = nos.length;
@@ -69,8 +72,8 @@ async function initialRender() {
     buildTable('as-body', ass.map(r => [r.cod, r.name, r.desc]), ['cod', 'name', 'desc'], 'as-cnt');
     buildTable('se-body', ses.map(r => [r.cod, r.name, r.cat]), ['cod', 'name', 'desc'], 'se-cnt');
     buildTable('sub-body', subs.map(r => [r.cod, r.sigla, r.name, r.fn, r.desc]), ['cod', 'name', 'name', 'desc', 'cap'], 'sub-cnt');
-    buildTable('fn-body', fns.map(r => [r.cod, r.name, r.desc]), ['cod', 'name', 'desc'], 'fn-cnt', 'FN');
-    buildTable('cc-body', ccs.map(r => [r.cod, r.name, r.name, r.cap]), ['cod', 'name', 'name', 'cap'], 'cc-cnt', 'CC');
+    buildTable('fn-body', fns.map(r => [r.id || r.cod, r.name, r.desc]), ['cod', 'name', 'desc'], 'fn-cnt', 'FN');
+    buildTable('cc-body', ccs.map(r => [r.id || r.cod, r.name, r.name, r.cap]), ['cod', 'name', 'name', 'cap'], 'cc-cnt', 'CC');
 
     animCnt();
 }
