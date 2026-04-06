@@ -82,20 +82,29 @@
     <div class="h-ey">Entregable #1 · Estructuración Técnica ITS · Concesión 5G</div>
     <h1 class="home-h1">Sistemas <em>Inteligentes</em><br>de Transporte<br><em>Chía — Girardot</em> <span class="v-badge-lg">V01</span></h1>
     <p class="home-sub">306 km de infraestructura crítica · 40,000 veh/día · Corredor Brownfield de Quinta Generación<br>Supervisión ICCU · Estándares ANI · ISO 14813 · ARC-IT · PMITS Res. 28675/2022</p>
-    <div class="kpi-strip" style="margin-bottom:28px">
-      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="306">0</span><span>km</span></div><div class="kl">Extensión total corredor</div></div>
-      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="15">0</span></div><div class="kl">Escenarios EOV</div></div>
-      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="42">0</span><span>+</span></div><div class="kl">Componentes de campo</div></div>
-      <div class="kpi-box"><div class="kv"><span class="cnt-up" data-t="122">0</span><span>+</span></div><div class="kl">Funciones técnicas ITS</div></div>
+    <div class="kpi-strip">
+      <div class="kpi-box">
+        <div class="kv"><span class="cnt-up" data-t="306">0</span><span>km</span></div>
+        <div class="kl">Extensión total corredor</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kv"><span class="cnt-up" data-t="15">0</span></div>
+        <div class="kl">Escenarios EOV</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kv"><span class="cnt-up" data-t="42">0</span><span>+</span></div>
+        <div class="kl">Componentes de campo</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kv"><span class="cnt-up" data-t="122">0</span><span>+</span></div>
+        <div class="kl">Funciones técnicas ITS</div>
+      </div>
     </div>
     <div class="quick-grid">
       <div class="q-card glass glass-hover" onclick="go('mat-no')"><span class="q-ico">📋</span><h3>Necesidades Operacionales</h3><p>Principales retos y problemáticas operativas que dan fundamento funcional a la arquitectura ITS.</p><span class="q-arr">→</span></div>
       <div class="q-card glass glass-hover" onclick="go('eov-list')"><span class="q-ico">🎯</span><h3>15 Escenarios EOV</h3><p>Detalle completo de cada Escenarios Operativos de Validación con flujo, KPIs, alertas y evolución tecnológica.</p><span class="q-arr">→</span></div>
       <div class="q-card glass glass-hover" onclick="go('mat-cc')"><span class="q-ico">📡</span><h3>Componentes de Campo</h3><p>42+ dispositivos ITS: CCTV, WIM, ALPR, RSU, VMS, ESS, ETC, SPD y más con capacidades operativas.</p><span class="q-arr">→</span></div>
       <div class="q-card glass glass-hover" onclick="go('mat-fn')"><span class="q-ico">🔧</span><h3>Funciones Técnicas</h3><p>Catálogo completo de 122+ funciones técnicas del PMITS con descripciones oficiales Res. 28675/2022.</p><span class="q-arr">→</span></div>
-      <div class="q-card glass glass-hover" onclick="go('mat-dom')"><span class="q-ico">🏗️</span><h3>Dominios ITS</h3><p>6 dominios funcionales y 12 áreas de servicio que estructuran la arquitectura del corredor.</p><span class="q-arr">→</span></div>
-      <div class="q-card glass glass-hover" onclick="go('mat-se')"><span class="q-ico">⚙️</span><h3>Servicios Estratégicos</h3><p>11 servicios estratégicos: 6 prioritarios PMITS + 5 complementarios ISO 14813.</p><span class="q-arr">→</span></div>
-      <div class="q-card glass glass-hover" onclick="go('mat-sub')"><span class="q-ico">🖥️</span><h3>Subsistemas ITS</h3><p>TMS, TIS, EMS, VMS, EFC, AMS, CVO, TES, ESS-M, ESB, BIM-DT, NMS.</p><span class="q-arr">→</span></div>
     </div>
 
     <!-- ── GOVERNANCE & SOVEREIGNTY ── -->
@@ -103,7 +112,7 @@
       <div class="gov-ico">🏛️</div>
       <div class="gov-body">
         <div class="gov-title">Gobernanza y Soberanía Digital</div>
-        <p class="gov-desc">Este sistema garantiza la **Soberanía Estatal** sobre la información técnica y operacional del corredor vial. Implementa una arquitectura abierta e interoperable bajo estándares ISO y PMITS, eliminando la dependencia de cajas negras tecnológicas y asegurando la transparencia en la supervisión de la Concesión 5G.</p>
+        <p class="gov-desc">Arquitectura abierta e interoperable bajo estándares ISO y PMITS, eliminando la dependencia de cajas negras tecnológicas.</p>
       </div>
     </div>
   </div>
@@ -140,64 +149,51 @@
 <div id="sec-mat-no" class="section">
   <div class="ph"><div class="ph-ey">Matriz ITS · Concepto de Operación</div><h2>Necesidades Operacionales</h2></div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar necesidad..." oninput="filterTable('no-tbl',this.value)"><span class="s-count" id="no-cnt"></span></div>
-    <div class="tbl-wrap"><table id="no-tbl">
-      <thead><tr><th>Código</th><th>Necesidad Operacional</th><th>Descripción</th></tr></thead>
-      <tbody id="no-body"></tbody>
-    </table></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar necesidad..." oninput="filterTable('no-grid',this.value)"><span class="s-count" id="no-cnt"></span></div>
+    <div class="matrix-grid" id="no-grid"></div>
   </div>
 </div>
 
 <!-- ── MATRIZ: DOMINIOS ── -->
 <div id="sec-mat-dom" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura</div><h2>Dominios ITS</h2></div>
+  <div class="ph"><div class="ph-ey">Matriz ITS · Estructura Administrativa</div><h2>Dominios ITS</h2></div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar dominio..." oninput="filterTable('dom-tbl',this.value)"><span class="s-count" id="dom-cnt"></span></div>
-    <div class="tbl-wrap"><table id="dom-tbl">
-      <thead><tr><th>Código</th><th>Dominio ITS</th><th>Descripción del Ámbito</th></tr></thead>
-      <tbody id="dom-body"></tbody>
-    </table></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar dominio..." oninput="filterTable('dom-grid',this.value)"><span class="s-count" id="dom-cnt"></span></div>
+    <div class="matrix-grid" id="dom-grid"></div>
   </div>
 </div>
 
-<!-- ── MATRIZ: ÁREAS SERVICIO ── -->
+<!-- ── MATRIZ: AREAS ── -->
 <div id="sec-mat-as" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura</div><h2>Áreas de Servicio (AS)</h2></div>
+  <div class="ph"><div class="ph-ey">Matriz ITS · Estructura de Servicio</div><h2>Áreas de Servicio ITS</h2></div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar área..." oninput="filterTable('as-tbl',this.value)"><span class="s-count" id="as-cnt"></span></div>
-    <div class="tbl-wrap"><table id="as-tbl">
-      <thead><tr><th>Código</th><th>Área de Servicio</th><th>Descripción</th></tr></thead>
-      <tbody id="as-body"></tbody>
-    </table></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar área..." oninput="filterTable('as-grid',this.value)"><span class="s-count" id="as-cnt"></span></div>
+    <div class="matrix-grid" id="as-grid"></div>
   </div>
 </div>
 
-<!-- ── MATRIZ: SERVICIOS ESTRATÉGICOS ── -->
+<!-- ── MATRIZ: SERVICIOS ── -->
 <div id="sec-mat-se" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo</div><h2>Servicios Estratégicos ITS</h2></div>
+  <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo de Servicios</div><h2>Servicios Estratégicos ITS</h2></div>
   <div class="cnt">
-    <div class="tabs" id="se-tabs">
-      <button class="tab-btn active" onclick="filterSE('all',this)">Todos</button>
-      <button class="tab-btn" onclick="filterSE('PMITS',this)">Prioritarios PMITS</button>
-      <button class="tab-btn" onclick="filterSE('ISO',this)">Complementarios ISO</button>
+    <div class="search-row">
+      <div id="se-tabs" class="tab-row">
+        <button class="tab-btn active" onclick="filterSE('all',this)">Todos</button>
+        <button class="tab-btn" onclick="filterSE('PMITS',this)">Prioritarios (PMITS)</button>
+        <button class="tab-btn" onclick="filterSE('ISO',this)">Comp. (ISO 14813)</button>
+      </div>
+      <span class="s-count" id="se-cnt"></span>
     </div>
-    <div class="search-row"><input class="s-inp" placeholder="Buscar servicio..." oninput="filterTable('se-tbl',this.value)"><span class="s-count" id="se-cnt"></span></div>
-    <div class="tbl-wrap"><table id="se-tbl">
-      <thead><tr><th>Código</th><th>Servicio Estratégico ITS</th><th>Categoría</th></tr></thead>
-      <tbody id="se-body"></tbody>
-    </table></div>
+    <div class="matrix-grid" id="se-grid"></div>
   </div>
 </div>
 
 <!-- ── MATRIZ: SUBSISTEMAS ── -->
 <div id="sec-mat-sub" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Arquitectura Lógica</div><h2>Subsistemas ITS</h2></div>
+  <div class="ph"><div class="ph-ey">Matriz ITS · Capa Lógica · Aplicaciones</div><h2>Subsistemas ITS</h2></div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar subsistema..." oninput="filterTable('sub-tbl',this.value)"><span class="s-count" id="sub-cnt"></span></div>
-    <div class="tbl-wrap"><table id="sub-tbl">
-      <thead><tr><th>Código</th><th>Sigla</th><th>Subsistema ITS</th><th>Función</th><th>Descripción Técnica</th></tr></thead>
-      <tbody id="sub-body"></tbody>
-    </table></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar subsistema..." oninput="filterTable('sub-grid',this.value)"><span class="s-count" id="sub-cnt"></span></div>
+    <div class="matrix-grid" id="sub-grid"></div>
   </div>
 </div>
 
@@ -205,11 +201,8 @@
 <div id="sec-mat-fn" class="section">
   <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo Funcional · PMITS Res. 28675/2022</div><h2>Funciones Técnicas ITS</h2></div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar función..." oninput="filterTable('fn-tbl',this.value)"><span class="s-count" id="fn-cnt"></span></div>
-    <div class="tbl-wrap"><table id="fn-tbl">
-      <thead><tr><th>Código</th><th>Nombre de Función</th><th>Descripción</th></tr></thead>
-      <tbody id="fn-body"></tbody>
-    </table></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar función..." oninput="filterTable('fn-grid',this.value)"><span class="s-count" id="fn-cnt"></span></div>
+    <div class="matrix-grid" id="fn-grid"></div>
   </div>
 </div>
 
@@ -217,11 +210,8 @@
 <div id="sec-mat-cc" class="section">
   <div class="ph"><div class="ph-ey">Matriz ITS · Capa Física · Componentes de Campo</div><h2>Componentes de Campo ITS</h2></div>
   <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar componente..." oninput="filterTable('cc-tbl',this.value)"><span class="s-count" id="cc-cnt"></span></div>
-    <div class="tbl-wrap"><table id="cc-tbl">
-      <thead><tr><th>Código</th><th>Sigla</th><th>Componente de Campo</th><th>Capacidad Operativa Generada</th></tr></thead>
-      <tbody id="cc-body"></tbody>
-    </table></div>
+    <div class="search-row"><input class="s-inp" placeholder="Buscar componente..." oninput="filterTable('cc-grid',this.value)"><span class="s-count" id="cc-cnt"></span></div>
+    <div class="matrix-grid" id="cc-grid"></div>
   </div>
 </div>
 

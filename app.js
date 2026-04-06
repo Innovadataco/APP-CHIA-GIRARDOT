@@ -66,14 +66,88 @@ async function initialRender() {
         });
     }
 
-    // Build Matriz tables
-    buildTable('no-body', nos.map(r => [r.cod, r.name, r.desc]), ['cod', 'name', 'desc'], 'no-cnt');
-    buildTable('dom-body', doms.map(r => [r.cod, r.name, r.desc]), ['cod', 'name', 'desc'], 'dom-cnt');
-    buildTable('as-body', ass.map(r => [r.cod, r.name, r.desc]), ['cod', 'name', 'desc'], 'as-cnt');
-    buildTable('se-body', ses.map(r => [r.cod, r.name, r.cat]), ['cod', 'name', 'desc'], 'se-cnt');
-    buildTable('sub-body', subs.map(r => [r.cod, r.sigla, r.name, r.fn, r.desc]), ['cod', 'name', 'name', 'desc', 'cap'], 'sub-cnt');
-    buildTable('fn-body', fns.map(r => [r.id || r.cod, r.name, r.desc]), ['cod', 'name', 'desc'], 'fn-cnt', 'FN');
-    buildTable('cc-body', ccs.map(r => [r.id || r.cod, r.name, r.name, r.cap]), ['cod', 'name', 'name', 'cap'], 'cc-cnt', 'CC');
+    // Icon Mapping for Grid Cards
+    const getIcon = (txt, code) => {
+        const t = (txt + ' ' + code).toLowerCase();
+        if (t.includes('cctv') || t.includes('video')) return '📹';
+        if (t.includes('wim') || t.includes('pesaje')) return '⚖️';
+        if (t.includes('sos') || t.includes('postes')) return '🆘';
+        if (t.includes('vms') || t.includes('paneles')) return '📟';
+        if (t.includes('alpr') || t.includes('placas')) return '🆔';
+        if (t.includes('radar') || t.includes('velocidad')) return '📡';
+        if (t.includes('ess') || t.includes('clima')) return '🌡️';
+        if (t.includes('rsu') || t.includes('conectividad')) return '📶';
+        if (t.includes('daim') || t.includes('incidentes')) return '🚨';
+        if (t.includes('fibra') || t.includes('comunic')) return '🧵';
+        if (t.includes('centro') || t.includes('control')) return '🏢';
+        if (t.includes('pago') || t.includes('peaje')) return '💳';
+        if (t.includes('iluminac')) return '💡';
+        if (t.includes('asistenc')) return '🚑';
+        if (t.includes('segurid')) return '🛡️';
+        if (t.includes('usuario')) return '👤';
+        return '📑';
+    };
+
+    // Modern Grid Builder (Replaces buildTable)
+    window.buildGrid = function(containerId, data, type) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        
+        data.forEach(row => {
+            const card = document.createElement('div');
+            card.className = 'data-card';
+            
+            // Logic based on Matrix Type
+            let code = row[0] || 'N/A';
+            let title = row[1] || 'N/A';
+            let desc = row[2] || 'N/A';
+            let tag = type || 'DATO';
+            
+            if (type === 'SUB') {
+                title = row[2];
+                desc = row[4];
+                tag = row[1]; // Sigla
+            } else if (type === 'CC') {
+                desc = row[3];
+                tag = row[1]; // Sigla
+            }
+
+            card.onclick = () => {
+                if (type === 'FN' || type === 'CC') {
+                    showReverseLookup(code, title, type);
+                }
+            };
+
+            card.innerHTML = `
+                <div class="card-header">
+                    <span class="card-code">${code}</span>
+                    <span class="card-icon">${getIcon(title + ' ' + desc, code)}</span>
+                </div>
+                <div class="card-title">${title}</div>
+                <div class="card-desc">${desc}</div>
+                <div class="card-footer">
+                    <span class="card-tag">${tag}</span>
+                    <span class="card-btn">Ver Detalle <span style="font-size:12px">→</span></span>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        // Update counts
+        const cntId = containerId.replace('-body', '-cnt').replace('-grid', '-cnt');
+        const el = document.getElementById(cntId);
+        if (el) el.textContent = `${data.length} registros`;
+    };
+
+    // Initial Database Load
+    buildGrid('no-grid', nos.map(r => [r.cod, r.name, r.desc]), 'NO');
+    buildGrid('dom-grid', doms.map(r => [r.cod, r.name, r.desc]), 'DOM');
+    buildGrid('as-grid', ass.map(r => [r.cod, r.name, r.desc]), 'AS');
+    buildGrid('se-grid', ses.map(r => [r.cod, r.name, r.cat]), 'SE');
+    buildGrid('sub-grid', subs.map(r => [r.cod, r.sigla, r.name, r.fn, r.desc]), 'SUB');
+    buildGrid('fn-grid', fns.map(r => [r.id || r.cod, r.name, r.desc]), 'FN');
+    buildGrid('cc-grid', ccs.map(r => [r.id || r.cod, r.name, r.name, r.cap]), 'CC');
 
     animCnt();
 }
@@ -255,61 +329,31 @@ async function showEOV(id) {
     go('eov-detail');
 }
 
-// Build Matriz tables
-window.buildTable = function(bodyId, data, cols, cntId, type) {
-    const labels = {
-        'dom-body': ['Código', 'Dominio ITS', 'Descripción'],
-        'as-body': ['Código', 'Área de Servicio', 'Descripción'],
-        'se-body': ['Código', 'Servicio Estratégico', 'Categoría'],
-        'sub-body': ['Código', 'Sigla', 'Subsistema', 'Función', 'Descripción'],
-        'fn-body': ['Código', 'Función', 'Descripción'],
-        'cc-body': ['Código', 'Sigla', 'Componente', 'Capacidad']
-    }[bodyId] || [];
+// Note: buildTable was replaced by buildGrid for the Modern Card interface.
 
-    const tbody = document.getElementById(bodyId);
-    if (!tbody) return;
-    tbody.innerHTML = '';
-    data.forEach(row => {
-        const tr = document.createElement('tr');
-        if (type === 'FN' || type === 'CC') {
-            tr.onclick = (e) => {
-                if (e.target.classList.contains('lnk')) return;
-                showReverseLookup(row[0], row[1], type);
-            };
-        }
-        tr.innerHTML = cols.map((c, i) => `<td class="${c}" data-label="${labels[i] || ''}">${row[i] || ''}</td>`).join('');
-        tbody.appendChild(tr);
-    });
-    if (cntId) {
-        const el = document.getElementById(cntId);
-        if (el) el.textContent = `${data.length} registros`;
-    }
-};
-
-// Filter tables
-window.filterTable = function(tblId, q) {
+// Filter Grid Cards
+window.filterTable = function(gridId, q) {
     const lq = q.toLowerCase();
     let vis = 0;
-    document.querySelectorAll('#' + tblId + ' tbody tr').forEach(tr => {
-        tr.classList.remove('row-highlight');
-        const m = lq === '' || tr.textContent.toLowerCase().includes(lq);
-        tr.style.display = m ? '' : 'none';
+    document.querySelectorAll('#' + gridId + ' .data-card').forEach(card => {
+        const m = lq === '' || card.textContent.toLowerCase().includes(lq);
+        card.style.display = m ? '' : 'none';
         if (m) vis++;
     });
-    const id = tblId.split('-')[0] + '-cnt';
-    const el = document.getElementById(id);
+    const cntId = gridId.replace('-grid', '-cnt');
+    const el = document.getElementById(cntId);
     if (el) el.textContent = vis + ' registros';
 };
 
-// Filter SE by type
+// Filter SE by type (Modern)
 window.filterSE = function(type, btn) {
     document.querySelectorAll('#se-tabs .tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     let vis = 0;
-    document.querySelectorAll('#se-tbl tbody tr').forEach(tr => {
-        const cat = tr.cells[2]?.textContent || '';
+    document.querySelectorAll('#se-grid .data-card').forEach(card => {
+        const cat = card.querySelector('.card-tag')?.textContent || '';
         const m = type === 'all' || (type === 'PMITS' && cat.includes('PMITS')) || (type === 'ISO' && cat.includes('ISO'));
-        tr.style.display = m ? '' : 'none';
+        card.style.display = m ? '' : 'none';
         if (m) vis++;
     });
     const cntEl = document.getElementById('se-cnt');

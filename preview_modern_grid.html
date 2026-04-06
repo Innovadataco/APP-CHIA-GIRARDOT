@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview: Modern Matrix Grid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #070b14;
+            --panel: rgba(15, 23, 42, 0.4);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #f06a25;
+            --accent2: #3b82f6;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --glass: blur(12px);
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 { font-family: 'Syne', sans-serif; font-size: 32px; margin-bottom: 30px; }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .data-card {
+            background: var(--panel);
+            backdrop-filter: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.4);
+        }
+
+        .data-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(240, 106, 37, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(240, 106, 37, 0.2);
+        }
+
+        .data-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .data-card:hover::before { opacity: 1; }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            padding: 4px 10px;
+            background: rgba(240, 106, 37, 0.1);
+            border: 1px solid rgba(240, 106, 37, 0.2);
+            border-radius: 6px;
+            letter-spacing: 1px;
+        }
+
+        .card-icon {
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .card-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .card-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .card-btn {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent2);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="text-align:center; margin-bottom: 60px;">
+        <span style="color:var(--accent); font-family:'JetBrains Mono'; font-size:10px; letter-spacing:4px; text-transform:uppercase;">Maqueta en Navegador</span>
+        <h2>Cuadrícula de Matrices Premium</h2>
+    </div>
+
+    <div class="matrix-grid">
+        <!-- Ejemplo 1 -->
+        <div class="data-card">
+            <div class="card-header">
+                <span class="card-code">F-112</span>
+                <span class="card-icon">🌀</span>
+            </div>
+            <div class="card-title">Gestión de Tráfico Adaptativo</div>
+            <div class="card-desc">Implementación de algoritmos de inteligencia artificial para la optimización de flujos vehiculares en tiempo real.</div>
+            <div class="card-footer">
+                <span class="card-btn">Ver Escenarios →</span>
+            </div>
+        </div>
+
+        <!-- Ejemplo 2 -->
+        <div class="data-card">
+            <div class="card-header">
+                <span class="card-code">C-042</span>
+                <span class="card-icon">📡</span>
+            </div>
+            <div class="card-title">Sensores de Conteo WIM</div>
+            <div class="card-desc">Sistemas de pesaje en movimiento de alta precisión para el control de carga y protección de la carpeta asfáltica.</div>
+            <div class="card-footer">
+                <span class="card-btn">Ver Escenarios →</span>
+            </div>
+        </div>
+
+        <!-- Ejemplo 3 -->
+        <div class="data-card">
+            <div class="card-header">
+                <span class="card-code">S-008</span>
+                <span class="card-icon">🌡️</span>
+            </div>
+            <div class="card-title">Estaciones ESS Digitales</div>
+            <div class="card-desc">Monitoreo ambiental multivariable para la detección temprana de condiciones climáticas adversas en el corredor.</div>
+            <div class="card-footer">
+                <span class="card-btn">Ver Escenarios →</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
