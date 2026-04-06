@@ -261,7 +261,8 @@ td.cod{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent2
 .home-h1{font-family:'Syne',sans-serif;font-size:44px;font-weight:800;line-height:.95;margin-bottom:8px}
 .home-h1 em{font-style:normal;color:var(--accent)}
 .home-sub{font-size:12px;color:var(--muted2);max-width:500px;line-height:1.7;margin-bottom:36px;font-weight:300}
-
+.v-badge-lg{display:inline-block;vertical-align:middle;margin-left:12px;padding:6px 12px;background:rgba(255,77,0,0.15);border:1px solid var(--accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:16px;text-transform:uppercase;border-radius:8px;font-weight:800;letter-spacing:2px;transform:translateY(-8px)}
+.v-badge-sm{display:inline-block;vertical-align:middle;margin-left:8px;padding:2px 6px;background:rgba(255,77,0,0.15);border:1px solid var(--accent);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;border-radius:4px;font-weight:800;letter-spacing:1px;transform:translateY(-2px)}
 /* ── GOVERNANCE SECTION ── */
 .gov-banner { background: linear-gradient(90deg, rgba(37,99,235,0.1), transparent); border-left: 4px solid var(--blue); padding: 20px; border-radius: 0 12px 12px 0; margin-top: 40px; display: flex; align-items: center; gap: 24px; position: relative; }
 .gov-banner::after { content: 'Soberanía'; position: absolute; right: 20px; bottom: 5px; font-family: 'Syne', sans-serif; font-size: 44px; font-weight: 800; color: rgba(255,255,255,0.02); pointer-events: none; }
