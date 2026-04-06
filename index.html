@@ -1,246 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-<title>Digital Twin ITS · Corredor Chía–Girardot · Entregable #1 V0</title>
-<meta name="description" content="Plataforma interactiva de estructuración técnica ITS para el corredor vial Chía-Girardot. Visualización de Escenarios Operativos (EOVs), Funciones Técnicas y Arquitectura Sistemática E1-E5.">
-<meta name="keywords" content="ITS, Chía-Girardot, Movilidad Inteligente, PMITS, Concesión 5G, Gemelo Digital, EOV">
-<meta property="og:title" content="ITS Chía-Girardot · Sistema Interactivo">
-<meta property="og:description" content="Digital Twin y Arquitectura de Operación para el Corredor 5G Chía-Girardot.">
-<meta name="author" content="Innovadataco / IFC / ICCU">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaDataCO · Home · ITS Chía-Girardot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d315b;
+            --secondary: #008ed1;
+            --accent: #f06a25;
+            --yellow: #fdb913;
+            --red: #ef4444;
+            --bg: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Hero / Landing Section */
+        .landing-wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 142, 209, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(240, 106, 37, 0.05) 0%, transparent 40%);
+        }
+
+        .logo-container {
+            margin-bottom: 50px;
+            animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .main-logo {
+            max-width: 380px;
+            width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            max-width: 800px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .project-desc {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 650px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* Ficha Técnica */
+        .info-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            animation: slideUp 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .info-item .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .info-item .val {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        /* Action */
+        .btn-enter {
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px -5px rgba(13, 49, 91, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideUp 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .btn-enter:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -10px rgba(13, 49, 91, 0.4);
+            background-color: var(--secondary);
+        }
+
+        .btn-enter svg { width: 20px; transition: 0.3s; }
+        .btn-enter:hover svg { transform: translateX(5px); }
+
+        /* Footer */
+        footer {
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 32px; }
+            .info-card { grid-template-columns: 1fr; gap: 20px; text-align: left; }
+            .main-logo { max-width: 280px; }
+        }
+    </style>
 </head>
-<body id="bdy">
+<body>
 
-<div class="nav-overlay" onclick="toggleNav()"></div>
+    <div class="landing-wrap">
+        <div class="logo-container">
+            <img src="logo_innovadataco_hq.png" alt="InnovaDataCo Logo" class="main-logo">
+        </div>
 
-<!-- ═══════════ MOBILE HEADER ═══════════ -->
-<header class="m-header">
-  <div class="m-title">Chía <span>–</span> Girardot</div>
-  <button class="m-toggle" onclick="toggleNav()">☰</button>
-</header>
+        <h1>Estructuración Técnica ITS<br>Corredor Vial 5G · Chía — Girardot</h1>
+        <p class="project-desc">Sistema interactivo para la gestión de arquitectura ITS, Gemelo Digital y Escenarios Operativos de Validación.</p>
 
-<!-- ═══════════ SIDEBAR ═══════════ -->
-<nav class="nav">
-  <div class="nav-logo">
-    <span class="nl-badge">ITS · Corredor Vial · 5G</span>
-    <div class="nl-title">Chía <span>—</span> Girardot <span class="v-badge-sm">V01</span></div>
-    <div class="nl-meta">Entregable #1 · Mar 2026<br>ICCU / IFC · FC0CMG</div>
-  </div>
+        <div class="info-card">
+            <div class="info-item">
+                <div class="label">Autor Corporativo</div>
+                <div class="val">InnovaDataCo · Soluciones</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Fecha de Despliegue</div>
+                <div class="val">Abril 2026</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Versión Actual</div>
+                <div class="val">V1.0.5 <span style="background:var(--accent); color:white; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-left: 5px;">ESTABLE</span></div>
+            </div>
+        </div>
 
-  <div class="nav-grp">
-    <div class="nav-grp-title">Inicio</div>
-    <div class="nav-item active" onclick="go('home')"><span class="ni">🏠</span>Panel Principal</div>
-  </div>
-
-  <div class="nav-grp">
-    <div class="nav-grp-title">Escenarios EOV</div>
-    <div class="nav-item" onclick="go('eov-list')"><span class="ni">🎯</span>Vista General <span class="n-badge">15</span></div>
-    <div class="nav-eov-grid" id="nav-eov-grid"></div>
-  </div>
-
-  <div class="nav-grp">
-    <div class="nav-grp-title">Matriz ITS</div>
-    <div class="nav-item" onclick="go('mat-no')"><span class="ni">📋</span>Necesidades Operacionales <span class="n-badge" id="nav-no-badge">-</span></div>
-    <div class="nav-item" onclick="go('mat-dom')"><span class="ni">🏗️</span>Dominios ITS <span class="n-badge">6</span></div>
-    <div class="nav-item" onclick="go('mat-as')"><span class="ni">🔲</span>Áreas de Servicio <span class="n-badge">12</span></div>
-    <div class="nav-item" onclick="go('mat-se')"><span class="ni">⚙️</span>Servicios Estratégicos <span class="n-badge">11</span></div>
-    <div class="nav-item" onclick="go('mat-sub')"><span class="ni">🖥️</span>Subsistemas <span class="n-badge">12</span></div>
-    <div class="nav-item" onclick="go('mat-fn')"><span class="ni">🔧</span>Funciones Técnicas <span class="n-badge">122+</span></div>
-    <div class="nav-item" onclick="go('mat-cc')"><span class="ni">📡</span>Componentes de Campo <span class="n-badge">42+</span></div>
-  </div>
-
-  <div class="nav-bottom">
-    Cliente: IFC · Supervisor: ICCU<br>
-    Ref: FC0CMG · Res. 28675/2022<br>
-    Concesión 5G · Brownfield 306 km
-  </div>
-</nav>
-
-<!-- ═══════════ MODAL REVERSE LOOKUP ═══════════ -->
-<div id="modal-rev" class="modal-ov">
-  <div class="modal-cnt">
-    <div class="modal-h">
-      <h3 id="rev-title">Escenarios Relacionados</h3>
-      <span class="modal-close" onclick="closeModal()">✕</span>
-    </div>
-    <div class="modal-b" id="rev-body">
-      <!-- links injected here -->
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════ MAIN ═══════════ -->
-<main class="main">
-
-<!-- ── HOME ── -->
-<div id="sec-home" class="section active">
-  <div class="hero-home stagger-in">
-    <div class="h-ey">Entregable #1 · Estructuración Técnica ITS · Corredor 5G</div>
-    <h1 class="home-h1">Sistemas <em>Inteligentes</em><br>de Transporte<br><em>Chía — Girardot</em> <span class="v-badge-lg">V01</span></h1>
-    <p class="home-sub">Arquitectura Técnica para 306 km de infraestructura crítica. Supervisión ICCU / IFC bajo estándares PMITS Res. 28675/2022 e ISO 14813.</p>
-    
-    <div class="kpi-strip">
-      <div class="kpi-box">
-        <div class="kv"><span class="cnt-up" data-t="306">0</span><span>km</span></div>
-        <div class="kl">Extensión total corredor</div>
-      </div>
-      <div class="kpi-box">
-        <div class="kv"><span class="cnt-up" data-t="15">0</span></div>
-        <div class="kl">Escenarios EOV</div>
-      </div>
-      <div class="kpi-box">
-        <div class="kv"><span class="cnt-up" data-t="42">0</span><span>+</span></div>
-        <div class="kl">Componentes de campo</div>
-      </div>
-      <div class="kpi-box">
-        <div class="kv"><span class="cnt-up" data-t="122">0</span><span>+</span></div>
-        <div class="kl">Funciones técnicas ITS</div>
-      </div>
+        <a href="dashboard.html" class="btn-enter">
+            Ingresar al Ecosistema Digital
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
     </div>
 
-    <div class="quick-grid">
-      <div class="q-card glass glass-hover" onclick="go('mat-no')">
-        <span class="q-ico">📋</span>
-        <h3>Necesidades Operacionales</h3>
-        <p>Retos y problemáticas operativas que dan fundamento funcional a la arquitectura ITS.</p>
-        <span class="q-arr">→</span>
-      </div>
-      <div class="q-card glass glass-hover" onclick="go('eov-list')">
-        <span class="q-ico">🎯</span>
-        <h3>15 Escenarios EOV</h3>
-        <p>Detalle completo de cada Escenario Operativo de Validación: KPIs, alertas y evolución.</p>
-        <span class="q-arr">→</span>
-      </div>
-      <div class="q-card glass glass-hover" onclick="go('mat-cc')">
-        <span class="q-ico">📡</span>
-        <h3>Componentes de Campo</h3>
-        <p>42+ dispositivos ITS: CCTV, WIM, ALPR, RSU con capacidades operativas generadas.</p>
-        <span class="q-arr">→</span>
-      </div>
-      <div class="q-card glass glass-hover" onclick="go('mat-fn')">
-        <span class="q-ico">🔧</span>
-        <h3>Funciones Técnicas</h3>
-        <p>Catálogo de 122+ funciones técnicas PMITS con descripciones oficiales Res. 28675/2022.</p>
-        <span class="q-arr">→</span>
-      </div>
-    </div>
+    <footer>
+        <div class="footer-text">
+            © 2026 InnovaDataCo · Soluciones Tecnológicas de Vanguardia<br>
+            Este sistema es propiedad técnica de InnovaDataCo para el proyecto ITS Chía-Girardot.
+        </div>
+    </footer>
 
-    <!-- ── GOVERNANCE & SOVEREIGNTY ── -->
-    <div class="gov-banner glass">
-      <div class="gov-ico">🏛️</div>
-      <div class="gov-body">
-        <div class="gov-title">Gobernanza y Soberanía Digital Estatal</div>
-        <p class="gov-desc">Garantía de control soberano sobre la información técnica y operacional. Arquitectura abierta e interoperable bajo estándares internacionales.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── EOV LIST ── -->
-<div id="sec-eov-list" class="section">
-  <div class="ph"><div class="ph-ey">ConOps · Metodología en V · Res. 28675/2022</div>
-    <h2>15 Escenarios Operativos de Validación (EOV)</h2>
-    <div class="ph-sub">Haz clic en cualquier EOV para ver el detalle completo extraído del archivo EVO_TOTAL.xlsx</div>
-  </div>
-  <div class="cnt">
-    <div class="kpi-strip">
-      <div class="kpi-box"><div class="kv">9</div><div class="kl">Prioritarios PMITS</div></div>
-      <div class="kpi-box"><div class="kv" style="color:var(--green)">3</div><div class="kl">Complementarios</div></div>
-      <div class="kpi-box"><div class="kv" style="color:var(--purple)">3</div><div class="kl">Futuros</div></div>
-      <div class="kpi-box"><div class="kv">5</div><div class="kl">KPIs por EOV</div></div>
-    </div>
-    <div class="eov-cards" id="eov-cards-home"></div>
-  </div>
-</div>
-
-<!-- ── EOV DETAIL ── -->
-<div id="sec-eov-detail" class="section">
-  <div class="ph" id="eov-detail-ph">
-    <div class="ph-ey">Escenario Operativo de Validación</div>
-    <h2 id="eov-d-title">–</h2>
-    <div class="ph-sub" id="eov-d-sub">–</div>
-  </div>
-  <div class="cnt" id="eov-d-body"></div>
-</div>
-
-<!-- ── MATRIZ: NECESIDADES OPERACIONALES ── -->
-<div id="sec-mat-no" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Concepto de Operación</div><h2>Necesidades Operacionales</h2></div>
-  <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar necesidad..." oninput="filterTable('no-grid',this.value)"><span class="s-count" id="no-cnt"></span></div>
-    <div class="matrix-grid" id="no-grid"></div>
-  </div>
-</div>
-
-<!-- ── MATRIZ: DOMINIOS ── -->
-<div id="sec-mat-dom" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Estructura Administrativa</div><h2>Dominios ITS</h2></div>
-  <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar dominio..." oninput="filterTable('dom-grid',this.value)"><span class="s-count" id="dom-cnt"></span></div>
-    <div class="matrix-grid" id="dom-grid"></div>
-  </div>
-</div>
-
-<!-- ── MATRIZ: AREAS ── -->
-<div id="sec-mat-as" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Estructura de Servicio</div><h2>Áreas de Servicio ITS</h2></div>
-  <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar área..." oninput="filterTable('as-grid',this.value)"><span class="s-count" id="as-cnt"></span></div>
-    <div class="matrix-grid" id="as-grid"></div>
-  </div>
-</div>
-
-<!-- ── MATRIZ: SERVICIOS ── -->
-<div id="sec-mat-se" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo de Servicios</div><h2>Servicios Estratégicos ITS</h2></div>
-  <div class="cnt">
-    <div class="search-row">
-      <div id="se-tabs" class="tab-row">
-        <button class="tab-btn active" onclick="filterSE('all',this)">Todos</button>
-        <button class="tab-btn" onclick="filterSE('PMITS',this)">Prioritarios (PMITS)</button>
-        <button class="tab-btn" onclick="filterSE('ISO',this)">Comp. (ISO 14813)</button>
-      </div>
-      <span class="s-count" id="se-cnt"></span>
-    </div>
-    <div class="matrix-grid" id="se-grid"></div>
-  </div>
-</div>
-
-<!-- ── MATRIZ: SUBSISTEMAS ── -->
-<div id="sec-mat-sub" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Capa Lógica · Aplicaciones</div><h2>Subsistemas ITS</h2></div>
-  <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar subsistema..." oninput="filterTable('sub-grid',this.value)"><span class="s-count" id="sub-cnt"></span></div>
-    <div class="matrix-grid" id="sub-grid"></div>
-  </div>
-</div>
-
-<!-- ── MATRIZ: FUNCIONES ── -->
-<div id="sec-mat-fn" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Catálogo Funcional · PMITS Res. 28675/2022</div><h2>Funciones Técnicas ITS</h2></div>
-  <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar función..." oninput="filterTable('fn-grid',this.value)"><span class="s-count" id="fn-cnt"></span></div>
-    <div class="matrix-grid" id="fn-grid"></div>
-  </div>
-</div>
-
-<!-- ── MATRIZ: COMPONENTES ── -->
-<div id="sec-mat-cc" class="section">
-  <div class="ph"><div class="ph-ey">Matriz ITS · Capa Física · Componentes de Campo</div><h2>Componentes de Campo ITS</h2></div>
-  <div class="cnt">
-    <div class="search-row"><input class="s-inp" placeholder="Buscar componente..." oninput="filterTable('cc-grid',this.value)"><span class="s-count" id="cc-cnt"></span></div>
-    <div class="matrix-grid" id="cc-grid"></div>
-  </div>
-</div>
-
-</main>
-
-<script src="official_data.js"></script>
-<script src="db.js"></script>
-<script src="app.js?v=5"></script>
 </body>
 </html>
