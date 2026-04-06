@@ -7,7 +7,7 @@
 class ITSDatabase {
     constructor() {
         this.dbName = 'ITS_CHIA_GIRARDOT_DB';
-        this.version = 4;
+        this.version = 5;
         this.db = null;
     }
 
