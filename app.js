@@ -107,7 +107,7 @@ async function initialRender() {
             if (type === 'SUB') {
                 const sigla = row[1] || '';
                 title = `${row[2]} <span style="color:var(--accent2); font-size:12px; margin-left:6px">[${sigla}]</span>`;
-                desc = row[4];
+                desc = row[3];
                 tag = `Sigla: ${sigla}`;
             } else if (type === 'CC') {
                 const sigla = row[1] || '';
@@ -150,9 +150,9 @@ async function initialRender() {
     buildGrid('dom-grid', doms.map(r => [r.cod, r.name, r.desc]), 'DOM');
     buildGrid('as-grid', ass.map(r => [r.cod, r.name, r.desc]), 'AS');
     buildGrid('se-grid', ses.map(r => [r.cod, r.name, r.cat]), 'SE');
-    buildGrid('sub-grid', subs.map(r => [r.cod, r.sigla, r.name, r.fn, r.desc]), 'SUB');
+    buildGrid('sub-grid', subs.map(r => [r.cod, r.sigla, r.name, r.desc]), 'SUB');
     buildGrid('fn-grid', fns.map(r => [r.id || r.cod, r.name, r.desc]), 'FN');
-    buildGrid('cc-grid', ccs.map(r => [r.id || r.cod, r.name, r.name, r.cap]), 'CC');
+    buildGrid('cc-grid', ccs.map(r => [r.id || r.cod, r.sigla, r.name, r.cap]), 'CC');
 
     animCnt();
 }
