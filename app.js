@@ -104,6 +104,7 @@ async function showEOV(id) {
     const mkRibbon = (num, title) => `<div class="section-ribbon"><div class="ribbon-num">${num}</div><div class="ribbon-title">${title}</div><div class="ribbon-line"></div></div>`;
     const mkMini = (arr, cls) => Array.isArray(arr) && arr.length ? arr.map(x => `<div class="mini-card ${cls}">${x.replace(/\n/g, '<br>')}</div>`).join('') : `<div style="color:var(--red); font-size:10px; font-style:italic; padding:10px; border:1px dashed var(--red); border-radius:6px">[PENDIENTE VALIDACIÓN]</div>`;
     const mkCheck = (arr) => Array.isArray(arr) ? arr.map(x => `<div class="val-check"><i>✓</i><div class="val-txt">${x}</div></div>`).join('') : '';
+    const esc = (s) => (s || '').toString().replace(/'/g, "\\'").replace(/\n/g, ' ');
 
     const renderHierarchy6 = (e) => {
         const levels = [
