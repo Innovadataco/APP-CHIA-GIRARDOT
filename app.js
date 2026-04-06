@@ -100,14 +100,10 @@ async function showEOV(id) {
     if (titleEl) titleEl.innerHTML = `${e.ico} ${e.id} · ${e.name}`;
     if (subEl) subEl.innerHTML = `<span style="color:${tclr}; font-weight:700">${typeLabel}</span> · ${e.ctx || 'Escenario Operativo'}`;
 
-    const mkRow = (k, v) => {
-        const isMissing = !v || v === 'N/A' || v === 'N/A ' || (typeof v === 'string' && v.trim() === '');
-        const val = isMissing ? `<span style="color:var(--red); font-style:italic; opacity:0.7">[PENDIENTE VALIDACIÓN]</span>` : v;
-        return `<div class="eov-kv"><span class="ek">${k}</span><span class="ev">${val}</span></div>`;
-    };
-    const esc = (s) => (s || '').replace(/'/g, "\\'").replace(/\n/g, ' ');
-    const mkMini = (items, cls) => (items || []).map((it, i) => `<div class="mini-card ${cls}"><div class="mc-lbl">${String(i + 1).padStart(2, '0')}</div><div class="mc-val">${it}</div></div>`).join('');
-    const mkCheck = (items) => (items || []).map(it => `<div class="val-check"><i>✓</i><div class="val-txt">${it}</div></div>`).join('');
+    const mkRow = (k, v) => `<div class="detail-row"><div class="detail-label">${k}</div><div class="detail-value">${(v && v !== 'N/A') ? v.toString().replace(/\n/g, '<br>') : `<span style="color:var(--red); font-style:italic; opacity:0.7">[PENDIENTE VALIDACIÓN]</span>`}</div></div>`;
+    const mkRibbon = (num, title) => `<div class="section-ribbon"><div class="ribbon-num">${num}</div><div class="ribbon-title">${title}</div><div class="ribbon-line"></div></div>`;
+    const mkMini = (arr, cls) => Array.isArray(arr) && arr.length ? arr.map(x => `<div class="mini-card ${cls}">${x.replace(/\n/g, '<br>')}</div>`).join('') : `<div style="color:var(--red); font-size:10px; font-style:italic; padding:10px; border:1px dashed var(--red); border-radius:6px">[PENDIENTE VALIDACIÓN]</div>`;
+    const mkCheck = (arr) => Array.isArray(arr) ? arr.map(x => `<div class="val-check"><i>✓</i><div class="val-txt">${x}</div></div>`).join('') : '';
 
     const renderHierarchy6 = (e) => {
         const levels = [
@@ -135,85 +131,118 @@ async function showEOV(id) {
 
     const bodyHtml = `
     <div onclick="go('eov-list')" class="back-btn">← Volver al Listado</div>
-    <div class="eov-detail-grid">
-        <div class="stack-l">
-            <div class="eov-info-card glass">
-                <h5>🏗️ Arquitectura ITS (Jerarquía de 6 Niveles)</h5>
-                <p style="font-size:11px; color:var(--muted); margin-bottom:15px">Validación sistemática de la capacidad tecnológica desde la necesidad hasta el hardware.</p>
-                ${renderHierarchy6(e)}
-            </div>
-            
-            <div class="eov-info-card glass" style="margin-top:20px">
-                <h5>🛡️ Soberanía, Interoperabilidad y Resiliencia</h5>
-                <div class="sov-tag">Control Estatal Crítico</div>
-                ${mkRow('Soberanía del Dato', e.cyber || '<span style="color:var(--red); font-style:italic">[PENDIENTE VALIDACIÓN]</span>')}
-                ${mkRow('Interoperabilidad', e.std || '<span style="color:var(--red); font-style:italic">[PENDIENTE VALIDACIÓN]</span>')}
-                <div style="margin-top:15px">
-                    <h6 style="color:var(--accent2); font-size:10px; text-transform:uppercase; margin-bottom:8px">Protocolos de Contingencia</h6>
-                    <div class="mini-grid">${mkMini(e.contingencia, 'cont-card')}</div>
+    
+    <div class="premium-container">
+        <!-- ── HEADER ── -->
+        <div class="premium-card" style="border-left: 6px solid var(--accent); padding-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <span class="nl-badge" style="margin-bottom: 15px; display: block;">Escenario Operativo de Validación</span>
+                    <h2 style="font-family: 'Syne',sans-serif; font-size: 38px; line-height: 1; margin: 0;">${e.id} <span style="color:var(--text); font-weight:400; font-size:24px; margin-left:14px;">${e.name}</span></h2>
                 </div>
-            </div>
-
-            <div class="eov-info-card glass" style="margin-top:20px">
-                <h5>📋 Definición y Justificación</h5>
-                ${mkRow('Contexto', e.ctx)}${mkRow('Motivación', e.mot)}${mkRow('¿Qué es?', e.que)}
-                ${mkRow('¿Para qué sirve?', e.para)}${mkRow('¿Dónde ocurre?', e.donde)}${mkRow('¿Cuándo ocurre?', e.cuando)}
-                ${mkRow('Justificación Técnica', e.just)}${mkRow('Estrategia de Despliegue', e.desp)}
-                ${mkRow('Beneficio Social/Económico', e.beneficio)}${mkRow('Actores Implicados', e.actores)}
-                ${mkRow('Grupo de Interés Principal', e.grupo)}${mkRow('Marco Normativo', e.marco)}
+                <div style="font-size: 60px; line-height: 1;">${e.ico}</div>
             </div>
         </div>
 
-        <div class="stack-r">
-            <div class="eov-info-card glass cyber-panel">
-                <div class="perf-header">
-                    <div class="perf-title">Estándar de Desempeño</div>
-                    <div class="perf-status">Validado</div>
-                </div>
-                <div style="margin-bottom:20px">
-                    ${e.criterios ? mkCheck(e.criterios) : `<div style="color:var(--red); font-size:11px; font-style:italic; padding:10px; border:1px dashed var(--red); border-radius:6px; opacity:0.8">[PENDIENTE VALIDACIÓN DE CRITERIOS TÉCNICOS EN V0]</div>`}
-                </div>
-                <h6>📈 Indicadores de Control (KPI)</h6>
-                <div class="mini-grid" style="margin-top:10px">
-                    ${e.kpis ? mkMini(e.kpis, 'kpi-card') : `<div style="color:var(--red); font-size:10px; font-style:italic">[PENDIENTE VALIDACIÓN KPI]</div>`}
+        <!-- ── 01. DEFINICIÓN ── -->
+        <div class="premium-card">
+            ${mkRibbon('01', 'Definición y Enfoque Operativo')}
+            ${mkRow('Contexto', e.ctx)}
+            ${mkRow('Motivación', e.mot)}
+            ${mkRow('¿Qué es?', e.que)}
+            ${mkRow('¿Para qué sirve?', e.para)}
+            ${mkRow('¿En dónde ocurre?', e.donde)}
+            ${mkRow('¿Cuándo ocurre?', e.cuando)}
+            ${mkRow('Justificación Técnica', e.just)}
+            ${mkRow('Estrategia de Despliegue', e.desp)}
+            ${mkRow('Beneficio Social/Económico', e.beneficio)}
+            ${mkRow('Actores Implicados', e.actores)}
+            ${mkRow('Grupo de Interés Principal', e.grupo)}
+        </div>
+
+        <!-- ── 02. ARQUITECTURA ── -->
+        <div class="premium-card">
+            ${mkRibbon('02', 'Arquitectura ITS y Referencia')}
+            <div style="margin-bottom: 24px;">
+                ${renderHierarchy6(e)}
+            </div>
+            ${mkRow('Estándares y Protocolos', e.std)}
+            ${mkRow('Marco Normativo', e.marco)}
+            ${mkRow('Ciberseguridad del Nodo', e.cyber)}
+        </div>
+
+        <!-- ── 03. FLUJO E1-E5 ── -->
+        <div class="premium-card">
+            ${mkRibbon('03', 'Flujo Sistemático (Modelo ARC-IT)')}
+            <div class="flow-wrap" style="max-width: 800px; margin: 0 auto;">
+                <div class="flow-level fl1"><div class="flow-lnum">1</div><div class="flow-lbody"><div class="fl-label">Estratégico</div><div class="fl-val" style="${!e.e1 ? 'color:var(--red); font-style:italic' : ''}">${e.e1 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
+                <div class="flow-connector-v"></div>
+                <div class="flow-level fl2"><div class="flow-lnum">2</div><div class="flow-lbody"><div class="fl-label">Operacional</div><div class="fl-val" style="${!e.e2 ? 'color:var(--red); font-style:italic' : ''}">${e.e2 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
+                <div class="flow-connector-v"></div>
+                <div class="flow-level fl3"><div class="flow-lnum">3</div><div class="flow-lbody"><div class="fl-label">Lógico</div><div class="fl-val" style="${!e.e3 ? 'color:var(--red); font-style:italic' : ''}">${e.e3 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
+                <div class="flow-connector-v"></div>
+                <div class="flow-level fl4"><div class="flow-lnum">4</div><div class="flow-lbody"><div class="fl-label">Sistémico</div><div class="fl-val" style="${!e.e4 ? 'color:var(--red); font-style:italic' : ''}">${e.e4 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
+                <div class="flow-connector-v"></div>
+                <div class="flow-level fl5"><div class="flow-lnum">5</div><div class="flow-lbody"><div class="fl-label">Físico</div><div class="fl-val" style="${!e.e5 ? 'color:var(--red); font-style:italic' : ''}">${e.e5 || '[PENDIENTE VALIDACIÓN]'}</div></div></div>
+            </div>
+        </div>
+
+        <!-- ── 04. TRANSACCIONAL ── -->
+        <div class="premium-card">
+            ${mkRibbon('04', 'Interacción y Estado Transaccional')}
+            ${mkRow('Reflejo (Centro de Control)', e.reflejo)}
+            ${mkRow('Conciencia (BIM/Digital Twin)', e.conciencia)}
+            ${mkRow('Estadio de Operación', e.estadio)}
+        </div>
+
+        <!-- ── 05. ALERTAS ── -->
+        <div class="premium-card">
+            ${mkRibbon('05', 'Alertas de Validación del Sistema')}
+            <div class="mini-grid">
+                ${mkMini(e.alertas, 'alert-card')}
+            </div>
+        </div>
+
+        <!-- ── 06. USUARIO ── -->
+        <div class="premium-card">
+            ${mkRibbon('06', 'Información al Usuario y Difusión')}
+            ${mkRow('Protocolo de Publicación', e.publicacion)}
+            ${mkRow('Canales Digitales Habilitados', e.canales)}
+        </div>
+
+        <!-- ── 07. CONTINGENCIA ── -->
+        <div class="premium-card">
+            ${mkRibbon('07', 'Continuidad y Protocolos de Contingencia')}
+            <div class="mini-grid">
+                ${mkMini(e.contingencia, 'cont-card')}
+            </div>
+        </div>
+
+        <!-- ── 08. CRITERIOS ── -->
+        <div class="premium-card cyber-panel">
+            ${mkRibbon('08', 'Criterios de Aceptación de Referencia')}
+            <div style="margin-top:20px; display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="v-checks">${mkCheck(e.criterios)}</div>
+                <div style="background:rgba(255,255,255,0.03); padding:20px; border-radius:12px; border:1px solid var(--border)">
+                    <div class="perf-status" style="margin-bottom:10px">Certificación Técnica</div>
+                    <p style="font-size:12px; color:var(--muted); line-height:1.6">Este escenario cumple con los requisitos de interoperabilidad exigidos por la Res. 20223040028675 y el estándar ARC-IT.</p>
                 </div>
             </div>
+        </div>
 
-            <div class="eov-info-card glass" style="margin-top:20px">
-                <h5>🔄 Flujo Sistemático (Niveles E1-E5)</h5>
-                <div class="flow-wrap">
-                    <div class="flow-level fl1"><div class="flow-lnum">1</div><div class="flow-lbody"><div class="fl-label">Estratégico</div><div class="fl-val" style="${!e.e1 ? 'color:var(--red); font-style:italic' : ''}">${e.e1 || '[PENDIENTE VALIDACIÓN E1]'}</div></div></div>
-                    <div class="flow-arr">↓</div>
-                    <div class="flow-level fl2"><div class="flow-lnum">2</div><div class="flow-lbody"><div class="fl-label">Operacional</div><div class="fl-val" style="${!e.e2 ? 'color:var(--red); font-style:italic' : ''}">${e.e2 || '[PENDIENTE VALIDACIÓN E2]'}</div></div></div>
-                    <div class="flow-arr">↓</div>
-                    <div class="flow-level fl3"><div class="flow-lnum">3</div><div class="flow-lbody"><div class="fl-label">Lógico</div><div class="fl-val" style="${!e.e3 ? 'color:var(--red); font-style:italic' : ''}">${e.e3 || '[PENDIENTE VALIDACIÓN E3]'}</div></div></div>
-                    <div class="flow-arr">↓</div>
-                    <div class="flow-level fl4"><div class="flow-lnum">4</div><div class="flow-lbody"><div class="fl-label">Sistémico</div><div class="fl-val" style="${!e.e4 ? 'color:var(--red); font-style:italic' : ''}">${e.e4 || '[PENDIENTE VALIDACIÓN E4]'}</div></div></div>
-                    <div class="flow-arr">↓</div>
-                    <div class="flow-level fl5"><div class="flow-lnum">5</div><div class="flow-lbody"><div class="fl-label">Físico</div><div class="fl-val" style="${!e.e5 ? 'color:var(--red); font-style:italic' : ''}">${e.e5 || '[PENDIENTE VALIDACIÓN E5]'}</div></div></div>
-                </div>
+        <!-- ── 09. EVOLUCIÓN ── -->
+        <div class="premium-card">
+            ${mkRibbon('09', 'Future-Proof (Evolución Tecnológica)')}
+            <div class="mini-grid">
+                ${mkMini(e.evolucion, 'evol-card')}
             </div>
+        </div>
 
-            <div class="eov-info-card glass" style="margin-top:20px">
-                <h5>🚀 Evolución Tecnológica y Alertas</h5>
-                <div class="pill-wrap">
-                    <div class="pill">Reflejo: ${e.reflejo}</div>
-                    <div class="pill">Conciencia: ${e.conciencia}</div>
-                    <div class="pill">Estadio: ${e.estadio}</div>
-                </div>
-                <div style="margin-top:15px">
-                    <h6>🚨 Alertas del Sistema</h6>
-                    <div class="mini-grid">${e.alertas ? mkMini(e.alertas, 'alert-card') : `<div style="color:var(--red); font-size:10px; font-style:italic">[PENDIENTE VALIDACIÓN]</div>`}</div>
-                </div>
-                <div style="margin-top:15px">
-                    <h6>Future-Proof (Evolución Tecnológica)</h6>
-                    <div class="mini-grid">${e.evolucion ? mkMini(e.evolucion, 'evol-card') : `<div style="color:var(--red); font-size:10px; font-style:italic">[PENDIENTE VALIDACIÓN]</div>`}</div>
-                </div>
-                <div style="margin-top:15px">
-                    <h6>📢 Información al Usuario</h6>
-                    ${mkRow('Publicación', e.publicacion)}
-                    ${mkRow('Canales Digitales', e.canales)}
-                </div>
+        <!-- ── 10. KPIs ── -->
+        <div class="premium-card">
+            ${mkRibbon('10', 'Indicadores Clave de Desempeño (KPIs)')}
+            <div class="mini-grid">
+                ${mkMini(e.kpis, 'kpi-card')}
             </div>
         </div>
     </div>`;
