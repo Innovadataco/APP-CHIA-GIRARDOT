@@ -109,9 +109,8 @@ async function showEOV(id) {
     const mkMini = (items, cls) => (items || []).map((it, i) => `<div class="mini-card ${cls}"><div class="mc-lbl">${String(i + 1).padStart(2, '0')}</div><div class="mc-val">${it}</div></div>`).join('');
     const mkCheck = (items) => (items || []).map(it => `<div class="val-check"><i>✓</i><div class="val-txt">${it}</div></div>`).join('');
 
-    const renderHierarchy7 = (e) => {
+    const renderHierarchy6 = (e) => {
         const levels = [
-            { l: 'Necesidades operaciones', v: e.ctx },
             { l: 'Dominio ITS', v: e._dominio, s: 'mat-dom', r: e.dominio },
             { l: 'Area de Servicio ITS', v: e._area, s: 'mat-as', r: e.area },
             { l: 'Subsistema ITS', v: e._sub, s: 'mat-sub', r: e.sub },
@@ -139,9 +138,9 @@ async function showEOV(id) {
     <div class="eov-detail-grid">
         <div class="stack-l">
             <div class="eov-info-card glass">
-                <h5>🏗️ Arquitectura ITS (Jerarquía de 7 Niveles)</h5>
+                <h5>🏗️ Arquitectura ITS (Jerarquía de 6 Niveles)</h5>
                 <p style="font-size:11px; color:var(--muted); margin-bottom:15px">Validación sistemática de la capacidad tecnológica desde la necesidad hasta el hardware.</p>
-                ${renderHierarchy7(e)}
+                ${renderHierarchy6(e)}
             </div>
             
             <div class="eov-info-card glass" style="margin-top:20px">
