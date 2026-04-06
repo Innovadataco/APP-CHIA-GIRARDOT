@@ -1158,6 +1158,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Distribuci\u00f3n t\u00e1ctica de estaciones de control compuestas por radares pedag\u00f3gicos y c\u00e1maras de reconocimiento de placas, interconectadas mediante la red troncal de fibra \u00f3ptica de alta capacidad hacia el n\u00facleo de procesamiento del Centro de Control.",
       "beneficio": "El impacto social directo es el salvamento de vidas humanas, la reducci\u00f3n de la discapacidad por accidentes de tr\u00e1nsito y el fomento de una cultura de respeto, consolidando un corredor seguro que potencia el desarrollo regional y nacional.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades locales de la zona de influencia.",
       "dominio": "DOM-02 Gesti\u00f3n de Emergencias",
       "area": "AS-01 Gesti\u00f3n de incidentes",
       "sub": "SUB-04 VMS (Video Management System) - Gesti\u00f3n de Video",
@@ -1166,6 +1167,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-01 CCTV - Vigilancia por Video",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n gestionada mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Captura de variables f\u00edsicas de velocidad mediante el CC-13 SPD (Radar Pedag\u00f3gico) y registro visual del dominio vehicular con el CC-12 ALPR / LPR (Reconocimiento de Placas). Activaci\u00f3n de auxilio mediante el CC-04 ECS / SOS (Llamada de Emergencia) y protecci\u00f3n de peatones con el CC-18 BCS / VRU (Contador de Ciclistas).",
       "e4": "Orquestaci\u00f3n en el SUB-04 VMS (Video Management System) para detecci\u00f3n anal\u00edtica y en el SUB-03 EMS (Emergency Management System) para el cumplimiento del servicio SE-ITS-09 Gesti\u00f3n de emergencias y desastres.",
       "e3": "Ejecuci\u00f3n de la l\u00f3gica algor\u00edtmica de la funci\u00f3n F-117 Retroalimentaci\u00f3n Pedag\u00f3gica de Velocidad y F-118 Gesti\u00f3n de Velocidad Media por Tramo. Uso de la F-119 Gesti\u00f3n de Informaci\u00f3n para Usuarios Vulnerables para la identificaci\u00f3n de trayectorias de peatones. Integraci\u00f3n de la capacidad de CC-02 AID Detecci\u00f3n de Incidentes para la identificaci\u00f3n proactiva de peligros.",
@@ -1173,7 +1175,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Cumplimiento del Plan Estrat\u00e9gico de Seguridad Vial (PESV) y las metas nacionales de reducci\u00f3n de fatalidades.",
       "reflejo": "Representaci\u00f3n geoespacial de eventos de exceso de velocidad con visualizaci\u00f3n de placa y reincidencia en el Video Wall.",
       "conciencia": "Actualizaci\u00f3n din\u00e1mica del Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital, permitiendo an\u00e1lisis forense de seguridad vial.",
-      "estadio": "Operaci\u00f3n Preventiva y Mitigaci\u00f3n de Siniestros."
+      "estadio": "Operaci\u00f3n Preventiva y Mitigaci\u00f3n de Siniestros.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-01: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de la Vida y Seguridad Vial.",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal con CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B (Respaldo Satelital) (Respaldo Satelital).",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT)."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-01: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-01: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-02",
@@ -1190,6 +1229,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Despliegue distribuido de sensores de conteo vehicular y paneles de mensajer\u00eda variable, vinculados a trav\u00e9s de redes de fibra \u00f3ptica redundantes al subsistema de gesti\u00f3n de tr\u00e1fico del CCO.",
       "beneficio": "Mejora en la competitividad log\u00edstica del pa\u00eds, ahorro de tiempo productivo para los viajeros y una reducci\u00f3n significativa en el estr\u00e9s de conducci\u00f3n derivado de los atascos impredecibles.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades locales de la zona de influencia.",
       "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
       "area": "AS-03 Gesti\u00f3n de la operaci\u00f3n y el tr\u00e1fico.",
       "sub": "SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico",
@@ -1198,6 +1238,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-05 VDS / TDS - Contadores de Tr\u00e1fico",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n gestionada mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Captura masiva de flujos mediante el CC-05 VDS / TDS Contadores de Tr\u00e1fico y monitoreo visual con el CC-01 CCTV Vigilancia por Video. Regulaci\u00f3n de l\u00edmites de velocidad mediante CC-14 VSL Velocidad Variable y monitoreo de disponibilidad de plazas en \u00c1reas de Servicio mediante CC-15 PKS - Sensores de Ocupaci\u00f3n de Parqueo para evitar detenciones en berma.",
       "e4": "Captura de flujos mediante el CC-05 VDS / TDS - Contadores de Tr\u00e1fico y monitoreo de plazas disponibles en \u00e1reas de servicio con el CC-15 PKS - Sensores de Ocupaci\u00f3n de Parqueo para mitigar detenciones en berma.",
       "e3": "Aplicaci\u00f3n de la F-02 Gesti\u00f3n de datos de tr\u00e1fico integrado para la consolidaci\u00f3n de fuentes. Uso de la F-11 Recopilaci\u00f3n y an\u00e1lisis de datos de tr\u00e1fico para determinar niveles de saturaci\u00f3n y la F-28 Ejecuci\u00f3n de planes de desv\u00edo din\u00e1mico para la mitigaci\u00f3n de cuellos de botella.",
@@ -1205,7 +1246,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Garant\u00eda de la Eficiencia Log\u00edstica y Movilidad Nacional, cumpliendo con los est\u00e1ndares de servicio del Proyecto Ch\u00eda-Girardot.",
       "reflejo": "Representaci\u00f3n cartogr\u00e1fica de velocidades de flujo y ocupaci\u00f3n de calzada con sistema de semaforizaci\u00f3n de alertas.",
       "conciencia": "Integraci\u00f3n con la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital para micro simulaci\u00f3n de tr\u00e1fico y an\u00e1lisis de impacto estructural por carga.",
-      "estadio": "Gesti\u00f3n de Capacidad y Optimizaci\u00f3n de Flujo."
+      "estadio": "Gesti\u00f3n de Capacidad y Optimizaci\u00f3n de Flujo.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-02: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Tr\u00e1fico y Movilidad.",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal con CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B (Respaldo Satelital) (Respaldo Satelital).",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT)."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-02: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-02: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-03",
@@ -1222,6 +1300,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Instalaci\u00f3n de b\u00e1sculas din\u00e1micas integradas en el pavimento y c\u00e1maras ALPR de alta velocidad conectadas al subsistema de tr\u00e1fico y carga del CCO.",
       "beneficio": "Asegura la longevidad de la infraestructura vial para las futuras generaciones y reduce el riesgo de accidentes causados por volcamiento de veh\u00edculos sobrecargados.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades locales de la zona de influencia.",
       "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
       "area": "AS-06 Gesti\u00f3n de carga y veh\u00edculos comerciales",
       "sub": "SUB-07 CVO (Commercial Vehicle Operations) - Gesti\u00f3n de Carga",
@@ -1230,6 +1309,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-07 WIM - Pesaje Din\u00e1mico",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n gestionada mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Detecci\u00f3n de masa y pesos por eje mediante el CC-07 WIM (Pesaje Din\u00e1mico) y captura simult\u00e1nea de la placa vehicular con el CC-12 ALPR / LPR (Reconocimiento de Placas).",
       "e4": "Detecci\u00f3n en movimiento v\u00eda CC-07 WIM - Pesaje Din\u00e1mico y validaci\u00f3n legal de la infracci\u00f3n mediante el ingreso obligatorio a la b\u00e1scula CC-32 SWS - Estaciones de Pesaje Est\u00e1tico.",
       "e3": "Ejecuci\u00f3n de la F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para el flujo log\u00edstico. Los resultados se procesan para activar la F-47 Suministro de informaci\u00f3n para conductores en caso de infracci\u00f3n.",
@@ -1237,7 +1317,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Sostenibilidad de la Infraestructura y protecci\u00f3n del patrimonio p\u00fablico bajo el marco de la Resoluci\u00f3n 20223040028675.",
       "reflejo": "Dashboard de control de carga con alertas de sobrepeso cr\u00edtico y registro fotogr\u00e1fico de infractores.",
       "conciencia": "An\u00e1lisis de acumulaci\u00f3n de carga din\u00e1mica y fatiga estructural en el CC-40 D-TWN Nodos de Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital para el planeamiento de mantenimiento predictivo.",
-      "estadio": "Protecci\u00f3n de Activos y Control Log\u00edstico."
+      "estadio": "Protecci\u00f3n de Activos y Control Log\u00edstico.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-03: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Carga y Pesaje (WIM).",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal con CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B (Respaldo Satelital) (Respaldo Satelital).",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT)."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-03: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-03: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-04",
@@ -1254,6 +1371,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Distribuci\u00f3n de estaciones meteorol\u00f3gicas completas y sensores ultras\u00f3nicos de nivel de r\u00edo integrados a la plataforma de gesti\u00f3n de resiliencia del CCO.",
       "beneficio": "Garantiza una conectividad nacional segura incluso bajo clima extremo, protegiendo la vida de las familias y la integridad de las mercanc\u00edas.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades locales de la zona de influencia.",
       "dominio": "DOM-06 Gesti\u00f3n de Infraestructura",
       "area": "AS-10 Gesti\u00f3n de SIG y clima",
       "sub": "SUB-09 ESS-M (Environmental Sensor Management) - Gesti\u00f3n Ambiental",
@@ -1262,6 +1380,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-06 ESS / RWIS - Sensores Ambientales",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n gestionada mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / NTC 6200 / DATEX II / ARC-IT",
       "e5": "Monitoreo de par\u00e1metros atmosf\u00e9ricos con el CC-06 ESS / RWIS (Sensores Ambientales) y vigilancia de niveles de cauce mediante el CC-10 WLS (Monitoreo H\u00eddrico). Integraci\u00f3n de CC-30 LHD (Detecci\u00f3n de Incendio) para el monitoreo de atm\u00f3sferas seguras en t\u00faneles.",
       "e4": "Monitoreo de niveles h\u00eddricos con el CC-10 WLS - Monitoreo H\u00eddrico y medici\u00f3n de opacidad en portales de t\u00fanel mediante el CC-38 VIS - Sensores de Visibilidad.",
       "e3": "Ejecuci\u00f3n de la F-61 Monitoreo de condiciones ambientales para la detecci\u00f3n de riesgos. Los datos se procesan mediante la F-60 Procesamiento de datos meteorol\u00f3gicos para activar autom\u00e1ticamente la F-116 Control de Actuadores y Sistemas de Drenaje en puntos cr\u00edticos.",
@@ -1269,7 +1388,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Blindaje y Resiliencia de la Infraestructura Cr\u00edtica Nacional frente a desastres naturales y variabilidad clim\u00e1tica bajo el marco de la Resoluci\u00f3n 20223040028675.",
       "reflejo": "Mapa de riesgos clim\u00e1ticos con isol\u00edneas de visibilidad y niveles de alerta h\u00eddrica en tiempo real sobre el Video Wall.",
       "conciencia": "Visualizaci\u00f3n de zonas de inundaci\u00f3n potencial y estado de activos ambientales en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Resiliencia y Gesti\u00f3n de Emergencias Ambientales."
+      "estadio": "Resiliencia y Gesti\u00f3n de Emergencias Ambientales.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-04: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Resiliencia Clim\u00e1tica.",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal con CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B (Respaldo Satelital) (Respaldo Satelital).",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT)."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-04: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-04: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-05",
@@ -1286,6 +1442,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Instalaci\u00f3n de antenas lectoras de alta velocidad, c\u00e1maras de respaldo para OCR y sistemas de control de carril, todos centralizados en el subsistema de recaudo electr\u00f3nico del CCO.",
       "beneficio": "Fluidez total en el transporte nacional, reducci\u00f3n de costos log\u00edsticos que impactan el precio final de productos y una mejora notable en la percepci\u00f3n de modernidad de la infraestructura vial colombiana.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades de la zona de influencia.",
       "dominio": "DOM-05 Recaudo y Pagos",
       "area": "AS-07 Servicios de recaudo y pago de transporte.",
       "sub": "SUB-05 EFC (Electronic Fee Collection) Recaudo Electr\u00f3nico.",
@@ -1294,6 +1451,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-11 AVI / ETC - Peajes Electr\u00f3nicos",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Captura del identificador electr\u00f3nico mediante el CC-11 AVI / ETC - Peajes Electr\u00f3nicos y validaci\u00f3n de la placa vehicular a trav\u00e9s del CC-12 ALPR / LPR - Reconocimiento de Placas para respaldo transaccional y categorizaci\u00f3n vehicular din\u00e1mica.",
       "e4": "Transacci\u00f3n autom\u00e1tica mediante CC-11 AVI / ETC - Peajes Electr\u00f3nicos y uso del CC-17 MTC - Plazas de Peaje Manual como contingencia operativa de recaudo.",
       "e3": "Ejecuci\u00f3n de la F-49 Producci\u00f3n y b\u00fasqueda de registros de operaciones integradas para la administraci\u00f3n de usuarios y la F-50 Informe de la situaci\u00f3n de los eventos en el centro de transporte combinado para garantizar la continuidad transaccional con otros operadores.",
@@ -1301,7 +1459,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Optimizaci\u00f3n del recaudo nacional y mejora de la movilidad interurbana bajo el marco del PMITS y la interoperabilidad t\u00e9cnica nacional.",
       "reflejo": "Dashboard financiero de recaudo con alertas de transacciones fallidas o discrepancias de categor\u00eda en tiempo real.",
       "conciencia": "Registro de eventos de paso y flujo de recaudo en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Eficiencia Transaccional y Fluidez Operativa."
+      "estadio": "Eficiencia Transaccional y Fluidez Operativa.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-05: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Peajes y Recaudo (ETC).",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital (Respaldo Satelital).",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-05: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU - Comunicaci\u00f3n V2X para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-05: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-06",
@@ -1318,6 +1513,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Instalaci\u00f3n de dispositivos de seguridad perimetral industrial en cada nodo y software de gesti\u00f3n de eventos e incidentes de seguridad (SIEM) en el CCO.",
       "beneficio": "Protecci\u00f3n de la privacidad de los usuarios y garant\u00eda de una autopista resiliente que no puede ser apagada ni manipulada por agentes malintencionados.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades de la zona de influencia.",
       "dominio": "DOM-04 Seguridad y Cumplimiento",
       "area": "AS-12 Gesti\u00f3n de infraestructura y comunicaciones.",
       "sub": "SUB-12 NMS (Network Management System) Gesti\u00f3n de Red y Ciber",
@@ -1326,6 +1522,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-21 CSG / IoT - Ciberseguridad e IoT",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Monitoreo de la integridad f\u00edsica de los equipos mediante el CC-21 CSG / IoT - Ciberseguridad e IoT y protecci\u00f3n del canal de datos troncal CC-23 FOC - Conectividad de Fibra.",
       "e4": "Blindaje de nodos de borde mediante el CC-21 CSG / IoT - Ciberseguridad e IoT y protecci\u00f3n de la integridad de datos en el canal CC-23 FOC - Conectividad de Fibra.",
       "e3": "Aplicaci\u00f3n de la funci\u00f3n F-120 Monitoreo de Redes de Servicios e Interferencias para la vigilancia de la infraestructura de red y la F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para la gesti\u00f3n de t\u00faneles cifrados y autenticaci\u00f3n.",
@@ -1333,7 +1530,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Garant\u00eda de la Soberan\u00eda Digital y Seguridad Nacional en la infraestructura de transporte.",
       "reflejo": "Visualizaci\u00f3n de la topolog\u00eda de red con indicadores de salud y mapas de calor de intentos de intrusi\u00f3n bloqueados.",
       "conciencia": "Representaci\u00f3n del estado de seguridad de los activos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Resiliencia Digital y Defensa Activa."
+      "estadio": "Resiliencia Digital y Defensa Activa.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-06: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Soberan\u00eda del Dato y Ciberseguridad.",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-06: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU - Comunicaci\u00f3n V2X para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-06: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-07",
@@ -1350,6 +1584,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Instalaci\u00f3n de inclin\u00f3metros, sensores de deformaci\u00f3n y aceler\u00f3metros conectados a nodos de transmisi\u00f3n inal\u00e1mbrica. Se complementa con el uso de Drones de Inspecci\u00f3n (CC-19) para la validaci\u00f3n visual de la integridad de activos en puntos de dif\u00edcil acceso",
       "beneficio": "Seguridad total para el viajero al transitar por estructuras certificadas digitalmente y reducci\u00f3n de cierres prolongados por emergencias geot\u00e9cnicas.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades de la zona de influencia.",
       "dominio": "DOM-06 Gesti\u00f3n de Infraestructura",
       "area": "AS-11 Gesti\u00f3n de eficiencia y servicios de soporte.",
       "sub": "SUB-06 AMS (Asset Management System) Gesti\u00f3n de Infraestructura.",
@@ -1358,6 +1593,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-08 GMS-I - Inclinometr\u00eda Geot\u00e9cnica",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Captura de desplazamientos mediante el CC-08 GMS-I - Inclinometr\u00eda Geot\u00e9cnica y monitoreo de fatiga estructural con el CC-09 SMS / SBT - Monitoreo de Estructuras.",
       "e4": "Supervisi\u00f3n estructural v\u00eda CC-09 SMS / SBT - Monitoreo de Estructuras e inspecci\u00f3n visual de activos f\u00edsicos con el CC-34 PSS - Postes y Estructuras mediante drones CC-19.",
       "e3": "Ejecuci\u00f3n de la funci\u00f3n F-115 Monitoreo Geomec\u00e1nico y Salud Estructural para la detecci\u00f3n de anomal\u00edas y la F-122 Representaci\u00f3n Visual en Gemelo Digital para la visualizaci\u00f3n del estado de salud estructural en el modelo 3D.",
@@ -1365,7 +1601,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Sostenibilidad de la Infraestructura y preservaci\u00f3n del valor del activo vial nacional bajo el marco de la Resoluci\u00f3n 20223040028675 del Ministerio de Transporte.",
       "reflejo": "Dashboard de salud estructural con indicadores tipo sem\u00e1foro (Verde, Amarillo, Rojo) por cada puente o t\u00fanel monitoreado.",
       "conciencia": "Actualizaci\u00f3n del estado f\u00edsico de los componentes en el Gemelo Digital CC-40 D-TWN - Nodos de Gemelo Digital con precisi\u00f3n LOD 500.",
-      "estadio": "Mantenimiento Predictivo y Gesti\u00f3n de Activos."
+      "estadio": "Mantenimiento Predictivo y Gesti\u00f3n de Activos.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-07: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Mantenimiento e Infraestructura.",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-07: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU - Comunicaci\u00f3n V2X para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-07: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-08",
@@ -1382,6 +1655,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Anillo de fibra \u00f3ptica redundante apoyado por estaciones de radiofrecuencia y terminales de backhaul satelital en puntos remotos.",
       "beneficio": "Confianza total en que los servicios de auxilio y seguridad estar\u00e1n siempre disponibles para el usuario, sin importar los incidentes externos.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades de la zona de influencia.",
       "dominio": "DOM-04 Seguridad y Cumplimiento",
       "area": "AS-12 Gesti\u00f3n de infraestructura y comunicaciones.",
       "sub": "SUB-12 NMS (Network Management System) Gesti\u00f3n de Red y Ciber.",
@@ -1390,6 +1664,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-23 FOC - Conectividad de Fibra",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Tr\u00e1fico de datos v\u00eda CC-23 FOC - Conectividad de Fibra y activaci\u00f3n autom\u00e1tica de microondas CC-24 RDL - Enlaces Inal\u00e1mbricos de Respaldo ante degradaci\u00f3n del canal principal.",
       "e4": "Aseguramiento del transporte de datos por CC-23 FOC - Conectividad de Fibra con conmutaci\u00f3n autom\u00e1tica al CC-42 SAT-B - Respaldo Satelital ante eventos disruptivos.",
       "e3": "Aplicaci\u00f3n de la funci\u00f3n F-120 Monitoreo de Redes de Servicios e Interferencias para la vigilancia de enlaces y la F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para el failover autom\u00e1tico. Uso de la F-110 Autodiagn\u00f3stico de Red para la detecci\u00f3n proactiva de fallas.",
@@ -1397,7 +1672,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Resiliencia de la Infraestructura de Telecomunicaciones Estrat\u00e9gicas del sector transporte.",
       "reflejo": "Mapa de conectividad en tiempo real con indicaci\u00f3n visual de rutas activas y estado de los enlaces satelitales.",
       "conciencia": "Representaci\u00f3n del estado de conectividad de los nodos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Continuidad Operativa y Gesti\u00f3n de Red."
+      "estadio": "Continuidad Operativa y Gesti\u00f3n de Red.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-08: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Continuidad y Resiliencia de Red.",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-08: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU - Comunicaci\u00f3n V2X para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-08: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-09",
@@ -1414,6 +1726,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "C\u00e1maras OCR de alta definici\u00f3n y software de anal\u00edtica de video integrados con la red de comunicaciones segura del proyecto.",
       "beneficio": "Mejora de la seguridad p\u00fablica, reducci\u00f3n del tr\u00e1nsito de veh\u00edculos no aptos que causan accidentes y fomento de la legalidad en el sector transporte.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades de la zona de influencia.",
       "dominio": "DOM-04 Seguridad y Cumplimiento",
       "area": "AS-09 Gesti\u00f3n de seguridad ciudadana y fiscalizaci\u00f3n.",
       "sub": "SUB-04 VMS (Video Management System) - Gesti\u00f3n de Video.",
@@ -1422,6 +1735,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-12 ALPR / LPR - Reconocimiento de Placas",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Captura masiva de placas mediante el CC-12 ALPR / LPR y validaci\u00f3n de contexto visual con el CC-01 CCTV. Protecci\u00f3n de datos en el borde mediante el CC-21 CSG / IoT.",
       "e4": "Identificaci\u00f3n autom\u00e1tica de veh\u00edculos con el CC-12 ALPR / LPR - Reconocimiento de Placas y apoyo t\u00e1ctico a la polic\u00eda mediante interfon\u00eda CC-22 PSV - Seguridad Ciudadana.",
       "e3": "Ejecuci\u00f3n de la F-42 Gesti\u00f3n de infracciones de tr\u00e1nsito para la generaci\u00f3n de la evidencia digital y uso de la F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para el cruce de datos externo.",
@@ -1429,7 +1743,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Fortalecimiento de la Seguridad Ciudadana y Legalidad bajo el Plan Nacional de Seguridad Vial y la Resoluci\u00f3n 20223040028675.",
       "reflejo": "Consola de fiscalizaci\u00f3n con visualizaci\u00f3n de placa, motivo de la alerta y ubicaci\u00f3n del veh\u00edculo en el mapa.",
       "conciencia": "Registro de paso de veh\u00edculos sancionados en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Control de Legalidad y Apoyo a Autoridades."
+      "estadio": "Control de Legalidad y Apoyo a Autoridades.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-09: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Fiscalizaci\u00f3n y Control.",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-09: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU - Comunicaci\u00f3n V2X para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-09: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-10",
@@ -1446,6 +1797,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Instalaci\u00f3n de estaciones de carga r\u00e1pida conectadas a la micro-red energ\u00e9tica del proyecto y al sistema de gesti\u00f3n de servicios al usuario.",
       "beneficio": "Reducci\u00f3n de la contaminaci\u00f3n auditiva y atmosf\u00e9rica, y fomento de un transporte nacional m\u00e1s limpio y econ\u00f3mico a largo plazo.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, transportadores log\u00edsticos y comunidades de la zona de influencia.",
       "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
       "area": "AS-05 Gesti\u00f3n de la demanda y electromovilidad.",
       "sub": "SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico.",
@@ -1454,6 +1806,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-16 EVCS - Electrolineras",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n t\u00e9cnica gestionada mediante el componente CC-21 CSG / IoT - Ciberseguridad e IoT con encriptaci\u00f3n industrial.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Suministro de energ\u00eda y monitoreo de carga mediante el CC-16 EVCS - Electrolineras apoyado por la micro-red energ\u00e9tica CC-39 MSG - Micro-Red Inteligente.",
       "e4": "Gesti\u00f3n de la demanda energ\u00e9tica en el SUB-01 TMS (Traffic Management System) y publicaci\u00f3n de disponibilidad de cargadores CC-16 EVCS mediante el CC-25 SME.",
       "e3": "Aplicaci\u00f3n de la funci\u00f3n F-120 Monitoreo de Redes de Servicios e Interferencias para la vigilancia de la infraestructura el\u00e9ctrica y la F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para la gesti\u00f3n de pagos y reserva de turnos.",
@@ -1461,7 +1814,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Fomento a la Movilidad Sostenible y cumplimiento de metas de Descarbonizaci\u00f3n del transporte.",
       "reflejo": "Dashboard de electromovilidad con estado de carga de veh\u00edculos en tr\u00e1nsito y disponibilidad de estaciones por tramo.",
       "conciencia": "Visualizaci\u00f3n del consumo energ\u00e9tico de los activos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Sostenibilidad y Servicios de Nueva Generaci\u00f3n."
+      "estadio": "Sostenibilidad y Servicios de Nueva Generaci\u00f3n.",
+      "alertas": [
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-10: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Electromovilidad (EVCS).",
+      "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico: Inspecci\u00f3n remota a\u00e9rea mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico en el subsistema: Paso a modo de operaci\u00f3n manual degradada garantizando seguridad.",
+        "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del EOV-10: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
+        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
+        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
+        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU - Comunicaci\u00f3n V2X para alertas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica de activos y flujos.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-10: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
+        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+      ]
     },
     {
       "id": "EOV-11",
@@ -1478,6 +1868,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Instalaci\u00f3n de controladores de luminaria inteligentes y medidores de energ\u00eda bidireccionales conectados a la red de fibra \u00f3ptica troncal hacia el subsistema de mantenimiento del CCO.",
       "beneficio": "Reducci\u00f3n del impacto lum\u00ednico ambiental, mayor seguridad en zonas de t\u00faneles y redistribuci\u00f3n eficiente de los recursos de la concesi\u00f3n hacia otros servicios al usuario.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, empresas log\u00edsticas de carga inteligente y comunidades del \u00e1rea de influencia.",
       "dominio": "DOM-06 Gesti\u00f3n de Infraestructura",
       "area": "AS-11 Gesti\u00f3n de eficiencia y servicios de soporte.",
       "sub": "SUB-06 AMS (Asset Management System) Gesti\u00f3n de Infraestructura / SUB-10 ESB (Enterprise Service Bus) - Bus de Integraci\u00f3n (SB).",
@@ -1486,6 +1877,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-20 VIS / LGS - Gesti\u00f3n de Iluminaci\u00f3n",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Monitoreo de consumo y estado f\u00edsico mediante el CC-29 SLP (Iluminaci\u00f3n Solar) y verificaci\u00f3n de visibilidad de calzada a trav\u00e9s del CC-20 VIS / LGS (Gesti\u00f3n de Iluminaci\u00f3n).",
       "e4": "Control de atenuaci\u00f3n lum\u00ednica punto a punto con el CC-20 VIS / LGS - Gesti\u00f3n de Iluminaci\u00f3n alimentado por la generaci\u00f3n limpia del CC-29 SLP - Iluminaci\u00f3n Solar",
       "e3": "Ejecuci\u00f3n de la funci\u00f3n F-120 Monitoreo de Redes de Servicios e Interferencias para la supervisi\u00f3n de cargas y la F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para el comando remoto de actuadores.",
@@ -1493,7 +1885,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Cumplimiento de las metas de Eficiencia Energ\u00e9tica y Sostenibilidad de la Infraestructura en el marco de la Resoluci\u00f3n 20223040028675.",
       "reflejo": "Dashboard energ\u00e9tico con visualizaci\u00f3n del ahorro acumulado, estado de las luminarias y alertas de falla el\u00e9ctrica.",
       "conciencia": "Visualizaci\u00f3n del estado operativo y consumo de cada nodo el\u00e9ctrico en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Gesti\u00f3n Eficiente de Servicios de Soporte."
+      "estadio": "Gesti\u00f3n Eficiente de Servicios de Soporte.",
+      "alertas": [
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-11: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Telegesti\u00f3n y Eficiencia Energ\u00e9tica.",
+      "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico en equipos: Inspecci\u00f3n remota a\u00e9rea inmediata mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico o ca\u00edda del subsistema principal: Paso a modo de operaci\u00f3n manual degradada garantizando la seguridad m\u00ednima.",
+        "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del escenario EOV-11: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas interactivas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica din\u00e1mica de activos y flujos vehiculares.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo y drones aut\u00f3nomos.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-11: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
+        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+      ]
     },
     {
       "id": "EOV-12",
@@ -1510,6 +1939,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Instalaci\u00f3n de unidades CC-26 en postes estrat\u00e9gicos, integradas con el subsistema de gesti\u00f3n de tr\u00e1fico y conectadas a la red de baja latencia del corredor.",
       "beneficio": "Reducci\u00f3n dr\u00e1stica de colisiones por alcance, mayor agilidad en la respuesta a emergencias y preparaci\u00f3n del pa\u00eds para la llegada de tecnolog\u00edas de transporte inteligentes globales.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, empresas log\u00edsticas de carga inteligente y comunidades del \u00e1rea de influencia.",
       "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
       "area": "AS-04 Servicios de transporte p\u00fablico y multimodal / AS-12 Gesti\u00f3n de infraestructura",
       "sub": "SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico SUB-10 ESB (Enterprise Service Bus) - Bus de Integraci\u00f3n",
@@ -1518,6 +1948,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-26 RSU - Comunicaci\u00f3n V2X",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Difusi\u00f3n de mensajes mediante CC-26 RSU - Comunicaci\u00f3n V2X hacia los dispositivos CC-27 OBU - Unidad de Bordo y CC-28 OBU-M - Dispositivo M\u00f3vil a Bordo.",
       "e4": "Orquestaci\u00f3n de seguridad en el SUB-01 y gesti\u00f3n de frecuencias multimodales en el SUB-02 PTS (Public Transportation System) - Gesti\u00f3n de Transporte P\u00fablico.",
       "e3": "Ejecuci\u00f3n de la F-02 Gesti\u00f3n de datos de tr\u00e1fico integrado para la identificaci\u00f3n de riesgos y uso de la F-121 (ESB) para la sincronizaci\u00f3n de tramas V2X con operadores de transporte masivo y veh\u00edculos conectados.",
@@ -1525,7 +1956,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Liderazgo en Conectividad Vial y cumplimiento de los est\u00e1ndares de autopistas inteligentes de Clase Mundial.",
       "reflejo": "Monitor de radiofrecuencia con estad\u00edsticas de veh\u00edculos conectados y mapa de difusi\u00f3n de alertas V2X activas.",
       "conciencia": "Representaci\u00f3n del \u00e1rea de cobertura de los mensajes V2X en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Conducci\u00f3n Cooperativa y Conectada."
+      "estadio": "Conducci\u00f3n Cooperativa y Conectada.",
+      "alertas": [
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-12: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Gesti\u00f3n de Conectividad V2X / I2V.",
+      "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico en equipos: Inspecci\u00f3n remota a\u00e9rea inmediata mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico o ca\u00edda del subsistema principal: Paso a modo de operaci\u00f3n manual degradada garantizando la seguridad m\u00ednima.",
+        "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del escenario EOV-12: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas interactivas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica din\u00e1mica de activos y flujos vehiculares.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo y drones aut\u00f3nomos.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-12: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
+        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+      ]
     },
     {
       "id": "EOV-13",
@@ -1542,6 +2010,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Uso intensivo de CC-26 para comunicaci\u00f3n de latencia cero y estaciones de asistencia digital CC-37",
       "beneficio": "Reducci\u00f3n total de accidentes por fatiga o distracci\u00f3n, optimizaci\u00f3n del uso del suelo vial y modernizaci\u00f3n del sector transporte de carga en Colombia.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU),DITRA.",
+      "grupo": "Usuarios del corredor, empresas log\u00edsticas de carga inteligente y comunidades del \u00e1rea de influencia.",
       "dominio": "DOM-01 Gesti\u00f3n de Tr\u00e1fico",
       "area": "AS-03 Gesti\u00f3n de la operaci\u00f3n y el tr\u00e1fico.",
       "sub": "SUB-01 TMS (Traffic Management System) - Gesti\u00f3n de Tr\u00e1fico",
@@ -1550,6 +2019,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-26 RSU - Comunicaci\u00f3n V2X",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Asistencia digital a la navegaci\u00f3n mediante el CC-37 WDA (Detecci\u00f3n de Fauna) y comunicaci\u00f3n de baja latencia con el veh\u00edculo a trav\u00e9s del CC-26 RSU (Comunicaci\u00f3n V2X).",
       "e4": "Asistencia digital a la navegaci\u00f3n aut\u00f3noma informando peligros detectados por el CC-37 WDA - Detecci\u00f3n de Fauna a trav\u00e9s de la unidad de carretera CC-26 RSU.",
       "e3": "Ejecuci\u00f3n de la funci\u00f3n F-121 Orquestaci\u00f3n de Integraci\u00f3n de Datos (ESB) para la fusi\u00f3n de datos de posicionamiento y la F-122 Representaci\u00f3n Visual en Gemelo Digital para el monitoreo de la burbuja de seguridad del veh\u00edculo en el modelo virtual.",
@@ -1557,7 +2027,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Vanguardia en Tecnolog\u00eda de Transporte y cumplimiento de objetivos de innovaci\u00f3n de largo plazo (30 a\u00f1os).",
       "reflejo": "Dashboard de veh\u00edculos aut\u00f3nomos con telemetr\u00eda compartida y visualizaci\u00f3n de trayectorias proyectadas.",
       "conciencia": "Sincronizaci\u00f3n milim\u00e9trica del veh\u00edculo en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital (LOD 500).",
-      "estadio": "Automatizaci\u00f3n Total del Transporte."
+      "estadio": "Automatizaci\u00f3n Total del Transporte.",
+      "alertas": [
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-13: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Gesti\u00f3n de Veh\u00edculos Aut\u00f3nomos.",
+      "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico en equipos: Inspecci\u00f3n remota a\u00e9rea inmediata mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico o ca\u00edda del subsistema principal: Paso a modo de operaci\u00f3n manual degradada garantizando la seguridad m\u00ednima.",
+        "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del escenario EOV-13: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas interactivas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica din\u00e1mica de activos y flujos vehiculares.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo y drones aut\u00f3nomos.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-13: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
+        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+      ]
     },
     {
       "id": "EOV-14",
@@ -1574,6 +2081,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Infraestructura de servidor de alto rendimiento para el Gemelo Digital CC-40 y gateways de integraci\u00f3n segura CC-21",
       "beneficio": "Fomento de la innovaci\u00f3n nacional, creaci\u00f3n de nuevos modelos de negocio basados en datos y reducci\u00f3n de la carga fiscal sobre el peaje mediante la diversificaci\u00f3n de ingresos.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, empresas log\u00edsticas de carga inteligente y comunidades del \u00e1rea de influencia.",
       "dominio": "DOM-03 Informaci\u00f3n al Usuario / DOM-04 Seguridad y Cumplimiento.",
       "area": "AS-02 Gesti\u00f3n de servicios de informaci\u00f3n.",
       "sub": "SUB-11 ADH (Archive Data History) - Archivo de Datos Hist\u00f3ricos SUB-08 PIS (Personal Information System) - Gesti\u00f3n de Informaci\u00f3n al Usuario",
@@ -1582,6 +2090,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-40 D-TWN - Nodos de Gemelo Digital",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Captura integral de datos de campo y almacenamiento de alta fidelidad en el CC-40 D-TWN (Nodos de Gemelo Digital) (Gemelo Digital).",
       "e4": "Procesamiento masivo y anonimizaci\u00f3n de la data en el SUB-11 ADH (Archivo de Datos Hist\u00f3ricos), garantizando que el activo digital est\u00e9 listo para su exposici\u00f3n segura a terceros.",
       "e3": "Personalizaci\u00f3n de servicios premium de informaci\u00f3n al usuario mediante el SUB-08 PIS (Personal Information System) - Gesti\u00f3n de Informaci\u00f3n al Usuario.",
@@ -1589,7 +2098,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Desarrollo de la Econom\u00eda Digital y Sostenibilidad Financiera del proyecto a trav\u00e9s de la monetizaci\u00f3n de activos intangibles.",
       "reflejo": "Monitor de consumo de datos por terceros y dashboard de ingresos generados por servicios de informaci\u00f3n digital.",
       "conciencia": "Uso del CC-40 D-TWN (Nodos de Gemelo Digital) como la base de datos maestra para la exportaci\u00f3n de servicios de representaci\u00f3n visual F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Gobernanza de Datos y Monetizaci\u00f3n Estrat\u00e9gica."
+      "estadio": "Gobernanza de Datos y Monetizaci\u00f3n Estrat\u00e9gica.",
+      "alertas": [
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-14: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Econom\u00eda del Dato y Monetizaci\u00f3n.",
+      "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico en equipos: Inspecci\u00f3n remota a\u00e9rea inmediata mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico o ca\u00edda del subsistema principal: Paso a modo de operaci\u00f3n manual degradada garantizando la seguridad m\u00ednima.",
+        "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del escenario EOV-14: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas interactivas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica din\u00e1mica de activos y flujos vehiculares.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo y drones aut\u00f3nomos.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-14: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
+        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+      ]
     },
     {
       "id": "EOV-15",
@@ -1606,6 +2152,7 @@ window.ITS_OFFICIAL_DATA = {
       "desp": "Uso de CC-31 para monitoreo de aire y CC-39 para la gesti\u00f3n de la micro-red de energ\u00eda renovable propia.",
       "beneficio": "Mejora de la calidad del aire para las comunidades vecinas, reducci\u00f3n de la dependencia de la red el\u00e9ctrica nacional y liderazgo en la transici\u00f3n hacia infraestructuras verdes.",
       "actores": "Concesi\u00f3n, Interventor\u00eda, Ministerio de Transporte, Instituto de Infraestructura y Concesiones de Cundinamarca (ICCU), DITRA.",
+      "grupo": "Usuarios del corredor, empresas log\u00edsticas de carga inteligente y comunidades del \u00e1rea de influencia.",
       "dominio": "DOM-06 Gesti\u00f3n de Infraestructura",
       "area": "AS-11 Gesti\u00f3n de eficiencia y servicios de soporte.",
       "sub": "SUB-06 AMS (Asset Management System) - Gesti\u00f3n de Infraestructura",
@@ -1614,6 +2161,7 @@ window.ITS_OFFICIAL_DATA = {
       "cc": "CC-31 AQM - Calidad del Aire",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
       "cyber": "Protecci\u00f3n de integridad mediante el componente CC-21 CSG / IoT (Ciberseguridad e IoT) con cifrado de grado industrial TLS 1.3.",
+      "marco": "Resoluci\u00f3n 20223040028675 de 2022 (MT) / ISO 14813 / Est\u00e1ndares de Arquitectura ARC-IT.",
       "e5": "Monitoreo de emisiones mediante el CC-31 AQM (Calidad del Aire) y gesti\u00f3n de generaci\u00f3n energ\u00e9tica con la micro-red de CC-39 MSG (Micro-Red Inteligente).",
       "e4": "Gesti\u00f3n de la sostenibilidad y balance h\u00eddrico/carbono en el SUB-06 AMS (Asset Management System) Gesti\u00f3n de Infraestructura, utilizando el SUB-10 ESB para la integraci\u00f3n de datos de tr\u00e1fico y aire.",
       "e3": "Ejecuci\u00f3n de la funci\u00f3n F-84 Monitoreo de condiciones ambientales y calidad del aire para detecci\u00f3n de contaminantes y la F-120 Monitoreo de Redes de Servicios e Interferencias para la gesti\u00f3n de la micro-red de energ\u00eda renovable.",
@@ -1621,7 +2169,44 @@ window.ITS_OFFICIAL_DATA = {
       "e1": "Cumplimiento del compromiso Autopista Net Zero y liderazgo en sostenibilidad de infraestructuras 5G.",
       "reflejo": "Dashboard de balance de carbono en tiempo real y mapa de calidad del aire a lo largo del corredor log\u00edstico.",
       "conciencia": "Representaci\u00f3n de los indicadores ambientales y energ\u00e9ticos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
-      "estadio": "Operaci\u00f3n Carbono Neutral y Sostenibilidad."
+      "estadio": "Operaci\u00f3n Carbono Neutral y Sostenibilidad.",
+      "alertas": [
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-15: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+      ],
+      "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Autopista Net Zero y Sostenibilidad.",
+      "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
+      "contingencia": [
+        "Fallo de suministro el\u00e9ctrico: Respaldo ininterrumpido inmediato mediante:",
+        "Corte de red de fibra \u00f3ptica troncal: Conmutaci\u00f3n autom\u00e1tica hacia el CC-42 SAT-B - Respaldo Satelital.",
+        "Vandalismo o da\u00f1o f\u00edsico en equipos: Inspecci\u00f3n remota a\u00e9rea inmediata mediante el componente CC-19 (UAS - Drones).",
+        "Error l\u00f3gico o ca\u00edda del subsistema principal: Paso a modo de operaci\u00f3n manual degradada garantizando la seguridad m\u00ednima.",
+        "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
+      ],
+      "criterios": [
+        "Disponibilidad operativa del escenario EOV-15: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+      ],
+      "evolucion": [
+        "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
+        "Conectividad cooperativa V2X mediante el componente CC-26 RSU (Comunicaci\u00f3n V2X) para alertas interactivas en cabina.",
+        "Modelado de Gemelo Digital 3D (LOD 500) con simulaci\u00f3n f\u00edsica din\u00e1mica de activos y flujos vehiculares.",
+        "Automatizaci\u00f3n total de la respuesta ante incidentes mediante rob\u00f3tica de campo y drones aut\u00f3nomos.",
+        "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
+      ],
+      "kpis": [
+        "KPI Eficiencia Operativa de EOV-15: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
+        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
+        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
+        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
+        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+      ]
     }
   ]
 };

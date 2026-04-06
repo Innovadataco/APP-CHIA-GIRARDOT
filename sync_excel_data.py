@@ -43,11 +43,31 @@ def sync():
         if s_name.startswith('EOV-'):
             df_e = pd.read_excel(xl, sheet_name=s_name, header=None)
             e = {"id": s_name, "ico": "🚀", "type": "p"}
+            current_section = None
             
             for _, row in df_e.iterrows():
-                k = clean_val(row.iloc[0]).lower().strip()
+                raw_k = row.iloc[0]
+                k = clean_val(raw_k).lower().strip()
                 v = clean_val(row.iloc[1])
-                if not k or not v: continue
+                
+                if not k:
+                    continue
+                
+                if "alertas del sistema" in k: current_section = "alertas"; e["alertas"] = []; continue
+                if "contingencia" in k: current_section = "contingencia"; e["contingencia"] = []; continue
+                if "criterios de aceptación" in k: current_section = "criterios"; e["criterios"] = []; continue
+                if "evolución tecnológica" in k: current_section = "evolucion"; e["evolucion"] = []; continue
+                if "indicadores de desempeño" in k: current_section = "kpis"; e["kpis"] = []; continue
+                if "información al usuario" in k: current_section = "usuario"; continue
+                
+                if current_section in ["alertas", "contingencia", "criterios", "evolucion", "kpis"]:
+                    if k in ["1", "2", "3", "4", "5", "1.0", "2.0", "3.0", "4.0", "5.0"] and v:
+                        e[current_section].append(v)
+                        continue
+                    elif not v and k not in ["1", "2", "3", "4", "5", "1.0", "2.0", "3.0", "4.0", "5.0"]:
+                        current_section = None
+                
+                if not v: continue
                 
                 if "código" in k or "codigo" in k: e["id"] = v
                 elif "nombre" in k: e["name"] = v
@@ -59,8 +79,9 @@ def sync():
                 elif "¿cuándo ocurre?" in k or "cuando ocurre" in k: e["cuando"] = v
                 elif "justificación" in k: e["just"] = v
                 elif "despliegue" in k: e["desp"] = v
-                elif "beneficio" in k: e["beneficio"] = v
+                elif "beneficio social" in k or "beneficio" in k: e["beneficio"] = v
                 elif "actores" in k: e["actores"] = v
+                elif "grupo de interés" in k: e["grupo"] = v
                 elif "dominio" in k: e["dominio"] = v
                 elif "área" in k or "areas de" in k: e["area"] = v
                 elif "subsistema" in k: e["sub"] = v
@@ -69,14 +90,17 @@ def sync():
                 elif "componente" in k: e["cc"] = v
                 elif "estándar" in k: e["std"] = v
                 elif "ciberseguridad" in k: e["cyber"] = v
-                elif "e.1" in k: e["e1"] = v
-                elif "e.2" in k: e["e2"] = v
-                elif "e.3" in k: e["e3"] = v
-                elif "e.4" in k: e["e4"] = v
+                elif "marco normativo" in k: e["marco"] = v
                 elif "e.5" in k: e["e5"] = v
+                elif "e.4" in k: e["e4"] = v
+                elif "e.3" in k: e["e3"] = v
+                elif "e.2" in k: e["e2"] = v
+                elif "e.1" in k: e["e1"] = v
                 elif "reflejo" in k: e["reflejo"] = v
                 elif "conciencia" in k: e["conciencia"] = v
                 elif "estadio" in k: e["estadio"] = v
+                elif "publicación" in k: e["publicacion"] = v
+                elif "canales" in k: e["canales"] = v
 
             # Icons
             nm = e.get("name", "")

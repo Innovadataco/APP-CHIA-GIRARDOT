@@ -160,6 +160,7 @@ async function showEOV(id) {
                 ${mkRow('¿Para qué sirve?', e.para)}${mkRow('¿Dónde ocurre?', e.donde)}${mkRow('¿Cuándo ocurre?', e.cuando)}
                 ${mkRow('Justificación Técnica', e.just)}${mkRow('Estrategia de Despliegue', e.desp)}
                 ${mkRow('Beneficio Social/Económico', e.beneficio)}${mkRow('Actores Implicados', e.actores)}
+                ${mkRow('Grupo de Interés Principal', e.grupo)}${mkRow('Marco Normativo', e.marco)}
             </div>
         </div>
 
@@ -201,12 +202,17 @@ async function showEOV(id) {
                     <div class="pill">Estadio: ${e.estadio}</div>
                 </div>
                 <div style="margin-top:15px">
-                    <h6>🚨 Alertas de Validación</h6>
-                    <div class="mini-grid">${mkMini(e.alertas, 'alert-card')}</div>
+                    <h6>🚨 Alertas del Sistema</h6>
+                    <div class="mini-grid">${e.alertas ? mkMini(e.alertas, 'alert-card') : `<div style="color:var(--red); font-size:10px; font-style:italic">[PENDIENTE VALIDACIÓN]</div>`}</div>
                 </div>
                 <div style="margin-top:15px">
-                    <h6>Future-Proof (Evolución)</h6>
-                    <div class="mini-grid">${mkMini(e.evol, 'evol-card')}</div>
+                    <h6>Future-Proof (Evolución Tecnológica)</h6>
+                    <div class="mini-grid">${e.evolucion ? mkMini(e.evolucion, 'evol-card') : `<div style="color:var(--red); font-size:10px; font-style:italic">[PENDIENTE VALIDACIÓN]</div>`}</div>
+                </div>
+                <div style="margin-top:15px">
+                    <h6>📢 Información al Usuario</h6>
+                    ${mkRow('Publicación', e.publicacion)}
+                    ${mkRow('Canales Digitales', e.canales)}
                 </div>
             </div>
         </div>
