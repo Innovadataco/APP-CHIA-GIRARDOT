@@ -1162,7 +1162,7 @@
       "dominio": "DOM-02 Gesti\u00f3n de Emergencias",
       "area": "AS-01 Gesti\u00f3n de incidentes\n- AS-08 Gesti\u00f3n de la movilidad personal",
       "sub": "SUB-04 VMS (Video Management System) - Gesti\u00f3n de Video  / SUB-03 EMS (Emergency Management System) - Gesti\u00f3n de Emergencias",
-      "se": "SE-ITS-4 Servicio de gesti\u00f3n de siniestros viales inesperados. /SE-ITS-09 Gesti\u00f3n de emergencias y desastres.",
+      "se": "SE-ITS-4 Servicio de gesti\u00f3n de siniestros viales inesperados. / SE-ITS-09 Gesti\u00f3n de emergencias y desastres.",
       "fn": "F-117 Retroalimentaci\u00f3n Pedag\u00f3gica de Velocidad \nF-118 Gesti\u00f3n de Velocidad Media por Tramo \nF-119 Gesti\u00f3n de Informaci\u00f3n para Usuarios Vulnerables\nF-14 Visualizaci\u00f3n de informaci\u00f3n de flujo de tr\u00e1fico",
       "cc": "CC-01 CCTV - Vigilancia por Video \nCC-02 AID - Detecci\u00f3n de Incidentes \nCC-03 DMS / VMS - Mensajer\u00eda Variable \nCC-04 ECS / SOS - Llamada de Emergencia \nCC-12 ALPR / LPR - Reconocimiento de Placas \nCC-13 SPD - Radar Pedag\u00f3gico \nCC-18 BCS / VRU - Contador de Ciclistas",
       "std": "ARC-IT V9.1 / ISO 14813 / NTC 6200 / DATEX II / TLS 1.3",
@@ -1177,11 +1177,11 @@
       "conciencia": "Actualizaci\u00f3n din\u00e1mica del Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital, permitiendo an\u00e1lisis forense de seguridad vial.",
       "estadio": "Operaci\u00f3n Preventiva y Mitigaci\u00f3n de Siniestros.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-01: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-01: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de la Vida y Seguridad Vial.",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal con CC-25 SME (Gesti\u00f3n de Medios Sociales).",
@@ -1193,11 +1193,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT)."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-01: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-01: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
@@ -1207,11 +1207,11 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-01: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-01: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
@@ -1248,11 +1248,11 @@
       "conciencia": "Integraci\u00f3n con la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital para micro simulaci\u00f3n de tr\u00e1fico y an\u00e1lisis de impacto estructural por carga.",
       "estadio": "Gesti\u00f3n de Capacidad y Optimizaci\u00f3n de Flujo.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-02: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-02: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Tr\u00e1fico y Movilidad.",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal con CC-25 SME (Gesti\u00f3n de Medios Sociales).",
@@ -1264,11 +1264,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT)."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-02: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-02: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
@@ -1278,11 +1278,11 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-02: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-02: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
@@ -1319,11 +1319,11 @@
       "conciencia": "An\u00e1lisis de acumulaci\u00f3n de carga din\u00e1mica y fatiga estructural en el CC-40 D-TWN Nodos de Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital para el planeamiento de mantenimiento predictivo.",
       "estadio": "Protecci\u00f3n de Activos y Control Log\u00edstico.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-03: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-03: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Carga y Pesaje (WIM).",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal con CC-25 SME (Gesti\u00f3n de Medios Sociales).",
@@ -1335,11 +1335,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT)."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-03: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-03: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
@@ -1349,16 +1349,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-03: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-03: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
       "id": "EOV-04",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p",
       "name": "Gesti\u00f3n de Resiliencia Clim\u00e1tica",
       "ctx": "Gesti\u00f3n operativa en entornos de alta incertidumbre meteorol\u00f3gica, tales como niebla densa en tramos de monta\u00f1a o precipitaciones de alta intensidad que afectan la seguridad. El sistema activa una capa de 'visibilidad digital' que compensa las limitaciones sensoriales del conductor.",
@@ -1390,11 +1390,11 @@
       "conciencia": "Visualizaci\u00f3n de zonas de inundaci\u00f3n potencial y estado de activos ambientales en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Resiliencia y Gesti\u00f3n de Emergencias Ambientales.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-04: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-04: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Resiliencia Clim\u00e1tica.",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal con CC-25 SME (Gesti\u00f3n de Medios Sociales).",
@@ -1406,11 +1406,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT)."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-04: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-04: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
@@ -1420,16 +1420,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-04: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-04: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
       "id": "EOV-05",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p",
       "name": "Gesti\u00f3n de Peajes y Recaudo (ETC)",
       "ctx": "Este escenario se centra en la optimizaci\u00f3n transaccional y operativa de las plazas de peaje del corredor Ch\u00eda-Girardot mediante la implementaci\u00f3n de tecnolog\u00edas de flujo continuo. Se busca la eliminaci\u00f3n de barreras f\u00edsicas y la fricci\u00f3n en el cobro, permitiendo que los usuarios, especialmente el transporte de carga pesada y pasajeros, transiten sin interrupciones, garantizando una trazabilidad financiera absoluta y una integraci\u00f3n transparente con el sistema de compensaci\u00f3n nacional.",
@@ -1461,11 +1461,11 @@
       "conciencia": "Registro de eventos de paso y flujo de recaudo en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Eficiencia Transaccional y Fluidez Operativa.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-05: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-05: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Peajes y Recaudo (ETC).",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
@@ -1477,11 +1477,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-05: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-05: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
@@ -1491,16 +1491,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-05: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-05: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
       "id": "EOV-06",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p",
       "name": "Soberan\u00eda del Dato y Ciberseguridad",
       "ctx": "Este escenario constituye el blindaje digital de toda la infraestructura ITS del corredor Ch\u00eda-Girardot. Dada la criticidad de los datos de tr\u00e1fico, seguridad vial y recaudo, se implementa una capa de defensa activa que protege la integridad, confidencialidad y disponibilidad de la informaci\u00f3n frente a amenazas cibern\u00e9ticas externas o internas, asegurando que la operaci\u00f3n de la v\u00eda nunca sea comprometida.",
@@ -1532,11 +1532,11 @@
       "conciencia": "Representaci\u00f3n del estado de seguridad de los activos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Resiliencia Digital y Defensa Activa.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-06: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-06: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Soberan\u00eda del Dato y Ciberseguridad.",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
@@ -1548,11 +1548,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-06: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-06: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
@@ -1562,16 +1562,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-06: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-06: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
       "id": "EOV-07",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p",
       "name": "Gesti\u00f3n de Mantenimiento e Infraestructura",
       "ctx": "Escenario enfocado en la salud estructural proactiva de los activos f\u00edsicos del corredor, tales como puentes, t\u00faneles y muros de contenci\u00f3n. Utiliza sens\u00f3rica avanzada para medir deformaciones, vibraciones y fatiga de materiales, permitiendo una gesti\u00f3n t\u00e9cnica que asegura la estabilidad de la infraestructura ante el tr\u00e1nsito pesado y eventos s\u00edsmicos.",
@@ -1603,11 +1603,11 @@
       "conciencia": "Actualizaci\u00f3n del estado f\u00edsico de los componentes en el Gemelo Digital CC-40 D-TWN - Nodos de Gemelo Digital con precisi\u00f3n LOD 500.",
       "estadio": "Mantenimiento Predictivo y Gesti\u00f3n de Activos.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-07: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-07: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Mantenimiento e Infraestructura.",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
@@ -1619,11 +1619,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-07: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-07: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
@@ -1633,16 +1633,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-07: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-07: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
       "id": "EOV-08",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p",
       "name": "Gesti\u00f3n de Continuidad y Resiliencia de Red",
       "ctx": "Este escenario garantiza que el 'sistema nervioso' del corredor Ch\u00eda-Girardot (su red de comunicaciones) sea indestructible. Ante cortes accidentales de fibra \u00f3ptica por obras o eventos naturales, el sistema activa rutas de respaldo autom\u00e1ticas para asegurar que las c\u00e1maras, radares y postes SOS sigan comunicados con el CCO.",
@@ -1674,11 +1674,11 @@
       "conciencia": "Representaci\u00f3n del estado de conectividad de los nodos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Continuidad Operativa y Gesti\u00f3n de Red.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-08: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-08: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Continuidad y Resiliencia de Red.",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
@@ -1690,11 +1690,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-08: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-08: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
@@ -1704,16 +1704,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-08: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-08: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
       "id": "EOV-09",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p",
       "name": "Gesti\u00f3n de Fiscalizaci\u00f3n y Control",
       "ctx": "Escenario dise\u00f1ado para el apoyo tecnol\u00f3gico a las autoridades de tr\u00e1nsito en el cumplimiento de la ley penal y administrativa vial. El sistema identifica autom\u00e1ticamente veh\u00edculos con \u00f3rdenes de captura, SOAT vencido, revisi\u00f3n tecnomec\u00e1nica pendiente o infracciones flagrantes, facilitando operativos de control eficientes.",
@@ -1745,11 +1745,11 @@
       "conciencia": "Registro de paso de veh\u00edculos sancionados en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Control de Legalidad y Apoyo a Autoridades.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-09: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-09: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Fiscalizaci\u00f3n y Control.",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
@@ -1761,11 +1761,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-09: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-09: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
@@ -1775,11 +1775,11 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-09: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-09: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
@@ -1816,11 +1816,11 @@
       "conciencia": "Visualizaci\u00f3n del consumo energ\u00e9tico de los activos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Sostenibilidad y Servicios de Nueva Generaci\u00f3n.",
       "alertas": [
-        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-10: VALOR POR DEFINIR; PROPUESTA (Meta: < 30 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica de componente cr\u00edtico de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de evento cr\u00edtico de nivel 1 en EOV-10: Meta: < 30 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica de componente cr\u00edtico de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Intento de intrusi\u00f3n o anomal\u00eda de ciberseguridad: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Notificaciones estrat\u00e9gicas sobre el estado de Gesti\u00f3n de Electromovilidad (EVCS).",
       "canales": "Difusi\u00f3n mediante CC-03 DMS / VMS - Mensajer\u00eda Variable y comunicaci\u00f3n omnicanal con CC-25 SME - Gesti\u00f3n de Medios Sociales.",
@@ -1832,11 +1832,11 @@
         "Ciberataque detectado: Aislamiento preventivo del nodo gestionado por el CC-21 CSG / IoT - Ciberseguridad e IoT."
       ],
       "criterios": [
-        "Disponibilidad operativa del EOV-10: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda)",
-        "Precisi\u00f3n y veracidad de los datos capturados: VALOR POR DEFINIR; PROPUESTA (Meta: > 95%; Medida: QA t\u00e9cnico)",
-        "Tiempo de latencia extremo a extremo: VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Ping de red)",
-        "Integraci\u00f3n con Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta)"
+        "Disponibilidad operativa del EOV-10: Meta: > 99.8%; Medida: Auditor\u00eda",
+        "Precisi\u00f3n y veracidad de los datos capturados: Meta: > 95%; Medida: QA t\u00e9cnico",
+        "Tiempo de latencia extremo a extremo: Meta: < 500ms; Medida: Ping de red",
+        "Integraci\u00f3n con Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n del usuario con la informaci\u00f3n: Meta: > 90%; Medida: Encuesta"
       ],
       "evolucion": [
         "Implementaci\u00f3n de IA Predictiva para anticipaci\u00f3n de eventos disruptivos antes de su ocurrencia f\u00edsica.",
@@ -1846,11 +1846,11 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de los datos de infraestructura nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-10: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98%; Medida: Auditor\u00eda)",
-        "KPI Tiempo de Respuesta a Incidentes: VALOR POR DEFINIR; PROPUESTA (Meta: < 5 min; Medida: Cronometr\u00eda)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: M\u00e9tricas digitales)"
+        "KPI Eficiencia Operativa de EOV-10: Meta: > 20% mejora; Medida: Reporte",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor",
+        "KPI Calidad e Integridad del Dato: Meta: > 98%; Medida: Auditor\u00eda",
+        "KPI Tiempo de Respuesta a Incidentes: Meta: < 5 min; Medida: Cronometr\u00eda",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90%; Medida: M\u00e9tricas digitales"
       ]
     },
     {
@@ -1887,11 +1887,11 @@
       "conciencia": "Visualizaci\u00f3n del estado operativo y consumo de cada nodo el\u00e9ctrico en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Gesti\u00f3n Eficiente de Servicios de Soporte.",
       "alertas": [
-        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-11: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-11: Meta: < 20 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Telegesti\u00f3n y Eficiencia Energ\u00e9tica.",
       "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
@@ -1903,11 +1903,11 @@
         "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
       ],
       "criterios": [
-        "Disponibilidad operativa del escenario EOV-11: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
-        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
-        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
-        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+        "Disponibilidad operativa del escenario EOV-11: Meta: > 99.8%; Medida: Auditor\u00eda mensual",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: Meta: > 97%; Medida: QA t\u00e9cnico semestral",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): Meta: < 500ms; Medida: Monitor de red",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: Meta: > 90%; Medida: Encuesta digital"
       ],
       "evolucion": [
         "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
@@ -1917,16 +1917,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-11: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
-        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+        "KPI Eficiencia Operativa de EOV-11: Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor de uptime",
+        "KPI Calidad e Integridad del Dato: Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica",
+        "KPI Tiempo de Respuesta a Eventos: Meta: < 1 min; Medida: Cronometr\u00eda operativa",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90% de usuarios; Medida: Anal\u00edtica SME"
       ]
     },
     {
       "id": "EOV-12",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p"
     },
     {
@@ -1963,11 +1963,11 @@
       "conciencia": "Sincronizaci\u00f3n milim\u00e9trica del veh\u00edculo en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital (LOD 500).",
       "estadio": "Automatizaci\u00f3n Total del Transporte.",
       "alertas": [
-        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-13: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-13: Meta: < 20 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Gesti\u00f3n de Veh\u00edculos Aut\u00f3nomos.",
       "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
@@ -1979,11 +1979,11 @@
         "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
       ],
       "criterios": [
-        "Disponibilidad operativa del escenario EOV-13: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
-        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
-        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
-        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+        "Disponibilidad operativa del escenario EOV-13: Meta: > 99.8%; Medida: Auditor\u00eda mensual",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: Meta: > 97%; Medida: QA t\u00e9cnico semestral",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): Meta: < 500ms; Medida: Monitor de red",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: Meta: > 90%; Medida: Encuesta digital"
       ],
       "evolucion": [
         "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
@@ -1993,16 +1993,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-13: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
-        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+        "KPI Eficiencia Operativa de EOV-13: Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor de uptime",
+        "KPI Calidad e Integridad del Dato: Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica",
+        "KPI Tiempo de Respuesta a Eventos: Meta: < 1 min; Medida: Cronometr\u00eda operativa",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90% de usuarios; Medida: Anal\u00edtica SME"
       ]
     },
     {
       "id": "EOV-14",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p",
       "name": "Econom\u00eda del Dato y Monetizaci\u00f3n",
       "ctx": "Este escenario transforma la masiva cantidad de datos recolectados por los sistemas ITS en activos econ\u00f3micos estrat\u00e9gicos. Se gestiona la orquestaci\u00f3n de la informaci\u00f3n de tr\u00e1fico, meteorolog\u00eda y log\u00edstica para generar servicios de valor agregado para empresas de transporte, aseguradoras y desarrolladores de aplicaciones, creando una fuente de ingresos adicionales para la sostenibilidad del proyecto.",
@@ -2034,11 +2034,11 @@
       "conciencia": "Uso del CC-40 D-TWN (Nodos de Gemelo Digital) como la base de datos maestra para la exportaci\u00f3n de servicios de representaci\u00f3n visual F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Gobernanza de Datos y Monetizaci\u00f3n Estrat\u00e9gica.",
       "alertas": [
-        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-14: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-14: Meta: < 20 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Econom\u00eda del Dato y Monetizaci\u00f3n.",
       "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
@@ -2050,11 +2050,11 @@
         "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
       ],
       "criterios": [
-        "Disponibilidad operativa del escenario EOV-14: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
-        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
-        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
-        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+        "Disponibilidad operativa del escenario EOV-14: Meta: > 99.8%; Medida: Auditor\u00eda mensual",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: Meta: > 97%; Medida: QA t\u00e9cnico semestral",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): Meta: < 500ms; Medida: Monitor de red",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: Meta: > 90%; Medida: Encuesta digital"
       ],
       "evolucion": [
         "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
@@ -2064,16 +2064,16 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-14: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
-        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+        "KPI Eficiencia Operativa de EOV-14: Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor de uptime",
+        "KPI Calidad e Integridad del Dato: Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica",
+        "KPI Tiempo de Respuesta a Eventos: Meta: < 1 min; Medida: Cronometr\u00eda operativa",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90% de usuarios; Medida: Anal\u00edtica SME"
       ]
     },
     {
       "id": "EOV-15",
-      "ico": "\ud83d\ude80",
+      "ico": "rocket_launch",
       "type": "p",
       "name": "Autopista Net Zero y Sostenibilidad",
       "ctx": "Este escenario integra todas las capacidades ITS para lograr una operaci\u00f3n carbono neutral del corredor Ch\u00eda-Girardot. Monitorea la calidad del aire, optimiza los flujos para reducir el ralent\u00ed de los veh\u00edculos y gestiona la generaci\u00f3n de energ\u00eda renovable propia para alimentar los sistemas electr\u00f3nicos, convirtiendo la v\u00eda en un referente de sostenibilidad ambiental mundial.",
@@ -2105,11 +2105,11 @@
       "conciencia": "Representaci\u00f3n de los indicadores ambientales y energ\u00e9ticos en el Gemelo Digital mediante la funci\u00f3n F-122 Representaci\u00f3n Visual en Gemelo Digital.",
       "estadio": "Operaci\u00f3n Carbono Neutral y Sostenibilidad.",
       "alertas": [
-        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-15: VALOR POR DEFINIR; PROPUESTA (Meta: < 20 seg; Medida: Alerta en CCO)",
-        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: VALOR POR DEFINIR; PROPUESTA (Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor)",
-        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: VALOR POR DEFINIR; PROPUESTA (Meta: < 1h; Medida: Log de mantenimiento)",
-        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: VALOR POR DEFINIR; PROPUESTA (Meta: 0 ataques; Medida: Logs CC-21)",
-        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: VALOR POR DEFINIR; PROPUESTA (Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital)"
+        "Detecci\u00f3n de anomal\u00eda cr\u00edtica de nivel 1 en el escenario EOV-15: Meta: < 20 seg; Medida: Alerta en CCO",
+        "Desviaci\u00f3n de umbrales operativos configurados seg\u00fan la matriz: Meta: Alerta instant\u00e1nea; Medida: Heartbeat sensor",
+        "Falla t\u00e9cnica o p\u00e9rdida de se\u00f1al de componentes cr\u00edticos de campo: Meta: < 1h; Medida: Log de mantenimiento",
+        "Anomal\u00eda de ciberseguridad o intento de intrusi\u00f3n digital detectado: Meta: 0 ataques; Medida: Logs CC-21",
+        "Interrupci\u00f3n de conectividad troncal o redundante en el nodo: Meta: < 10 seg; Medida: Conmutaci\u00f3n satelital"
       ],
       "publicacion": "Difusi\u00f3n din\u00e1mica y estrat\u00e9gica de informaci\u00f3n sobre Autopista Net Zero y Sostenibilidad.",
       "canales": "Canal de difusi\u00f3n masivo mediante CC-03 DMS / VMS (Mensajer\u00eda Variable) y comunicaci\u00f3n omnicanal mediante el CC-25 SME (Gesti\u00f3n de Medios Sociales).",
@@ -2121,11 +2121,11 @@
         "Ciberataque detectado en el nodo: Aislamiento preventivo gestionado por el CC-21 CSG / IoT (Ciberseguridad e IoT) y reinicio seguro del segmento."
       ],
       "criterios": [
-        "Disponibilidad operativa del escenario EOV-15: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.8%; Medida: Auditor\u00eda mensual)",
-        "Precisi\u00f3n y veracidad de los datos capturados en campo: VALOR POR DEFINIR; PROPUESTA (Meta: > 97%; Medida: QA t\u00e9cnico semestral)",
-        "Tiempo de latencia extremo a extremo (Campo-CCO): VALOR POR DEFINIR; PROPUESTA (Meta: < 500ms; Medida: Monitor de red)",
-        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: VALOR POR DEFINIR; PROPUESTA (Meta: 100% activos; Medida: Validaci\u00f3n BIM)",
-        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90%; Medida: Encuesta digital)"
+        "Disponibilidad operativa del escenario EOV-15: Meta: > 99.8%; Medida: Auditor\u00eda mensual",
+        "Precisi\u00f3n y veracidad de los datos capturados en campo: Meta: > 97%; Medida: QA t\u00e9cnico semestral",
+        "Tiempo de latencia extremo a extremo (Campo-CCO): Meta: < 500ms; Medida: Monitor de red",
+        "Integraci\u00f3n exitosa de activos en el Gemelo Digital: Meta: 100% activos; Medida: Validaci\u00f3n BIM",
+        "Satisfacci\u00f3n y efectividad de la informaci\u00f3n al usuario: Meta: > 90%; Medida: Encuesta digital"
       ],
       "evolucion": [
         "Implementaci\u00f3n de Inteligencia Artificial Predictiva para anticipaci\u00f3n de eventos antes de su ocurrencia f\u00edsica.",
@@ -2135,11 +2135,11 @@
         "Ciberseguridad cu\u00e1ntica para blindaje total de la soberan\u00eda de los datos de infraestructura cr\u00edtica nacional."
       ],
       "kpis": [
-        "KPI Eficiencia Operativa de EOV-15: VALOR POR DEFINIR; PROPUESTA (Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n)",
-        "KPI Disponibilidad de Capacidad del Subsistema: VALOR POR DEFINIR; PROPUESTA (Meta: > 99.5%; Medida: Monitor de uptime)",
-        "KPI Calidad e Integridad del Dato: VALOR POR DEFINIR; PROPUESTA (Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica)",
-        "KPI Tiempo de Respuesta a Eventos: VALOR POR DEFINIR; PROPUESTA (Meta: < 1 min; Medida: Cronometr\u00eda operativa)",
-        "KPI Alcance de Difusi\u00f3n al Usuario: VALOR POR DEFINIR; PROPUESTA (Meta: > 90% de usuarios; Medida: Anal\u00edtica SME)"
+        "KPI Eficiencia Operativa de EOV-15: Meta: > 20% mejora; Medida: Reporte de gesti\u00f3n",
+        "KPI Disponibilidad de Capacidad del Subsistema: Meta: > 99.5%; Medida: Monitor de uptime",
+        "KPI Calidad e Integridad del Dato: Meta: > 98% confiabilidad; Medida: Auditor\u00eda t\u00e9cnica",
+        "KPI Tiempo de Respuesta a Eventos: Meta: < 1 min; Medida: Cronometr\u00eda operativa",
+        "KPI Alcance de Difusi\u00f3n al Usuario: Meta: > 90% de usuarios; Medida: Anal\u00edtica SME"
       ]
     }
   ]

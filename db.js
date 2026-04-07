@@ -7,7 +7,7 @@
 class ITSDatabase {
     constructor() {
         this.dbName = 'ITS_CHIA_GIRARDOT_DB';
-        this.version = 5;
+        this.version = 13;
         this.db = null;
     }
 
@@ -30,7 +30,12 @@ class ITSDatabase {
 
             request.onsuccess = (e) => {
                 this.db = e.target.result;
-                this.seedIfNeeded().then(() => resolve(this.db));
+                this.seedIfNeeded()
+                    .then(() => resolve(this.db))
+                    .catch(err => {
+                        console.error('Seed failure but continuing:', err);
+                        resolve(this.db);
+                    });
             };
 
             request.onerror = (e) => reject('Database error: ' + e.target.errorCode);
@@ -85,9 +90,17 @@ class ITSDatabase {
 
     // QUERY METHODS
     async getAll(storeName) {
-        const tx = this.db.transaction(storeName, 'readonly');
-        const request = tx.objectStore(storeName).getAll();
-        return new Promise((r) => request.onsuccess = () => r(request.result));
+        return new Promise((resolve) => {
+            try {
+                const tx = this.db.transaction(storeName, 'readonly');
+                const request = tx.objectStore(storeName).getAll();
+                request.onsuccess = () => resolve(request.result || []);
+                request.onerror = () => resolve([]);
+            } catch (err) {
+                console.error(`getAll failure for ${storeName}:`, err);
+                resolve([]);
+            }
+        });
     }
 
     async get(storeName, id) {
@@ -99,17 +112,17 @@ class ITSDatabase {
     async queryRelationships(eov) {
         // Enriches EOV with full names from other stores
         const getNm = async (store, code) => {
-            if (!code) return code;
-            const codes = code.match(/(DOM-\d+|AS-\d+|SUB-\d+|SE-ITS-\d+|F-\d+|CC-\d+)/g) || [];
+            if (!code || (Array.isArray(code) && code.length === 0)) return null;
+            let codes = Array.isArray(code) ? code : (code.match(/(DOM-\d+|AS-\d+|SUB-\d+|SE-ITS-\d+|F-\d+|CC-\d+)/g) || []);
             if (codes.length === 0) return code;
-            const names = await Promise.all(codes.map(async c => {
+            const results = await Promise.all(codes.map(async c => {
                 const item = await this.get(store, c);
                 // Handle different name field locations based on store
                 let name = item?.name || item?.cod || c;
                 if (store === 'sub' && item) name = `${item.sigla} - ${item.name}`;
-                return `${c} ${name}`;
+                return { id: c, name: name };
             }));
-            return names.join(' / ');
+            return results;
         };
 
         return {

@@ -10,6 +10,7 @@
 <meta property="og:description" content="Digital Twin y Arquitectura de Operación para el Corredor 5G Chía-Girardot.">
 <meta name="author" content="InnovaDataCo · Soluciones Tecnológicas">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -27,7 +28,7 @@
 <nav class="nav">
   <div class="nav-logo">
     <span class="nl-badge">ITS · Corredor Vial · 5G</span>
-    <div class="nl-title">Chía <span>—</span> Girardot <span class="v-badge-sm">V1.0.5</span></div>
+    <div class="nl-title">Chía <span>—</span> Girardot <span class="v-badge-sm">V1.1.0 Estable</span></div>
     <div class="nl-meta">Control de Versiones: Abr 2026<br>InnovaDataCo · FC0CMG</div>
   </div>
 
@@ -56,11 +57,7 @@
     <div class="nav-item" onclick="go('mat-cc')"><span class="ni">📡</span>Componentes de Campo <span class="n-badge">42+</span></div>
   </div>
 
-  <div class="nav-bottom">
-    Cliente: IFC · Supervisor: ICCU<br>
-    Ref: FC0CMG · Res. 28675/2022<br>
-    Concesión 5G · Brownfield 306 km
-  </div>
+
 </nav>
 
 <!-- ═══════════ MODAL REVERSE LOOKUP ═══════════ -->
@@ -83,63 +80,103 @@
 <div id="sec-home" class="section active">
   <div class="hero-home stagger-in">
     <div class="h-ey">Entregable #1 · Estructuración Técnica ITS · Corredor 5G</div>
-    <h1 class="home-h1">Sistemas <em>Inteligentes</em><br>de Transporte<br><em>Chía — Girardot</em> <span class="v-badge-lg">V1.0.5</span></h1>
+    <h1 class="home-h1">Sistemas <em>Inteligentes</em><br>de Transporte<br><em>Chía — Girardot</em></h1>
     <p class="home-sub">Arquitectura Técnica para 306 km de infraestructura crítica. Supervisión ICCU / IFC bajo estándares PMITS Res. 28675/2022 e ISO 14813.</p>
     
-    <div class="kpi-strip">
-      <div class="kpi-box">
-        <div class="kv"><span class="cnt-up" data-t="306">0</span><span>km</span></div>
-        <div class="kl">Extensión total corredor</div>
+
+
+    <div class="matrix-grid">
+      <div class="data-card animable" onclick="go('mat-no')">
+        <div class="card-header">
+            <span class="card-code">MAT-NO</span>
+            <span class="card-icon material-symbols-outlined" style="font-size: 32px !important;">list_alt</span>
+        </div>
+        <div class="card-title">Necesidades Operacionales</div>
+        <div class="card-desc">Retos y problemáticas operativas que dan fundamento funcional a la arquitectura ITS.</div>
+        <div class="card-footer" style="justify-content: flex-start;">
+            <span class="card-tag">MATRIZ ITS</span>
+        </div>
       </div>
-      <div class="kpi-box">
-        <div class="kv"><span class="cnt-up" data-t="15">0</span></div>
-        <div class="kl">Escenarios EOV</div>
+      <div class="data-card animable" onclick="go('mat-dom')">
+        <div class="card-header">
+            <span class="card-code">MAT-DOM</span>
+            <span class="card-icon material-symbols-outlined" style="font-size: 32px !important;">domain</span>
+        </div>
+        <div class="card-title">Dominios ITS</div>
+        <div class="card-desc">Estructura administrativa de alto nivel que agrupa las capacidades del sistema global.</div>
+        <div class="card-footer" style="justify-content: flex-start;">
+            <span class="card-tag">MATRIZ ITS</span>
+        </div>
       </div>
-      <div class="kpi-box">
-        <div class="kv"><span class="cnt-up" data-t="42">0</span><span>+</span></div>
-        <div class="kl">Componentes de campo</div>
+      <div class="data-card animable" onclick="go('mat-as')">
+        <div class="card-header">
+            <span class="card-code">MAT-AS</span>
+            <span class="card-icon material-symbols-outlined" style="font-size: 32px !important;">category</span>
+        </div>
+        <div class="card-title">Áreas de Servicio</div>
+        <div class="card-desc">Clasificación técnica de los servicios orientados al control y la movilidad eficiente.</div>
+        <div class="card-footer" style="justify-content: flex-start;">
+            <span class="card-tag">MATRIZ ITS</span>
+        </div>
       </div>
-      <div class="kpi-box">
-        <div class="kv"><span class="cnt-up" data-t="122">0</span><span>+</span></div>
-        <div class="kl">Funciones técnicas ITS</div>
+      <div class="data-card animable" onclick="go('mat-se')">
+        <div class="card-header">
+            <span class="card-code">MAT-SE</span>
+            <span class="card-icon material-symbols-outlined" style="font-size: 32px !important;">settings_suggest</span>
+        </div>
+        <div class="card-title">Servicios Estratégicos</div>
+        <div class="card-desc">Catálogo priorizado PMITS y lineamientos complementarios de la norma ISO 14813.</div>
+        <div class="card-footer" style="justify-content: flex-start;">
+            <span class="card-tag">MATRIZ ITS</span>
+        </div>
+      </div>
+      <div class="data-card animable" onclick="go('mat-sub')">
+        <div class="card-header">
+            <span class="card-code">MAT-SUB</span>
+            <span class="card-icon material-symbols-outlined" style="font-size: 32px !important;">computer</span>
+        </div>
+        <div class="card-title">Subsistemas ITS</div>
+        <div class="card-desc">Capa lógica conformada por plataformas de gestión, control, visualización y bus de datos.</div>
+        <div class="card-footer" style="justify-content: flex-start;">
+            <span class="card-tag">MATRIZ ITS</span>
+        </div>
+      </div>
+      <div class="data-card animable" onclick="go('mat-fn')">
+        <div class="card-header">
+            <span class="card-code">MAT-FN</span>
+            <span class="card-icon material-symbols-outlined" style="font-size: 32px !important;">build</span>
+        </div>
+        <div class="card-title">Funciones Técnicas</div>
+        <div class="card-desc">Catálogo de más de 122 funciones PMITS con trazabilidad hasta la resolución matriz.</div>
+        <div class="card-footer" style="justify-content: flex-start;">
+            <span class="card-tag">MATRIZ ITS</span>
+        </div>
+      </div>
+      <div class="data-card animable" onclick="go('mat-cc')">
+        <div class="card-header">
+            <span class="card-code">MAT-CC</span>
+            <span class="card-icon material-symbols-outlined" style="font-size: 32px !important;">satellite_alt</span>
+        </div>
+        <div class="card-title">Componentes de Campo</div>
+        <div class="card-desc">Capa física e IoT interactuando vía dispositivos Detección, Captura e Información.</div>
+        <div class="card-footer" style="justify-content: flex-start;">
+            <span class="card-tag">MATRIZ ITS</span>
+        </div>
+      </div>
+      <div class="data-card animable" style="border-color: rgba(16, 185, 129, 0.4);" onclick="go('eov-list')">
+        <div class="card-header">
+            <span class="card-code" style="color:var(--green); background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.3)">EOV-V&V</span>
+            <span class="card-icon material-symbols-outlined" style="color: var(--green) !important; font-size: 32px !important;">track_changes</span>
+        </div>
+        <div class="card-title">15 Escenarios EOV</div>
+        <div class="card-desc">Casos de prueba predeterminados para la Verificación y Validación PMITS del corredor.</div>
+        <div class="card-footer" style="justify-content: flex-start;">
+            <span class="card-tag">METODOLOGÍA EN V</span>
+        </div>
       </div>
     </div>
 
-    <div class="quick-grid">
-      <div class="q-card glass glass-hover" onclick="go('mat-no')">
-        <span class="q-ico">📋</span>
-        <h3>Necesidades Operacionales</h3>
-        <p>Retos y problemáticas operativas que dan fundamento funcional a la arquitectura ITS.</p>
-        <span class="q-arr">→</span>
-      </div>
-      <div class="q-card glass glass-hover" onclick="go('eov-list')">
-        <span class="q-ico">🎯</span>
-        <h3>15 Escenarios EOV</h3>
-        <p>Detalle completo de cada Escenario Operativo de Validación: KPIs, alertas y evolución.</p>
-        <span class="q-arr">→</span>
-      </div>
-      <div class="q-card glass glass-hover" onclick="go('mat-cc')">
-        <span class="q-ico">📡</span>
-        <h3>Componentes de Campo</h3>
-        <p>42+ dispositivos ITS: CCTV, WIM, ALPR, RSU con capacidades operativas generadas.</p>
-        <span class="q-arr">→</span>
-      </div>
-      <div class="q-card glass glass-hover" onclick="go('mat-fn')">
-        <span class="q-ico">🔧</span>
-        <h3>Funciones Técnicas</h3>
-        <p>Catálogo de 122+ funciones técnicas PMITS con descripciones oficiales Res. 28675/2022.</p>
-        <span class="q-arr">→</span>
-      </div>
-    </div>
 
-    <!-- ── GOVERNANCE & SOVEREIGNTY ── -->
-    <div class="gov-banner glass">
-      <div class="gov-ico">🏛️</div>
-      <div class="gov-body">
-        <div class="gov-title">Gobernanza y Soberanía Digital Estatal</div>
-        <p class="gov-desc">Garantía de control soberano sobre la información técnica y operacional. Arquitectura abierta e interoperable bajo estándares internacionales.</p>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -156,15 +193,16 @@
       <div class="kpi-box"><div class="kv" style="color:var(--purple)">3</div><div class="kl">Futuros</div></div>
       <div class="kpi-box"><div class="kv">5</div><div class="kl">KPIs por EOV</div></div>
     </div>
-    <div class="eov-cards" id="eov-cards-home"></div>
+    <div class="matrix-grid" id="eov-cards-home"></div>
   </div>
 </div>
 
-<!-- ── EOV DETAIL (ARCHITECT COCKPIT V3) ── -->
+<!-- ── EOV DETAIL (ARCHITECT COCKPIT V5.4) ── -->
 <div id="sec-eov-detail" class="section">
   <div class="cockpit-layout">
-    <!-- LEFT: QUICK NAV SIDEBAR -->
-    <aside class="cockpit-nav" id="eov-quicknav"></aside>
+    <!-- TOP: HEADER & TABS NAVIGATION -->
+    <div id="eov-quicknav"></div>
+    <div id="eov-quicknav" style="display:none"></div><!-- Hidden duplicate for legacy safety -->
     
     <!-- MAIN: THE STAGE -->
     <div class="cockpit-stage" id="eov-d-body"></div>
@@ -243,8 +281,54 @@
 
 </main>
 
-<script src="official_data.js"></script>
+<!-- MODAL: MESA TÉCNICA (ANIMACIONES GLOBALES) -->
+<div id="anim-modal" class="modal-v5">
+    <div class="modal-v5-inner" style="max-width: 950px; background: #0a0f18; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 0 50px rgba(240, 106, 37, 0.2);">
+        <div class="modal-v5-header">
+            <div style="display:flex; align-items:center; gap:12px;">
+                <span class="material-symbols-outlined" style="color:var(--accent); font-size:28px;">hub</span>
+                <h2 id="anim-title" style="margin:0; font-family:'Syne',sans-serif; font-weight:800; font-size:1.3rem; letter-spacing:-0.5px;">Cargando Simulación...</h2>
+            </div>
+            <span class="modal-v5-close material-symbols-outlined" onclick="closeAnim()" style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 50%;">close</span>
+        </div>
+        <div id="anim-stage" style="min-height: 450px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden;"></div>
+        
+        <!-- INTERACTIVE CONTROLS & EXPLANATION -->
+        <div class="modal-v5-footer" style="padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div id="anim-controls" style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <button class="nav-btn-v2" onclick="window.changeStep(-1)">
+                    <span class="material-symbols-outlined">arrow_back_ios</span> Anterior
+                </button>
+                <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
+                    <button id="v3-autoplay-btn" class="nav-btn-v2 btn-pulse" onclick="currentSimulator && currentSimulator.toggleAutoplay()" title="Reproducción Automática">
+                        <span class="material-symbols-outlined">play_arrow</span>
+                    </button>
+                    <div style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--accent2); text-transform:uppercase;">
+                        PASO <span id="step-num">1</span> DE <span id="step-total">3</span>
+                    </div>
+                </div>
+                <button class="nav-btn-v2" onclick="window.changeStep(1)">
+                    Siguiente <span class="material-symbols-outlined">arrow_forward_ios</span>
+                </button>
+            </div>
+            <div id="step-description-box" style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(240, 106, 37, 0.2); border-radius: 10px; padding: 15px;">
+                <div style="color: var(--accent2); font-weight: 800; font-size: 12px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Explicación Técnica</div>
+                <div id="step-txt-display" style="color: #cbd5e1; font-size: 14px; line-height: 1.5;">Cargando descripción...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="official_data.js?v=9"></script>
+<!-- PREMIUM VISUALIZATION ENGINES -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script src="dom-service.js"></script>
+<script src="sim-config.js"></script>
 <script src="db.js"></script>
-<script src="app.js?v=6"></script>
+<script src="three-assets.js"></script>
+<script src="three-engine.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
