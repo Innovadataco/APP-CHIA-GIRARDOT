@@ -161,164 +161,257 @@ async function initialRender() {
    CORE FUNCTIONS
    ══════════════════════════════════════════════════════ */
 
-// ARCHITECT COCKPIT V3 - Side Navigation Generator
-async function renderEOVQuickNav(activeId) {
-    const eovs = await itsDb.getAll('eov');
-    const navList = document.getElementById('eov-quicknav');
-    if (!navList) return;
+// ARCHITECT COCKPIT V5.1 - ENGINEERING AUDIT MODE
+let currentAuditEov = null;
+let activeAuditSection = 'ref';
 
-    navList.innerHTML = `
-        <div class="cn-header">
-            <div class="cn-title">Quick Navigation</div>
+function renderAuditSidebar() {
+    const categories = [
+        { id: 'ref', num: '01', lbl: 'INFORMACIÓN DE REFERENCIA', icon: '📝' },
+        { id: 'flujo', num: '02', lbl: 'FLUJO SISTEMÁTICO', icon: '🪜' },
+        { id: 'trans', num: '03', lbl: 'INTERACCIÓN TRANSACCIONAL', icon: '⚡' },
+        { id: 'alertas', num: '04', lbl: 'ALERTAS DEL SISTEMA', icon: '🚨' },
+        { id: 'usuario', num: '05', lbl: 'INFORMACIÓN AL USUARIO', icon: '👤' },
+        { id: 'cont', num: '06', lbl: 'CONTINGENCIA', icon: '🛡️' },
+        { id: 'acept', num: '07', lbl: 'CRITERIOS DE ACEPTACIÓN DE REFERENCIA', icon: '✅' },
+        { id: 'evol', num: '08', lbl: 'EVOLUCIÓN TECNOLÓGICA', icon: '🚀' },
+        { id: 'kpi', num: '09', lbl: 'INDICADORES DE DESEMPEÑO (KPI)', icon: '📊' }
+    ];
+
+    const sidebar = document.getElementById('eov-quicknav');
+    if (!sidebar) return;
+
+    sidebar.className = 'audit-side';
+    sidebar.innerHTML = `
+        <div class="as-header">
+            <div class="as-title">Audit Management</div>
         </div>
-        <div class="cn-list">
-            ${eovs.map(e => `
-                <div class="cn-item ${e.id === activeId ? 'active' : ''}" onclick="showEOV('${e.id}')">
-                    <div class="cn-ico">${e.ico}</div>
-                    <div class="cn-body">
-                        <div class="cn-id">${e.id}</div>
-                        <div class="cn-name">${e.name}</div>
-                    </div>
+        <div class="as-menu">
+            ${categories.map(c => `
+                <div class="as-item ${c.id === activeAuditSection ? 'active' : ''}" 
+                     onclick="switchAuditSection('${c.id}')">
+                    <div class="as-num">${c.num}</div>
+                    <div class="as-lbl">${c.lbl}</div>
+                    <div style="margin-left:auto; opacity:0.6">${c.icon}</div>
                 </div>
             `).join('')}
+        </div>
+        <div style="padding:20px; border-top:1px solid rgba(255,255,255,0.06)">
+             <div onclick="go('eov-list')" class="back-btn" style="margin:0; width:100%; text-align:center">✕ VISTA GENERAL</div>
         </div>
     `;
 }
 
-// EOV detail renderer (COCKPIT V3)
 async function showEOV(id) {
     let rawEov = await itsDb.get('eov', id);
     if (!rawEov) return;
     
-    const e = await itsDb.queryRelationships(rawEov);
-    const typeLabel = e.type === 'p' ? 'Prioritario' : e.type === 'c' ? 'Complementario' : 'Futuro';
-    const tclr = e.type === 'p' ? 'var(--accent)' : e.type === 'c' ? 'var(--green)' : 'var(--purple)';
+    currentAuditEov = await itsDb.queryRelationships(rawEov);
+    activeAuditSection = 'ref'; // Reset to default on new EOV
+    
+    // Update Sidebar
+    renderAuditSidebar();
+    
+    // Initial Section
+    switchAuditSection('ref');
+    
+    go('eov-detail');
+}
 
-    // Update QuickNav
-    await renderEOVQuickNav(id);
+async function switchAuditSection(sectionId) {
+    activeAuditSection = sectionId;
+    renderAuditSidebar();
+    
+    const e = currentAuditEov;
+    const stage = document.getElementById('eov-d-body');
+    if (!stage) return;
 
-    const mkCheck = (arr) => Array.isArray(arr) ? arr.map(x => `<div class="val-check"><i>✓</i><div class="val-txt">${x}</div></div>`).join('') : '';
-    const mkMini = (arr, cls) => Array.isArray(arr) && arr.length ? arr.map(x => `<div class="mini-card ${cls}">${x.replace(/\n/g, '<br>')}</div>`).join('') : '<div class="no-data">[PENDIENTE]</div>';
-    const esc = (s) => (s || '').toString().replace(/'/g, "\\'").replace(/\n/g, ' ');
+    let content = '';
 
-    const cockpitHtml = `
-    <div class="stage-anim">
-        <!-- ── BLUEPRINT HEADER (HUD) ── -->
-        <header class="hud-header">
-            <div class="hud-l">
-                 <span class="hud-ey">SCENARIO_VALIDATION_MODULE // V1.0.5</span>
-                 <h1 class="hud-h1">${e.id}: ${e.name}</h1>
-                 <div style="margin-top:10px; display:flex; gap:10px;">
-                    <span class="card-code">${typeLabel}</span>
-                    <span class="card-code" style="background:rgba(255,255,255,0.05); color:#94a3b8; border-color:rgba(255,255,255,0.1)">Estandar ARC-IT</span>
-                 </div>
+    // Helpers
+    const mkHeader = (title, subtitle) => `
+        <header class="hud-header" style="margin-bottom:40px">
+            <div>
+                <span class="hud-ey">AUDIT_SESSION // SECTION_${sectionId.toUpperCase()}</span>
+                <h1 class="hud-h1">${title}</h1>
+                <p style="color:var(--muted); margin-top:10px; font-weight:600">${subtitle}</p>
             </div>
             <div class="hud-r">
                 <div class="hud-kpi">
-                    <span class="hud-kv">${e.km || '306'} km</span>
-                    <span class="hud-kl">Cobertura Vial</span>
+                    <span class="hud-kv">${e.id}</span>
+                    <span class="hud-kl">Active Scenario</span>
                 </div>
-                <div class="hud-kpi">
-                    <span class="hud-kv">100%</span>
-                    <span class="hud-kl">Fidelidad Datos</span>
-                </div>
-                <div onclick="go('eov-list')" class="back-btn" style="margin:0; height:fit-content; align-self:center;">✕ Cerrar Cockpit</div>
             </div>
-        </header>
+        </header>`;
 
-        <!-- ── LAYER 01: BLUEPRINT META ── -->
-        <section class="bp-meta-grid">
-            <div class="bp-card">
-                <h4>Contexto Operativo</h4>
-                <p>${e.ctx || 'Sin descripción de contexto registrada.'}</p>
-            </div>
-            <div class="bp-card">
-                <h4>Justificación Técnica</h4>
-                <p>${e.just || 'Sin justificación técnica disponible.'}</p>
-            </div>
-            <div class="bp-card">
-                <h4>Estrategia Despliegue</h4>
-                <p>${e.desp || 'Definición de despliegue en proceso.'}</p>
-            </div>
-        </section>
+    const mkCard = (idTag, title, content) => `
+        <div class="bp-card-v4">
+            <span class="card-id">${idTag}</span>
+            <div class="card-tt">${title}</div>
+            <div class="card-tx">${content || '[PENDIENTE DE VINCULACIÓN]'}</div>
+        </div>`;
 
-        <!-- ── LAYER 02: ARCHITECTURE CONNECT ── -->
-        <section class="blueprint-panel">
-            <div class="cn-title" style="margin-bottom:30px; opacity:0.6">Arquitectura Sistemática (Modelo de Capas ARC-IT)</div>
-            <div class="blueprint-flow">
-                <div class="blueprint-node">
-                    <div class="bp-icon">🏛️</div>
-                    <div class="bp-info">
-                        <div class="bp-lbl">E1: Estratégico</div>
-                        <div class="bp-val">${e.e1 || '...'}</div>
-                    </div>
-                    <div class="bp-line"></div>
-                </div>
-                <div class="blueprint-node">
-                    <div class="bp-icon">📄</div>
-                    <div class="bp-info">
-                        <div class="bp-lbl">E2: Operacional</div>
-                        <div class="bp-val">${e.e2 || '...'}</div>
-                    </div>
-                    <div class="bp-line"></div>
-                </div>
-                <div class="blueprint-node">
-                    <div class="bp-icon">🖥️</div>
-                    <div class="bp-info">
-                        <div class="bp-lbl">E3: Lógico</div>
-                        <div class="bp-val">${e.e3 || '...'}</div>
-                    </div>
-                    <div class="bp-line"></div>
-                </div>
-                <div class="blueprint-node">
-                    <div class="bp-icon">⚙️</div>
-                    <div class="bp-info">
-                        <div class="bp-lbl">E4: Sistémico</div>
-                        <div class="bp-val">${e.e4 || '...'}</div>
-                    </div>
-                    <div class="bp-line"></div>
-                </div>
-                <div class="blueprint-node">
-                    <div class="bp-icon">📡</div>
-                    <div class="bp-info">
-                        <div class="bp-lbl">E5: Físico</div>
-                        <div class="bp-val">${e.e5 || '...'}</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    switch(sectionId) {
+        case 'ref':
+            content = `
+                ${mkHeader('Información de Referencia', 'Contextualización y núcleo operativo del escenario.')}
+                <div class="bp-grid-v4">
+                    ${mkCard('CONTEXTO', 'Entorno del Escenario', e.ctx)}
+                    ${mkCard('MOTIVACIÓN', 'Necesidad del Negocio', e.mot)}
+                    ${mkCard('JUSTIFICACIÓN', 'Sustento Técnico', e.just)}
+                    ${mkCard('QUÉ ES', 'Definición Funcional', e.que)}
+                    ${mkCard('PARA QUÉ', 'Propósito del Servicio', e.para)}
+                    ${mkCard('BENEFICIO', 'Impacto en el Corredor', e.beneficio)}
+                    ${mkCard('ACTORES', 'Stakeholders', e.actores)}
+                    ${mkCard('DESPLIEGUE', 'Estrategia', e.desp)}
+                </div>`;
+            break;
 
-        <!-- ── LAYER 03: CONTROL & VALIDATION ── -->
-        <section class="cockpit-footer">
-            <div class="cf-card">
-                <div class="cn-title" style="margin-bottom:20px; opacity:0.6">Seguridad y Continuidad</div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-                    <div>
-                        <div class="bp-lbl">Alertas de Sistema</div>
-                        <div class="mini-grid">${mkMini(e.alertas, 'alert-card')}</div>
+        case 'flujo':
+            content = `
+                ${mkHeader('Flujo Sistemático', 'Jerarquía de arquitectura en 7 niveles de integración.')}
+                <div class="hud-panel">
+                    <div class="ladder-v4">
+                        ${[
+                            { l: 'Dominio ITS', v: e._dominio, i: '🌐' },
+                            { l: 'Area de Servicio', v: e._area, i: '📍' },
+                            { l: 'Subsistema', v: e._sub, i: '⚙️' },
+                            { l: 'Servicio Estratégico', v: e._se, i: '🛡️' },
+                            { l: 'Función Técnica', v: e._fn, i: '🧠' },
+                            { l: 'Componente de Campo', v: e._cc, i: '📡' },
+                            { l: 'Normativa', v: e.marco, i: '⚖️' }
+                        ].map((lvl, idx) => `
+                            <div class="ladder-v4-step">
+                                <div class="ladder-v4-num">${idx + 1}</div>
+                                <div class="ladder-v4-lbl">${lvl.l}</div>
+                                <div class="ladder-v4-val">${lvl.v || '[DATO TÉCNICO NO ENCONTRADO]'}</div>
+                            </div>
+                        `).join('')}
                     </div>
-                    <div>
-                        <div class="bp-lbl">Protocolo Contingencia</div>
-                        <div class="mini-grid">${mkMini(e.contingencia, 'cont-card')}</div>
+                </div>`;
+            break;
+
+        case 'trans':
+            content = `
+                ${mkHeader('Interacción Transaccional', 'Visualización de flujos ARC-IT y capacidad digital.')}
+                <div class="blueprint-panel" style="margin-bottom:30px">
+                    <div class="blueprint-flow">
+                        ${['🏢 E1: Estratégico', '📋 E2: Operacional', '🧠 E3: Lógico', '⚙️ E4: Sistémico', '📡 E5: Físico'].map((n, i) => `
+                            <div class="blueprint-node">
+                                <div class="bp-icon" style="border-color:var(--accent)">${n.split(' ')[0]}</div>
+                                <div class="bp-lbl">${n.split(' ')[1]}</div>
+                                <div class="bp-val" style="font-size:11px">${e['e' + (i + 1)] || '...'}</div>
+                                ${i < 4 ? '<div class="bp-line" style="opacity:1; background:var(--accent); animation: datapulse 2s infinite"></div>' : ''}
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
-            </div>
-            <div class="cf-card">
-                 <div class="cn-title" style="margin-bottom:20px; opacity:0.6">Criterios de Aceptación</div>
-                 <div class="v-checks">${mkCheck(e.criterios)}</div>
-            </div>
-        </section>
-    </div>
-    `;
+                <div class="bp-grid-v4">
+                    ${mkCard('REFLEJO DIGITAL', 'Sincronización CCO', e.reflejo)}
+                    ${mkCard('CONCIENCIA', 'Fidelidad Twin', e.conciencia)}
+                    ${mkCard('ESTADIO', 'Madurez Proceso', e.estadio)}
+                    ${mkCard('CANALES', 'Distribución Datos', e.canales)}
+                </div>`;
+            break;
 
-    document.getElementById('eov-d-body').innerHTML = cockpitHtml;
-    
-    // UI Transitions
-    document.querySelectorAll('.nav-eov-btn').forEach(b => b.classList.remove('active'));
-    const nb = document.getElementById('nav-' + id);
-    if (nb) nb.classList.add('active');
-    
-    go('eov-detail');
+        case 'alertas':
+            content = `
+                ${mkHeader('Alertas del Sistema', 'Diagnóstico preventivo y notificaciones de estado.')}
+                <div class="cg-grid">
+                    <div class="hud-panel" style="grid-column: span 2">
+                        <div class="cg-title">Monitor de Estados Pulsantes</div>
+                        ${(e.alertas || []).map(a => `
+                            <div class="alert-g-item" style="animation: hudIn 0.5s ease backwards">
+                                <div class="alert-g-ico">🚨</div>
+                                <div class="alert-g-txt">${a}</div>
+                            </div>
+                        `).join('') || '<div class="no-data">Sin alertas críticas detectadas.</div>'}
+                    </div>
+                    <div class="cg-panel">
+                        <div class="cg-title">Protocolos Activos</div>
+                        <p style="font-size:12px; opacity:0.6; margin-bottom:15px">Notificación automática hacia centro de control.</p>
+                        <div style="width:100%; height:150px; background:rgba(239, 68, 68, 0.1); border-radius:100%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden">
+                             <div style="width:80%; height:80%; border:2px dashed rgba(239, 68, 68, 0.3); border-radius:100%; animation: radar 4s linear infinite"></div>
+                             <div style="font-size:24px">⚠️</div>
+                        </div>
+                    </div>
+                </div>`;
+            break;
+
+        case 'usuario':
+            content = `
+                ${mkHeader('Información al Usuario', 'Canales de comunicación y beneficios directos al ciudadano.')}
+                <div class="bp-grid-v4">
+                    ${mkCard('OBJETIVO USUARIO', 'Propósito del Escenario', e.para)}
+                    ${mkCard('CANALES DIGITALES', 'Medios de Información', e.canales)}
+                    ${mkCard('BENEFICIO SOCIAL', 'Impacto en Seguridad', e.beneficio)}
+                    ${mkCard('STAKEHOLDERS', 'Actores Clave', e.actores)}
+                </div>`;
+            break;
+
+        case 'cont':
+            content = `
+                ${mkHeader('Contingencia', 'Procedimientos de respaldo ante fallos y desastres.')}
+                <div class="hud-panel">
+                    <div class="cg-title">Plan de Respuesta Inmediata</div>
+                    <div class="bp-grid-v4">
+                        ${(e.contingencia || []).map(c => `
+                            <div class="bp-card-v4" style="border-left: 4px solid var(--accent)">
+                                <div class="card-tt">Procedimiento</div>
+                                <div class="card-tx">${c}</div>
+                            </div>
+                        `).join('') || '<div class="no-data">Continuidad garantizada por diseño tolerante a fallos.</div>'}
+                    </div>
+                </div>`;
+            break;
+
+        case 'acept':
+            content = `
+                ${mkHeader('Criterios de Aceptación', 'Requisitos base para la validación del escenario operativo.')}
+                <div class="cg-panel" style="max-width:800px; margin:0 auto">
+                    <div class="cg-title">Checklist de Conformidad Técnica</div>
+                    ${(e.criterios || []).map(x => `
+                        <div class="val-check" style="padding:15px; background:rgba(255,255,255,0.02); margin-bottom:10px; border-radius:10px">
+                            <i>✓</i><div class="val-txt" style="font-size:14px; color:#fff">${x}</div>
+                        </div>
+                    `).join('') || '<div class="no-data">Pendiente definición de criterios.</div>'}
+                </div>`;
+            break;
+
+        case 'evol':
+            content = `
+                ${mkHeader('Evolución Tecnológica', 'Hoja de ruta para la escalabilidad y modernización futura.')}
+                <div class="bp-grid-v4">
+                    ${(e.evolucion || []).map(ev => `
+                        <div class="evol-g-item">
+                            <div class="evol-g-ico">🚀</div>
+                            <div class="evol-g-txt" style="font-size:14px; font-weight:600">${ev}</div>
+                        </div>
+                    `).join('') || '<div class="no-data">Escenario optimizado en versión actual.</div>'}
+                </div>`;
+            break;
+
+        case 'kpi':
+            content = `
+                ${mkHeader('Indicadores de Desempeño (KPI)', 'Métricas de cobertura, fidelidad y eficiencia del sistema.')}
+                <div class="cg-grid">
+                    <div class="hud-kpi" style="height:250px; justify-content:center">
+                        <span class="hud-kv" style="font-size:48px">${e.km || '306'}</span>
+                        <span class="hud-kl" style="font-size:12px">Km Cobertura</span>
+                    </div>
+                    <div class="hud-kpi" style="height:250px; justify-content:center">
+                        <span class="hud-kv" style="font-size:48px">100%</span>
+                        <span class="hud-kl" style="font-size:12px">Fidelidad Datos</span>
+                    </div>
+                    <div class="hud-kpi" style="height:250px; justify-content:center">
+                        <span class="hud-kv" style="font-size:48px">${e.type === 'p' ? 'A+' : 'A'}</span>
+                        <span class="hud-kl" style="font-size:12px">Nivel Prioridad</span>
+                    </div>
+                </div>`;
+            break;
+    }
+
+    stage.innerHTML = `<div class="stage-anim">${content}</div>`;
 }
 
 // Note: buildTable was replaced by buildGrid for the Modern Card interface.
